@@ -13,28 +13,26 @@ import { Avatar, TeamMemberType } from "@/types";
 import { useIsMobile, useIsSmallDesktop } from "@/hooks/useIsMobile";
 import { getMainColor, scrollTo } from "@/ts/utils";
 import styles from "./EditAvatar.module.scss";
+import Creature from "@/data/creature";
 
-interface IEditAvatarProps {}
+interface IEditAvatarProps {
+    creatures : Creature[]
+}
 
 const EditAvatar: FC<IEditAvatarProps> = (props) => {
     const isSmallDesktop = useIsSmallDesktop();
     const isMobile = useIsMobile();
 
     const [displayedSelectedAvatar, setDisplayedSelectedAvatar] =
-        useState<Avatar>({
-            id: 0,
-            imageUrl: "",
-            name: "",
-            types: [],
-        });
+        useState<Creature>(Creature.getDefaultValue());
     const [search, setSearch] = useState("");
 
     const mainColor = getMainColor(displayedSelectedAvatar);
 
     const randomize = () => {
-        const randomIndex = Math.floor(Math.random() * AVATARS.length);
-        setDisplayedSelectedAvatar(AVATARS[randomIndex]);
-        scrollTo({ elementId: `avatar-${randomIndex + 1}` });
+        // const randomIndex = Math.floor(Math.random() * AVATARS.length);
+        // setDisplayedSelectedAvatar(AVATARS[randomIndex]);
+        // scrollTo({ elementId: `avatar-${randomIndex + 1}` });
     };
 
     useEffect(() => {
@@ -44,7 +42,7 @@ const EditAvatar: FC<IEditAvatarProps> = (props) => {
     return (
         <div className={styles.editAvatar}>
             <AvatarDetails
-                avatar={displayedSelectedAvatar}
+                creature={displayedSelectedAvatar}
                 randomize={randomize}
                 isSmallDesktop={isSmallDesktop}
                 isMobile={isMobile}
@@ -68,7 +66,7 @@ const EditAvatar: FC<IEditAvatarProps> = (props) => {
                     </div>
                 )}
                 <AvatarOptions
-                    displayedOptions={AVATARS}
+                    displayedOptions={props.creatures}
                     displayedSelectedAvatar={displayedSelectedAvatar}
                     setDisplayedSelectedAvatar={setDisplayedSelectedAvatar}
                     unavailableAvatarsImageUrl={[]}

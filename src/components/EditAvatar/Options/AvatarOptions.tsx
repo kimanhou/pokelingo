@@ -2,11 +2,12 @@ import { FC, Dispatch, SetStateAction } from "react";
 import AvatarOption from "@/components/EditAvatar/Options/AvatarOption";
 import { Avatar } from "@/types";
 import styles from "./AvatarOptions.module.scss";
+import Creature from "@/data/creature";
 
 interface IAvatarOptionsProps {
-  displayedOptions: Avatar[];
-  displayedSelectedAvatar: Avatar;
-  setDisplayedSelectedAvatar: Dispatch<SetStateAction<Avatar>>;
+  displayedOptions: Creature[];
+  displayedSelectedAvatar: Creature;
+  setDisplayedSelectedAvatar: Dispatch<SetStateAction<Creature>>;
   unavailableAvatarsImageUrl: string[];
   isSmallDesktop: boolean;
 }
@@ -15,16 +16,16 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
   return (
     <div className={styles.avatarOptions}>
       <div className={styles.avatarOptionsScroller}>
-        {props.displayedOptions.map((avatar) => (
+        {props.displayedOptions.map((creature) => (
           <AvatarOption
-            key={avatar.id}
-            avatar={avatar}
+            key={creature.id}
+            creature={creature}
             setDisplayedSelectedAvatar={props.setDisplayedSelectedAvatar}
             isSelected={
-              props.displayedSelectedAvatar.imageUrl === avatar.imageUrl
+              props.displayedSelectedAvatar.imageUrl === creature.imageUrl
             }
             isDisabled={props.unavailableAvatarsImageUrl.includes(
-              avatar.imageUrl
+              creature.imageUrl
             )}
             isSmallDesktop={props.isSmallDesktop}
           />

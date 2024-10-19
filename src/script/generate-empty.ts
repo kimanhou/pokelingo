@@ -1,26 +1,32 @@
 import * as fs from 'fs';
 import Root from '@/data/root';
-import Pokemon from '@/data/pokemon';
-import PokemonJa from '@/data/pokemon-ja';
+import Creature from '@/data/creature';
+import CreatureJa from '@/data/creature-ja';
+import { AVATARS } from '@/data/avatars';
 
 
-const pokemons = [];
+const previousCreatures = Root.get().creatures
 
-for(let i=1; i<10; i++){
-    pokemons.push(
-        new Pokemon(
-            i,
-            "",
+const creatures = [];
+
+for(let i=0; i<9; i++){
+    creatures.push(
+        new Creature(
+            i+1,
+            previousCreatures[i]?.imageUrl ?? "",
             ["gen1"],
-            new PokemonJa(
-                "",
-                [],
-                [],
-                ""
+            AVATARS[i].height ?? 0,
+            AVATARS[i].weight ?? 0,
+            AVATARS[i].types ?? [],
+            new CreatureJa(
+                previousCreatures[i]?.ja.name ?? "",
+                previousCreatures[i]?.ja.altNames ?? [],
+                previousCreatures[i]?.ja.tags ?? [],
+                previousCreatures[i]?.ja.description ?? "",
             )
         )
     )
 }
-const data = new Root(pokemons);
+const data = new Root(creatures);
 
 fs.writeFileSync("./script-out/generate-empty-out.json", JSON.stringify(data), {flag: "w"})

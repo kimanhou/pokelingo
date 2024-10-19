@@ -1,11 +1,14 @@
 {
-    "pokemons": [
+    "creatures": [
         {
             "id": 1,
-            "img": "",
+            "imageUrl": "/pokelingo/assets/creature/1.svg",
             "tags": [
                 "gen1"
             ],
+            "height": 7,
+            "weight": 69,
+            "types": ["grass", "poison"],
             "ja": {
                 "name": "フシギダネ",
                 "altNames": ["Fushigidane", "不思議種"],
@@ -15,10 +18,13 @@
         },
         {
             "id": 2,
-            "img": "",
+            "imageUrl": "/pokelingo/assets/creature/2.svg",
             "tags": [
                 "gen1"
             ],
+            "height": 10,
+            "weight": 130,
+            "types": ["grass", "poison"],
             "ja": {
                 "name": "フシギソウ",
                 "altNames": ["Fushigisou", "不思議草"],
@@ -28,10 +34,13 @@
         },
         {
             "id": 3,
-            "img": "",
+            "imageUrl": "/pokelingo/assets/creature/3.svg",
             "tags": [
                 "gen1"
             ],
+            "height": 20,
+            "weight": 1000,
+            "types": ["grass", "poison"],
             "ja": {
                 "name": "フシギバナ",
                 "altNames": ["Fushigibana", "不思議花"],
@@ -41,10 +50,13 @@
         },
         {
             "id": 4,
-            "img": "",
+            "imageUrl": "/pokelingo/assets/creature/4.svg",
             "tags": [
                 "gen1"
             ],
+            "height": 6,
+            "weight": 85,
+            "types": ["fire"],
             "ja": {
                 "name": "ヒトカゲ",
                 "altNames": ["Hitokage", "火蜥蜴"],
@@ -54,10 +66,13 @@
         },
         {
             "id": 5,
-            "img": "",
+            "imageUrl": "/pokelingo/assets/creature/5.svg",
             "tags": [
                 "gen1"
             ],
+            "height": 11,
+            "weight": 190,
+            "types": ["fire"],
             "ja": {
                 "name": "リザード",
                 "altNames": ["Rizaado", "Lizaado"],
@@ -67,10 +82,13 @@
         },
         {
             "id": 6,
-            "img": "",
+            "imageUrl": "/pokelingo/assets/creature/6.svg",
             "tags": [
                 "gen1"
             ],
+            "height": 17,
+            "weight": 905,
+            "types": ["fire"],
             "ja": {
                 "name": "リザードン",
                 "altNames": ["Rizaadon", "Lizaadon"],

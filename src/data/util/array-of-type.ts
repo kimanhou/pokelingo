@@ -1,20 +1,22 @@
 import JsonUtil from "@/data/util/json-util";
 import Type from "@/data/util/type";
 
-const arrayOfType = <T> (
+const ARRAY = <T> (
     type : Type<T>
 ) => new Type<T[]>(
     "array", 
     value => Array.isArray(value),
-    value => (value as any[]).map(x => JsonUtil.assert(x, type))
+    value => (value as any[]).map(x => JsonUtil.assert(x, type)),
+    []
 );
 
-const arrayOfOptType = <T> (
+const OPT_ARRAY = <T> (
     type : Type<T>
 ) => new Type<(T|undefined)[]>(
     "array", 
     value => Array.isArray(value),
-    value => (value as any[]).map(x => JsonUtil.assertOptional(x, type))
+    value => (value as any[]).map(x => JsonUtil.assertOptional(x, type)),
+    []
 );
 
-export default arrayOfType;
+export default ARRAY;

@@ -7,9 +7,10 @@ import { Avatar } from "@/types";
 import { getMainColor } from "@/ts/utils";
 import { useIsLargeDesktop } from "@/hooks/useIsMobile";
 import styles from "./AvatarDetails.module.scss";
+import Creature from "@/data/creature";
 
 interface IAvatarDetailsProps {
-  avatar: Avatar;
+  creature: Creature;
   randomize: () => void;
   isSmallDesktop: boolean;
   isMobile: boolean;
@@ -29,7 +30,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
     number | undefined
   >(undefined);
 
-  const mainColor = getMainColor(props.avatar);
+  const mainColor = getMainColor(props.creature);
 
   useEffect(() => {
     setTimeout(() => {
@@ -46,22 +47,22 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
         <div className={styles.avatarDetails} ref={avatarDetailsRef}>
           <ImageContainer
             mainColor={mainColor}
-            name={props.avatar.name}
-            avatarId={props.avatar.id}
+            name={props.creature.ja.name}
+            avatarId={props.creature.id}
             randomize={props.randomize}
           />
           <AvatarImage
-            avatar={props.avatar}
+            creature={props.creature}
             imageOpacity={imageOpacity}
             avatarDetailsHeight={avatarDetailsHeight}
             avatarSpecsHeight={avatarSpecsHeight}
             isLargeDesktop={isLargeDesktop}
           />
           <AvatarSpecs
-            types={props.avatar.types}
-            height={props.avatar.height}
-            weight={props.avatar.weight}
-            description={props.avatar.description}
+            types={props.creature.types}
+            height={props.creature.height}
+            weight={props.creature.weight}
+            description={props.creature.ja.description}
             setAvatarSpecsHeight={setAvatarSpecsHeight}
             isLargeDesktop={isLargeDesktop}
           />
@@ -69,7 +70,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
       )}
       {props.isSmallDesktop && (
         <AvatarDetailsSmallDesktop
-          avatar={props.avatar}
+          creature={props.creature}
           mainColor={mainColor}
           randomize={props.randomize}
           search={props.search}
