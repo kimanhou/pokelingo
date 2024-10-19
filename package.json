@@ -13,7 +13,9 @@
         "test": "vitest",
         "test:coverage": "vitest run --coverage --watch=false",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "generate-empty": "npx ts-node src/script/generate-empty.ts",
+        "validate-data": "npx ts-node src/script/validate-data.ts"
     },
     "eslintConfig": {
         "extends": [
@@ -69,6 +71,7 @@
         "react-router-dom": "6.26.0",
         "sass": "1.77.8",
         "storybook": "8.2.7",
+        "ts-node": "^10.9.2",
         "typescript": "5.5.4",
         "uuid": "9.0.1",
         "vite": "5.3.5",
