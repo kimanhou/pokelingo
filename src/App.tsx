@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer/Footer";
 import SideSheet from "@/components/common/SideSheet/SideSheet";
 import EditAvatar from "@/components/EditAvatar/EditAvatar";
 import "./App.scss";
-import Root from "./data/root";
+import Root from "@/data/root";
 
 const ROOT_DATA = Root.get()
 

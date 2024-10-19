@@ -5,7 +5,7 @@ import Creature from "@/data/creature";
 
 interface IAvatarOptionProps {
   creature: Creature;
-  setDisplayedSelectedAvatar: Dispatch<SetStateAction<Creature>>;
+  setDisplayedSelectedCreature: Dispatch<SetStateAction<Creature>>;
   isSelected: boolean;
   isDisabled: boolean;
   isSmallDesktop: boolean;
@@ -23,7 +23,7 @@ const AvatarOption: FC<IAvatarOptionProps> = (props) => {
 
   const onClick = () => {
     if (!props.isDisabled) {
-      props.setDisplayedSelectedAvatar(props.creature);
+      props.setDisplayedSelectedCreature(props.creature);
     }
   };
 
