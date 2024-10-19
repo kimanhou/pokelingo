@@ -3,7 +3,6 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import { Footer } from "@/components/Footer/Footer";
 import SideSheet from "@/components/common/SideSheet/SideSheet";
 import EditAvatar from "@/components/EditAvatar/EditAvatar";
-import { ToastNotificationEnum } from "@/components/ToastNotification/enum";
 import "./App.scss";
 
 function App() {
