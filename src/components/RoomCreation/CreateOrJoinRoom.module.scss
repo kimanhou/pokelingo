@@ -1,0 +1,15 @@
+@import "@/mixins.scss";
+
+div.create-or-join-room {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > div.popup {
+        display: flex;
+        height: 80vh;
+        width: 60vw;
+        border-radius: 20px;
+        @include box-shadow-component;
+    }
+}

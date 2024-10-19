@@ -1,0 +1,58 @@
+dialog.modal-dialog {
+  transition: all 0.2s;
+  opacity: 0;
+  transform: scale(0.9);
+  z-index: 3000;
+  border: none;
+  padding: 0;
+  margin: auto;
+  &[open] {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  &.with-layout {
+    border-radius: 8px;
+    min-width: 360px;
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+  }
+  &.user-menu {
+    margin-right: calc((100vw - 1170px) / 2);
+    margin-top: 84px;
+    &::backdrop {
+      background-color: transparent;
+    }
+  }
+  section:global(.modal-dialog-section) {
+    margin-bottom: 32px;
+    font-size: var(--font-size-medium);
+    div:global(.modal-dialog-line) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &:global(.modal-dialog-line-flex-end) {
+        margin-top: 8px;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+      &:global(.modal-dialog-line-flex-start) {
+        justify-content: flex-start;
+      }
+      > span:global(.modal-dialog-line-header) {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  dialog.modal-dialog {
+    &.user-menu {
+      margin-right: 30px;
+    }
+  }
+}

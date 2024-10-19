@@ -1,0 +1,34 @@
+@import "@/mixins.scss";
+
+.expandable-button {
+  @include button;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-height: 200px;
+  &:not(:disabled):hover {
+    outline: solid 3px var(--fg);
+  }
+  &.expanded {
+    cursor: initial;
+  }
+  > button.header {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 16px auto;
+  }
+  > .content {
+    text-transform: none;
+    overflow: hidden;
+    transition: height 0.2s ease-in-out;
+    white-space: normal;
+    text-align: left;
+    min-width: 330px;
+    padding: 2px;
+    > div.content-inner {
+      margin-top: 8px;
+    }
+  }
+}

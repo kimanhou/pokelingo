@@ -1,0 +1,26 @@
+.tag-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-grey);
+  flex: 1;
+  > h4 {
+    font-size: 1.2rem;
+    margin-block: 0;
+    font-weight: normal;
+  }
+  .tag-line-decoration {
+    height: 1px;
+    width: 3rem;
+    background-color: var(--color-grey);
+    &.left {
+      margin-right: 1rem;
+    }
+    &.right {
+      margin-left: 1rem;
+    }
+  }
+  &.page-header {
+    height: 72px;
+  }
+}

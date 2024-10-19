@@ -1,0 +1,72 @@
+@import "@/mixins.scss";
+
+div.edit-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  > button.close-button {
+    margin-right: 0;
+    margin-left: auto;
+    display: block;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  > div.content-container {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 21px); // 21px is the height of the close button
+    gap: 24px;
+    > div.left,
+    > div.right {
+      flex: 1;
+    }
+    > div.selected-avatar {
+      @include background-image-component;
+    }
+    > div.right {
+      display: flex;
+      flex-direction: column;
+      margin-top: 16px;
+      scrollbar-gutter: stable both-edges;
+      > div.randomize-search-buttons-container {
+        @include buttons-container;
+        margin-top: 0;
+        justify-content: center;
+        align-items: center;
+      }
+      > .buttons-container {
+        @include buttons-container;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  div.edit-avatar {
+    > div.content-container {
+      flex-direction: column;
+      > div.right {
+        margin-top: 0;
+        height: calc(
+          66.66% - 24px - 32px
+        ); // 24px is the gap between the two divs, 32px is the padding of Side Sheet
+        min-height: calc(66.66% - 24px - 32px);
+        > .buttons-container {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  div.edit-avatar {
+    > div.content-container {
+      > div.right {
+        flex: 2;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+button.icon-button {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
+  box-sizing: border-box;
+  &:not(:disabled):hover {
+    box-shadow: var(--fg) 0 0 0 3px, transparent 0 0 0 0;
+  }
+}

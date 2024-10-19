@@ -1,0 +1,22 @@
+@import "@/mixins.scss";
+
+div.avatar {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  transition: transform 0.7s ease-in-out;
+  position: relative;
+  &:hover {
+    transform: rotate(750deg);
+  }
+  > div.avatar-content {
+    @include background-image-component;
+    background-color: transparent;
+    background-size: 60%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

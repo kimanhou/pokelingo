@@ -1,0 +1,87 @@
+$scrollerHeight: 24px;
+
+div.avatar-options {
+  flex: 1;
+  position: relative;
+  display: flex;
+  margin-top: 16px;
+  overflow: hidden;
+  > div.scroller-gradient {
+    position: absolute;
+    width: 100%;
+    height: $scrollerHeight;
+    &.top {
+      top: 0;
+      background: linear-gradient(var(--bg), transparent);
+    }
+    &.bottom {
+      bottom: 0;
+      background: linear-gradient(transparent, var(--bg));
+    }
+  }
+  > div.avatar-options-scroller {
+    flex: 1;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: 100px;
+    padding: 24px 4px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--color-medium-grey) transparent;
+  }
+}
+
+@-moz-document url-prefix() {
+  div.avatar-options {
+    > div.avatar-options-scroller {
+      scrollbar-gutter: stable both-edges;
+    }
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  div.avatar-options {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 823px) {
+  div.avatar-options {
+    > div.avatar-options-scroller {
+      grid-template-columns: repeat(7, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 727px) {
+  div.avatar-options {
+    > div.avatar-options-scroller {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 631px) {
+  div.avatar-options {
+    > div.avatar-options-scroller {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 535px) {
+  div.avatar-options {
+    > div.avatar-options-scroller {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 439px) {
+  div.avatar-options {
+    > div.avatar-options-scroller {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

@@ -1,0 +1,13 @@
+button.user-menu-open-button {
+  padding: 0;
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+  > img {
+    // pokeball
+    height: 60px;
+    width: 60px;
+  }
+  &:hover {
+    transform: rotate(750deg);
+  }
+}

@@ -1,0 +1,42 @@
+div.modal-dialog-with-layout-header {
+  background-color: var(--color-primary-1);
+  padding: 16px 16px 16px 24px;
+  border-radius: 8px 8px 0 0;
+  > .modal-dialog-with-layout-header-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > h2 {
+      color: var(--color-primary-5);
+      font-size: var(--font-size-large);
+      margin-block: 4px;
+      font-style: normal;
+      font-weight: 700;
+    }
+    > button.close-button {
+      padding: 0;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  h3 {
+    color: var(--bg);
+    font-size: var(--font-size-medium);
+    margin-block: 4px;
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+
+div.modal-dialog-with-layout-children-container {
+  padding: 24px;
+}
+
+div.modal-dialog-with-layout-action-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  gap: 10px;
+}

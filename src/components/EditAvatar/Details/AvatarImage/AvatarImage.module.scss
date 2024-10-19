@@ -1,0 +1,17 @@
+@import "@/mixins.scss";
+
+div.avatar-image {
+  @include background-image-component;
+  background-color: transparent;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  bottom: 30%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+  pointer-events: none;
+  &.small-desktop {
+    bottom: 16px;
+  }
+}

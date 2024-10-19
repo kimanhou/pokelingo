@@ -1,0 +1,13 @@
+@import "@/mixins.scss";
+
+div.member-selection-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  flex: 1;
+  justify-content: center;
+}
+
+div.buttons-container {
+  @include buttons-container;
+}

@@ -1,0 +1,33 @@
+div.avatar-specs {
+  border-radius: 24px 24px 0 0;
+  background-color: var(--bg);
+  margin-top: -40px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: margin-top 0.2s ease-in;
+  > div.type-tags {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 8px auto 16px;
+  }
+  > div.specs-line {
+    display: flex;
+    gap: 24px;
+  }
+  &.small-desktop {
+    border-radius: 24px;
+    height: unset;
+    min-width: 200px;
+    margin: 24px 16px;
+    z-index: 1;
+    > div.specs-line {
+      margin-top: 16px;
+    }
+  }
+  &.mobile {
+    display: none;
+  }
+}

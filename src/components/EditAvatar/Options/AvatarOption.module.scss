@@ -1,0 +1,36 @@
+@import "@/mixins.scss";
+
+div.avatar-option-wrapper {
+  max-width: 100px;
+  min-width: 60px;
+  max-height: 100px;
+  min-height: 60px;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  scroll-margin: 100px;
+  &:not(:disabled):hover,
+  &.selected {
+    outline: solid 3px var(--fg);
+  }
+  &.disabled {
+    filter: grayscale(100%);
+    cursor: initial;
+    user-select: none;
+    background-color: var(--color-medium-grey);
+    &:not(:disabled):hover {
+      outline: none;
+    }
+    > div.avatar-option {
+      background-color: var(--color-medium-grey);
+    }
+  }
+  &.small-desktop {
+    scroll-margin: 50px;
+  }
+  > div.avatar-option {
+    @include background-image-component;
+    height: 100%;
+    width: 100%;
+  }
+}

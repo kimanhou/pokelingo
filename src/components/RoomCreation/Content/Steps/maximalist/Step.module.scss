@@ -1,0 +1,22 @@
+div.step {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--color-medium-grey);
+  gap: 8px;
+  &.current {
+    color: var(--fg);
+    > div.icon-container {
+      border-color: var(--color-medium-grey);
+    }
+  }
+  > div.icon-container {
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: solid 1px var(--color-light-grey);
+  }
+}

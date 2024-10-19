@@ -1,0 +1,16 @@
+div.icon-with-tooltip {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
+  > span.tooltip {
+    display: none;
+    font-size: var(--font-size-medium);
+  }
+  &:hover {
+    > span.tooltip {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+:root {
+  --bg: rgb(255, 255, 255);
+  --fg: #2f0601;
+  --color-grey: #676767;
+  --color-medium-grey: #dbdbdb;
+  --color-light-grey: #f0f1f0;
+  --color-primary-1: #ffe7ce;
+  --color-primary-2: #f79d65;
+  --color-primary-3: #f4845f;
+  --color-primary-4: #f27059;
+  --color-primary-5: #f25c54; // also used for error
+  --color-toast-success: #5da271; // not used in CSS but keep as reference
+
+  // FONT SIZE
+  --font-size-small: 12px;
+  --font-size-medium: 14px;
+  --font-size-large: 16px;
+  --font-size-xlarge: 24px;
+}

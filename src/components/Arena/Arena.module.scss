@@ -1,0 +1,193 @@
+@import "@/mixins.scss";
+
+div.arena {
+  @include box-shadow-component;
+  border-radius: 10px;
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  > div.drop-zone {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    > svg.arena-svg {
+      max-width: 540px;
+      > text.orbit-text {
+        transform-origin: center;
+        user-select: none;
+        &.orbit-text-strongly-disagree {
+          transform: rotate(-78deg);
+          animation: spin-orbit-strongly-disagree 1.4s ease-in forwards;
+        }
+        &.orbit-text-disagree {
+          transform: rotate(-82deg);
+          animation: spin-orbit-disagree 1.6s ease-in forwards;
+        }
+        &.orbit-text-not-sure {
+          transform: rotate(-79deg);
+          animation: spin-orbit-not-sure 1.8s ease-in forwards;
+        }
+        &.orbit-text-agree {
+          transform: rotate(-80deg);
+          animation: spin-orbit-agree 2s ease-in forwards;
+        }
+      }
+      > circle.center {
+        transform-origin: center;
+        transform: rotate(30deg);
+        animation: spin 1s ease-in forwards;
+      }
+    }
+  }
+}
+
+@-moz-keyframes spin {
+  40% {
+    -moz-transform: rotate(-360deg);
+  }
+  90% {
+    -moz-transform: rotate(360deg);
+  }
+  100% {
+    -moz-transform: rotate(30deg);
+  }
+}
+@-webkit-keyframes spin {
+  40% {
+    -webkit-transform: rotate(-360deg);
+  }
+  90% {
+    -webkit-transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(30deg);
+  }
+}
+@keyframes spin {
+  40% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+  90% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+}
+
+@-moz-keyframes spin-orbit-strongly-disagree {
+  50% {
+    -moz-transform: rotate(360deg);
+  }
+  100% {
+    -moz-transform: rotate(-78deg);
+  }
+}
+@-webkit-keyframes spin-orbit-strongly-disagree {
+  50% {
+    -webkit-transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(-78deg);
+  }
+}
+@keyframes spin-orbit-strongly-disagree {
+  50% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(-78deg);
+    transform: rotate(-78deg);
+  }
+}
+
+@-moz-keyframes spin-orbit-disagree {
+  50% {
+    -moz-transform: rotate(-360deg);
+  }
+  100% {
+    -moz-transform: rotate(-82deg);
+  }
+}
+@-webkit-keyframes spin-orbit-disagree {
+  50% {
+    -webkit-transform: rotate(-360deg);
+  }
+  100% {
+    -webkit-transform: rotate(-82deg);
+  }
+}
+@keyframes spin-orbit-disagree {
+  50% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+  100% {
+    -webkit-transform: rotate(-82deg);
+    transform: rotate(-82deg);
+  }
+}
+
+@-moz-keyframes spin-orbit-not-sure {
+  50% {
+    -moz-transform: rotate(360deg);
+  }
+  100% {
+    -moz-transform: rotate(-79deg);
+  }
+}
+@-webkit-keyframes spin-orbit-not-sure {
+  50% {
+    -webkit-transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(-79deg);
+  }
+}
+@keyframes spin-orbit-not-sure {
+  50% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(-79deg);
+    transform: rotate(-79deg);
+  }
+}
+
+@-moz-keyframes spin-orbit-agree {
+  50% {
+    -moz-transform: rotate(-360deg);
+  }
+  100% {
+    -moz-transform: rotate(-80deg);
+  }
+}
+@-webkit-keyframes spin-orbit-agree {
+  50% {
+    -webkit-transform: rotate(-360deg);
+  }
+  100% {
+    -webkit-transform: rotate(-80deg);
+  }
+}
+@keyframes spin-orbit-agree {
+  50% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+  100% {
+    -webkit-transform: rotate(-80deg);
+    transform: rotate(-80deg);
+  }
+}

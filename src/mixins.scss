@@ -1,0 +1,41 @@
+@mixin box-shadow-component {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+@mixin background-image-component {
+  background-color: var(--bg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+@mixin button {
+  background-color: var(--bg);
+  border-radius: 12px;
+  box-shadow:
+    transparent 0 0 0 3px,
+    rgba(18, 18, 18, 0.1) 0 6px 16px;
+  box-sizing: border-box;
+  color: var(--fg);
+  display: inline-flex;
+  padding: 16px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    box-shadow 0.2s,
+    -webkit-box-shadow 0.2s,
+    max-width 0.4s ease-in,
+    color 0.2s ease-in 0.3s;
+  white-space: nowrap;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--font-size-medium);
+  max-width: 100vw;
+}

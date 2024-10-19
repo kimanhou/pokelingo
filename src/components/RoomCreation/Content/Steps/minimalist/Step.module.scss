@@ -1,0 +1,9 @@
+div.step {
+  height: 4px;
+  width: 60px;
+  border-radius: 2px;
+  background-color: var(--color-medium-grey);
+  &.done {
+    background-color: var(--fg);
+  }
+}

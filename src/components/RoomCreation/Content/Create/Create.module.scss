@@ -1,0 +1,8 @@
+div.create {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  > div.content {
+    flex: 1;
+  }
+}

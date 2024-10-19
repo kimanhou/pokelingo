@@ -1,0 +1,85 @@
+@import "./colors.scss";
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg);
+  font-family: Calibri;
+}
+
+.app-container {
+  text-align: center;
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-family: Calibri;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .align-items-center {
+    align-items: center;
+  }
+
+  .justify-content-center {
+    justify-content: center;
+  }
+
+  .flex-1 {
+    flex: 1;
+  }
+
+  a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+  }
+
+  .typeface-primary {
+    font-family: Kalnia;
+  }
+
+  .typeface-ka {
+    font-family: KAHandwriting;
+  }
+}
+
+span.small-grey-text {
+  color: var(--color-grey);
+  font-size: var(--font-size-small);
+}
+
+span.grey-text {
+  color: var(--color-grey);
+}
+
+span.bold-text {
+  font-weight: bold;
+}
+
+button {
+  outline: none;
+  border: 0;
+  background: none;
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+  &:focus-visible {
+    outline: none;
+  }
+}
