@@ -1,7 +1,7 @@
 import * as fs from 'fs';
-import Root from '../data/root';
-import Pokemon from '../data/pokemon';
-import PokemonJa from '../data/pokemon-ja';
+import Root from '@/data/root';
+import Pokemon from '@/data/pokemon';
+import PokemonJa from '@/data/pokemon-ja';
 
 
 const pokemons = [];

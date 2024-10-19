@@ -1,6 +1,6 @@
-import arrayOfType from "./util/array-of-type"
-import JsonUtil from "./util/json-util"
-import Type from "./util/type"
+import arrayOfType from "@/data/util/array-of-type"
+import JsonUtil from "@/data/util/json-util"
+import Type from "@/data/util/type"
 
 export default class PokemonJa {
     constructor(
