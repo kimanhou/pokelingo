@@ -28,19 +28,7 @@ function App() {
                                     document.body.style.overflow = "hidden";
                                 }}
                             >
-                                <EditAvatar
-                                    closeEditAvatar={() => {
-                                        document.body.style.overflow = "auto";
-                                        setIsEditAvatarOpen(false);
-                                    }}
-                                    roomId="abc"
-                                    memberId="def"
-                                    showToast={(
-                                        message: string,
-                                        type: ToastNotificationEnum
-                                    ) => {}}
-                                    members={[]}
-                                />
+                                <EditAvatar />
                             </SideSheet>
                         }
                     ></Route>
