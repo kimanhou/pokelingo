@@ -1,8 +1,8 @@
-import arrayOfType from "./util/array-of-type"
-import JsonUtil from "./util/json-util"
-import Type from "./util/type"
+import arrayOfType from "@/data/util/array-of-type"
+import JsonUtil from "@/data/util/json-util"
+import Type from "@/data/util/type"
 
-export default class PokemonJaData {
+export default class PokemonJa {
     constructor(
         readonly name : string,
         readonly altNames : string[],
@@ -12,7 +12,7 @@ export default class PokemonJaData {
     }
 
     static fromJSON = (json: any) => {
-        return new PokemonJaData(
+        return new PokemonJa(
             JsonUtil.assert(json.name, Type.STRING),
             JsonUtil.assert(json.altNames, arrayOfType(Type.STRING)),
             JsonUtil.assert(json.tags, arrayOfType(Type.STRING)),

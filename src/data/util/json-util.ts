@@ -1,4 +1,4 @@
-import Type from "./type";
+import Type from "@/data/util/type";
 
 class JsonUtil{
     assertOptional = <T>(value : any, type : Type<T>) : T | undefined => {

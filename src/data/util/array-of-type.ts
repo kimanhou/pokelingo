@@ -1,5 +1,5 @@
-import JsonUtil from "./json-util";
-import Type from "./type";
+import JsonUtil from "@/data/util/json-util";
+import Type from "@/data/util/type";
 
 const arrayOfType = <T> (
     type : Type<T>
