@@ -1,0 +1,82 @@
+{
+    "pokemons": [
+        {
+            "id": 1,
+            "img": "",
+            "tags": [
+                "gen1"
+            ],
+            "ja": {
+                "name": "フシギダネ",
+                "altNames": ["Fushigidane", "不思議種"],
+                "tags": ["kanji"],
+                "description": "フシギ (不思議) means \"mysterious\", and ダネ (種) means \"seed.\" It translates to \"mysterious seed\"."
+            }
+        },
+        {
+            "id": 2,
+            "img": "",
+            "tags": [
+                "gen1"
+            ],
+            "ja": {
+                "name": "フシギソウ",
+                "altNames": ["Fushigisou", "不思議草"],
+                "tags": ["kanji"],
+                "description": "フシギ (不思議) means \"mysterious\" and ソウ (草) means \"grass.\" It translates to \"mysterious grass\"."
+            }
+        },
+        {
+            "id": 3,
+            "img": "",
+            "tags": [
+                "gen1"
+            ],
+            "ja": {
+                "name": "フシギバナ",
+                "altNames": ["Fushigibana", "不思議花"],
+                "tags": ["kanji"],
+                "description": "フシギ (不思議) means \"mysterious\" and バナ (花) means \"flower\". It translates to \"mysterious flower\"."
+            }
+        },
+        {
+            "id": 4,
+            "img": "",
+            "tags": [
+                "gen1"
+            ],
+            "ja": {
+                "name": "ヒトカゲ",
+                "altNames": ["Hitokage", "火蜥蜴"],
+                "tags": ["kanji"],
+                "description": "ヒ (火) means \"fire\" and トカゲ (蜥蜴) means \"lizard\". It translates to \"fire lizard\"."
+            }
+        },
+        {
+            "id": 5,
+            "img": "",
+            "tags": [
+                "gen1"
+            ],
+            "ja": {
+                "name": "リザード",
+                "altNames": ["Rizaado", "Lizaado"],
+                "tags": ["english"],
+                "description": "Derived from the English word \"lizard\", written in katakana as リザード."
+            }
+        },
+        {
+            "id": 6,
+            "img": "",
+            "tags": [
+                "gen1"
+            ],
+            "ja": {
+                "name": "リザードン",
+                "altNames": ["Rizaadon", "Lizaadon"],
+                "tags": ["english"],
+                "description": "A combination of \"lizard\" (リザード) and the suffix \"don\" (ドン), often used for large or strong creatures."
+            }
+        }
+    ]
+}
