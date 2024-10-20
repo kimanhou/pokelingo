@@ -3,8 +3,23 @@
 $image-size: 70%;
 
 div.avatar-details {
-  flex: 1;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    &.creature-card {
+        height: 100%;
+    }
+    > div.name-container {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        padding-bottom: 0;
+        > h2.avatar-name {
+            text-align: left;
+            font-size: 36px;
+            color: var(--bg);
+            margin-block: 0;
+        }
+    }
 }
