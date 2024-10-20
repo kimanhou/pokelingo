@@ -29,6 +29,7 @@ const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
                 randomize={props.randomize}
                 search={props.search}
                 setSearch={props.setSearch}
+                isMobile={props.isMobile}
                 isSmallDesktop
             />
             <AvatarImage creature={props.creature} isSmallDesktop />

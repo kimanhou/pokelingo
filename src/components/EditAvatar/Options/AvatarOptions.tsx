@@ -41,10 +41,6 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                             displayedSelectedCreature={
                                 props.displayedSelectedCreature
                             }
-                            // isSelected={
-                            //     props.displayedSelectedCreature.imageUrl ===
-                            //     creature.imageUrl
-                            // }
                             isDisabled={props.unavailableCreaturesImageUrl.includes(
                                 creature.imageUrl
                             )}

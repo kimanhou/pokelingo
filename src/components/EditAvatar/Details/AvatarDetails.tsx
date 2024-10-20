@@ -58,6 +58,8 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                         name={props.creature.ja.name}
                         avatarId={props.creature.id}
                         randomize={props.randomize}
+                        isMobile={props.isMobile}
+                        isCreatureCard={props.isCreatureCard}
                     />
                     <AvatarImage
                         creature={props.creature}
