@@ -16,6 +16,7 @@ interface IAvatarSpecsProps {
     isMobile?: boolean;
     description: string;
     setAvatarSpecsHeight?: Dispatch<SetStateAction<number | undefined>>;
+    isCreatureCard?: boolean;
 }
 
 const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
@@ -45,20 +46,22 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
             style={{ marginTop: props.isSmallDesktop ? "24px" : marginTop }}
             ref={avatarSpecsRef}
         >
-            <div className={styles.typeTags}>
-                {props.types.map((t) => (
-                    <TypeTag
-                        key={t}
-                        type={t}
-                        color={
-                            AvatarTypeColors[
-                                t.toUpperCase() as keyof typeof AvatarTypeColors
-                            ] ?? "var(--color-grey)"
-                        }
-                        isSmallDesktop={props.isSmallDesktop}
-                    />
-                ))}
-            </div>
+            {!props.isCreatureCard && (
+                <div className={styles.typeTags}>
+                    {props.types.map((t) => (
+                        <TypeTag
+                            key={t}
+                            type={t}
+                            color={
+                                AvatarTypeColors[
+                                    t.toUpperCase() as keyof typeof AvatarTypeColors
+                                ] ?? "var(--color-grey)"
+                            }
+                            isSmallDesktop={props.isSmallDesktop}
+                        />
+                    ))}
+                </div>
+            )}
             <p className={styles.description}>{props.description}</p>
         </div>
     );

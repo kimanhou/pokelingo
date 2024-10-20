@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dispatch, SetStateAction } from "react";
 import Root from "@/data/root";
 
-const ROOT_DATA = Root.get()
+const ROOT_DATA = Root.get();
 
 const meta: Meta<typeof EditAvatar> = {
     component: EditAvatar,
@@ -36,7 +36,10 @@ export const Default: Story = {
                     }}
                 >
                     <div style={{ position: "relative" }}>
-                        <Avatar src={ROOT_DATA.creatures[0].imageUrl} backgroundColor="#fcf6bd" />
+                        <Avatar
+                            src={ROOT_DATA.creatures[0].imageUrl}
+                            backgroundColor="#fcf6bd"
+                        />
                         <button
                             onClick={() => setIsOpen(true)}
                             style={{

@@ -15,6 +15,8 @@ interface IAvatarDetailsProps {
     isMobile: boolean;
     search: string;
     setSearch: (search: string) => void;
+    isCreatureCard?: boolean;
+    onClick?: () => void;
 }
 
 const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
@@ -30,6 +32,9 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
     >(undefined);
 
     const mainColor = getMainColor(props.creature);
+    const creatureCardClassName = props.isCreatureCard
+        ? styles.creatureCard
+        : "";
 
     useEffect(() => {
         setTimeout(() => {
@@ -43,7 +48,11 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
     return (
         <>
             {!props.isSmallDesktop && (
-                <div className={styles.avatarDetails} ref={avatarDetailsRef}>
+                <div
+                    className={`${styles.avatarDetails} ${creatureCardClassName}`}
+                    ref={avatarDetailsRef}
+                    onClick={props.onClick}
+                >
                     <ImageContainer
                         mainColor={mainColor}
                         name={props.creature.ja.name}
@@ -61,6 +70,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                         types={props.creature.types}
                         description={props.creature.ja.description}
                         setAvatarSpecsHeight={setAvatarSpecsHeight}
+                        isCreatureCard={props.isCreatureCard}
                     />
                 </div>
             )}
