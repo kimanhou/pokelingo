@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useArgs } from "@storybook/preview-api";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
-import psyduck from "@/assets/avatars/54.svg";
 import EditAvatar from "@/components/EditAvatar/EditAvatar";
 import SideSheet from "@/components/common/SideSheet/SideSheet";
 import Avatar from "@/components/common/Avatar/Avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dispatch, SetStateAction } from "react";
+import Root from "@/data/root";
+
+const ROOT_DATA = Root.get()
 
 const meta: Meta<typeof EditAvatar> = {
     component: EditAvatar,
@@ -34,7 +36,7 @@ export const Default: Story = {
                     }}
                 >
                     <div style={{ position: "relative" }}>
-                        <Avatar src={psyduck} backgroundColor="#fcf6bd" />
+                        <Avatar src={ROOT_DATA.creatures[0].imageUrl} backgroundColor="#fcf6bd" />
                         <button
                             onClick={() => setIsOpen(true)}
                             style={{
