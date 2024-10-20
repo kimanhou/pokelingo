@@ -4,6 +4,9 @@ import { Footer } from "@/components/Footer/Footer";
 import SideSheet from "@/components/common/SideSheet/SideSheet";
 import EditAvatar from "@/components/EditAvatar/EditAvatar";
 import "./App.scss";
+import Root from "@/data/root";
+
+const ROOT_DATA = Root.get()
 
 function App() {
     const [isEditAvatarOpen, setIsEditAvatarOpen] = useState(false);
@@ -27,7 +30,7 @@ function App() {
                                     document.body.style.overflow = "hidden";
                                 }}
                             >
-                                <EditAvatar />
+                                <EditAvatar creatures={ ROOT_DATA.creatures } />
                             </SideSheet>
                         }
                     ></Route>

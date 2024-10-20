@@ -1,5 +1,6 @@
 import { Avatar } from "@/types";
 import { AvatarTypeColors } from "@/ts/enums";
+import Creature from "@/data/creature";
 
 export const getValueOrDefault = (s: string | null | undefined) => {
     if (!s) {
@@ -41,8 +42,9 @@ export const capitalizeFirstChar = (s: string) => {
     return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
-export const getMainColor = (avatar: Avatar) => {
+export const getMainColor = (creature: (Creature | null)) => {
+    if(creature == null) return "var(--color-medium-grey)";
     const mainType =
-        avatar.types[0]?.toUpperCase() as keyof typeof AvatarTypeColors;
+        creature.types[0]?.toUpperCase() as keyof typeof AvatarTypeColors;
     return AvatarTypeColors[mainType] ?? "var(--color-medium-grey)";
 };

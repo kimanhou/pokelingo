@@ -1,13 +1,13 @@
 import { FC, Dispatch, SetStateAction } from "react";
 import AvatarOption from "@/components/EditAvatar/Options/AvatarOption";
-import { Avatar } from "@/types";
 import styles from "./AvatarOptions.module.scss";
+import Creature from "@/data/creature";
 
 interface IAvatarOptionsProps {
-  displayedOptions: Avatar[];
-  displayedSelectedAvatar: Avatar;
-  setDisplayedSelectedAvatar: Dispatch<SetStateAction<Avatar>>;
-  unavailableAvatarsImageUrl: string[];
+  displayedOptions: Creature[];
+  displayedSelectedCreature: Creature;
+  setDisplayedSelectedCreature: Dispatch<SetStateAction<Creature>>;
+  unavailableCreaturesImageUrl: string[];
   isSmallDesktop: boolean;
 }
 
@@ -15,16 +15,16 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
   return (
     <div className={styles.avatarOptions}>
       <div className={styles.avatarOptionsScroller}>
-        {props.displayedOptions.map((avatar) => (
+        {props.displayedOptions.map((creature) => (
           <AvatarOption
-            key={avatar.id}
-            avatar={avatar}
-            setDisplayedSelectedAvatar={props.setDisplayedSelectedAvatar}
+            key={creature.id}
+            creature={creature}
+            setDisplayedSelectedCreature={props.setDisplayedSelectedCreature}
             isSelected={
-              props.displayedSelectedAvatar.imageUrl === avatar.imageUrl
+              props.displayedSelectedCreature.imageUrl === creature.imageUrl
             }
-            isDisabled={props.unavailableAvatarsImageUrl.includes(
-              avatar.imageUrl
+            isDisabled={props.unavailableCreaturesImageUrl.includes(
+              creature.imageUrl
             )}
             isSmallDesktop={props.isSmallDesktop}
           />

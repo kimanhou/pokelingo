@@ -1,39 +1,31 @@
 import { FC, useEffect, useState } from "react";
-import CloseIcon from "@/components/common/Icons/CloseIcon";
 import AvatarOptions from "@/components/EditAvatar/Options/AvatarOptions";
 import Button from "@/components/common/Button/Button";
 import AvatarDetails from "@/components/EditAvatar/Details/AvatarDetails";
 import Search from "@/components/EditAvatar/Search/Search";
-import { putAvatarUrl } from "@/api/MembersApi";
-import { handleError } from "@/api/utils";
-import { ToastNotificationEnum } from "@/components/ToastNotification/enum";
-import { AVATARS } from "@/data/avatars";
 import { faShuffle } from "@fortawesome/free-solid-svg-icons";
-import { Avatar, TeamMemberType } from "@/types";
 import { useIsMobile, useIsSmallDesktop } from "@/hooks/useIsMobile";
 import { getMainColor, scrollTo } from "@/ts/utils";
 import styles from "./EditAvatar.module.scss";
+import Creature from "@/data/creature";
 
-interface IEditAvatarProps {}
+interface IEditAvatarProps {
+    creatures : Creature[]
+}
 
 const EditAvatar: FC<IEditAvatarProps> = (props) => {
     const isSmallDesktop = useIsSmallDesktop();
     const isMobile = useIsMobile();
 
-    const [displayedSelectedAvatar, setDisplayedSelectedAvatar] =
-        useState<Avatar>({
-            id: 0,
-            imageUrl: "",
-            name: "",
-            types: [],
-        });
+    const [displayedSelectedCreature, setDisplayedSelectedCreature] =
+        useState<Creature>(Creature.getDefaultValue());
     const [search, setSearch] = useState("");
 
-    const mainColor = getMainColor(displayedSelectedAvatar);
+    const mainColor = getMainColor(displayedSelectedCreature);
 
     const randomize = () => {
-        const randomIndex = Math.floor(Math.random() * AVATARS.length);
-        setDisplayedSelectedAvatar(AVATARS[randomIndex]);
+        const randomIndex = Math.floor(Math.random() * props.creatures.length);
+        setDisplayedSelectedCreature(props.creatures[randomIndex]);
         scrollTo({ elementId: `avatar-${randomIndex + 1}` });
     };
 
@@ -44,7 +36,7 @@ const EditAvatar: FC<IEditAvatarProps> = (props) => {
     return (
         <div className={styles.editAvatar}>
             <AvatarDetails
-                avatar={displayedSelectedAvatar}
+                creature={displayedSelectedCreature}
                 randomize={randomize}
                 isSmallDesktop={isSmallDesktop}
                 isMobile={isMobile}
@@ -68,10 +60,10 @@ const EditAvatar: FC<IEditAvatarProps> = (props) => {
                     </div>
                 )}
                 <AvatarOptions
-                    displayedOptions={AVATARS}
-                    displayedSelectedAvatar={displayedSelectedAvatar}
-                    setDisplayedSelectedAvatar={setDisplayedSelectedAvatar}
-                    unavailableAvatarsImageUrl={[]}
+                    displayedOptions={props.creatures}
+                    displayedSelectedCreature={displayedSelectedCreature}
+                    setDisplayedSelectedCreature={setDisplayedSelectedCreature}
+                    unavailableCreaturesImageUrl={[]}
                     isSmallDesktop={isSmallDesktop}
                 />
             </div>

@@ -51,7 +51,6 @@ export type PositionFromBackend = {
 
 export type Avatar = {
   id: number;
-  imageUrl: string;
   name: string;
   types: string[];
   height?: number; // in decimeters

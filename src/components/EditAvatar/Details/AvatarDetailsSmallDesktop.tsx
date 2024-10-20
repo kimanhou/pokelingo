@@ -4,9 +4,10 @@ import AvatarSpecs from "@/components/EditAvatar/Details/Specs/AvatarSpecs";
 import ImageContainer from "@/components/EditAvatar/Details/ImageContainer/ImageContainer";
 import AvatarImage from "@/components/EditAvatar/Details/AvatarImage/AvatarImage";
 import styles from "./AvatarDetailsSmallDesktop.module.scss";
+import Creature from "@/data/creature";
 
 interface IAvatarDetailsSmallDesktopProps {
-  avatar: Avatar;
+  creature: Creature;
   mainColor: string;
   search: string;
   setSearch: (search: string) => void;
@@ -24,18 +25,18 @@ const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
     >
       <ImageContainer
         mainColor={props.mainColor}
-        name={props.avatar.name}
-        avatarId={props.avatar.id}
+        name={props.creature.ja.name}
+        avatarId={props.creature.id}
         randomize={props.randomize}
         search={props.search}
         setSearch={props.setSearch}
         isSmallDesktop
       />
-      <AvatarImage avatar={props.avatar} isSmallDesktop />
+      <AvatarImage creature={props.creature} isSmallDesktop />
       <AvatarSpecs
-        types={props.avatar.types}
-        height={props.avatar.height}
-        weight={props.avatar.weight}
+        types={props.creature.types}
+        height={props.creature.height}
+        weight={props.creature.weight}
         isSmallDesktop
         isMobile={props.isMobile}
       />

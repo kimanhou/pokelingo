@@ -1,11 +1,11 @@
 import { FC, Dispatch, SetStateAction } from "react";
 import { getMainColor } from "@/ts/utils";
-import { Avatar } from "@/types";
 import styles from "./AvatarOption.module.scss";
+import Creature from "@/data/creature";
 
 interface IAvatarOptionProps {
-  avatar: Avatar;
-  setDisplayedSelectedAvatar: Dispatch<SetStateAction<Avatar>>;
+  creature: Creature;
+  setDisplayedSelectedCreature: Dispatch<SetStateAction<Creature>>;
   isSelected: boolean;
   isDisabled: boolean;
   isSmallDesktop: boolean;
@@ -17,13 +17,13 @@ const AvatarOption: FC<IAvatarOptionProps> = (props) => {
   const isSmallDesktopClassName = props.isSmallDesktop
     ? styles.smallDesktop
     : "";
-  const mainColor = getMainColor(props.avatar);
+  const mainColor = getMainColor(props.creature);
   const avatarHtmlId =
-    props.avatar.id > 0 ? props.avatar.id : props.avatar.id * -1 + 151;
+    props.creature.id > 0 ? props.creature.id : props.creature.id * -1 + 151;
 
   const onClick = () => {
     if (!props.isDisabled) {
-      props.setDisplayedSelectedAvatar(props.avatar);
+      props.setDisplayedSelectedCreature(props.creature);
     }
   };
 
@@ -36,7 +36,7 @@ const AvatarOption: FC<IAvatarOptionProps> = (props) => {
     >
       <div
         className={styles.avatarOption}
-        style={{ backgroundImage: `url(${props.avatar.imageUrl})` }}
+        style={{ backgroundImage: `url(${props.creature.imageUrl})` }}
       ></div>
     </div>
   );
