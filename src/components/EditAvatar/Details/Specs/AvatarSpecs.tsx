@@ -12,11 +12,12 @@ import styles from "./AvatarSpecs.module.scss";
 
 interface IAvatarSpecsProps {
     types: string[];
+    description: string;
     isSmallDesktop?: boolean;
     isMobile?: boolean;
-    description: string;
     setAvatarSpecsHeight?: Dispatch<SetStateAction<number | undefined>>;
     isCreatureCard?: boolean;
+    name?: string;
 }
 
 const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
@@ -60,6 +61,11 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
                             isSmallDesktop={props.isSmallDesktop}
                         />
                     ))}
+                </div>
+            )}
+            {props.isCreatureCard && (
+                <div className={styles.nameContainer}>
+                    <h2 className={styles.avatarName}>{props.name}</h2>
                 </div>
             )}
             <p className={styles.description}>{props.description}</p>

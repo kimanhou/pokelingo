@@ -73,7 +73,16 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                         description={props.creature.ja.description}
                         setAvatarSpecsHeight={setAvatarSpecsHeight}
                         isCreatureCard={props.isCreatureCard}
+                        name={props.creature.ja.name}
                     />
+
+                    {!props.isCreatureCard && (
+                        <div className={styles.nameContainer}>
+                            <h2 className={styles.avatarName}>
+                                {props.creature.ja.name}
+                            </h2>
+                        </div>
+                    )}
                 </div>
             )}
             {props.isSmallDesktop && (

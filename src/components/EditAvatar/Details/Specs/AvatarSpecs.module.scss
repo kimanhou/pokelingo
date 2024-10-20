@@ -15,6 +15,7 @@ div.avatar-specs {
     }
     > p.description {
         color: var(--color-grey);
+        margin-block: 0;
     }
     &.small-desktop {
         border-radius: 24px;

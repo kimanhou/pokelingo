@@ -40,20 +40,14 @@ const ImageContainer: FC<IImageContainerProps> = (
                 marginTop: props.isSmallDesktop ? 0 : marginTop,
             }}
         >
-            <div>
-                <h2 className={styles.avatarName}>{props.name}</h2>
-                {props.avatarId > 0 && (
-                    <h3 className={styles.avatarId}>
-                        #{props.avatarId.toString().padStart(3, "0")}
-                    </h3>
-                )}
-            </div>
-            {props.isMobile && !props.isCreatureCard && (
-                <div className={styles.randomizeButtonContainer}>
-                    <IconButton
-                        onClick={props.randomize || (() => {})}
-                        icon={faShuffle}
-                    />
+            {!props.isCreatureCard && (
+                <div>
+                    <h2 className={styles.avatarName}>{props.name}</h2>
+                    {props.avatarId > 0 && (
+                        <h3 className={styles.avatarId}>
+                            #{props.avatarId.toString().padStart(3, "0")}
+                        </h3>
+                    )}
                 </div>
             )}
             {props.isSmallDesktop && !props.isMobile && (

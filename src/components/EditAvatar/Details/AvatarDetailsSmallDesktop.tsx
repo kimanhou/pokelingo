@@ -39,6 +39,9 @@ const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
                 isMobile={props.isMobile}
                 description={props.creature.ja.description}
             />
+            <div className={styles.nameContainer}>
+                <h2 className={styles.avatarName}>{props.creature.ja.name}</h2>
+            </div>
         </div>
     );
 };
