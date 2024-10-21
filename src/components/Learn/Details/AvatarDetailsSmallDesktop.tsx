@@ -4,7 +4,7 @@ import ImageContainer from "@/components/Learn/Details/ImageContainer/ImageConta
 import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
 import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
 import Creature from "@/data/creature";
-import { DeviceType } from "@/ts/enums";
+import { useDeviceType } from "@/hooks/useIsMobile";
 import styles from "./AvatarDetailsSmallDesktop.module.scss";
 
 interface IAvatarDetailsSmallDesktopProps {
@@ -12,7 +12,6 @@ interface IAvatarDetailsSmallDesktopProps {
     mainColor: string;
     search: string;
     setSearch: (search: string) => void;
-    deviceType: DeviceType;
     randomize?: () => void;
     isCreatureCard?: boolean;
 }
@@ -20,6 +19,8 @@ interface IAvatarDetailsSmallDesktopProps {
 const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
     props: IAvatarDetailsSmallDesktopProps
 ) => {
+    const deviceType = useDeviceType();
+
     return (
         <div
             className={styles.avatarDetails}
@@ -32,12 +33,11 @@ const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
                 randomize={props.randomize}
                 search={props.search}
                 setSearch={props.setSearch}
-                deviceType={props.deviceType}
             />
             <AvatarImage creature={props.creature} isSmallDesktop />
             <AvatarSpecs
                 types={props.creature.types}
-                deviceType={props.deviceType}
+                deviceType={deviceType}
                 description={props.creature.getDescription()}
                 isCreatureCard={props.isCreatureCard}
             />

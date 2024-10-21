@@ -3,13 +3,13 @@ import Button from "@/components/common/Button/Button";
 import SearchSmallDesktop from "@/components/Learn/Search/SearchSmallDesktop";
 import { faShuffle } from "@fortawesome/free-solid-svg-icons";
 import { DeviceType } from "@/ts/enums";
+import { useDeviceType } from "@/hooks/useIsMobile";
 import styles from "./ImageContainer.module.scss";
 
 interface IImageContainerProps {
     mainColor: string;
     name: string;
     avatarId: number;
-    deviceType: DeviceType;
     search?: string;
     setSearch?: (search: string) => void;
     randomize?: () => void;
@@ -21,7 +21,8 @@ const ImageContainer: FC<IImageContainerProps> = (
 ) => {
     const [marginTop, setMarginTop] = useState("100%");
 
-    const isSmallDesktop = props.deviceType === DeviceType.SMALL_DESKTOP;
+    const deviceType = useDeviceType();
+    const isSmallDesktop = deviceType === DeviceType.SMALL_DESKTOP;
     const smallDesktopClassName = isSmallDesktop ? styles.smallDesktop : "";
 
     useEffect(() => {
