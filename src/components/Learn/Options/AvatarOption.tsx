@@ -45,7 +45,10 @@ const AvatarOption: FC<IAvatarOptionProps> = (props) => {
     return (
         <div
             className={`${styles.avatarOptionWrapper} ${isSelectedClassName} ${isDisabledClassName} ${isSmallDesktopClassName}`}
-            style={{ outlineColor: mainColor }}
+            style={{
+                outlineColor: mainColor,
+                color: mainColor,
+            }}
             onClick={onClick}
             id={`avatar-${avatarHtmlId}`}
         >
