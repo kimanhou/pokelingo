@@ -65,9 +65,6 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
                 </div>
             )}
             {props.isCreatureCard && props.name && (
-                // <div className={styles.nameContainer}>
-                //     <h2 className={styles.avatarName}>{props.name}</h2>
-                // </div>
                 <CreatureName name={props.name} isPositionRelative />
             )}
             <p className={styles.description}>{props.description}</p>

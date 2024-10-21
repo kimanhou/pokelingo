@@ -3,11 +3,11 @@ import ImageContainer from "@/components/Learn/Details/ImageContainer/ImageConta
 import AvatarSpecs from "@/components/Learn/Details/Specs/AvatarSpecs";
 import AvatarDetailsSmallDesktop from "@/components/Learn/Details/AvatarDetailsSmallDesktop";
 import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
+import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
 import { getMainColor } from "@/ts/utils";
 import { useIsLargeDesktop } from "@/hooks/useIsMobile";
 import Creature from "@/data/creature";
 import styles from "./AvatarDetails.module.scss";
-import CreatureName from "./CreatureName/CreatureName";
 
 interface IAvatarDetailsProps {
     creature: Creature;
