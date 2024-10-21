@@ -45,9 +45,7 @@ const Learn: FC<ILearnProps> = (props) => {
             props.creatures.filter(
                 (creature) =>
                     creature.id === parseInt(search) ||
-                    creature.ja.name
-                        .toLowerCase()
-                        .includes(search.toLowerCase())
+                    creature.name.includes(search)
             )
         );
     }, [search]);

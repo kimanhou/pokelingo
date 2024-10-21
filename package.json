@@ -14,7 +14,7 @@
         "test:coverage": "vitest run --coverage --watch=false",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "generate-empty": "node --import tsx src/script/generate-empty.ts",
+        "transform-data": "node --import tsx src/script/transform-data.ts",
         "validate-data": "node --import tsx src/script/validate-data.ts"
     },
     "eslintConfig": {

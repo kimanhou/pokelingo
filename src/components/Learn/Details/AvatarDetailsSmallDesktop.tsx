@@ -27,7 +27,7 @@ const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
         >
             <ImageContainer
                 mainColor={props.mainColor}
-                name={props.creature.ja.name}
+                name={props.creature.getName()}
                 avatarId={props.creature.id}
                 randomize={props.randomize}
                 search={props.search}
@@ -38,10 +38,10 @@ const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
             <AvatarSpecs
                 types={props.creature.types}
                 deviceType={props.deviceType}
-                description={props.creature.ja.description}
+                description={props.creature.getDescription()}
                 isCreatureCard={props.isCreatureCard}
             />
-            <CreatureName name={props.creature.ja.name} color="var(--bg)" />
+            <CreatureName name={props.creature.getName()} color="var(--bg)" />
         </div>
     );
 };
