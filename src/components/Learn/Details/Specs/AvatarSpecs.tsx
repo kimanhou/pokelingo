@@ -9,6 +9,7 @@ import {
 import TypeTag from "@/components/Learn/Details/Specs/TypeTag";
 import { AvatarTypeColors } from "@/ts/enums";
 import styles from "./AvatarSpecs.module.scss";
+import CreatureName from "../CreatureName/CreatureName";
 
 interface IAvatarSpecsProps {
     types: string[];
@@ -63,10 +64,11 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
                     ))}
                 </div>
             )}
-            {props.isCreatureCard && (
-                <div className={styles.nameContainer}>
-                    <h2 className={styles.avatarName}>{props.name}</h2>
-                </div>
+            {props.isCreatureCard && props.name && (
+                // <div className={styles.nameContainer}>
+                //     <h2 className={styles.avatarName}>{props.name}</h2>
+                // </div>
+                <CreatureName name={props.name} isPositionRelative />
             )}
             <p className={styles.description}>{props.description}</p>
         </div>

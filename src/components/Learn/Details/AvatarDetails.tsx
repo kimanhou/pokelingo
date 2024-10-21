@@ -7,6 +7,7 @@ import { getMainColor } from "@/ts/utils";
 import { useIsLargeDesktop } from "@/hooks/useIsMobile";
 import Creature from "@/data/creature";
 import styles from "./AvatarDetails.module.scss";
+import CreatureName from "./CreatureName/CreatureName";
 
 interface IAvatarDetailsProps {
     creature: Creature;
@@ -77,11 +78,10 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                     />
 
                     {!props.isCreatureCard && (
-                        <div className={styles.nameContainer}>
-                            <h2 className={styles.avatarName}>
-                                {props.creature.ja.name}
-                            </h2>
-                        </div>
+                        <CreatureName
+                            name={props.creature.ja.name}
+                            color="var(--bg)"
+                        />
                     )}
                 </div>
             )}

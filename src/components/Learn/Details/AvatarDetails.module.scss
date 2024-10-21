@@ -10,16 +10,4 @@ div.avatar-details {
     &.creature-card {
         height: 100%;
     }
-    > div.name-container {
-        position: absolute;
-        top: 24px;
-        left: 24px;
-        padding-bottom: 0;
-        > h2.avatar-name {
-            text-align: left;
-            font-size: 36px;
-            color: var(--bg);
-            margin-block: 0;
-        }
-    }
 }

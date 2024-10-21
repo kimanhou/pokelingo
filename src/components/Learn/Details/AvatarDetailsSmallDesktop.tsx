@@ -4,6 +4,7 @@ import ImageContainer from "@/components/Learn/Details/ImageContainer/ImageConta
 import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
 import styles from "./AvatarDetailsSmallDesktop.module.scss";
 import Creature from "@/data/creature";
+import CreatureName from "./CreatureName/CreatureName";
 
 interface IAvatarDetailsSmallDesktopProps {
     creature: Creature;
@@ -39,9 +40,7 @@ const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
                 isMobile={props.isMobile}
                 description={props.creature.ja.description}
             />
-            <div className={styles.nameContainer}>
-                <h2 className={styles.avatarName}>{props.creature.ja.name}</h2>
-            </div>
+            <CreatureName name={props.creature.ja.name} color="var(--bg)" />
         </div>
     );
 };
