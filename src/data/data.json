@@ -8,12 +8,20 @@
             ],
             "height": 7,
             "weight": 69,
-            "types": ["grass", "poison"],
+            "types": [
+                "grass",
+                "poison"
+            ],
             "ja": {
                 "name": "フシギダネ",
-                "altNames": ["Fushigidane", "不思議種"],
-                "tags": ["kanji"],
-                "description": "フシギ (不思議) means \"mysterious\", and ダネ (種) means \"seed.\" It translates to \"mysterious seed\"."
+                "altNames": [
+                    "Fushigidane",
+                    "不思議種"
+                ],
+                "tags": [
+                    "kanji"
+                ],
+                "description": "フシギ (不思議) means \"mysterious\", and ダネ (種) means \"seed.\" It translates to \"mysterious seed\". It can also mean \"Isn’t it strange?\" (不思議だね？)."
             }
         },
         {
@@ -24,11 +32,19 @@
             ],
             "height": 10,
             "weight": 130,
-            "types": ["grass", "poison"],
+            "types": [
+                "grass",
+                "poison"
+            ],
             "ja": {
                 "name": "フシギソウ",
-                "altNames": ["Fushigisou", "不思議草"],
-                "tags": ["kanji"],
+                "altNames": [
+                    "Fushigisou",
+                    "不思議草"
+                ],
+                "tags": [
+                    "kanji"
+                ],
                 "description": "フシギ (不思議) means \"mysterious\" and ソウ (草) means \"grass.\" It translates to \"mysterious grass\"."
             }
         },
@@ -40,11 +56,19 @@
             ],
             "height": 20,
             "weight": 1000,
-            "types": ["grass", "poison"],
+            "types": [
+                "grass",
+                "poison"
+            ],
             "ja": {
                 "name": "フシギバナ",
-                "altNames": ["Fushigibana", "不思議花"],
-                "tags": ["kanji"],
+                "altNames": [
+                    "Fushigibana",
+                    "不思議花"
+                ],
+                "tags": [
+                    "kanji"
+                ],
                 "description": "フシギ (不思議) means \"mysterious\" and バナ (花) means \"flower\". It translates to \"mysterious flower\"."
             }
         },
@@ -56,11 +80,18 @@
             ],
             "height": 6,
             "weight": 85,
-            "types": ["fire"],
+            "types": [
+                "fire"
+            ],
             "ja": {
                 "name": "ヒトカゲ",
-                "altNames": ["Hitokage", "火蜥蜴"],
-                "tags": ["kanji"],
+                "altNames": [
+                    "Hitokage",
+                    "火蜥蜴"
+                ],
+                "tags": [
+                    "kanji"
+                ],
                 "description": "ヒ (火) means \"fire\" and トカゲ (蜥蜴) means \"lizard\". It translates to \"fire lizard\"."
             }
         },
@@ -72,11 +103,18 @@
             ],
             "height": 11,
             "weight": 190,
-            "types": ["fire"],
+            "types": [
+                "fire"
+            ],
             "ja": {
                 "name": "リザード",
-                "altNames": ["Rizaado", "Lizaado"],
-                "tags": ["english"],
+                "altNames": [
+                    "Rizaado",
+                    "Lizaado"
+                ],
+                "tags": [
+                    "english"
+                ],
                 "description": "Derived from the English word \"lizard\", written in katakana as リザード."
             }
         },
@@ -88,12 +126,278 @@
             ],
             "height": 17,
             "weight": 905,
-            "types": ["fire"],
+            "types": [
+                "fire"
+            ],
             "ja": {
                 "name": "リザードン",
-                "altNames": ["Rizaadon", "Lizaadon"],
-                "tags": ["english"],
+                "altNames": [
+                    "Rizaadon",
+                    "Lizaadon"
+                ],
+                "tags": [
+                    "english"
+                ],
                 "description": "A combination of \"lizard\" (リザード) and the suffix \"don\" (ドン), often used for large or strong creatures."
+            }
+        },
+        {
+            "id": 7,
+            "imageUrl": "/assets/creature/7.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 5,
+            "weight": 90,
+            "types": [
+                "water"
+            ],
+            "ja": {
+                "name": "ゼニガメ",
+                "altNames": ["Zenigame", "銭亀"],
+                "tags": ["kanji"],
+                "description": "A ゼニガメ (銭亀) is a young Japanese pond turtle. It's round shell ressembles a セン (銭) edo period coin."
+            }
+        },
+        {
+            "id": 8,
+            "imageUrl": "/assets/creature/8.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 10,
+            "weight": 225,
+            "types": [
+                "water"
+            ],
+            "ja": {
+                "name": "カメール",
+                "altNames": ["Kameeru"],
+                "tags": ["english", "french"],
+                "description": "A combination of カメ (亀) and either \"mail\" in English or \"mer\" in French."
+            }
+        },
+        {
+            "id": 9,
+            "imageUrl": "/assets/creature/9.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 16,
+            "weight": 855,
+            "types": [
+                "water"
+            ],
+            "ja": {
+                "name": "カメックス",
+                "altNames": ["Kamekkusu"],
+                "tags": ["english", "latin"],
+                "description": "A combination of カメ (亀) and either \"X\" in Japanese, \"max\" in English or \"rex\" in Latin."
+            }
+        },
+        {
+            "id": 10,
+            "imageUrl": "/assets/creature/10.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 3,
+            "weight": 29,
+            "types": [
+                "bug"
+            ],
+            "ja": {
+                "name": "キャタピー",
+                "altNames": ["Kyatapii"],
+                "tags": ["english"],
+                "description": "Derived from the English word \"caterpillar\", written in katakana as キャタピラー."
+            }
+        },
+        {
+            "id": 11,
+            "imageUrl": "/assets/creature/11.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 7,
+            "weight": 99,
+            "types": [
+                "bug"
+            ],
+            "ja": {
+                "name": "トランセル",
+                "altNames": ["Toranselu", "Toranseru"],
+                "tags": ["english"],
+                "description": "A combination of the English words \"transformation\" (トランスフォーメーション) and either \"shell\" (シェル) or \"cell\" (セル)."
+            }
+        },
+        {
+            "id": 12,
+            "imageUrl": "/assets/creature/12.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 11,
+            "weight": 320,
+            "types": [
+                "bug",
+                "flying"
+            ],
+            "ja": {
+                "name": "バタフリー",
+                "altNames": ["Batafurii", "Batafulii"],
+                "tags": ["english"],
+                "description": "A combination of the English words \"butterfly\" (バタフライ) and \"free\" (フリー)."
+            }
+        },
+        {
+            "id": 13,
+            "imageUrl": "/assets/creature/13.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 3,
+            "weight": 32,
+            "types": [
+                "bug",
+                "poison"
+            ],
+            "ja": {
+                "name": "ビードル",
+                "altNames": ["Biidoru", "Biidolu"],
+                "tags": ["english"],
+                "description": "A combination of the English words \"bee\" (ビー) and \"needle\" (ニードル)."
+            }
+        },
+        {
+            "id": 14,
+            "imageUrl": "/assets/creature/14.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 6,
+            "weight": 100,
+            "types": [
+                "bug",
+                "poison"
+            ],
+            "ja": {
+                "name": "コクーン",
+                "altNames": ["Kokuun"],
+                "tags": ["english"],
+                "description": "Derived from the English word \"cocoon\" (コクーン)."
+            }
+        },
+        {
+            "id": 15,
+            "imageUrl": "/assets/creature/15.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 10,
+            "weight": 295,
+            "types": [
+                "bug",
+                "poison"
+            ],
+            "ja": {
+                "name": "スピアー",
+                "altNames": ["Supiaa"],
+                "tags": ["english"],
+                "description": "Derived from the English word \"spear\" (スピア). It is also an anagram of \"apis\" (アピス), the genus of the honey bee."
+            }
+        },
+        {
+            "id": 16,
+            "imageUrl": "/assets/creature/16.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 3,
+            "weight": 18,
+            "types": [
+                "normal",
+                "flying"
+            ],
+            "ja": {
+                "name": "ポッポ",
+                "altNames": ["Poppo"],
+                "tags": ["onomatopoeia"],
+                "description": "Onomatopoeia for the cry of a pigeon in Japanese."
+            }
+        },
+        {
+            "id": 17,
+            "imageUrl": "/assets/creature/17.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 11,
+            "weight": 300,
+            "types": [
+                "normal",
+                "flying"
+            ],
+            "ja": {
+                "name": "ピジョン",
+                "altNames": ["Pijyon"],
+                "tags": ["english"],
+                "description": "Derived from the English word \"pigeon\" (ピジョン)."
+            }
+        },
+        {
+            "id": 18,
+            "imageUrl": "/assets/creature/18.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 15,
+            "weight": 395,
+            "types": [
+                "normal",
+                "flying"
+            ],
+            "ja": {
+                "name": "ピジョット",
+                "altNames": ["Pijyotto"],
+                "tags": ["english"],
+                "description": "A combination of the English words \"pigeon\" (ピジョン) and either \"parrot\" (パロット) or \"jet\" (ジェット)."
+            }
+        },
+        {
+            "id": 19,
+            "imageUrl": "/assets/creature/19.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 3,
+            "weight": 35,
+            "types": [
+                "normal"
+            ],
+            "ja": {
+                "name": "コラッタ",
+                "altNames": ["koratta"],
+                "tags": ["kanji", "english"],
+                "description": "Derived from it's evolution ラッタ. In Japanese baby animals are prefixed with コ (小) which would translates to \"baby ラッタ\" here."
+            }
+        },
+        {
+            "id": 20,
+            "imageUrl": "/assets/creature/20.svg",
+            "tags": [
+                "gen1"
+            ],
+            "height": 7,
+            "weight": 185,
+            "types": [
+                "normal"
+            ],
+            "ja": {
+                "name": "ラッタ",
+                "altNames": ["ratta"],
+                "tags": ["english"],
+                "description": "Derived from the English word \"rat\" (ラット)."
             }
         }
     ]
