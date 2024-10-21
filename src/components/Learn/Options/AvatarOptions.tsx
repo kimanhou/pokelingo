@@ -4,13 +4,14 @@ import styles from "./AvatarOptions.module.scss";
 import Creature from "@/data/creature";
 import CreatureCard from "@/components/Learn/CreatureCard/CreatureCard";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { DeviceType } from "@/ts/enums";
 
 interface IAvatarOptionsProps {
     displayedOptions: Creature[];
     displayedSelectedCreature: Creature;
     setDisplayedSelectedCreature: Dispatch<SetStateAction<Creature>>;
     unavailableCreaturesImageUrl: string[];
-    isSmallDesktop: boolean;
+    deviceType: DeviceType;
 }
 
 const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
@@ -44,7 +45,7 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                             isDisabled={props.unavailableCreaturesImageUrl.includes(
                                 creature.imageUrl
                             )}
-                            isSmallDesktop={props.isSmallDesktop}
+                            deviceType={props.deviceType}
                             onClick={() => onClickCreature(creature)}
                         />
                     ))}
@@ -58,6 +59,7 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                 creature={selectedCreature}
                 isOpen={isCreatureCardOpen}
                 setIsOpen={setIsCreatureCardOpen}
+                deviceType={props.deviceType}
             />
         </>
     );

@@ -1,3 +1,4 @@
+import { DeviceType } from "@/ts/enums";
 import { useState, useEffect, useCallback } from "react";
 
 export const useMediaQuery = (query: string) => {
@@ -26,4 +27,17 @@ export const useIsSmallDesktop = () => {
 
 export const useIsLargeDesktop = () => {
     return useMediaQuery("screen and (min-width: 1441px)");
+};
+
+export const useDeviceType = () => {
+    if (useIsMobile()) {
+        return DeviceType.MOBILE;
+    }
+    if (useIsSmallDesktop()) {
+        return DeviceType.SMALL_DESKTOP;
+    }
+    if (useIsLargeDesktop()) {
+        return DeviceType.LARGE_DESKTOP;
+    }
+    return DeviceType.DESKTOP;
 };

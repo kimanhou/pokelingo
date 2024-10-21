@@ -4,18 +4,22 @@ import AvatarSpecs from "@/components/Learn/Details/Specs/AvatarSpecs";
 import AvatarDetailsSmallDesktop from "@/components/Learn/Details/AvatarDetailsSmallDesktop";
 import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
 import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
-import { getMainColor } from "@/ts/utils";
+import {
+    getMainColor,
+    isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
+    isMobileCreatureCard as isMobileCreatureCardFunc,
+} from "@/ts/utils";
 import { useIsLargeDesktop } from "@/hooks/useIsMobile";
 import Creature from "@/data/creature";
+import { DeviceType } from "@/ts/enums";
 import styles from "./AvatarDetails.module.scss";
 
 interface IAvatarDetailsProps {
     creature: Creature;
     randomize: () => void;
-    isSmallDesktop: boolean;
-    isMobile: boolean;
     search: string;
     setSearch: (search: string) => void;
+    deviceType: DeviceType;
     isCreatureCard?: boolean;
     onClick?: () => void;
 }
@@ -37,6 +41,14 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
         ? styles.creatureCard
         : "";
 
+    const isMediumDesktopOrBigger = isMediumDesktopOrBiggerFunc(
+        props.deviceType
+    );
+    const isMobileCreatureCard = isMobileCreatureCardFunc({
+        deviceType: props.deviceType,
+        isCreatureCard: props.isCreatureCard || false,
+    });
+
     useEffect(() => {
         setTimeout(() => {
             setImageOpacity(100);
@@ -48,8 +60,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
 
     return (
         <>
-            {((!props.isSmallDesktop && !props.isMobile) ||
-                (props.isMobile && props.isCreatureCard)) && (
+            {(isMediumDesktopOrBigger || isMobileCreatureCard) && (
                 <div
                     className={`${styles.avatarDetails} ${creatureCardClassName}`}
                     ref={avatarDetailsRef}
@@ -60,7 +71,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                         name={props.creature.ja.name}
                         avatarId={props.creature.id}
                         randomize={props.randomize}
-                        isMobile={props.isMobile}
+                        deviceType={props.deviceType}
                         isCreatureCard={props.isCreatureCard}
                     />
                     <AvatarImage
@@ -85,15 +96,14 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                     )}
                 </div>
             )}
-            {(props.isSmallDesktop ||
-                (props.isMobile && !props.isCreatureCard)) && (
+            {!isMediumDesktopOrBigger && !props.isCreatureCard && (
                 <AvatarDetailsSmallDesktop
                     creature={props.creature}
                     mainColor={mainColor}
                     randomize={props.randomize}
                     search={props.search}
                     setSearch={props.setSearch}
-                    isMobile={props.isMobile}
+                    deviceType={props.deviceType}
                     isCreatureCard={props.isCreatureCard}
                 />
             )}

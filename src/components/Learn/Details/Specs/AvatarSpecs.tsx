@@ -8,14 +8,13 @@ import {
 } from "react";
 import TypeTag from "@/components/Learn/Details/Specs/TypeTag";
 import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
-import { AvatarTypeColors } from "@/ts/enums";
+import { AvatarTypeColors, DeviceType } from "@/ts/enums";
 import styles from "./AvatarSpecs.module.scss";
 
 interface IAvatarSpecsProps {
     types: string[];
     description: string;
-    isSmallDesktop?: boolean;
-    isMobile?: boolean;
+    deviceType?: DeviceType;
     setAvatarSpecsHeight?: Dispatch<SetStateAction<number | undefined>>;
     isCreatureCard?: boolean;
     name?: string;
@@ -26,10 +25,10 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
 
     const [marginTop, setMarginTop] = useState("100%");
 
-    const smallDesktopClassName = props.isSmallDesktop
-        ? styles.smallDesktop
-        : "";
-    const mobileClassName = props.isMobile ? styles.mobile : "";
+    const isSmallDesktop = props.deviceType === DeviceType.SMALL_DESKTOP;
+    const smallDesktopClassName = isSmallDesktop ? styles.smallDesktop : "";
+    const isMobile = props.deviceType === DeviceType.MOBILE;
+    const mobileClassName = isMobile ? styles.mobile : "";
 
     useEffect(() => {
         setTimeout(() => {
@@ -45,7 +44,7 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
     return (
         <div
             className={`${styles.avatarSpecs} ${smallDesktopClassName} ${mobileClassName}`}
-            style={{ marginTop: props.isSmallDesktop ? "24px" : marginTop }}
+            style={{ marginTop: isSmallDesktop ? "24px" : marginTop }}
             ref={avatarSpecsRef}
         >
             {!props.isCreatureCard && (
@@ -59,7 +58,7 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
                                     t.toUpperCase() as keyof typeof AvatarTypeColors
                                 ] ?? "var(--color-grey)"
                             }
-                            isSmallDesktop={props.isSmallDesktop}
+                            isSmallDesktop={isSmallDesktop}
                         />
                     ))}
                 </div>

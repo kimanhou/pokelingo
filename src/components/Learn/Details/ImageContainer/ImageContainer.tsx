@@ -2,17 +2,16 @@ import { FC, useEffect, useState } from "react";
 import Button from "@/components/common/Button/Button";
 import SearchSmallDesktop from "@/components/Learn/Search/SearchSmallDesktop";
 import { faShuffle } from "@fortawesome/free-solid-svg-icons";
+import { DeviceType } from "@/ts/enums";
 import styles from "./ImageContainer.module.scss";
-import IconButton from "@/components/common/IconButton/IconButton";
 
 interface IImageContainerProps {
     mainColor: string;
     name: string;
     avatarId: number;
+    deviceType: DeviceType;
     search?: string;
     setSearch?: (search: string) => void;
-    isSmallDesktop?: boolean;
-    isMobile?: boolean;
     randomize?: () => void;
     isCreatureCard?: boolean;
 }
@@ -22,9 +21,8 @@ const ImageContainer: FC<IImageContainerProps> = (
 ) => {
     const [marginTop, setMarginTop] = useState("100%");
 
-    const smallDesktopClassName = props.isSmallDesktop
-        ? styles.smallDesktop
-        : "";
+    const isSmallDesktop = props.deviceType === DeviceType.SMALL_DESKTOP;
+    const smallDesktopClassName = isSmallDesktop ? styles.smallDesktop : "";
 
     useEffect(() => {
         setTimeout(() => {
@@ -37,7 +35,7 @@ const ImageContainer: FC<IImageContainerProps> = (
             className={`${styles.imageContainer} ${smallDesktopClassName}`}
             style={{
                 backgroundColor: props.mainColor,
-                marginTop: props.isSmallDesktop ? 0 : marginTop,
+                marginTop: isSmallDesktop ? 0 : marginTop,
             }}
         >
             {!props.isCreatureCard && (
@@ -50,7 +48,7 @@ const ImageContainer: FC<IImageContainerProps> = (
                     )}
                 </div>
             )}
-            {props.isSmallDesktop && !props.isMobile && (
+            {isSmallDesktop && (
                 <div className={styles.randomizeButtonContainer}>
                     <Button
                         onClick={props.randomize || (() => {})}

@@ -3,17 +3,20 @@ import Creature from "@/data/creature";
 import ModalDialog from "@/components/common/ModalDialog/ModalDialog";
 import styles from "./CreatureCard.module.scss";
 import AvatarDetails from "../Details/AvatarDetails";
+import { DeviceType } from "@/ts/enums";
 
 interface ICreatureCardProps {
     creature: Creature | null;
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+    deviceType: DeviceType;
 }
 
 const CreatureCard: FC<ICreatureCardProps> = ({
     creature,
     isOpen,
     setIsOpen,
+    deviceType,
 }: ICreatureCardProps) => {
     return (
         <ModalDialog
@@ -25,10 +28,9 @@ const CreatureCard: FC<ICreatureCardProps> = ({
             <AvatarDetails
                 creature={creature || Creature.getDefaultValue()}
                 randomize={() => {}}
-                isSmallDesktop={false}
                 search=""
                 setSearch={(value: string) => {}}
-                isMobile
+                deviceType={deviceType}
                 isCreatureCard
                 onClick={() => setIsOpen(false)}
             />

@@ -4,18 +4,22 @@ import Button from "@/components/common/Button/Button";
 import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
 import Search from "@/components/Learn/Search/Search";
 import { faShuffle } from "@fortawesome/free-solid-svg-icons";
-import { useIsMobile, useIsSmallDesktop } from "@/hooks/useIsMobile";
-import { getMainColor, scrollTo } from "@/ts/utils";
-import styles from "./Learn.module.scss";
+import { useDeviceType } from "@/hooks/useIsMobile";
+import {
+    getMainColor,
+    scrollTo,
+    isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
+} from "@/ts/utils";
 import Creature from "@/data/creature";
+import styles from "./Learn.module.scss";
 
 interface ILearnProps {
     creatures: Creature[];
 }
 
 const Learn: FC<ILearnProps> = (props) => {
-    const isSmallDesktop = useIsSmallDesktop();
-    const isMobile = useIsMobile();
+    const deviceType = useDeviceType();
+    const isMediumDesktopOrBigger = isMediumDesktopOrBiggerFunc(deviceType);
 
     const [displayedSelectedCreature, setDisplayedSelectedCreature] =
         useState<Creature>(Creature.getDefaultValue());
@@ -38,13 +42,12 @@ const Learn: FC<ILearnProps> = (props) => {
             <AvatarDetails
                 creature={displayedSelectedCreature}
                 randomize={randomize}
-                isSmallDesktop={isSmallDesktop}
-                isMobile={isMobile}
+                deviceType={deviceType}
                 search={search}
                 setSearch={setSearch}
             />
             <div className={styles.right}>
-                {!isSmallDesktop && !isMobile && (
+                {isMediumDesktopOrBigger && (
                     <div className={styles.randomizeSearchButtonsContainer}>
                         <Button
                             onClick={randomize}
@@ -64,7 +67,7 @@ const Learn: FC<ILearnProps> = (props) => {
                     displayedSelectedCreature={displayedSelectedCreature}
                     setDisplayedSelectedCreature={setDisplayedSelectedCreature}
                     unavailableCreaturesImageUrl={[]}
-                    isSmallDesktop={isSmallDesktop}
+                    deviceType={deviceType}
                 />
             </div>
         </div>

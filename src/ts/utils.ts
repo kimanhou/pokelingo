@@ -1,5 +1,4 @@
-import { Avatar } from "@/types";
-import { AvatarTypeColors } from "@/ts/enums";
+import { AvatarTypeColors, DeviceType } from "@/ts/enums";
 import Creature from "@/data/creature";
 
 export const getValueOrDefault = (s: string | null | undefined) => {
@@ -47,4 +46,21 @@ export const getMainColor = (creature: Creature | null) => {
     const mainType =
         creature.types[0]?.toUpperCase() as keyof typeof AvatarTypeColors;
     return AvatarTypeColors[mainType] ?? "var(--color-medium-grey)";
+};
+
+export const isMediumDesktopOrBigger = (deviceType: DeviceType) => {
+    return (
+        deviceType === DeviceType.DESKTOP ||
+        deviceType === DeviceType.LARGE_DESKTOP
+    );
+};
+
+export const isMobileCreatureCard = ({
+    deviceType,
+    isCreatureCard,
+}: {
+    deviceType: DeviceType;
+    isCreatureCard: boolean;
+}) => {
+    return deviceType === DeviceType.MOBILE && isCreatureCard;
 };
