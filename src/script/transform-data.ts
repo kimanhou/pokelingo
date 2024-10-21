@@ -6,7 +6,7 @@ import CreatureName from '@/data/creature-name';
 import { AVATARS } from '@/data/avatars';
 
 
-const previousCreatures = inData.creatures
+const previousCreatures = (inData.creatures as any)
 
 const creatures = [];
 
