@@ -14,6 +14,7 @@ import styles from "./AvatarSpecs.module.scss";
 interface IAvatarSpecsProps {
     types: string[];
     description: string;
+    mainColor: string;
     deviceType?: DeviceType;
     setAvatarSpecsHeight?: Dispatch<SetStateAction<number | undefined>>;
     isCreatureCard?: boolean;
@@ -33,11 +34,12 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
     useEffect(() => {
         setTimeout(() => {
             setMarginTop("-40px");
+
+            if (avatarSpecsRef.current && props.setAvatarSpecsHeight) {
+                props.setAvatarSpecsHeight(avatarSpecsRef.current.clientHeight);
+            }
         }, 400); // transition duration of side sheet from bottom + transition duration of Image Container
 
-        if (avatarSpecsRef.current && props.setAvatarSpecsHeight) {
-            props.setAvatarSpecsHeight(avatarSpecsRef.current.clientHeight);
-        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -47,6 +49,15 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
             style={{ marginTop: isSmallDesktop ? "24px" : marginTop }}
             ref={avatarSpecsRef}
         >
+            {props.name && (
+                <CreatureName
+                    name={props.name}
+                    color={props.mainColor}
+                    isPositionRelative
+                    isFontSizeXl={props.isCreatureCard}
+                />
+            )}
+            <p className={styles.description}>{props.description}</p>
             {!props.isCreatureCard && (
                 <div className={styles.typeTags}>
                     {props.types.map((t) => (
@@ -63,10 +74,6 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
                     ))}
                 </div>
             )}
-            {props.isCreatureCard && props.name && (
-                <CreatureName name={props.name} isPositionRelative />
-            )}
-            <p className={styles.description}>{props.description}</p>
         </div>
     );
 };

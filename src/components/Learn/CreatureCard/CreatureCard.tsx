@@ -9,14 +9,12 @@ interface ICreatureCardProps {
     creature: Creature | null;
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
-    deviceType: DeviceType;
 }
 
 const CreatureCard: FC<ICreatureCardProps> = ({
     creature,
     isOpen,
     setIsOpen,
-    deviceType,
 }: ICreatureCardProps) => {
     return (
         <ModalDialog
@@ -30,7 +28,6 @@ const CreatureCard: FC<ICreatureCardProps> = ({
                 randomize={() => {}}
                 search=""
                 setSearch={(value: string) => {}}
-                deviceType={deviceType}
                 isCreatureCard
                 onClick={() => setIsOpen(false)}
             />

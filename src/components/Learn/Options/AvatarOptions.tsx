@@ -1,17 +1,16 @@
 import { FC, Dispatch, SetStateAction, useState } from "react";
 import AvatarOption from "@/components/Learn/Options/AvatarOption";
-import styles from "./AvatarOptions.module.scss";
 import Creature from "@/data/creature";
 import CreatureCard from "@/components/Learn/CreatureCard/CreatureCard";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { useDeviceType } from "@/hooks/useIsMobile";
 import { DeviceType } from "@/ts/enums";
+import styles from "./AvatarOptions.module.scss";
 
 interface IAvatarOptionsProps {
     displayedOptions: Creature[];
     displayedSelectedCreature: Creature;
     setDisplayedSelectedCreature: Dispatch<SetStateAction<Creature>>;
     unavailableCreaturesImageUrl: string[];
-    deviceType: DeviceType;
 }
 
 const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
@@ -19,10 +18,10 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
         null
     );
     const [isCreatureCardOpen, setIsCreatureCardOpen] = useState(false);
-    const isMobile = useIsMobile();
+    const deviceType = useDeviceType();
 
     const onClickCreature = (creature: Creature) => {
-        if (isMobile) {
+        if (deviceType === DeviceType.MOBILE) {
             setSelectedCreature(creature);
             setIsCreatureCardOpen((t) => !t);
         }
@@ -45,7 +44,6 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                             isDisabled={props.unavailableCreaturesImageUrl.includes(
                                 creature.imageUrl
                             )}
-                            deviceType={props.deviceType}
                             onClick={() => onClickCreature(creature)}
                         />
                     ))}
@@ -59,7 +57,6 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                 creature={selectedCreature}
                 isOpen={isCreatureCardOpen}
                 setIsOpen={setIsCreatureCardOpen}
-                deviceType={props.deviceType}
             />
         </>
     );
