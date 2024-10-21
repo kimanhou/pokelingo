@@ -1,0 +1,13 @@
+@import "@/mixins.scss";
+
+$image-size: 70%;
+
+div.avatar-details {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    &.creature-card {
+        height: 100%;
+    }
+}

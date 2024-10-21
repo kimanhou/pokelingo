@@ -1,0 +1,12 @@
+@import "@/mixins.scss";
+
+$image-size: 70%;
+
+div.avatar-details {
+    flex: 1;
+    position: relative;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}

@@ -1,0 +1,36 @@
+@import "@/mixins.scss";
+
+$image-size: 70%;
+
+div.image-container {
+    border-radius: 24px 24px 0 0;
+    height: $image-size;
+    padding: 24px;
+    padding-bottom: 0;
+    transition: margin-top 0.2s ease-in;
+    margin-top: 0;
+    h2.avatar-name {
+        text-align: left;
+        font-size: 36px;
+        margin-block: 0;
+        color: transparent;
+    }
+    h3.avatar-id {
+        text-align: left;
+        font-size: 24px;
+        color: rgba(255, 255, 255, 0.4);
+        margin-block: 0;
+    }
+    &.small-desktop {
+        border-radius: 24px;
+        height: unset;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 24px;
+        div.randomize-button-container {
+            @include buttons-container;
+            justify-content: flex-start;
+        }
+    }
+}

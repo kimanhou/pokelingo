@@ -1,0 +1,54 @@
+@import "@/mixins.scss";
+
+div.learn {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    gap: 24px;
+    > div.left,
+    > div.right {
+        flex: 1;
+    }
+    > div.selected-avatar {
+        @include background-image-component;
+    }
+    > div.right {
+        display: flex;
+        flex-direction: column;
+        margin-top: 16px;
+        scrollbar-gutter: stable both-edges;
+        > div.randomize-search-buttons-container {
+            @include buttons-container;
+            margin-top: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        > .buttons-container {
+            @include buttons-container;
+        }
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    div.learn {
+        flex-direction: column;
+        > div.right {
+            margin-top: 0;
+            height: calc(
+                66.66% - 24px - 32px
+            ); // 24px is the gap between the two divs, 32px is the padding of Side Sheet
+            min-height: calc(66.66% - 24px - 32px);
+            > .buttons-container {
+                margin-top: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    div.learn {
+        > div.right {
+            flex: 2;
+        }
+    }
+}
