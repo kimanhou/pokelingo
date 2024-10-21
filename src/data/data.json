@@ -263,10 +263,10 @@
                 "poison"
             ],
             "ja": {
-                "name": "",
-                "altNames": [],
-                "tags": [],
-                "description": ""
+                "name": "ビードル",
+                "altNames": ["Biidoru", "Biidolu"],
+                "tags": ["english"],
+                "description": "A combination of the English words \"bee\" (ビー) and \"needle\" (ニードル)."
             }
         },
         {
@@ -282,10 +282,10 @@
                 "poison"
             ],
             "ja": {
-                "name": "",
-                "altNames": [],
-                "tags": [],
-                "description": ""
+                "name": "コクーン",
+                "altNames": ["Kokuun"],
+                "tags": ["english"],
+                "description": "Derived from the English word \"cocoon\" (コクーン)."
             }
         },
         {
@@ -301,10 +301,10 @@
                 "poison"
             ],
             "ja": {
-                "name": "",
-                "altNames": [],
-                "tags": [],
-                "description": ""
+                "name": "スピアー",
+                "altNames": ["Supiaa"],
+                "tags": ["english"],
+                "description": "Derived from the English word \"spear\" (スピア). It is also an anagram of \"apis\" (アピス), the genus of the honey bee."
             }
         },
         {
@@ -320,10 +320,10 @@
                 "flying"
             ],
             "ja": {
-                "name": "",
-                "altNames": [],
-                "tags": [],
-                "description": ""
+                "name": "ポッポ",
+                "altNames": ["Poppo"],
+                "tags": ["onomatopoeia"],
+                "description": "Onomatopoeia for the cry of a pigeon in Japanese."
             }
         },
         {
@@ -339,10 +339,10 @@
                 "flying"
             ],
             "ja": {
-                "name": "",
-                "altNames": [],
-                "tags": [],
-                "description": ""
+                "name": "ピジョン",
+                "altNames": ["Pijyon"],
+                "tags": ["english"],
+                "description": "Derived from the English word \"pigeon\" (ピジョン)."
             }
         },
         {
@@ -358,10 +358,10 @@
                 "flying"
             ],
             "ja": {
-                "name": "",
-                "altNames": [],
-                "tags": [],
-                "description": ""
+                "name": "ピジョット",
+                "altNames": ["Pijyotto"],
+                "tags": ["english"],
+                "description": "A combination of the English words \"pigeon\" (ピジョン) and either \"parrot\" (パロット) or \"jet\" (ジェット)."
             }
         },
         {
