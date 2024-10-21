@@ -376,10 +376,10 @@
                 "normal"
             ],
             "ja": {
-                "name": "",
-                "altNames": [],
-                "tags": [],
-                "description": ""
+                "name": "コラッタ",
+                "altNames": ["koratta"],
+                "tags": ["kanji", "english"],
+                "description": "Derived from it's evolution ラッタ. In Japanese baby animals are prefixed with コ (小) which would translates to \"baby ラッタ\" here."
             }
         },
         {
@@ -394,10 +394,10 @@
                 "normal"
             ],
             "ja": {
-                "name": "",
-                "altNames": [],
-                "tags": [],
-                "description": ""
+                "name": "ラッタ",
+                "altNames": ["ratta"],
+                "tags": ["english"],
+                "description": "Derived from the English word \"rat\" (ラット)."
             }
         }
     ]
