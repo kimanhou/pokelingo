@@ -5,10 +5,10 @@ const getTestEnvName = () => {
     if(process.env.TEST_ENV_NAME != null){
         return process.env.TEST_ENV_NAME
     } else {
-        return "test-env"
+        return "test"
     }
 }
 
 export default mergeConfig(viteConfig, defineConfig({
-    base: `/pokelingo/${getTestEnvName()}`,
+    base: `/pokelingo/env/${getTestEnvName()}`,
 }))
