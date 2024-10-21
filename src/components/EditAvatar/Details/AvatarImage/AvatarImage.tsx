@@ -52,7 +52,7 @@ const AvatarImage: FC<IAvatarImageProps> = (props) => {
       <div
         className={`${styles.avatarImage} ${smallDesktopClassName}`}
         style={{
-          backgroundImage: `url(${props.creature.imageUrl})`,
+          backgroundImage: `url(${props.creature.getImageUrl()})`,
           backgroundPositionY: props.creature.id < 0 ? "bottom" : "center",
           bottom,
           opacity,

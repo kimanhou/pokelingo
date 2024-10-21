@@ -13,7 +13,7 @@ for(let i=0; i<9; i++){
     creatures.push(
         new Creature(
             i+1,
-            previousCreatures[i]?.imageUrl ?? "",
+            previousCreatures[i]?.imageUrl ?? `/assets/creature/${i+1}.svg`,
             ["gen1"],
             AVATARS[i].height ?? 0,
             AVATARS[i].weight ?? 0,

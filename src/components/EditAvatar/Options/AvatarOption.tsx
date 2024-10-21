@@ -50,7 +50,7 @@ const AvatarOption: FC<IAvatarOptionProps> = (props) => {
         >
             <div
                 className={styles.avatarOption}
-                style={{ backgroundImage: `url(${props.creature.imageUrl})` }}
+                style={{ backgroundImage: `url(${props.creature.getImageUrl()})` }}
             ></div>
         </div>
     );

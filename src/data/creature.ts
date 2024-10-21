@@ -15,6 +15,8 @@ export default class Creature {
     ) {
     }
 
+    getImageUrl = () => import.meta.env.BASE_URL + this.imageUrl
+
     static fromJSON = (json: any) => {
         return new Creature(
             JsonUtil.assert(json.id, Type.NUMBER),
