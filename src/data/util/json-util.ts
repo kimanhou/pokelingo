@@ -7,6 +7,12 @@ class JsonUtil{
         }
         return this.assert(value, type);
     }
+    assertNullOptional = <T>(value : any, type : Type<T>) : T | null => {
+        if(value == null) {
+            return null;
+        }
+        return this.assert(value, type);
+    }
     assert = <T>(value : any, type : Type<T>) : T => {
         if(value == null) {
             throw new Error(`Value was null`);
