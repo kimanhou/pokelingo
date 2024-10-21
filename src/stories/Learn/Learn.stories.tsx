@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useArgs } from "@storybook/preview-api";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
-import EditAvatar from "@/components/EditAvatar/EditAvatar";
+import Learn from "@/components/Learn/Learn";
 import SideSheet from "@/components/common/SideSheet/SideSheet";
 import Avatar from "@/components/common/Avatar/Avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,12 +10,12 @@ import Root from "@/data/root";
 
 const ROOT_DATA = Root.get();
 
-const meta: Meta<typeof EditAvatar> = {
-    component: EditAvatar,
+const meta: Meta<typeof Learn> = {
+    component: Learn,
 };
 
 export default meta;
-type Story = StoryObj<typeof EditAvatar>;
+type Story = StoryObj<typeof Learn>;
 
 export const Default: Story = {
     args: {},
@@ -70,7 +70,7 @@ export const Default: Story = {
                         document.body.style.overflow = "hidden";
                     }}
                 >
-                    <EditAvatar {...args} />
+                    <Learn {...args} />
                 </SideSheet>
             </>
         );

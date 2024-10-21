@@ -1,8 +1,8 @@
 import { FC, Dispatch, SetStateAction, useState } from "react";
-import AvatarOption from "@/components/EditAvatar/Options/AvatarOption";
+import AvatarOption from "@/components/Learn/Options/AvatarOption";
 import styles from "./AvatarOptions.module.scss";
 import Creature from "@/data/creature";
-import CreatureCard from "@/components/EditAvatar/CreatureCard/CreatureCard";
+import CreatureCard from "@/components/Learn/CreatureCard/CreatureCard";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface IAvatarOptionsProps {

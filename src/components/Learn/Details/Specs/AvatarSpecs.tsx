@@ -6,7 +6,7 @@ import {
     Dispatch,
     SetStateAction,
 } from "react";
-import TypeTag from "@/components/EditAvatar/Details/Specs/TypeTag";
+import TypeTag from "@/components/Learn/Details/Specs/TypeTag";
 import { AvatarTypeColors } from "@/ts/enums";
 import styles from "./AvatarSpecs.module.scss";
 

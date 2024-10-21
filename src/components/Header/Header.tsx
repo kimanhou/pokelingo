@@ -17,7 +17,7 @@ interface IHeaderProps {
     timeLeft: number | null;
     selectedMember: TeamMemberType | null;
     isHidePositions: boolean;
-    openEditAvatar: () => void;
+    openLearn: () => void;
 }
 
 const Header: FC<IHeaderProps> = (props) => {

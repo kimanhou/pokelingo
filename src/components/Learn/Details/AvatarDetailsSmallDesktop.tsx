@@ -1,7 +1,7 @@
 import { FC } from "react";
-import AvatarSpecs from "@/components/EditAvatar/Details/Specs/AvatarSpecs";
-import ImageContainer from "@/components/EditAvatar/Details/ImageContainer/ImageContainer";
-import AvatarImage from "@/components/EditAvatar/Details/AvatarImage/AvatarImage";
+import AvatarSpecs from "@/components/Learn/Details/Specs/AvatarSpecs";
+import ImageContainer from "@/components/Learn/Details/ImageContainer/ImageContainer";
+import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
 import styles from "./AvatarDetailsSmallDesktop.module.scss";
 import Creature from "@/data/creature";
 

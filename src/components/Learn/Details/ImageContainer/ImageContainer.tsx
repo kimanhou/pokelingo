@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import Button from "@/components/common/Button/Button";
-import SearchSmallDesktop from "@/components/EditAvatar/Search/SearchSmallDesktop";
+import SearchSmallDesktop from "@/components/Learn/Search/SearchSmallDesktop";
 import { faShuffle } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ImageContainer.module.scss";
 import IconButton from "@/components/common/IconButton/IconButton";

@@ -1,8 +1,8 @@
 import { FC, useEffect, useRef, useState } from "react";
-import ImageContainer from "@/components/EditAvatar/Details/ImageContainer/ImageContainer";
-import AvatarSpecs from "@/components/EditAvatar/Details/Specs/AvatarSpecs";
-import AvatarDetailsSmallDesktop from "@/components/EditAvatar/Details/AvatarDetailsSmallDesktop";
-import AvatarImage from "@/components/EditAvatar/Details/AvatarImage/AvatarImage";
+import ImageContainer from "@/components/Learn/Details/ImageContainer/ImageContainer";
+import AvatarSpecs from "@/components/Learn/Details/Specs/AvatarSpecs";
+import AvatarDetailsSmallDesktop from "@/components/Learn/Details/AvatarDetailsSmallDesktop";
+import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
 import { getMainColor } from "@/ts/utils";
 import { useIsLargeDesktop } from "@/hooks/useIsMobile";
 import Creature from "@/data/creature";

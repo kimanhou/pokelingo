@@ -2,17 +2,17 @@ import { useEffect, useState } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Footer } from "@/components/Footer/Footer";
 import SideSheet from "@/components/common/SideSheet/SideSheet";
-import EditAvatar from "@/components/EditAvatar/EditAvatar";
-import "./App.scss";
+import Learn from "@/components/Learn/Learn";
 import Root from "@/data/root";
+import "./App.scss";
 
-const ROOT_DATA = Root.get()
+const ROOT_DATA = Root.get();
 
 function App() {
-    const [isEditAvatarOpen, setIsEditAvatarOpen] = useState(false);
+    const [isLearnOpen, setIsLearnOpen] = useState(false);
 
     useEffect(() => {
-        setIsEditAvatarOpen(true);
+        setIsLearnOpen(true);
     }, []);
 
     return (
@@ -23,14 +23,14 @@ function App() {
                         path="/"
                         element={
                             <SideSheet
-                                isVisible={isEditAvatarOpen}
-                                setIsVisible={setIsEditAvatarOpen}
+                                isVisible={isLearnOpen}
+                                setIsVisible={setIsLearnOpen}
                                 transitionFromBottom={true}
                                 onEnter={() => {
                                     document.body.style.overflow = "hidden";
                                 }}
                             >
-                                <EditAvatar creatures={ ROOT_DATA.creatures } />
+                                <Learn creatures={ROOT_DATA.creatures} />
                             </SideSheet>
                         }
                     ></Route>

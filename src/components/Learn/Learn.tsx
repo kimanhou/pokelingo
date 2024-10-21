@@ -1,19 +1,19 @@
 import { FC, useEffect, useState } from "react";
-import AvatarOptions from "@/components/EditAvatar/Options/AvatarOptions";
+import AvatarOptions from "@/components/Learn/Options/AvatarOptions";
 import Button from "@/components/common/Button/Button";
-import AvatarDetails from "@/components/EditAvatar/Details/AvatarDetails";
-import Search from "@/components/EditAvatar/Search/Search";
+import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
+import Search from "@/components/Learn/Search/Search";
 import { faShuffle } from "@fortawesome/free-solid-svg-icons";
 import { useIsMobile, useIsSmallDesktop } from "@/hooks/useIsMobile";
 import { getMainColor, scrollTo } from "@/ts/utils";
-import styles from "./EditAvatar.module.scss";
+import styles from "./Learn.module.scss";
 import Creature from "@/data/creature";
 
-interface IEditAvatarProps {
-    creatures : Creature[]
+interface ILearnProps {
+    creatures: Creature[];
 }
 
-const EditAvatar: FC<IEditAvatarProps> = (props) => {
+const Learn: FC<ILearnProps> = (props) => {
     const isSmallDesktop = useIsSmallDesktop();
     const isMobile = useIsMobile();
 
@@ -34,7 +34,7 @@ const EditAvatar: FC<IEditAvatarProps> = (props) => {
     }, [search]);
 
     return (
-        <div className={styles.editAvatar}>
+        <div className={styles.learn}>
             <AvatarDetails
                 creature={displayedSelectedCreature}
                 randomize={randomize}
@@ -71,4 +71,4 @@ const EditAvatar: FC<IEditAvatarProps> = (props) => {
     );
 };
 
-export default EditAvatar;
+export default Learn;
