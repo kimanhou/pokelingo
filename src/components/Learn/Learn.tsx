@@ -24,6 +24,9 @@ const Learn: FC<ILearnProps> = (props) => {
     const [displayedSelectedCreature, setDisplayedSelectedCreature] =
         useState<Creature>(Creature.getDefaultValue());
     const [search, setSearch] = useState("");
+    const [displayedOptions, setDisplayedOptions] = useState<Creature[]>(
+        props.creatures
+    );
 
     const mainColor = getMainColor(displayedSelectedCreature);
 
@@ -35,6 +38,18 @@ const Learn: FC<ILearnProps> = (props) => {
 
     useEffect(() => {
         randomize();
+    }, []);
+
+    useEffect(() => {
+        setDisplayedOptions(
+            props.creatures.filter(
+                (creature) =>
+                    creature.id === parseInt(search) ||
+                    creature.ja.name
+                        .toLowerCase()
+                        .includes(search.toLowerCase())
+            )
+        );
     }, [search]);
 
     return (
@@ -63,7 +78,7 @@ const Learn: FC<ILearnProps> = (props) => {
                     </div>
                 )}
                 <AvatarOptions
-                    displayedOptions={props.creatures}
+                    displayedOptions={displayedOptions}
                     displayedSelectedCreature={displayedSelectedCreature}
                     setDisplayedSelectedCreature={setDisplayedSelectedCreature}
                     unavailableCreaturesImageUrl={[]}
