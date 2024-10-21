@@ -40,6 +40,7 @@ const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
                 deviceType={deviceType}
                 description={props.creature.getDescription()}
                 isCreatureCard={props.isCreatureCard}
+                mainColor={props.mainColor}
             />
             <CreatureName name={props.creature.getName()} color="var(--bg)" />
         </div>

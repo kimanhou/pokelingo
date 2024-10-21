@@ -11,8 +11,8 @@ import {
 } from "@/ts/utils";
 import { useDeviceType } from "@/hooks/useIsMobile";
 import Creature from "@/data/creature";
-import styles from "./AvatarDetails.module.scss";
 import { DeviceType } from "@/ts/enums";
+import styles from "./AvatarDetails.module.scss";
 
 interface IAvatarDetailsProps {
     creature: Creature;
@@ -84,6 +84,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                         setAvatarSpecsHeight={setAvatarSpecsHeight}
                         isCreatureCard={props.isCreatureCard}
                         name={props.creature.getName()}
+                        mainColor={mainColor}
                     />
                     {!props.isCreatureCard && (
                         <CreatureName
