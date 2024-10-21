@@ -1,8 +1,7 @@
 import { FC } from "react";
 import Ball from "@/assets/Ball";
-import { Avatar } from "@/types";
-import styles from "./AvatarImage.module.scss";
 import Creature from "@/data/creature";
+import styles from "./AvatarImage.module.scss";
 
 interface IAvatarImageProps {
     creature: Creature;
@@ -10,7 +9,6 @@ interface IAvatarImageProps {
     imageOpacity?: number;
     avatarDetailsHeight?: number;
     avatarSpecsHeight?: number;
-    isLargeDesktop?: boolean;
 }
 
 const AvatarImage: FC<IAvatarImageProps> = (props) => {

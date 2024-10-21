@@ -76,7 +76,6 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                         imageOpacity={imageOpacity}
                         avatarDetailsHeight={avatarDetailsHeight}
                         avatarSpecsHeight={avatarSpecsHeight}
-                        isLargeDesktop={isLargeDesktop}
                     />
                     <AvatarSpecs
                         types={props.creature.types}
