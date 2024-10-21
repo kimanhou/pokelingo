@@ -44,7 +44,7 @@ const Learn: FC<ILearnProps> = (props) => {
                 setSearch={setSearch}
             />
             <div className={styles.right}>
-                {!isSmallDesktop && (
+                {!isSmallDesktop && !isMobile && (
                     <div className={styles.randomizeSearchButtonsContainer}>
                         <Button
                             onClick={randomize}

@@ -48,7 +48,8 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
 
     return (
         <>
-            {!props.isSmallDesktop && (
+            {((!props.isSmallDesktop && !props.isMobile) ||
+                (props.isMobile && props.isCreatureCard)) && (
                 <div
                     className={`${styles.avatarDetails} ${creatureCardClassName}`}
                     ref={avatarDetailsRef}
@@ -76,7 +77,6 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                         isCreatureCard={props.isCreatureCard}
                         name={props.creature.ja.name}
                     />
-
                     {!props.isCreatureCard && (
                         <CreatureName
                             name={props.creature.ja.name}
@@ -85,7 +85,8 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                     )}
                 </div>
             )}
-            {props.isSmallDesktop && (
+            {(props.isSmallDesktop ||
+                (props.isMobile && !props.isCreatureCard)) && (
                 <AvatarDetailsSmallDesktop
                     creature={props.creature}
                     mainColor={mainColor}
@@ -93,6 +94,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                     search={props.search}
                     setSearch={props.setSearch}
                     isMobile={props.isMobile}
+                    isCreatureCard={props.isCreatureCard}
                 />
             )}
         </>

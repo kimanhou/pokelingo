@@ -42,8 +42,8 @@ export const capitalizeFirstChar = (s: string) => {
     return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
-export const getMainColor = (creature: (Creature | null)) => {
-    if(creature == null) return "var(--color-medium-grey)";
+export const getMainColor = (creature: Creature | null) => {
+    if (creature == null) return "var(--color-medium-grey)";
     const mainType =
         creature.types[0]?.toUpperCase() as keyof typeof AvatarTypeColors;
     return AvatarTypeColors[mainType] ?? "var(--color-medium-grey)";

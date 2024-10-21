@@ -7,9 +7,9 @@ import {
     SetStateAction,
 } from "react";
 import TypeTag from "@/components/Learn/Details/Specs/TypeTag";
+import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
 import { AvatarTypeColors } from "@/ts/enums";
 import styles from "./AvatarSpecs.module.scss";
-import CreatureName from "../CreatureName/CreatureName";
 
 interface IAvatarSpecsProps {
     types: string[];
