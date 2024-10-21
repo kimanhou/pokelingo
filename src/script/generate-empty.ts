@@ -9,15 +9,15 @@ const previousCreatures = Root.get().creatures
 
 const creatures = [];
 
-for(let i=0; i<9; i++){
+for(let i=0; i<20; i++){
     creatures.push(
         new Creature(
             i+1,
             previousCreatures[i]?.imageUrl ?? `/assets/creature/${i+1}.svg`,
-            ["gen1"],
-            AVATARS[i].height ?? 0,
-            AVATARS[i].weight ?? 0,
-            AVATARS[i].types ?? [],
+            previousCreatures[i]?.tags ?? ["gen1"],
+            previousCreatures[i]?.height ?? AVATARS[i].height ?? 0,
+            previousCreatures[i]?.weight ?? AVATARS[i].weight ?? 0,
+            previousCreatures[i]?.types ?? AVATARS[i].types ?? [],
             new CreatureJa(
                 previousCreatures[i]?.ja.name ?? "",
                 previousCreatures[i]?.ja.altNames ?? [],
