@@ -9,9 +9,10 @@ import {
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
     isMobileCreatureCard as isMobileCreatureCardFunc,
 } from "@/ts/utils";
-import { useDeviceType, useIsLargeDesktop } from "@/hooks/useIsMobile";
+import { useDeviceType } from "@/hooks/useIsMobile";
 import Creature from "@/data/creature";
 import styles from "./AvatarDetails.module.scss";
+import { DeviceType } from "@/ts/enums";
 
 interface IAvatarDetailsProps {
     creature: Creature;
@@ -24,7 +25,6 @@ interface IAvatarDetailsProps {
 
 const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
     const avatarDetailsRef = useRef<HTMLDivElement>(null);
-    const isLargeDesktop = useIsLargeDesktop();
 
     const [imageOpacity, setImageOpacity] = useState<number>(0);
     const [avatarDetailsHeight, setAvatarDetailsHeight] = useState<
@@ -45,6 +45,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
         deviceType,
         isCreatureCard: props.isCreatureCard || false,
     });
+    const isLargeDesktop = deviceType === DeviceType.LARGE_DESKTOP;
 
     useEffect(() => {
         setTimeout(() => {

@@ -16,12 +16,18 @@ interface IImageContainerProps {
     isCreatureCard?: boolean;
 }
 
-const ImageContainer: FC<IImageContainerProps> = (
-    props: IImageContainerProps
-) => {
+const ImageContainer: FC<IImageContainerProps> = ({
+    mainColor,
+    name,
+    avatarId,
+    search = "",
+    setSearch = () => {},
+    randomize = () => {},
+    isCreatureCard,
+}: IImageContainerProps) => {
+    const deviceType = useDeviceType();
     const [marginTop, setMarginTop] = useState("100%");
 
-    const deviceType = useDeviceType();
     const isSmallDesktop = deviceType === DeviceType.SMALL_DESKTOP;
     const smallDesktopClassName = isSmallDesktop ? styles.smallDesktop : "";
 
@@ -35,16 +41,16 @@ const ImageContainer: FC<IImageContainerProps> = (
         <div
             className={`${styles.imageContainer} ${smallDesktopClassName}`}
             style={{
-                backgroundColor: props.mainColor,
+                backgroundColor: mainColor,
                 marginTop: isSmallDesktop ? 0 : marginTop,
             }}
         >
-            {!props.isCreatureCard && (
+            {!isCreatureCard && (
                 <div>
-                    <h2 className={styles.avatarName}>{props.name}</h2>
-                    {props.avatarId > 0 && (
+                    <h2 className={styles.avatarName}>{name}</h2>
+                    {avatarId > 0 && (
                         <h3 className={styles.avatarId}>
-                            #{props.avatarId.toString().padStart(3, "0")}
+                            #{avatarId.toString().padStart(3, "0")}
                         </h3>
                     )}
                 </div>
@@ -52,16 +58,13 @@ const ImageContainer: FC<IImageContainerProps> = (
             {isSmallDesktop && (
                 <div className={styles.randomizeButtonContainer}>
                     <Button
-                        onClick={props.randomize || (() => {})}
+                        onClick={randomize}
                         text="Randomize"
                         icon={faShuffle}
                         backgroundColor="rgba(255, 255, 255, 0.3)"
                         shrink
                     />
-                    <SearchSmallDesktop
-                        search={props.search || ""}
-                        setSearch={props.setSearch || (() => {})}
-                    />
+                    <SearchSmallDesktop search={search} setSearch={setSearch} />
                 </div>
             )}
         </div>
