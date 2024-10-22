@@ -22,12 +22,8 @@ dialog.modal-dialog {
         display: flex;
         flex-direction: column;
     }
-    &.user-menu {
-        margin-right: calc((100vw - 1170px) / 2);
-        margin-top: 84px;
-        &::backdrop {
-            background-color: transparent;
-        }
+    &:focus-visible {
+        outline: none;
     }
     section:global(.modal-dialog-section) {
         margin-bottom: 32px;

@@ -55,7 +55,6 @@ const Learn: FC<ILearnProps> = (props) => {
             <AvatarDetails
                 creature={displayedSelectedCreature}
                 randomize={randomize}
-                deviceType={deviceType}
                 search={search}
                 setSearch={setSearch}
             />
@@ -80,7 +79,6 @@ const Learn: FC<ILearnProps> = (props) => {
                     displayedSelectedCreature={displayedSelectedCreature}
                     setDisplayedSelectedCreature={setDisplayedSelectedCreature}
                     unavailableCreaturesImageUrl={[]}
-                    deviceType={deviceType}
                 />
             </div>
         </div>

@@ -15,28 +15,32 @@ export const useMediaQuery = (query: string) => {
     return matches;
 };
 
-export const useIsMobile = () => {
+const useIsMobile = () => {
     return useMediaQuery("screen and (max-width: 768px)");
 };
 
-export const useIsSmallDesktop = () => {
+const useIsSmallDesktop = () => {
     return useMediaQuery(
         "screen and (max-width: 1170px) and (min-width: 768px)"
     );
 };
 
-export const useIsLargeDesktop = () => {
+const useIsLargeDesktop = () => {
     return useMediaQuery("screen and (min-width: 1441px)");
 };
 
 export const useDeviceType = () => {
-    if (useIsMobile()) {
+    const isMobile = useIsMobile();
+    const isSmallDesktop = useIsSmallDesktop();
+    const isLargeDesktop = useIsLargeDesktop();
+
+    if (isMobile) {
         return DeviceType.MOBILE;
     }
-    if (useIsSmallDesktop()) {
+    if (isSmallDesktop) {
         return DeviceType.SMALL_DESKTOP;
     }
-    if (useIsLargeDesktop()) {
+    if (isLargeDesktop) {
         return DeviceType.LARGE_DESKTOP;
     }
     return DeviceType.DESKTOP;

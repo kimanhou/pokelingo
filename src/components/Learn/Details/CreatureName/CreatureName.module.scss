@@ -8,13 +8,19 @@ div.name-container {
         top: unset;
         left: unset;
         > h2.avatar-name {
-            font-size: var(--font-size-xlarge);
             margin-block-start: 0.83em;
             margin-block-end: 0.83em;
         }
     }
+    &.align-center {
+        text-align: center;
+    }
+    &.fontSizeXl {
+        > h2.avatar-name {
+            font-size: var(--font-size-xlarge);
+        }
+    }
     > h2.avatar-name {
-        text-align: left;
         font-size: var(--font-size-xxlarge);
         color: var(--fg);
         margin-block: 0;
