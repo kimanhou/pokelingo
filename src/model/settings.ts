@@ -1,5 +1,4 @@
-import JsonUtil from "@/model/type/json-util"
-import Type from "@/model/type/type"
+import Type from "@/model/type"
 import Reading from "./reading";
 
 export default class Settings {
@@ -10,7 +9,7 @@ export default class Settings {
 
     static fromJSON = (json: any) => {
         return new Settings(
-            JsonUtil.assert(json.reading, Type.of(Reading))
+            Type.of(Reading).read(json.reading)
         )
     }
 }

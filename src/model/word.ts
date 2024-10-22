@@ -1,5 +1,4 @@
-import JsonUtil from "@/model/type/json-util"
-import Type from "@/model/type/type"
+import Type from "@/model/type"
 import Reading from "./reading";
 
 export default class Word {
@@ -53,9 +52,9 @@ export default class Word {
 
     static fromJSON = (json: any) => {
         return new Word(
-            JsonUtil.assert(json.romaji, Type.STRING),
-            JsonUtil.assert(json.kana, Type.STRING),
-            JsonUtil.assertOptional(json.kanji, Type.STRING),
+            Type.STRING.read(json.romaji),
+            Type.STRING.read(json.kana),
+            Type.STRING.readOpt(json.kanji),
         )
     }
 

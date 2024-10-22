@@ -1,7 +1,5 @@
-import JsonUtil from "@/model/type/json-util"
-import Type from "@/model/type/type"
+import Type from "@/model/type"
 import Reading from "./reading";
-import ARRAY from "./type/array-of-type";
 import Word from "./word";
 
 export default class Text {
@@ -27,15 +25,15 @@ export default class Text {
 
     static fromJSON = (json: any) => {
         return new Text(
-            JsonUtil.assert(json.value, Type.STRING),
-            JsonUtil.assert(json.words, ARRAY(Type.of(Word))),
+            Type.STRING.read(json.value),
+            Type.ARRAY(Type.of(Word)).read(json.words),
         )
     }
 
     static getEmpty = () => {
         return new Text(
             Type.STRING.emptyValue,
-            ARRAY(Type.of(Word)).emptyValue,
+            Type.ARRAY(Type.of(Word)).emptyValue,
         )
     }
 }

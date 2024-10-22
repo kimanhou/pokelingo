@@ -1,6 +1,4 @@
-import ARRAY from "@/model/type/array-of-type"
-import JsonUtil from "@/model/type/json-util"
-import Type from "@/model/type/type"
+import Type from "@/model/type"
 import Word from "@/model/word"
 import Text from "@/model/text"
 import Reading from "./reading"
@@ -31,14 +29,14 @@ export default class Creature {
 
     static fromJSON = (json: any) => {
         return new Creature(
-            JsonUtil.assert(json.id, Type.NUMBER),
-            JsonUtil.assert(json.en, Type.STRING),
-            JsonUtil.assert(json.ja, Type.of(Word)),
-            JsonUtil.assert(json.imageUrl, Type.STRING),
-            JsonUtil.assert(json.tags, ARRAY(Type.STRING)),
-            JsonUtil.assert(json.types, ARRAY(Type.STRING)),
-            JsonUtil.assert(json.origin, Type.of(Text)),
-            JsonUtil.assert(json.originTags, ARRAY(Type.STRING)),
+            Type.NUMBER.read(json.id),
+            Type.STRING.read(json.en),
+            Type.of(Word).read(json.ja),
+            Type.STRING.read(json.imageUrl),
+            Type.ARRAY(Type.STRING).read(json.tags),
+            Type.ARRAY(Type.STRING).read(json.types),
+            Type.of(Text).read(json.origin),
+            Type.ARRAY(Type.STRING).read(json.originTags),
         )
     }
 
@@ -48,10 +46,10 @@ export default class Creature {
             Type.STRING.emptyValue,
             Type.of(Word).emptyValue,
             Type.STRING.emptyValue,
-            ARRAY(Type.STRING).emptyValue,
-            ARRAY(Type.STRING).emptyValue,
+            Type.ARRAY(Type.STRING).emptyValue,
+            Type.ARRAY(Type.STRING).emptyValue,
             Type.of(Text).emptyValue,
-            ARRAY(Type.STRING).emptyValue,
+            Type.ARRAY(Type.STRING).emptyValue,
         )
     }
 }
