@@ -1,5 +1,5 @@
-import JsonUtil from "@/data/util/json-util";
-import Type from "@/data/util/type";
+import JsonUtil from "@/model/type/json-util";
+import Type from "@/model/type/type";
 
 const ARRAY = <T> (
     type : Type<T>

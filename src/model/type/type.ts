@@ -39,4 +39,12 @@ export default class Type<T>{
         value => deserializer(value),
         ({} as any)
     );
+    static ENUM = <T> (
+        deserializer : (json: any) => T
+    ) => new Type<T>(
+        "enum", 
+        value => typeof value === "string",
+        value => deserializer(value),
+        ({} as any)
+    );
 }

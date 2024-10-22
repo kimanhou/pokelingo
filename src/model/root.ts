@@ -1,7 +1,7 @@
-import ARRAY from "@/data/util/array-of-type"
-import JsonUtil from "@/data/util/json-util"
-import Type from "@/data/util/type"
-import Creature from "@/data/creature"
+import ARRAY from "@/model/type/array-of-type"
+import JsonUtil from "@/model/type/json-util"
+import Type from "@/model/type/type"
+import Creature from "@/model/creature"
 import data from "@/data/data.json"
 
 export default class Root {

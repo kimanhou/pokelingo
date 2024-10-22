@@ -3,7 +3,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import { Footer } from "@/components/Footer/Footer";
 import SideSheet from "@/components/common/SideSheet/SideSheet";
 import Learn from "@/components/Learn/Learn";
-import Root from "@/data/root";
+import Root from "@/model/root";
 import "./App.scss";
 
 const ROOT_DATA = Root.get();

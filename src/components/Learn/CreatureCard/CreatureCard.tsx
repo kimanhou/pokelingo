@@ -1,5 +1,5 @@
 import { Dispatch, FC, SetStateAction } from "react";
-import Creature from "@/data/creature";
+import Creature from "@/model/creature";
 import ModalDialog from "@/components/common/ModalDialog/ModalDialog";
 import styles from "./CreatureCard.module.scss";
 import AvatarDetails from "../Details/AvatarDetails";
