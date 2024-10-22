@@ -31,15 +31,10 @@ jobs:
       - run: npm install
       - run: npm run build
 
-      - name: Set branch deploy folder
-        if: github.ref != 'refs/heads/master'
-        env:
-          DEPLOY_DIR: branch/${{ github.ref_name }}
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
-          destination_dir: ${{ env.DEPLOY_DIR }}
+          destination_dir: ${{ github.ref != 'refs/heads/master' && 'branch/${{ github.ref_name }}' || '' }}
