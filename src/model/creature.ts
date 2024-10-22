@@ -33,25 +33,25 @@ export default class Creature {
         return new Creature(
             JsonUtil.assert(json.id, Type.NUMBER),
             JsonUtil.assert(json.en, Type.STRING),
-            JsonUtil.assert(json.ja, Type.OBJECT(Word.fromJSON)),
+            JsonUtil.assert(json.ja, Type.of(Word)),
             JsonUtil.assert(json.imageUrl, Type.STRING),
             JsonUtil.assert(json.tags, ARRAY(Type.STRING)),
             JsonUtil.assert(json.types, ARRAY(Type.STRING)),
-            JsonUtil.assert(json.origin, Type.OBJECT(Text.fromJSON)),
+            JsonUtil.assert(json.origin, Type.of(Text)),
             JsonUtil.assert(json.originTags, ARRAY(Type.STRING)),
         )
     }
 
-    static getDefaultValue = () => {
+    static getEmpty = () => {
         return new Creature(
-            Type.NUMBER.defaultValue,
-            Type.STRING.defaultValue,
-            Word.getDefaultValue(),
-            Type.STRING.defaultValue,
-            ARRAY(Type.STRING).defaultValue,
-            ARRAY(Type.STRING).defaultValue,
-            Text.getDefaultValue(),
-            ARRAY(Type.STRING).defaultValue,
+            Type.NUMBER.emptyValue,
+            Type.STRING.emptyValue,
+            Type.of(Word).emptyValue,
+            Type.STRING.emptyValue,
+            ARRAY(Type.STRING).emptyValue,
+            ARRAY(Type.STRING).emptyValue,
+            Type.of(Text).emptyValue,
+            ARRAY(Type.STRING).emptyValue,
         )
     }
 }

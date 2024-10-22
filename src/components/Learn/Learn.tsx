@@ -22,7 +22,7 @@ const Learn: FC<ILearnProps> = (props) => {
     const isMediumDesktopOrBigger = isMediumDesktopOrBiggerFunc(deviceType);
 
     const [displayedSelectedCreature, setDisplayedSelectedCreature] =
-        useState<Creature>(Creature.getDefaultValue());
+        useState<Creature>(Creature.getEmpty());
     const [search, setSearch] = useState("");
     const [displayedOptions, setDisplayedOptions] = useState<Creature[]>(
         props.creatures

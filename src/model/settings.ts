@@ -10,7 +10,7 @@ export default class Settings {
 
     static fromJSON = (json: any) => {
         return new Settings(
-            JsonUtil.assert(json.reading, Type.ENUM(Reading.fromJSON))
+            JsonUtil.assert(json.reading, Type.of(Reading))
         )
     }
 }

@@ -28,14 +28,14 @@ export default class Text {
     static fromJSON = (json: any) => {
         return new Text(
             JsonUtil.assert(json.value, Type.STRING),
-            JsonUtil.assert(json.words, ARRAY(Type.OBJECT(Word.fromJSON))),
+            JsonUtil.assert(json.words, ARRAY(Type.of(Word))),
         )
     }
 
-    static getDefaultValue = () => {
+    static getEmpty = () => {
         return new Text(
-            Type.STRING.defaultValue,
-            ARRAY(Type.OBJECT(Word.fromJSON)).defaultValue,
+            Type.STRING.emptyValue,
+            ARRAY(Type.of(Word)).emptyValue,
         )
     }
 }

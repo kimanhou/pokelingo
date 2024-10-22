@@ -12,7 +12,7 @@ export default class Root {
 
     static fromJSON = (json: any) => {
         return new Root(
-            JsonUtil.assert(json.creatures, ARRAY(Type.OBJECT(Creature.fromJSON)))
+            JsonUtil.assert(json.creatures, ARRAY(Type.of(Creature)))
         )
     }
 

@@ -18,5 +18,9 @@ export default class Reading {
         }
         return value;
     }
+
+    static getEmpty = () => {
+        return Reading.ROMAJI;
+    }
     
 }

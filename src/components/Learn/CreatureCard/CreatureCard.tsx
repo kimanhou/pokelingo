@@ -24,7 +24,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
             className={styles.creatureCard}
         >
             <AvatarDetails
-                creature={creature || Creature.getDefaultValue()}
+                creature={creature || Creature.getEmpty()}
                 randomize={() => {}}
                 search=""
                 setSearch={(value: string) => {}}

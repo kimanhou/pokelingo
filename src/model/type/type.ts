@@ -3,7 +3,7 @@ export default class Type<T>{
         readonly name : string,
         readonly assertFn : (value: any) => boolean,
         readonly deserialize : (value: any) => T,
-        readonly defaultValue : T
+        readonly emptyValue : T
     ){
     }
 
@@ -31,20 +31,12 @@ export default class Type<T>{
         value => new Date(value),
         new Date(0)
     );
-    static OBJECT = <T> (
-        deserializer : (json: any) => T
+    static of = <T> (
+        klass : {fromJSON : (json : any) => T, getEmpty : () => T}
     ) => new Type<T>(
-        "object", 
-        value => typeof value === "object",
-        value => deserializer(value),
-        ({} as any)
-    );
-    static ENUM = <T> (
-        deserializer : (json: any) => T
-    ) => new Type<T>(
-        "enum", 
-        value => typeof value === "string",
-        value => deserializer(value),
-        ({} as any)
+        "custom-type", 
+        value => true,
+        value => klass.fromJSON(value),
+        klass.getEmpty()
     );
 }

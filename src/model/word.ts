@@ -59,11 +59,11 @@ export default class Word {
         )
     }
 
-    static getDefaultValue = () => {
+    static getEmpty = () => {
         return new Word(
-            Type.STRING.defaultValue,
-            Type.STRING.defaultValue,
-            Type.STRING.defaultValue,
+            Type.STRING.emptyValue,
+            Type.STRING.emptyValue,
+            Type.STRING.emptyValue,
         )
     }
 }
