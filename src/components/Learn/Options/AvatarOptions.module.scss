@@ -29,6 +29,9 @@ div.avatar-options {
         overflow-y: auto;
         scroll-behavior: smooth;
         scrollbar-color: var(--color-medium-grey) transparent;
+        &:focus-visible {
+            outline: none;
+        }
     }
 }
 

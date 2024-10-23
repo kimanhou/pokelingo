@@ -18,6 +18,7 @@ interface ILearnProps {
 }
 
 const Learn: FC<ILearnProps> = (props) => {
+    const NUMBER_CREATURES_PER_LINE = 8;
     const deviceType = useDeviceType();
     const isMediumDesktopOrBigger = isMediumDesktopOrBiggerFunc(deviceType);
 
@@ -55,10 +56,46 @@ const Learn: FC<ILearnProps> = (props) => {
             });
         }
         if (e.key === "ArrowUp") {
-            console.log("go up");
+            setDisplayedSelectedCreature((t) => {
+                const lineNumber = Math.floor(t.id / NUMBER_CREATURES_PER_LINE);
+                const columnNumber = t.id % NUMBER_CREATURES_PER_LINE;
+
+                if (lineNumber === 0) {
+                    return props.creatures[
+                        Math.floor(
+                            props.creatures.length / NUMBER_CREATURES_PER_LINE
+                        ) *
+                            NUMBER_CREATURES_PER_LINE +
+                            columnNumber -
+                            1
+                    ];
+                }
+
+                return props.creatures[
+                    (lineNumber - 1) * NUMBER_CREATURES_PER_LINE +
+                        columnNumber -
+                        1
+                ];
+            });
         }
         if (e.key === "ArrowDown") {
-            console.log("go down");
+            setDisplayedSelectedCreature((t) => {
+                const lastLine = Math.floor(
+                    props.creatures.length / NUMBER_CREATURES_PER_LINE
+                );
+                const lineNumber = Math.floor(t.id / NUMBER_CREATURES_PER_LINE);
+                const columnNumber = t.id % NUMBER_CREATURES_PER_LINE;
+
+                if (lineNumber === lastLine) {
+                    return props.creatures[columnNumber - 1];
+                }
+
+                return props.creatures[
+                    (lineNumber + 1) * NUMBER_CREATURES_PER_LINE +
+                        columnNumber -
+                        1
+                ];
+            });
         }
     };
 
