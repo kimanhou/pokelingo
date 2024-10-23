@@ -30,7 +30,7 @@ jobs:
       - run: npm run build
 
       - name: Deploy
-        uses: ./gh-pages-main
+        uses: ./.github/workflows/gh-pages-main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
