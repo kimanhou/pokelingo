@@ -35,3 +35,4 @@ jobs:
           publish_dir: ./dist
           publish_branch: gh-pages
           destination_dir: ${{ github.ref != 'refs/heads/master' && format('branch/{0}', github.ref_name) || '' }}
+          keep_target_files: env,branch
