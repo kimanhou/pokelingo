@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, KeyboardEventHandler, useEffect, useState } from "react";
 import AvatarOptions from "@/components/Learn/Options/AvatarOptions";
 import Button from "@/components/common/Button/Button";
 import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
@@ -38,6 +38,34 @@ const Learn: FC<ILearnProps> = (props) => {
 
     useEffect(() => {
         randomize();
+    }, []);
+
+    const onKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "ArrowRight") {
+            setDisplayedSelectedCreature(
+                (t) => props.creatures[t.id % props.creatures.length]
+            );
+        }
+        if (e.key === "ArrowLeft") {
+            setDisplayedSelectedCreature((t) => {
+                if (t.id > 1) {
+                    return props.creatures[t.id - 2];
+                }
+                return props.creatures[props.creatures.length - 1];
+            });
+        }
+        if (e.key === "ArrowUp") {
+            console.log("go up");
+        }
+        if (e.key === "ArrowDown") {
+            console.log("go down");
+        }
+    };
+
+    useEffect(() => {
+        addEventListener("keydown", onKeyDown);
+
+        return () => removeEventListener("keydown", onKeyDown);
     }, []);
 
     useEffect(() => {
