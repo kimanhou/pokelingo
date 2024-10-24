@@ -1,4 +1,4 @@
-import { FC, KeyboardEventHandler, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import AvatarOptions from "@/components/Learn/Options/AvatarOptions";
 import Button from "@/components/common/Button/Button";
 import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
@@ -11,6 +11,7 @@ import {
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
 } from "@/ts/utils";
 import Creature from "@/model/creature";
+import { getNumberOfCreaturesPerLine } from "./utils";
 import styles from "./Learn.module.scss";
 
 interface ILearnProps {
@@ -18,7 +19,10 @@ interface ILearnProps {
 }
 
 const Learn: FC<ILearnProps> = (props) => {
-    const NUMBER_CREATURES_PER_LINE = 8;
+    const [numberOfCreaturesPerLine, setNumberOfCreaturesPerLine] = useState(
+        getNumberOfCreaturesPerLine(window.innerWidth)
+    );
+
     const deviceType = useDeviceType();
     const isMediumDesktopOrBigger = isMediumDesktopOrBiggerFunc(deviceType);
 
@@ -41,84 +45,99 @@ const Learn: FC<ILearnProps> = (props) => {
         randomize();
     }, []);
 
-    const onKeyDown = (e: KeyboardEvent) => {
-        if (e.key === "ArrowRight") {
-            setDisplayedSelectedCreature(
-                (t) => props.creatures[t.id % props.creatures.length]
+    useEffect(() => {
+        const handleResize = () => {
+            setNumberOfCreaturesPerLine(
+                getNumberOfCreaturesPerLine(window.innerWidth)
             );
-        }
-        if (e.key === "ArrowLeft") {
-            setDisplayedSelectedCreature((t) => {
-                if (t.id > 1) {
-                    return props.creatures[t.id - 2];
-                }
-                return props.creatures[props.creatures.length - 1];
-            });
-        }
-        if (e.key === "ArrowUp") {
-            setDisplayedSelectedCreature((t) => {
-                const lineNumber = Math.floor(t.id / NUMBER_CREATURES_PER_LINE);
-                const columnNumber = t.id % NUMBER_CREATURES_PER_LINE;
+        };
 
-                if (lineNumber === 0) {
-                    const lastColumnNumber =
-                        props.creatures.length % NUMBER_CREATURES_PER_LINE;
-                    const targetLine =
-                        columnNumber > lastColumnNumber
-                            ? Math.floor(
-                                  props.creatures.length /
-                                      NUMBER_CREATURES_PER_LINE
-                              ) - 1
-                            : Math.floor(
-                                  props.creatures.length /
-                                      NUMBER_CREATURES_PER_LINE
-                              );
+        window.addEventListener("resize", handleResize);
+        return () => removeEventListener("resize", handleResize);
+    }, []);
+
+    useEffect(() => {
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "ArrowRight") {
+                setDisplayedSelectedCreature(
+                    (t) => props.creatures[t.id % props.creatures.length]
+                );
+            }
+            if (e.key === "ArrowLeft") {
+                setDisplayedSelectedCreature((t) => {
+                    if (t.id > 1) {
+                        return props.creatures[t.id - 2];
+                    }
+                    return props.creatures[props.creatures.length - 1];
+                });
+            }
+            if (e.key === "ArrowUp") {
+                setDisplayedSelectedCreature((t) => {
+                    const lineNumber = Math.floor(
+                        t.id / numberOfCreaturesPerLine
+                    );
+                    const columnNumber = t.id % numberOfCreaturesPerLine;
+
+                    if (lineNumber === 0) {
+                        const lastColumnNumber =
+                            props.creatures.length % numberOfCreaturesPerLine;
+                        const targetLine =
+                            columnNumber > lastColumnNumber
+                                ? Math.floor(
+                                      props.creatures.length /
+                                          numberOfCreaturesPerLine
+                                  ) - 1
+                                : Math.floor(
+                                      props.creatures.length /
+                                          numberOfCreaturesPerLine
+                                  );
+                        return props.creatures[
+                            targetLine * numberOfCreaturesPerLine +
+                                columnNumber -
+                                1
+                        ];
+                    }
+
                     return props.creatures[
-                        targetLine * NUMBER_CREATURES_PER_LINE +
+                        (lineNumber - 1) * numberOfCreaturesPerLine +
                             columnNumber -
                             1
                     ];
-                }
+                });
+            }
+            if (e.key === "ArrowDown") {
+                setDisplayedSelectedCreature((t) => {
+                    const lastLine = Math.floor(
+                        props.creatures.length / numberOfCreaturesPerLine
+                    );
+                    const lineNumber = Math.floor(
+                        t.id / numberOfCreaturesPerLine
+                    );
+                    const columnNumber = t.id % numberOfCreaturesPerLine;
+                    const lastColumnNumber =
+                        props.creatures.length % numberOfCreaturesPerLine;
+                    const isLastLine =
+                        lineNumber === lastLine ||
+                        (lineNumber === lastLine - 1 &&
+                            columnNumber > lastColumnNumber);
 
-                return props.creatures[
-                    (lineNumber - 1) * NUMBER_CREATURES_PER_LINE +
-                        columnNumber -
-                        1
-                ];
-            });
-        }
-        if (e.key === "ArrowDown") {
-            setDisplayedSelectedCreature((t) => {
-                const lastLine = Math.floor(
-                    props.creatures.length / NUMBER_CREATURES_PER_LINE
-                );
-                const lineNumber = Math.floor(t.id / NUMBER_CREATURES_PER_LINE);
-                const columnNumber = t.id % NUMBER_CREATURES_PER_LINE;
-                const lastColumnNumber =
-                    props.creatures.length % NUMBER_CREATURES_PER_LINE;
-                const isLastLine =
-                    lineNumber === lastLine ||
-                    (lineNumber === lastLine - 1 &&
-                        columnNumber > lastColumnNumber);
+                    if (isLastLine) {
+                        return props.creatures[columnNumber - 1];
+                    }
 
-                if (isLastLine) {
-                    return props.creatures[columnNumber - 1];
-                }
+                    return props.creatures[
+                        (lineNumber + 1) * numberOfCreaturesPerLine +
+                            columnNumber -
+                            1
+                    ];
+                });
+            }
+        };
 
-                return props.creatures[
-                    (lineNumber + 1) * NUMBER_CREATURES_PER_LINE +
-                        columnNumber -
-                        1
-                ];
-            });
-        }
-    };
-
-    useEffect(() => {
         addEventListener("keydown", onKeyDown);
 
         return () => removeEventListener("keydown", onKeyDown);
-    }, []);
+    }, [numberOfCreaturesPerLine]);
 
     useEffect(() => {
         setDisplayedOptions(
