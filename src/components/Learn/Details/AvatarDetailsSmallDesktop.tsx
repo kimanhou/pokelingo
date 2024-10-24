@@ -3,7 +3,7 @@ import AvatarSpecs from "@/components/Learn/Details/Specs/AvatarSpecs";
 import ImageContainer from "@/components/Learn/Details/ImageContainer/ImageContainer";
 import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
 import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
-import Creature from "@/data/creature";
+import Creature from "@/model/creature";
 import { useDeviceType } from "@/hooks/useIsMobile";
 import styles from "./AvatarDetailsSmallDesktop.module.scss";
 

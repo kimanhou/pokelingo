@@ -1,7 +1,5 @@
-import ARRAY from "@/data/util/array-of-type"
-import JsonUtil from "@/data/util/json-util"
-import Type from "@/data/util/type"
-import Creature from "@/data/creature"
+import Type from "@/model/type"
+import Creature from "@/model/creature"
 import data from "@/data/data.json"
 
 export default class Root {
@@ -12,7 +10,7 @@ export default class Root {
 
     static fromJSON = (json: any) => {
         return new Root(
-            JsonUtil.assert(json.creatures, ARRAY(Type.OBJECT(Creature.fromJSON)))
+            Type.ARRAY(Type.of(Creature)).read(json.creatures),
         )
     }
 

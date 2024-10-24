@@ -1,5 +1,5 @@
 import { AvatarTypeColors, DeviceType } from "@/ts/enums";
-import Creature from "@/data/creature";
+import Creature from "@/model/creature";
 
 export const getValueOrDefault = (s: string | null | undefined) => {
     if (!s) {

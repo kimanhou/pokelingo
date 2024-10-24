@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Ball from "@/assets/Ball";
-import Creature from "@/data/creature";
+import Creature from "@/model/creature";
 import styles from "./AvatarImage.module.scss";
 
 interface IAvatarImageProps {

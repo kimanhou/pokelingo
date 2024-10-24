@@ -6,7 +6,7 @@ import SideSheet from "@/components/common/SideSheet/SideSheet";
 import Avatar from "@/components/common/Avatar/Avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dispatch, SetStateAction } from "react";
-import Root from "@/data/root";
+import Root from "@/model/root";
 
 const ROOT_DATA = Root.get();
 

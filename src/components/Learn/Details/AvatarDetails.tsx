@@ -10,7 +10,7 @@ import {
     isMobileCreatureCard as isMobileCreatureCardFunc,
 } from "@/ts/utils";
 import { useDeviceType } from "@/hooks/useIsMobile";
-import Creature from "@/data/creature";
+import Creature from "@/model/creature";
 import { DeviceType } from "@/ts/enums";
 import styles from "./AvatarDetails.module.scss";
 

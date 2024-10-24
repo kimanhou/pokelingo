@@ -1,6 +1,6 @@
 import { FC, Dispatch, SetStateAction, useState } from "react";
 import AvatarOption from "@/components/Learn/Options/AvatarOption";
-import Creature from "@/data/creature";
+import Creature from "@/model/creature";
 import CreatureCard from "@/components/Learn/CreatureCard/CreatureCard";
 import { useDeviceType } from "@/hooks/useIsMobile";
 import { DeviceType } from "@/ts/enums";
