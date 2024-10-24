@@ -37,7 +37,7 @@ export const Default: Story = {
                 >
                     <div style={{ position: "relative" }}>
                         <Avatar
-                            src={ROOT_DATA.creatures[0].imageUrl}
+                            src={ROOT_DATA.getCreatures()[0].getImageUrl()}
                             backgroundColor="#fcf6bd"
                         />
                         <button

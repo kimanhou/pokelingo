@@ -30,7 +30,7 @@ function App() {
                                     document.body.style.overflow = "hidden";
                                 }}
                             >
-                                <Learn creatures={ROOT_DATA.creatures} />
+                                <Learn creatures={ROOT_DATA.getCreatures()} />
                             </SideSheet>
                         }
                     ></Route>

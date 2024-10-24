@@ -4,9 +4,11 @@ import data from "@/data/data.json"
 
 export default class Root {
     constructor(
-        readonly creatures : Creature[],
+        private readonly creatures : Creature[],
     ) {
     }
+
+    getCreatures = () => this.creatures
 
     static fromJSON = (json: any) => {
         return new Root(

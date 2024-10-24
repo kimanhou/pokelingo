@@ -3,9 +3,9 @@ import Reading from "./reading";
 
 export default class Word {
     constructor(
-        readonly romaji : string,
-        readonly kana : string,
-        readonly kanji : string | undefined,
+        private readonly romaji : string,
+        private readonly kana : string,
+        private readonly kanji : string | undefined,
     ) {
     }
 
