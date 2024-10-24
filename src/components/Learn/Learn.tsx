@@ -61,11 +61,20 @@ const Learn: FC<ILearnProps> = (props) => {
                 const columnNumber = t.id % NUMBER_CREATURES_PER_LINE;
 
                 if (lineNumber === 0) {
+                    const lastColumnNumber =
+                        props.creatures.length % NUMBER_CREATURES_PER_LINE;
+                    const targetLine =
+                        columnNumber > lastColumnNumber
+                            ? Math.floor(
+                                  props.creatures.length /
+                                      NUMBER_CREATURES_PER_LINE
+                              ) - 1
+                            : Math.floor(
+                                  props.creatures.length /
+                                      NUMBER_CREATURES_PER_LINE
+                              );
                     return props.creatures[
-                        Math.floor(
-                            props.creatures.length / NUMBER_CREATURES_PER_LINE
-                        ) *
-                            NUMBER_CREATURES_PER_LINE +
+                        targetLine * NUMBER_CREATURES_PER_LINE +
                             columnNumber -
                             1
                     ];
@@ -85,8 +94,14 @@ const Learn: FC<ILearnProps> = (props) => {
                 );
                 const lineNumber = Math.floor(t.id / NUMBER_CREATURES_PER_LINE);
                 const columnNumber = t.id % NUMBER_CREATURES_PER_LINE;
+                const lastColumnNumber =
+                    props.creatures.length % NUMBER_CREATURES_PER_LINE;
+                const isLastLine =
+                    lineNumber === lastLine ||
+                    (lineNumber === lastLine - 1 &&
+                        columnNumber > lastColumnNumber);
 
-                if (lineNumber === lastLine) {
+                if (isLastLine) {
                     return props.creatures[columnNumber - 1];
                 }
 
