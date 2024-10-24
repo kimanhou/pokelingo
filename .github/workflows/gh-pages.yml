@@ -31,7 +31,7 @@ jobs:
       - run: npm run build
 
       - name: Deploy
-        uses: mark-poussard/actions-gh-pages@243fc84a6ca7e8ca1927fbf15ad7a034a13586fe
+        uses: mark-poussard/actions-gh-pages@v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
