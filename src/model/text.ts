@@ -4,8 +4,8 @@ import Word from "./word";
 
 export default class Text {
     constructor(
-        readonly value : string,
-        readonly words : Word[],
+        private readonly value : string,
+        private readonly words : Word[],
     ) {
     }
 

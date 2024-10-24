@@ -5,14 +5,14 @@ import Reading from "./reading"
 
 export default class Creature {
     constructor(
-        readonly id : number,
-        readonly en : String,
-        readonly ja : Word,
-        readonly imageUrl : string,
-        readonly tags : string[],
-        readonly types : string[],
-        readonly origin : Text,
-        readonly originTags : string[],
+        private readonly id : number,
+        private readonly en : String,
+        private readonly ja : Word,
+        private readonly imageUrl : string,
+        private readonly tags : string[],
+        private readonly types : string[],
+        private readonly origin : Text,
+        private readonly originTags : string[],
     ) {
     }
 
