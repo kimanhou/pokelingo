@@ -1,3 +1,7 @@
-.creature-card {
+dialog.creature-card-modal-dialog {
     border-radius: 24px;
+    div.creature-card-wrapper {
+        height: 100%;
+        display: flex;
+    }
 }

@@ -17,12 +17,29 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
     const [selectedCreature, setSelectedCreature] = useState<null | Creature>(
         null
     );
+    const [previousCreature, setPreviousCreature] = useState<null | Creature>(
+        null
+    );
+    const [nextCreature, setNextCreature] = useState<null | Creature>(null);
     const [isCreatureCardOpen, setIsCreatureCardOpen] = useState(false);
     const deviceType = useDeviceType();
 
     const onClickCreature = (creature: Creature) => {
         if (deviceType === DeviceType.MOBILE) {
             setSelectedCreature(creature);
+            setPreviousCreature(() => {
+                const selectedCreatureIndex = creature.id - 1;
+                return selectedCreatureIndex
+                    ? props.displayedOptions[selectedCreatureIndex - 1]
+                    : null;
+            });
+            setNextCreature(() => {
+                const selectedCreatureIndex = creature.id - 1;
+                return selectedCreatureIndex ===
+                    props.displayedOptions.length - 1
+                    ? null
+                    : props.displayedOptions[selectedCreatureIndex + 1];
+            });
             setIsCreatureCardOpen((t) => !t);
         }
     };
@@ -57,6 +74,8 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                 creature={selectedCreature}
                 isOpen={isCreatureCardOpen}
                 setIsOpen={setIsCreatureCardOpen}
+                previousCreature={previousCreature}
+                nextCreature={nextCreature}
             />
         </>
     );
