@@ -11,8 +11,8 @@ import {
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
 } from "@/ts/utils";
 import Creature from "@/model/creature";
-import styles from "./Learn.module.scss";
 import useArrows from "@/hooks/useArrows";
+import styles from "./Learn.module.scss";
 
 interface ILearnProps {
     creatures: Creature[];

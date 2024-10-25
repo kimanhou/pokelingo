@@ -1,6 +1,24 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { getNumberOfCreaturesPerLine } from "@/components/Learn/utils";
 import Creature from "@/data/creature";
+
+const getNumberOfCreaturesPerLine = (windowWidth: number) => {
+    if (windowWidth > 823) {
+        return 8;
+    }
+    if (windowWidth > 727) {
+        return 7;
+    }
+    if (windowWidth > 631) {
+        return 6;
+    }
+    if (windowWidth > 535) {
+        return 5;
+    }
+    if (windowWidth > 439) {
+        return 4;
+    }
+    return 3;
+};
 
 const useArrows = ({
     setDisplayedSelectedCreature,
