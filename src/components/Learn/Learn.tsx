@@ -7,8 +7,8 @@ import { faShuffle } from "@fortawesome/free-solid-svg-icons";
 import { useDeviceType } from "@/hooks/useIsMobile";
 import {
     getMainColor,
-    scrollTo,
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
+    scrollToCreatureIndex,
 } from "@/ts/utils";
 import Creature from "@/model/creature";
 import useArrows from "@/hooks/useArrows";
@@ -34,7 +34,7 @@ const Learn: FC<ILearnProps> = ({ creatures }: ILearnProps) => {
     const randomize = () => {
         const randomIndex = Math.floor(Math.random() * creatures.length);
         setDisplayedSelectedCreature(creatures[randomIndex]);
-        scrollTo({ elementId: `avatar-${randomIndex + 1}` });
+        scrollToCreatureIndex({ creatureIndex: randomIndex });
     };
 
     useEffect(() => {
