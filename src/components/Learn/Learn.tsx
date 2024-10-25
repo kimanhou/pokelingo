@@ -11,28 +11,29 @@ import {
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
 } from "@/ts/utils";
 import Creature from "@/model/creature";
+import useArrows from "@/hooks/useArrows";
 import styles from "./Learn.module.scss";
 
 interface ILearnProps {
     creatures: Creature[];
 }
 
-const Learn: FC<ILearnProps> = (props) => {
+const Learn: FC<ILearnProps> = ({ creatures }: ILearnProps) => {
     const deviceType = useDeviceType();
     const isMediumDesktopOrBigger = isMediumDesktopOrBiggerFunc(deviceType);
 
     const [displayedSelectedCreature, setDisplayedSelectedCreature] =
         useState<Creature>(Creature.getEmpty());
     const [search, setSearch] = useState("");
-    const [displayedOptions, setDisplayedOptions] = useState<Creature[]>(
-        props.creatures
-    );
+    const [displayedOptions, setDisplayedOptions] =
+        useState<Creature[]>(creatures);
+    useArrows({ setDisplayedSelectedCreature, creatures });
 
     const mainColor = getMainColor(displayedSelectedCreature);
 
     const randomize = () => {
-        const randomIndex = Math.floor(Math.random() * props.creatures.length);
-        setDisplayedSelectedCreature(props.creatures[randomIndex]);
+        const randomIndex = Math.floor(Math.random() * creatures.length);
+        setDisplayedSelectedCreature(creatures[randomIndex]);
         scrollTo({ elementId: `avatar-${randomIndex + 1}` });
     };
 
@@ -42,7 +43,7 @@ const Learn: FC<ILearnProps> = (props) => {
 
     useEffect(() => {
         setDisplayedOptions(
-            props.creatures.filter(
+            creatures.filter(
                 (creature) =>
                     creature.id === parseInt(search) ||
                     creature.matchesPartial(search)
