@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Creature from "@/data/creature";
+import Creature from "@/model/creature";
 
 const getNumberOfCreaturesPerLine = (windowWidth: number) => {
     if (windowWidth > 823) {
