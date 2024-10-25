@@ -9,5 +9,6 @@ div.avatar-details {
     flex-direction: column;
     &.creature-card {
         height: 100%;
+        min-width: 100%;
     }
 }

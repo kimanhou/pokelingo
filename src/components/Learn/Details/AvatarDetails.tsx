@@ -16,7 +16,7 @@ import styles from "./AvatarDetails.module.scss";
 
 interface IAvatarDetailsProps {
     creature: Creature;
-    randomize: () => void;
+    randomize?: () => void;
     search: string;
     setSearch: (search: string) => void;
     isCreatureCard?: boolean;
