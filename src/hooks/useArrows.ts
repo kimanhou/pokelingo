@@ -77,28 +77,28 @@ const useArrows = ({
             }
             if (e.key === "ArrowDown") {
                 setDisplayedSelectedCreature((t) => {
-                    const lastLine = Math.floor(
-                        creatures.length / numberOfCreaturesPerLine
+                    const lastLineIndex = Math.floor(
+                        (creatures.length - 1) / numberOfCreaturesPerLine
                     );
-                    const lineNumber = Math.floor(
-                        t.id / numberOfCreaturesPerLine
+                    const currentLineIndex = Math.floor(
+                        (t.id - 1) / numberOfCreaturesPerLine
                     );
-                    const columnNumber = t.id % numberOfCreaturesPerLine;
-                    const lastColumnNumber =
-                        creatures.length % numberOfCreaturesPerLine;
+                    const currentColumnIndex =
+                        t.id === 1 ? 0 : (t.id - 1) % numberOfCreaturesPerLine;
+                    const lastColumnIndex =
+                        (creatures.length - 1) % numberOfCreaturesPerLine;
                     const isLastLine =
-                        lineNumber === lastLine ||
-                        (lineNumber === lastLine - 1 &&
-                            columnNumber > lastColumnNumber);
+                        currentLineIndex === lastLineIndex ||
+                        (currentLineIndex === lastLineIndex - 1 &&
+                            currentColumnIndex > lastColumnIndex);
 
                     if (isLastLine) {
-                        return creatures[columnNumber - 1];
+                        return creatures[currentColumnIndex];
                     }
 
                     return creatures[
-                        (lineNumber + 1) * numberOfCreaturesPerLine +
-                            columnNumber -
-                            1
+                        (currentLineIndex + 1) * numberOfCreaturesPerLine +
+                            currentColumnIndex
                     ];
                 });
             }
