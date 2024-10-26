@@ -10,7 +10,7 @@ import {
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
     scrollToCreatureIndex,
 } from "@/ts/utils";
-import Creature from "@/model/creature";
+import Creature from "@/model/creature/creature";
 import useArrows from "@/hooks/useArrows";
 import styles from "./Learn.module.scss";
 

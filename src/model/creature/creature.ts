@@ -1,6 +1,6 @@
-import Type from "@/model/type"
-import Word from "@/model/word"
-import Text from "@/model/text"
+import Type from "@/model/util/type"
+import Word from "@/model/creature/word"
+import Text from "@/model/creature/text"
 import Reading from "./reading"
 
 export default class Creature {
@@ -29,6 +29,10 @@ export default class Creature {
     matchesPartial = (str : string) => {
         return this.en.toLowerCase().includes(str.toLowerCase())
             || this.ja.includes(str);
+    }
+
+    matchesJaExact = (str : string) => {
+        return this.ja.equals(str);
     }
 
 

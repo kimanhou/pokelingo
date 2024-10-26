@@ -1,4 +1,4 @@
-import Type from "@/model/type"
+import Type from "@/model/util/type"
 import Reading from "./reading";
 
 export default class Settings {

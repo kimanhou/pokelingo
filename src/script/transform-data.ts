@@ -1,10 +1,10 @@
-import * as fs from 'fs';
+import * as fs from "fs";
 import inData from "@/data/data.json"
-import Root from '@/model/root';
-import Creature from '@/model/creature';
-import { AVATARS } from '@/data/avatars';
-import Word from '@/model/word';
-import Text from '@/model/text';
+import Root from "@/model/root";
+import Creature from "@/model/creature/creature";
+import { AVATARS } from "@/data/avatars";
+import Word from "@/model/creature/word";
+import Text from "@/model/creature/text";
 
 
 const previousCreatures = (inData.creatures as any)

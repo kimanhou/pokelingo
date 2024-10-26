@@ -1,5 +1,5 @@
-import Type from "@/model/type"
-import Creature from "@/model/creature"
+import Type from "@/model/util/type"
+import Creature from "@/model/creature/creature"
 import data from "@/data/data.json"
 
 export default class Root {

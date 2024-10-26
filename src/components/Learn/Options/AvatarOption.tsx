@@ -1,6 +1,6 @@
 import { FC, Dispatch, SetStateAction, useState, useEffect } from "react";
 import { getMainColor } from "@/ts/utils";
-import Creature from "@/model/creature";
+import Creature from "@/model/creature/creature";
 import { DeviceType } from "@/ts/enums";
 import { useDeviceType } from "@/hooks/useIsMobile";
 import styles from "./AvatarOption.module.scss";

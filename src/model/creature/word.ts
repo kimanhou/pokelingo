@@ -1,4 +1,4 @@
-import Type from "@/model/type"
+import Type from "@/model/util/type"
 import Reading from "./reading";
 
 export default class Word {
@@ -13,6 +13,12 @@ export default class Word {
         return this.romaji.toLowerCase().includes(str.toLowerCase())
             || this.kana.includes(str)
             || (this.kanji != null && this.kanji.includes(str));
+    }
+
+    equals = (str : string) => {
+        return this.romaji.toLowerCase() === str.toLowerCase()
+            || this.kana === str
+            || this.kanji === str;
     }
 
     get = (reading : Reading) => {
