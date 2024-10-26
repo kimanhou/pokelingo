@@ -29,14 +29,14 @@ const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
             <ImageContainer
                 mainColor={props.mainColor}
                 name={props.creature.getName()}
-                avatarId={props.creature.id}
+                avatarId={props.creature.getId()}
                 randomize={props.randomize}
                 search={props.search}
                 setSearch={props.setSearch}
             />
             <AvatarImage creature={props.creature} isSmallDesktop />
             <AvatarSpecs
-                types={props.creature.types}
+                types={props.creature.getTypes()}
                 deviceType={deviceType}
                 description={props.creature.getDescription()}
                 isCreatureCard={props.isCreatureCard}

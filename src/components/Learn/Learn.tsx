@@ -45,7 +45,7 @@ const Learn: FC<ILearnProps> = ({ creatures }: ILearnProps) => {
         setDisplayedOptions(
             creatures.filter(
                 (creature) =>
-                    creature.id === parseInt(search) ||
+                    creature.getId() === parseInt(search) ||
                     creature.matchesPartial(search)
             )
         );

@@ -15,7 +15,7 @@ interface IAvatarOptionProps {
 
 const AvatarOption: FC<IAvatarOptionProps> = (props) => {
     const [isSelected, setIsSelected] = useState(
-        props.displayedSelectedCreature.imageUrl === props.creature.imageUrl
+        props.displayedSelectedCreature.getImageUrl() === props.creature.getImageUrl()
     );
     const deviceType = useDeviceType();
 
@@ -25,9 +25,9 @@ const AvatarOption: FC<IAvatarOptionProps> = (props) => {
         deviceType === DeviceType.SMALL_DESKTOP ? styles.smallDesktop : "";
     const mainColor = getMainColor(props.creature);
     const avatarHtmlId =
-        props.creature.id > 0
-            ? props.creature.id
-            : props.creature.id * -1 + 151;
+        props.creature.getId() > 0
+            ? props.creature.getId()
+            : props.creature.getId() * -1 + 151;
 
     const onClick = () => {
         if (!props.isDisabled) {
@@ -38,7 +38,7 @@ const AvatarOption: FC<IAvatarOptionProps> = (props) => {
 
     useEffect(() => {
         setIsSelected(
-            props.displayedSelectedCreature.imageUrl === props.creature.imageUrl
+            props.displayedSelectedCreature.getImageUrl() === props.creature.getImageUrl()
         );
     }, [props.displayedSelectedCreature]);
 

@@ -67,7 +67,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                     <ImageContainer
                         mainColor={mainColor}
                         name={props.creature.getName()}
-                        avatarId={props.creature.id}
+                        avatarId={props.creature.getId()}
                         randomize={props.randomize}
                         isCreatureCard={props.isCreatureCard}
                     />
@@ -78,7 +78,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                         avatarSpecsHeight={avatarSpecsHeight}
                     />
                     <AvatarSpecs
-                        types={props.creature.types}
+                        types={props.creature.getTypes()}
                         description={props.creature.getDescription()}
                         setAvatarSpecsHeight={setAvatarSpecsHeight}
                         isCreatureCard={props.isCreatureCard}

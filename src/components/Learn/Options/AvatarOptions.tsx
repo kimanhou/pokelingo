@@ -33,7 +33,7 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                 <div className={styles.avatarOptionsScroller}>
                     {props.displayedOptions.map((creature) => (
                         <AvatarOption
-                            key={creature.id}
+                            key={creature.getId()}
                             creature={creature}
                             setDisplayedSelectedCreature={
                                 props.setDisplayedSelectedCreature
@@ -42,7 +42,7 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                                 props.displayedSelectedCreature
                             }
                             isDisabled={props.unavailableCreaturesImageUrl.includes(
-                                creature.imageUrl
+                                creature.getImageUrl()
                             )}
                             onClick={() => onClickCreature(creature)}
                         />

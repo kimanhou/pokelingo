@@ -16,16 +16,21 @@ export default class Creature {
     ) {
     }
 
+    getId = () => this.id;
+
+    getName = () => this.ja.get(Reading.KANA);
+
+    getImageUrl = () => import.meta.env.BASE_URL + this.imageUrl;
+
+    getTypes = () => this.types;
+
+    getDescription = () => this.origin.get(Reading.KANA);
+
     matchesPartial = (str : string) => {
         return this.en.toLowerCase().includes(str.toLowerCase())
-            || this.ja.includes(str)
+            || this.ja.includes(str);
     }
 
-    getImageUrl = () => import.meta.env.BASE_URL + this.imageUrl
-
-    getName = () => this.ja.get(Reading.KANA)
-
-    getDescription = () => this.origin.get(Reading.KANA)
 
     static fromJSON = (json: any) => {
         return new Creature(
