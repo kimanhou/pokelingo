@@ -29,7 +29,12 @@ jobs:
 
 
       - run: npm install
-      - run: npm run build
+
+      - if: ${{ github.ref == 'refs/heads/master' }}
+        run: npm run build
+
+      - if: ${{ github.ref != 'refs/heads/master' }}
+        run: BRANCH_NAME={{ github.ref_name }} npm run build -- --config vite.config.branch.ts
 
       - name: Deploy
         uses: mark-poussard/actions-gh-pages@v4.1.1
