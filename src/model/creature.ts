@@ -47,14 +47,14 @@ export default class Creature {
 
     static getEmpty = () => {
         return new Creature(
-            Type.NUMBER.emptyValue,
-            Type.STRING.emptyValue,
-            Type.of(Word).emptyValue,
-            Type.STRING.emptyValue,
-            Type.ARRAY(Type.STRING).emptyValue,
-            Type.ARRAY(Type.STRING).emptyValue,
-            Type.of(Text).emptyValue,
-            Type.ARRAY(Type.STRING).emptyValue,
+            Type.NUMBER.getEmpty(),
+            Type.STRING.getEmpty(),
+            Type.of(Word).getEmpty(),
+            Type.STRING.getEmpty(),
+            Type.ARRAY(Type.STRING).getEmpty(),
+            Type.ARRAY(Type.STRING).getEmpty(),
+            Type.of(Text).getEmpty(),
+            Type.ARRAY(Type.STRING).getEmpty(),
         )
     }
 }

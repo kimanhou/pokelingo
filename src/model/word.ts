@@ -60,9 +60,9 @@ export default class Word {
 
     static getEmpty = () => {
         return new Word(
-            Type.STRING.emptyValue,
-            Type.STRING.emptyValue,
-            Type.STRING.emptyValue,
+            Type.STRING.getEmpty(),
+            Type.STRING.getEmpty(),
+            Type.STRING.getEmpty(),
         )
     }
 }

@@ -1,6 +1,6 @@
 export default class Reading {
     constructor(
-        readonly value : string,
+        private readonly value : string,
     ) {
     }
 

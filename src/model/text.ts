@@ -32,8 +32,8 @@ export default class Text {
 
     static getEmpty = () => {
         return new Text(
-            Type.STRING.emptyValue,
-            Type.ARRAY(Type.of(Word)).emptyValue,
+            Type.STRING.getEmpty(),
+            Type.ARRAY(Type.of(Word)).getEmpty(),
         )
     }
 }
