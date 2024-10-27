@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import inData from "@/data/data.json"
-import Root from "@/model/root";
+import Root from "@/model/root/root";
 import Creature from "@/model/creature/creature";
 import { AVATARS } from "@/data/avatars";
 import Word from "@/model/creature/word";

@@ -1,5 +1,5 @@
 import Creature from "@/model/creature/creature";
-import Quiz from "@/model/quiz/quiz";
+import QuizFactory from "@/model/quiz/quiz-factory";
 import { FC, useState } from "react";
 
 interface IQuizProps {
@@ -7,7 +7,7 @@ interface IQuizProps {
 }
 
 const QuizView: FC<IQuizProps> = (props) => {
-    const [quiz, setQuiz] = useState(Quiz.build(props.creatures));
+    const [quiz, setQuiz] = useState(QuizFactory.build(props.creatures));
     const [input, setInput] = useState("");
     const [answerState, setAnswerState] = useState<string | null>(null);
 

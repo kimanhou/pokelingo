@@ -1,20 +1,18 @@
 import Type from "@/model/util/type";
 import Round from "@/model/quiz/round";
-import Creature from "../creature/creature";
+import QuestionIterator from "./question-iterator";
 
 export default class Quiz {
     constructor(
         private readonly rounds : Round[],
-        private readonly creatures : Creature[],
+        private readonly questions : QuestionIterator,
     ) {
     }
 
     private getCurrentRound = () => this.rounds[this.rounds.length - 1];
 
-    private getRandomCreature = () => this.creatures[Math.floor(Math.random()*this.creatures.length)];
-
     getImageUrl = () => {
-        return this.getCurrentRound().getImageUrl();
+        return this.getCurrentRound().getIllustration();
     }
 
     isCorrectAnswer = (input : string) => {
@@ -33,7 +31,7 @@ export default class Quiz {
                 ...this.rounds.slice(0, this.rounds.length-1), 
                 this.getCurrentRound().solve()
             ],
-            this.creatures
+            this.questions
         );
     }
 
@@ -43,38 +41,32 @@ export default class Quiz {
                 ...this.rounds.slice(0, this.rounds.length-1), 
                 this.getCurrentRound().fail()
             ],
-            this.creatures
+            this.questions
         );
     }
 
     nextRound = () => {
+        const questions = this.questions.next();
         return new Quiz(
             [
                 ...this.rounds,
-                Round.build(this.getRandomCreature())
+                Round.build(questions.get())
             ],
-            this.creatures
+            questions
         );
-    }
-
-    static build = (creatures : Creature[]) => {
-        return new Quiz(
-            [Round.build(creatures[Math.floor(Math.random()*creatures.length)])],
-            creatures
-        )
     }
 
     static fromJSON = (json: any) => {
         return new Quiz(
             Type.ARRAY(Type.of(Round)).read(json.round),
-            Type.ARRAY(Type.of(Creature)).read(json.creature),
+            Type.of(QuestionIterator).read(json.questions),
         )
     }
 
     static getEmpty = () => {
         return new Quiz(
             Type.ARRAY(Type.of(Round)).getEmpty(),
-            Type.ARRAY(Type.of(Creature)).getEmpty(),
+            Type.of(QuestionIterator).getEmpty(),
         )
     }
 }

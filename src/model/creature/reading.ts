@@ -8,7 +8,7 @@ export default class Reading {
     static KANA = new Reading("KANA");
 
     static values = () => {
-        return [Reading.ROMAJI, Reading.KANA]
+        return Object.values(Reading).filter(x => x instanceof Reading).map(x => x as Reading);
     }
 
     static fromJSON = (json: any) => {

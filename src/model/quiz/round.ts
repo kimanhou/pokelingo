@@ -1,15 +1,16 @@
 import Type from "@/model/util/type";
-import Creature from "@/model/creature/creature";
 import RoundStatus from "@/model/quiz/round-status";
+import Question from "./question";
+import CreatureQuestion from "./creature-question";
 
 export default class Round {
     constructor(
-        private readonly creature : Creature,
+        private readonly question : Question,
         private readonly status : RoundStatus,
     ) {
     }
 
-    getImageUrl = () => this.creature.getImageUrl();
+    getIllustration = () => this.question.getIllustration();
 
     isOngoing = () => this.status === RoundStatus.ONGOING;
 
@@ -19,10 +20,10 @@ export default class Round {
 
     isFailed = () => this.status === RoundStatus.FAILED;
 
-    getAnswer = () => this.creature.getName();
+    getAnswer = () => this.question.getAnswer();
 
     isCorrectAnswer = (input : string) => {
-        if(this.creature.matchesJaExact(input)){
+        if(this.question.isCorrectAnswer(input)){
             return true;
         }
         return false;
@@ -32,33 +33,33 @@ export default class Round {
         if(this.status !== RoundStatus.ONGOING){
             throw new Error(`Cannot change Round state from ${this.status.getValue()} to ${RoundStatus.SOLVED.getValue()}`)
         }
-        return new Round(this.creature, RoundStatus.SOLVED);
+        return new Round(this.question, RoundStatus.SOLVED);
     }
 
     fail = () => {
         if(this.status !== RoundStatus.ONGOING){
             throw new Error(`Cannot change Round state from ${this.status.getValue()} to ${RoundStatus.FAILED.getValue()}`)
         }
-        return new Round(this.creature, RoundStatus.FAILED);
+        return new Round(this.question, RoundStatus.FAILED);
     }
 
-    static build = (creature : Creature) => {
+    static build = (question : Question) => {
         return new Round(
-            creature,
+            question,
             RoundStatus.ONGOING
         )
     }
 
     static fromJSON = (json: any) => {
         return new Round(
-            Type.of(Creature).read(json.creature),
+            Type.of(CreatureQuestion).read(json.question),
             Type.of(RoundStatus).read(json.solved),
         )
     }
 
     static getEmpty = () => {
         return new Round(
-            Type.of(Creature).getEmpty(),
+            Type.of(CreatureQuestion).getEmpty(),
             Type.of(RoundStatus).getEmpty(),
         )
     }

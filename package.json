@@ -15,7 +15,8 @@
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
         "transform-data": "node --import tsx src/script/transform-data.ts",
-        "validate-data": "node --import tsx src/script/validate-data.ts"
+        "validate-data": "node --import tsx src/script/validate-data.ts",
+        "test-script": "node --import tsx src/script/test.ts"
     },
     "eslintConfig": {
         "extends": [

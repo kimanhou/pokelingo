@@ -11,7 +11,7 @@ export default class RoundStatus {
     static FAILED = new RoundStatus("FAILED");
 
     static values = () => {
-        return [RoundStatus.ONGOING, RoundStatus.SOLVED, RoundStatus.FAILED]
+        return Object.values(RoundStatus).filter(x => x instanceof RoundStatus).map(x => x as RoundStatus);
     }
 
     static fromJSON = (json: any) => {

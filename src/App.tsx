@@ -4,10 +4,8 @@ import { Footer } from "@/components/Footer/Footer";
 import SideSheet from "@/components/common/SideSheet/SideSheet";
 import Learn from "@/components/Learn/Learn";
 import QuizView from "@/components/Quiz/QuizView";
-import Root from "@/model/root";
 import "./App.scss";
-
-const ROOT_DATA = Root.get();
+import creatureRepository from "./model/creature/creature-repository";
 
 function App() {
     const [isQuiz, setIsQuiz] = useState(false);
@@ -28,7 +26,7 @@ function App() {
                 <input type="checkbox" value={isQuiz ? "true" : "false"} onChange={() => setIsQuiz(isQuiz => !isQuiz)} />
             </div>
             {isQuiz &&
-                <QuizView creatures={ROOT_DATA.getCreatures()} />
+                <QuizView creatures={creatureRepository.findAll()} />
             }
             {! isQuiz && 
                 <HashRouter>
@@ -44,7 +42,7 @@ function App() {
                                         document.body.style.overflow = "hidden";
                                     }}
                                 >
-                                    <Learn creatures={ROOT_DATA.getCreatures()} />
+                                    <Learn creatures={creatureRepository.findAll()} />
                                 </SideSheet>
                             }
                         ></Route>

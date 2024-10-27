@@ -6,9 +6,9 @@ import SideSheet from "@/components/common/SideSheet/SideSheet";
 import Avatar from "@/components/common/Avatar/Avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dispatch, SetStateAction } from "react";
-import Root from "@/model/root";
+import creatureRepository from "@/model/creature/creature-repository";
 
-const ROOT_DATA = Root.get();
+const CREATURES = creatureRepository.findAll()
 
 const meta: Meta<typeof Learn> = {
     component: Learn,
@@ -37,7 +37,7 @@ export const Default: Story = {
                 >
                     <div style={{ position: "relative" }}>
                         <Avatar
-                            src={ROOT_DATA.getCreatures()[0].getImageUrl()}
+                            src={CREATURES[0].getImageUrl()}
                             backgroundColor="#fcf6bd"
                         />
                         <button
