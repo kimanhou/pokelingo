@@ -529,6 +529,267 @@
             "originTags": [
                 "english"
             ]
+        },
+        {
+            "id": 21,
+            "en": "Spearow",
+            "ja": {
+                "romaji": "Onisuzume",
+                "kana": "オニスズメ",
+                "kanji": "鬼スズメ"
+            },
+            "imageUrl": "/assets/creature/21.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal",
+                "flying"
+            ],
+            "origin": {
+                "value": "%w means \"demon\" and %w means \"sparrow\". It translates to \"demon sparrow\".",
+                "words": [
+                    {
+                        "romaji": "\"Oni\"",
+                        "kana": "オニ",
+                        "kanji": "鬼"
+                    },
+                    {
+                        "romaji": "\"suzume\"",
+                        "kana": "スズメ"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 22,
+            "en": "Fearow",
+            "ja": {
+                "romaji": "Onidoriru",
+                "kana": "オニドリル",
+                "kanji": "鬼ドリル"
+            },
+            "imageUrl": "/assets/creature/22.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal",
+                "flying"
+            ],
+            "origin": {
+                "value": "%w means \"demon\" and ドリル is the English word \"drill\".",
+                "words": [
+                    {
+                        "romaji": "\"Oni\"",
+                        "kana": "オニ",
+                        "kanji": "鬼"
+                    }
+                ]
+            },
+            "originTags": ["kanji", "english"]
+        },
+        {
+            "id": 23,
+            "en": "Ekans",
+            "ja": {
+                "romaji": "Aabo",
+                "kana": "アーボ"
+            },
+            "imageUrl": "/assets/creature/23.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from the English word \"boa\" (ボア).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 24,
+            "en": "Arbok",
+            "ja": {
+                "romaji": "Aabokku",
+                "kana": "アーボック"
+            },
+            "imageUrl": "/assets/creature/24.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from the English word \"cobra\" (コブラ).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 25,
+            "en": "Pikachu",
+            "ja": {
+                "romaji": "Pikachyuu",
+                "kana": "ピカチュウ"
+            },
+            "imageUrl": "/assets/creature/25.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "electric"
+            ],
+            "origin": {
+                "value": "Derived from either the \"pika\" rabbit in English or %w the Japanese onomatopoeia for something sparkly and %w the Japanese onomatopoeia for the squeak of mice.",
+                "words": [
+                    {
+                        "romaji": "\"pikapika\"",
+                        "kana": "ピカ"
+                    },
+                    {
+                        "romaji": "\"chuu\"",
+                        "kana": "ちゅう"
+                    }
+                ]
+            },
+            "originTags": ["english", "onomatopoeia"]
+        },
+        {
+            "id": 26,
+            "en": "Raichu",
+            "ja": {
+                "romaji": "Raichuu",
+                "kana": "ライチュウ",
+                "kanji": "雷チュウ"
+            },
+            "imageUrl": "/assets/creature/26.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "electric"
+            ],
+            "origin": {
+                "value": "%w means \"thunder\" and %w is the Japanese onomatopoeia for the squeak of mice.",
+                "words": [
+                    {
+                        "romaji": "\"Rai\"",
+                        "kana": "ライ",
+                        "kanji": "雷"
+                    },
+                    {
+                        "romaji": "\"chuu\"",
+                        "kana": "ちゅう"
+                    }
+                ]
+            },
+            "originTags": ["kanji", "onomatopoeia"]
+        },
+        {
+            "id": 27,
+            "en": "Sandshrew",
+            "ja": {
+                "romaji": "Sando",
+                "kana": "サンド"
+            },
+            "imageUrl": "/assets/creature/27.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ground"
+            ],
+            "origin": {
+                "value": "Derived from the English word \"sand\" (サンド).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 28,
+            "en": "Sandslash",
+            "ja": {
+                "romaji": "Sandopan",
+                "kana": "サンドパン"
+            },
+            "imageUrl": "/assets/creature/28.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ground"
+            ],
+            "origin": {
+                "value": "Derived from the English words \"sand\" (サンド) and \"pangolin\" (パンゴリン).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 29,
+            "en": "Nidoran ♀",
+            "ja": {
+                "romaji": "Nidoran",
+                "kana": "ニドラン"
+            },
+            "imageUrl": "/assets/creature/29.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from the English words \"needle\" (ニードル).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 30,
+            "en": "Nidorina",
+            "ja": {
+                "romaji": "Nidoriina",
+                "kana": "ニドリーナ"
+            },
+            "imageUrl": "/assets/creature/30.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from the English word \"needle\" (ニードル) and the italian feminine modifier \"-a\".",
+                "words": []
+            },
+            "originTags": ["english", "italian"]
+        },
+        {
+            "id": 31,
+            "en": "Nidoqueen",
+            "ja": {
+                "romaji": "Nidokuin",
+                "kana": "ニドクイン"
+            },
+            "imageUrl": "/assets/creature/31.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison",
+                "ground"
+            ],
+            "origin": {
+                "value": "Derived from the English words \"needle\" (ニードル) and \"queen\" (クイーン).",
+                "words": []
+            },
+            "originTags": ["english"]
         }
     ]
 }

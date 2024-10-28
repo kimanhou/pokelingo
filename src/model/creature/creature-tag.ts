@@ -6,6 +6,8 @@ export default class CreatureTag {
 
     static GEN1 = new CreatureTag("GEN1");
 
+    toJSON = () => this.value;
+
     private static _values = Object.values(CreatureTag).filter(x => x instanceof CreatureTag).map(x => x as CreatureTag);
     static values = () => {
         return CreatureTag._values;
