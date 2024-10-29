@@ -5,12 +5,13 @@ import CreatureQuestion from "@/model/quiz/creature-question";
 
 export default class Round {
     constructor(
-        private readonly question : Question,
-        private readonly status : RoundStatus,
-    ) {
-    }
+        private readonly question: Question,
+        private readonly status: RoundStatus
+    ) {}
 
     getIllustration = () => this.question.getIllustration();
+
+    getMainColor = () => this.question.getMainColor();
 
     isOngoing = () => this.status === RoundStatus.ONGOING;
 
@@ -20,43 +21,42 @@ export default class Round {
 
     getAnswer = () => this.question.getAnswer();
 
-    isCorrectAnswer = (input : string) => {
-        if(this.question.isCorrectAnswer(input)){
+    getExplanation = () => this.question.getExplanation();
+
+    isCorrectAnswer = (input: string) => {
+        if (this.question.isCorrectAnswer(input)) {
             return true;
         }
         return false;
-    }
+    };
 
     ongoing = () => {
         return new Round(this.question, RoundStatus.ONGOING);
-    }
+    };
 
     solve = () => {
         return new Round(this.question, RoundStatus.SOLVED);
-    }
+    };
 
     fail = () => {
         return new Round(this.question, RoundStatus.FAILED);
-    }
+    };
 
-    static build = (question : Question) => {
-        return new Round(
-            question,
-            RoundStatus.ONGOING
-        )
-    }
+    static build = (question: Question) => {
+        return new Round(question, RoundStatus.ONGOING);
+    };
 
     static fromJSON = (json: any) => {
         return new Round(
             Type.of(CreatureQuestion).read(json.question),
-            Type.of(RoundStatus).read(json.solved),
-        )
-    }
+            Type.of(RoundStatus).read(json.solved)
+        );
+    };
 
     static getEmpty = () => {
         return new Round(
             Type.of(CreatureQuestion).getEmpty(),
-            Type.of(RoundStatus).getEmpty(),
-        )
-    }
+            Type.of(RoundStatus).getEmpty()
+        );
+    };
 }

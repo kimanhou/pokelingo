@@ -1,102 +1,110 @@
 import {
-  Dispatch,
-  FC,
-  MouseEvent,
-  ReactNode,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
+    Dispatch,
+    FC,
+    MouseEvent,
+    ReactNode,
+    SetStateAction,
+    useEffect,
+    useRef,
+    useState,
 } from "react";
 import useEffectSkipFirstRender from "@/hooks/useEffectSkipFirstRender";
 import styles from "./SideSheet.module.scss";
 
 interface ISideSheetProps {
-  isVisible: boolean;
-  setIsVisible: Dispatch<SetStateAction<boolean>>;
-  children: ReactNode;
-  onEnter?: () => void;
-  onExit?: () => void;
-  transitionFromBottom?: boolean;
+    isVisible: boolean;
+    setIsVisible: Dispatch<SetStateAction<boolean>>;
+    children: ReactNode;
+    onEnter?: () => void;
+    onExit?: () => void;
+    transitionFromBottom?: boolean;
+    isMaxHeight30?: boolean; // 30 means the side sheet will have a height of 30dvh when open
 }
 
 const SideSheet: FC<ISideSheetProps> = (props) => {
-  const contentRef = useRef<HTMLDivElement | null>(null);
-  const [isVisibleInternal, setIsVisibleInternal] = useState(props.isVisible);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const visibleClassName = isVisibleInternal ? styles.visible : "";
-  const transitionFromBottomClassName = props.transitionFromBottom
-    ? styles.fromBottom
-    : "";
-  const isTransitioningClassName = isTransitioning
-    ? styles.isTransitioning
-    : "";
+    const contentRef = useRef<HTMLDivElement | null>(null);
+    const [isVisibleInternal, setIsVisibleInternal] = useState(props.isVisible);
+    const [isTransitioning, setIsTransitioning] = useState(false);
+    const visibleClassName = isVisibleInternal ? styles.visible : "";
+    const transitionFromBottomClassName = props.transitionFromBottom
+        ? styles.fromBottom
+        : "";
+    const isTransitioningClassName = isTransitioning
+        ? styles.isTransitioning
+        : "";
+    const maxHeight30ClassName = props.isMaxHeight30 ? styles.maxHeight30 : "";
 
-  const onOutsideClick = () => {
-    props.setIsVisible((t) => !t);
-  };
-
-  const onContentClick = (e: MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-  };
-
-  useEffect(() => {
-    const onTransitionStart = () => {
-      setIsTransitioning(true);
+    const onOutsideClick = () => {
+        props.setIsVisible((t) => !t);
     };
-    contentRef.current?.addEventListener("transitionstart", onTransitionStart);
 
-    const onTransitionEnd = () => {
-      setIsTransitioning(false);
+    const onContentClick = (e: MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation();
     };
-    contentRef.current?.addEventListener("transitionend", onTransitionEnd);
 
-    return () => {
-      contentRef.current?.removeEventListener(
-        "transitionstart",
-        onTransitionStart
-      );
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      contentRef.current?.removeEventListener("transitionend", onTransitionEnd);
-    };
-  }, []);
+    useEffect(() => {
+        const onTransitionStart = () => {
+            setIsTransitioning(true);
+        };
+        contentRef.current?.addEventListener(
+            "transitionstart",
+            onTransitionStart
+        );
 
-  useEffectSkipFirstRender(() => {
-    setIsVisibleInternal(props.isVisible);
-    setIsTransitioning(true);
-  }, [props.isVisible]);
+        const onTransitionEnd = () => {
+            setIsTransitioning(false);
+        };
+        contentRef.current?.addEventListener("transitionend", onTransitionEnd);
 
-  useEffect(() => {
-    if (isVisibleInternal && !isTransitioning) {
-      // On enter
-      if (props.onEnter) {
-        props.onEnter();
-      }
-    }
+        return () => {
+            contentRef.current?.removeEventListener(
+                "transitionstart",
+                onTransitionStart
+            );
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            contentRef.current?.removeEventListener(
+                "transitionend",
+                onTransitionEnd
+            );
+        };
+    }, []);
 
-    if (!isVisibleInternal && !isTransitioning) {
-      // On exit
-      if (props.onExit) {
-        props.onExit();
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isVisibleInternal, isTransitioning]);
+    useEffectSkipFirstRender(() => {
+        setIsVisibleInternal(props.isVisible);
+        setIsTransitioning(true);
+    }, [props.isVisible]);
 
-  return (
-    <div
-      className={`${styles.sideSheet} ${visibleClassName} ${isTransitioningClassName} ${transitionFromBottomClassName}`}
-      onClick={onOutsideClick}
-    >
-      <div
-        className={styles.sideSheetContentContainer}
-        onClick={onContentClick}
-        ref={contentRef}
-      >
-        {(isVisibleInternal || isTransitioning) && props.children}
-      </div>
-    </div>
-  );
+    useEffect(() => {
+        if (isVisibleInternal && !isTransitioning) {
+            // On enter
+            if (props.onEnter) {
+                props.onEnter();
+            }
+        }
+
+        if (!isVisibleInternal && !isTransitioning) {
+            // On exit
+            if (props.onExit) {
+                props.onExit();
+            }
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isVisibleInternal, isTransitioning]);
+
+    return (
+        <div
+            className={`${styles.sideSheet} ${visibleClassName} ${isTransitioningClassName} ${transitionFromBottomClassName} ${maxHeight30ClassName}`}
+            onClick={onOutsideClick}
+        >
+            <div
+                className={styles.sideSheetContentContainer}
+                onClick={onContentClick}
+                ref={contentRef}
+            >
+                {(isVisibleInternal || isTransitioning) && props.children}
+            </div>
+        </div>
+    );
 };
 
 export default SideSheet;

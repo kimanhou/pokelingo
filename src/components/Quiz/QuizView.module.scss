@@ -1,0 +1,65 @@
+@import "@/mixins.scss";
+
+div.quiz-view {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    > div.quiz-image-container {
+        flex: 7;
+        position: relative;
+        overflow: hidden;
+        > div.quiz-creature-image {
+            @include background-image-component;
+            background-color: transparent;
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            pointer-events: none;
+        }
+    }
+    > div.quiz-text {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        > h2 {
+            margin-block: 0;
+            margin-top: 24px;
+            font-size: var(--font-size-xxlarge);
+            color: var(--bg);
+        }
+        > input.answer-input {
+            color: var(--fg);
+            border: 1px solid var(--color-medium-grey);
+            background: var(--color-light-grey);
+            border-radius: 4px;
+            font-size: 32px;
+            margin: 8px auto;
+            text-align: center;
+            padding: 8px 12px;
+            max-width: 50vw;
+            &:focus-visible {
+                outline: none;
+            }
+        }
+    }
+
+    div.answer-review-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        div.message {
+            flex: 1;
+            h2 {
+                margin-block-start: 0;
+            }
+        }
+        div.buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+    }
+}

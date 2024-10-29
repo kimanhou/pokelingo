@@ -45,7 +45,6 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
         deviceType,
         isCreatureCard: props.isCreatureCard || false,
     });
-    const isLargeDesktop = deviceType === DeviceType.LARGE_DESKTOP;
 
     useEffect(() => {
         setTimeout(() => {
