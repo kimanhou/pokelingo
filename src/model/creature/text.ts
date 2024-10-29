@@ -1,6 +1,6 @@
 import Type from "@/model/util/type"
-import Reading from "./reading";
-import Word from "./word";
+import Reading from "@/model/creature/reading";
+import Word from "@/model/creature/word";
 
 export default class Text {
     constructor(

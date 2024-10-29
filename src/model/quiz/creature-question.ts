@@ -1,6 +1,6 @@
 import Type from "@/model/util/type";
 import Creature from "@/model/creature/creature";
-import Question from "./question";
+import Question from "@/model/quiz/question";
 
 export default class CreatureQuestion implements Question {
     constructor(

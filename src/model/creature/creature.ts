@@ -1,8 +1,8 @@
 import Type from "@/model/util/type"
 import Word from "@/model/creature/word"
 import Text from "@/model/creature/text"
-import Reading from "./reading"
-import CreatureTag from "./creature-tag";
+import Reading from "@/model/creature/reading";
+import CreatureTag from "@/model/creature/creature-tag";
 
 export default class Creature {
     constructor(

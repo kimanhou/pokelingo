@@ -1,4 +1,4 @@
-import Root from "./root";
+import Root from "@/model/root/root";
 import data from "@/data/data.json"
 
 class RootRepository {

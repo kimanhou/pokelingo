@@ -1,7 +1,7 @@
 import Type from "@/model/util/type";
 import RoundStatus from "@/model/quiz/round-status";
-import Question from "./question";
-import CreatureQuestion from "./creature-question";
+import Question from "@/model/quiz/question";
+import CreatureQuestion from "@/model/quiz/creature-question";
 
 export default class Round {
     constructor(

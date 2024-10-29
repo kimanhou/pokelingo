@@ -1,6 +1,6 @@
-import Type from "../util/type";
-import CreatureQuestion from "./creature-question";
-import Question from "./question";
+import Type from "@/model/util/type";
+import CreatureQuestion from "@/model/quiz/creature-question";
+import Question from "@/model/quiz/question";
 
 export default class QuestionIterator {
     constructor(

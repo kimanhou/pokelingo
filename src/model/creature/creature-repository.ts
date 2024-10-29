@@ -1,4 +1,4 @@
-import rootRepository from "../root/root-repository";
+import rootRepository from "@/model/root/root-repository";
 
 class CreatureRepository{
     findAll = () => {

@@ -1,5 +1,5 @@
 import Type from "@/model/util/type"
-import Reading from "./reading";
+import Reading from "@/model/creature/reading";
 
 export default class Settings {
     constructor(

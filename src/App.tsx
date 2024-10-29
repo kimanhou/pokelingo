@@ -4,8 +4,8 @@ import { Footer } from "@/components/Footer/Footer";
 import SideSheet from "@/components/common/SideSheet/SideSheet";
 import Learn from "@/components/Learn/Learn";
 import QuizView from "@/components/Quiz/QuizView";
+import creatureRepository from "@/model/creature/creature-repository";
 import "./App.scss";
-import creatureRepository from "./model/creature/creature-repository";
 
 function App() {
     const [isQuiz, setIsQuiz] = useState(false);

@@ -1,6 +1,6 @@
 import Type from "@/model/util/type";
 import Round from "@/model/quiz/round";
-import QuestionIterator from "./question-iterator";
+import QuestionIterator from "@/model/quiz/question-iterator";
 
 export default class Quiz {
     constructor(
