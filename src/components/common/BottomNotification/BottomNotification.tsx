@@ -69,12 +69,6 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
     useEffectSkipFirstRender(() => {
         setIsVisibleInternal(props.isVisible);
         setIsTransitioning(true);
-
-        if (hiddenContentRef.current && props.isVisible) {
-            setTop(`calc(100dvh - ${hiddenContentRef.current.clientHeight}px)`);
-        } else if (!props.isVisible) {
-            setTop("100%");
-        }
     }, [props.isVisible]);
 
     useEffect(() => {
@@ -93,6 +87,14 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isVisibleInternal, isTransitioning]);
+
+    useEffect(() => {
+        if (hiddenContentRef.current && props.isVisible) {
+            setTop(`calc(100dvh - ${hiddenContentRef.current.clientHeight}px)`);
+        } else if (!props.isVisible) {
+            setTop("100%");
+        }
+    }, [props.children, props.isVisible]);
 
     return (
         <div
