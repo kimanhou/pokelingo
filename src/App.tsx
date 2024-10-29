@@ -9,7 +9,6 @@ import creatureRepository from "@/model/creature/creature-repository";
 import "./App.scss";
 
 function App() {
-    const [isQuiz, setIsQuiz] = useState(false);
     const [isLearnOpen, setIsLearnOpen] = useState(false);
 
     useEffect(() => {

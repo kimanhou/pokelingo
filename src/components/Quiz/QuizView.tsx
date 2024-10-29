@@ -29,7 +29,7 @@ const QuizView: FC<IQuizProps> = (props) => {
         useState(false);
     const [canGoToNextRound, setCanGoToNextRound] = useState(false);
 
-    const onAnswer = (quiz: QuizOngoing) => () => {
+    const onAnswer = (quiz: QuizOngoing) => {
         if (quiz.isCorrectAnswer(input)) {
             setReviewMessage(
                 <>
@@ -75,15 +75,13 @@ const QuizView: FC<IQuizProps> = (props) => {
     };
 
     const onNext = (quiz: QuizSolved) => {
-            setReviewMessage(null);
-            setInput("");
-            setIsAnswerReviewSideSheetOpen(false);
-            setCanGoToNextRound(false);
-            setQuiz(quiz.toNextQuestion());
-        };
+        onResetAnswer();
+        setQuiz(quiz.toNextQuestion());
     };
 
     const onResetAnswer = () => {
+        setReviewMessage(null);
+        setInput("");
         setIsAnswerReviewSideSheetOpen(false);
         setInput("");
     };
@@ -93,10 +91,6 @@ const QuizView: FC<IQuizProps> = (props) => {
             onAnswer(quiz);
         }
     };
-
-    useEffect(() => {
-        console.log("poney");
-    }, [isAnswerReviewSideSheetOpen]);
 
     return (
         <div className={styles.quizView}>

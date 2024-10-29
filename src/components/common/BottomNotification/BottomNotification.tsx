@@ -21,6 +21,7 @@ interface IBottomNotificationProps {
 
 const BottomNotification: FC<IBottomNotificationProps> = (props) => {
     const contentRef = useRef<HTMLDivElement | null>(null);
+    const hiddenContentRef = useRef<HTMLDivElement | null>(null);
     const [isVisibleInternal, setIsVisibleInternal] = useState(props.isVisible);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [top, setTop] = useState<number | string>("100%");
@@ -31,7 +32,7 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
         : "";
 
     const onOutsideClick = () => {
-        props.setIsVisible(false);
+        props.setIsVisible((t) => !t);
     };
 
     const onContentClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -66,14 +67,12 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
     }, []);
 
     useEffectSkipFirstRender(() => {
-        console.log("is visible", props.isVisible);
         setIsVisibleInternal(props.isVisible);
         setIsTransitioning(true);
 
-        if (contentRef.current && props.isVisible) {
-            setTop(`calc(100dvh - ${contentRef.current.clientHeight}px)`);
+        if (hiddenContentRef.current && props.isVisible) {
+            setTop(`calc(100dvh - ${hiddenContentRef.current.clientHeight}px)`);
         } else if (!props.isVisible) {
-            console.log("exit");
             setTop("100%");
         }
     }, [props.isVisible]);
@@ -97,12 +96,13 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
 
     return (
         <div
-            className={`${styles.bottomNotification} ${visibleClassName}`}
+            className={`${styles.bottomNotification} ${visibleClassName} ${isTransitioningClassName}`}
             onClick={onOutsideClick}
         >
             <div
                 className={styles.bottomNotificationContentContainer}
                 onClick={onContentClick}
+                ref={contentRef}
                 style={{ top }}
             >
                 {(isVisibleInternal || isTransitioning) && props.children}
@@ -110,7 +110,7 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
 
             <div
                 className={`${styles.bottomNotificationContentContainer} ${styles.hidden}`}
-                ref={contentRef}
+                ref={hiddenContentRef}
             >
                 {props.children}
             </div>
