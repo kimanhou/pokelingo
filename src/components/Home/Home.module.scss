@@ -2,7 +2,7 @@ div.home {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100dvh;
     > div.options-container {
         margin: auto;
         height: 80vh;
@@ -15,7 +15,6 @@ div.home {
     div.home {
         > div.options-container {
             flex-direction: column;
-            gap: 16px;
         }
     }
 }
