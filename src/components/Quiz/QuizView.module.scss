@@ -52,8 +52,16 @@ div.quiz-view {
         height: 100%;
         div.message {
             flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             h2 {
                 margin-block-start: 0;
+                margin-block-end: 4px;
+            }
+            img {
+                height: 5rem;
             }
         }
         div.buttons-container {

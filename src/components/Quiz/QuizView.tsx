@@ -1,10 +1,12 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import Creature from "@/model/creature/creature";
 import { QuizFailed, QuizOngoing, QuizSolved } from "@/model/quiz/quiz";
 import QuizFactory from "@/model/quiz/quiz-factory";
 import Ball from "@/assets/Ball";
 import Button from "@/components/common/Button/Button";
-import SideSheet from "@/components/common/SideSheet/SideSheet";
+import BottomNotification from "@/components/common/BottomNotification/BottomNotification";
+import happy from "@/assets/happy_eevee.png";
+import sad from "@/assets/sad_charmander.png";
 import styles from "./QuizView.module.scss";
 
 interface IQuizProps {
@@ -12,6 +14,7 @@ interface IQuizProps {
 }
 
 const QuizView: FC<IQuizProps> = (props) => {
+    const answerReviewContentRef = useRef<HTMLDivElement>(null);
     const [quiz, setQuiz] = useState(QuizFactory.build(props.creatures));
     const [input, setInput] = useState("");
     const [reviewMessage, setReviewMessage] = useState<JSX.Element | null>(
@@ -23,9 +26,21 @@ const QuizView: FC<IQuizProps> = (props) => {
     const [canGoToNextRound, setCanGoToNextRound] = useState(false);
     const [canSeeAnswer, setCanSeeAnswer] = useState(true);
 
+    const [answerReviewContentHeight, setAnswerReviewContentHeight] = useState<
+        number | undefined
+    >(undefined);
+
     const onAnswer = (quiz: QuizOngoing) => () => {
         if (quiz.isCorrectAnswer(input)) {
-            setReviewMessage(<span>Great job ! :)</span>);
+            setReviewMessage(
+                <>
+                    <img src={happy} />
+                    <div>
+                        <h2>Great job!</h2>
+                        <span>Your answer is correct.</span>
+                    </div>
+                </>
+            );
             setCanGoToNextRound(true);
             setCanRetry(false);
             setCanSeeAnswer(false);
@@ -71,6 +86,10 @@ const QuizView: FC<IQuizProps> = (props) => {
         }
     };
 
+    useEffect(() => {
+        console.log("open/close", answerReviewContentRef.current);
+    }, [isAnswerReviewSideSheetOpen]);
+
     return (
         <div className={styles.quizView}>
             <div
@@ -103,13 +122,15 @@ const QuizView: FC<IQuizProps> = (props) => {
                     disabled={!input}
                 ></Button>
             </div>
-            <SideSheet
+            <BottomNotification
                 isVisible={isAnswerReviewSideSheetOpen}
                 setIsVisible={setIsAnswerReviewSideSheetOpen}
-                transitionFromBottom
-                isMaxHeight30
+                contentHeight={answerReviewContentHeight ?? 0}
             >
-                <div className={styles.answerReviewContent}>
+                <div
+                    className={styles.answerReviewContent}
+                    ref={answerReviewContentRef}
+                >
                     <div className={styles.message}>{reviewMessage}</div>
                     <div className={styles.buttonsContainer}>
                         {canSeeAnswer && (
@@ -130,7 +151,7 @@ const QuizView: FC<IQuizProps> = (props) => {
                         )}
                     </div>
                 </div>
-            </SideSheet>
+            </BottomNotification>
         </div>
     );
 };
