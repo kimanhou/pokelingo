@@ -1,0 +1,21 @@
+div.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    > div.options-container {
+        margin: auto;
+        height: 80vh;
+        width: 80%;
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    div.home {
+        > div.options-container {
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+}
