@@ -1096,6 +1096,244 @@
                     }
                 ]
             },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 44,
+            "en": "Gloom",
+            "ja": {
+                "romaji": "Kusaihana",
+                "kana": "クサイハナ",
+                "kanji": "臭い花"
+            },
+            "imageUrl": "/assets/creature/44.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass",
+                "poison"
+            ],
+            "origin": {
+                "value": "From %w meaning \"smelly\" and %w meaning \"flower\", litterally \"smelly flower\".",
+                "words": [
+                    {
+                        "romaji": "\"kusai\"",
+                        "kana": "くさい",
+                        "kanji": "臭い"
+                    },
+                    {
+                        "romaji": "\"hana\"",
+                        "kana": "はな",
+                        "kanji": "花"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 45,
+            "en": "Vileplume",
+            "ja": {
+                "romaji": "Rafureshia",
+                "kana": "ラフレシア"
+            },
+            "imageUrl": "/assets/creature/45.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass",
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from the rafflesia (ラフレシア) flower.",
+                "words": []
+            },
+            "originTags": ["latin", "english"]
+        },
+        {
+            "id": 46,
+            "en": "Paras",
+            "ja": {
+                "romaji": "Parasu",
+                "kana": "パラス"
+            },
+            "imageUrl": "/assets/creature/46.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "bug", 
+                "grass"
+            ],
+            "origin": {
+                "value": "Derived from \"parasite\" (パラザイト) and/or \"parasol\" (パラソル).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 47,
+            "en": "Parasect",
+            "ja": {
+                "romaji": "Parasekuto",
+                "kana": "パラセクト"
+            },
+            "imageUrl": "/assets/creature/47.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "bug", 
+                "grass"
+            ],
+            "origin": {
+                "value": "Derived from \"parasite\" (パラザイト) and \"insect\" (インセクト).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 48,
+            "en": "Venonat",
+            "ja": {
+                "romaji": "Konpan",
+                "kana": "コンパン"
+            },
+            "imageUrl": "/assets/creature/48.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "bug",
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from \"compound eye\" (コンパン　アイ).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 49,
+            "en": "Venomoth",
+            "ja": {
+                "romaji": "Morufon",
+                "kana": "モルフォン"
+            },
+            "imageUrl": "/assets/creature/49.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "bug",
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from %w, the morfo butterflies genus.",
+                "words": [
+                    {
+                        "romaji": "morufochou",
+                        "kana": "モルフォチョウ"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 50,
+            "en": "Diglett",
+            "ja": {
+                "romaji": "Diguta",
+                "kana": "ディグダ"
+            },
+            "imageUrl": "/assets/creature/50.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ground"
+            ],
+            "origin": {
+                "value": "Derived from \"dig\" (ディグ) and the %w Namco video game.",
+                "words": [
+                    {
+                        "romaji": "digudagu",
+                        "kana": "ディグダグ"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 51,
+            "en": "Dugtrio",
+            "ja": {
+                "romaji": "Dagutorio",
+                "kana": "ダグトリオ"
+            },
+            "imageUrl": "/assets/creature/51.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ground"
+            ],
+            "origin": {
+                "value": "Derived from \"dug\" (ダグ), the %w Namco video game and \"trio\" (トリオ).",
+                "words": [
+                    {
+                        "romaji": "digudagu",
+                        "kana": "ディグダグ"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 52,
+            "en": "Meowth",
+            "ja": {
+                "romaji": "Nyaasu",
+                "kana": "ニャース"
+            },
+            "imageUrl": "/assets/creature/52.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From Pokemon game creator Satoshi Tajiri's pet cat name, and from %w onomatopoeia for cat meow.",
+                "words": [
+                    {
+                        "romaji": "nyaa",
+                        "kana": "にゃ〜"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia"]
+        },
+        {
+            "id": 53,
+            "en": "Persian",
+            "ja": {
+                "romaji": "Perushian",
+                "kana": "ペルシアン"
+            },
+            "imageUrl": "/assets/creature/53.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From the \"persian\" (ペルシアン) and \"russian blue\" (ロシアンブルー) cat breeds.",
+                "words": []
+            },
             "originTags": ["english"]
         }
     ]
