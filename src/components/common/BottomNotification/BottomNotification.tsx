@@ -15,7 +15,6 @@ interface IBottomNotificationProps {
     isVisible: boolean;
     setIsVisible: Dispatch<SetStateAction<boolean>>;
     children: ReactNode;
-    contentHeight: number;
     onEnter?: () => void;
     onExit?: () => void;
 }
@@ -24,6 +23,7 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
     const contentRef = useRef<HTMLDivElement | null>(null);
     const [isVisibleInternal, setIsVisibleInternal] = useState(props.isVisible);
     const [isTransitioning, setIsTransitioning] = useState(false);
+    const [top, setTop] = useState<number | string>("100%");
 
     const visibleClassName = isVisibleInternal ? styles.visible : "";
     const isTransitioningClassName = isTransitioning
@@ -31,7 +31,7 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
         : "";
 
     const onOutsideClick = () => {
-        props.setIsVisible((t) => !t);
+        props.setIsVisible(false);
     };
 
     const onContentClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -66,8 +66,16 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
     }, []);
 
     useEffectSkipFirstRender(() => {
+        console.log("is visible", props.isVisible);
         setIsVisibleInternal(props.isVisible);
         setIsTransitioning(true);
+
+        if (contentRef.current && props.isVisible) {
+            setTop(`calc(100dvh - ${contentRef.current.clientHeight}px)`);
+        } else if (!props.isVisible) {
+            console.log("exit");
+            setTop("100%");
+        }
     }, [props.isVisible]);
 
     useEffect(() => {
@@ -87,21 +95,24 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isVisibleInternal, isTransitioning]);
 
-    useEffect(() => {
-        console.log("content height", props.contentHeight);
-    }, [props.contentHeight]);
-
     return (
         <div
-            className={`${styles.bottomNotification} ${visibleClassName} ${isTransitioningClassName}`}
+            className={`${styles.bottomNotification} ${visibleClassName}`}
             onClick={onOutsideClick}
         >
             <div
                 className={styles.bottomNotificationContentContainer}
                 onClick={onContentClick}
-                ref={contentRef}
+                style={{ top }}
             >
                 {(isVisibleInternal || isTransitioning) && props.children}
+            </div>
+
+            <div
+                className={`${styles.bottomNotificationContentContainer} ${styles.hidden}`}
+                ref={contentRef}
+            >
+                {props.children}
             </div>
         </div>
     );

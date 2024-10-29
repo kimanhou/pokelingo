@@ -8,12 +8,17 @@ import BottomNotification from "@/components/common/BottomNotification/BottomNot
 import happy from "@/assets/happy_eevee.png";
 import sad from "@/assets/sad_charmander.png";
 import styles from "./QuizView.module.scss";
+import { useDeviceType } from "@/hooks/useIsMobile";
+import { DeviceType } from "@/ts/enums";
 
 interface IQuizProps {
     creatures: Creature[];
 }
 
 const QuizView: FC<IQuizProps> = (props) => {
+    const deviceType = useDeviceType();
+    const isMobile = deviceType === DeviceType.MOBILE;
+
     const answerReviewContentRef = useRef<HTMLDivElement>(null);
     const [quiz, setQuiz] = useState(QuizFactory.build(props.creatures));
     const [input, setInput] = useState("");
@@ -22,13 +27,7 @@ const QuizView: FC<IQuizProps> = (props) => {
     );
     const [isAnswerReviewSideSheetOpen, setIsAnswerReviewSideSheetOpen] =
         useState(false);
-    const [canRetry, setCanRetry] = useState(true);
     const [canGoToNextRound, setCanGoToNextRound] = useState(false);
-    const [canSeeAnswer, setCanSeeAnswer] = useState(true);
-
-    const [answerReviewContentHeight, setAnswerReviewContentHeight] = useState<
-        number | undefined
-    >(undefined);
 
     const onAnswer = (quiz: QuizOngoing) => () => {
         if (quiz.isCorrectAnswer(input)) {
@@ -42,12 +41,18 @@ const QuizView: FC<IQuizProps> = (props) => {
                 </>
             );
             setCanGoToNextRound(true);
-            setCanRetry(false);
-            setCanSeeAnswer(false);
             setIsAnswerReviewSideSheetOpen(true);
             setQuiz(quiz.toSolved());
         } else {
-            setReviewMessage(<span>Oops, your answer is incorrect. :(</span>);
+            setReviewMessage(
+                <>
+                    <img src={sad} />
+                    <div>
+                        <h2>Oops!</h2>
+                        <span>Your answer is incorrect.</span>
+                    </div>
+                </>
+            );
             setIsAnswerReviewSideSheetOpen(true);
             setQuiz(quiz.toFailed());
         }
@@ -55,29 +60,32 @@ const QuizView: FC<IQuizProps> = (props) => {
 
     const onGiveUp = (quiz: QuizFailed) => () => {
         setReviewMessage(
-            <>
+            <div>
                 <h2>{quiz.getRoundAnswer()}</h2>
                 <span>{quiz.getRoundAnswerExplanation()}</span>
-            </>
+            </div>
         );
-        setCanRetry(false);
         setCanGoToNextRound(true);
-        setCanSeeAnswer(false);
-        setQuiz(quiz.toOngoing());
+        return quiz.toOngoing();
     };
     const onTryAgain = (quiz: QuizFailed) => () => {
         setAnswerState("");
         setInput("");
         setQuiz(quiz.toOngoing());
     };
-    const onNext = (quiz: QuizSolved) => () => {
-        setReviewMessage(null);
-        setInput("");
+
+    const onNext = (quiz: QuizSolved) => {
+            setReviewMessage(null);
+            setInput("");
+            setIsAnswerReviewSideSheetOpen(false);
+            setCanGoToNextRound(false);
+            setQuiz(quiz.toNextQuestion());
+        };
+    };
+
+    const onResetAnswer = () => {
         setIsAnswerReviewSideSheetOpen(false);
-        setCanRetry(true);
-        setCanGoToNextRound(false);
-        setCanSeeAnswer(true);
-        setQuiz(quiz.toNextQuestion());
+        setInput("");
     };
 
     const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -87,7 +95,7 @@ const QuizView: FC<IQuizProps> = (props) => {
     };
 
     useEffect(() => {
-        console.log("open/close", answerReviewContentRef.current);
+        console.log("poney");
     }, [isAnswerReviewSideSheetOpen]);
 
     return (
@@ -120,12 +128,13 @@ const QuizView: FC<IQuizProps> = (props) => {
                     onClick={onAnswer}
                     text="Check"
                     disabled={!input}
+                    expand={isMobile}
                 ></Button>
             </div>
+
             <BottomNotification
                 isVisible={isAnswerReviewSideSheetOpen}
                 setIsVisible={setIsAnswerReviewSideSheetOpen}
-                contentHeight={answerReviewContentHeight ?? 0}
             >
                 <div
                     className={styles.answerReviewContent}
@@ -133,21 +142,22 @@ const QuizView: FC<IQuizProps> = (props) => {
                 >
                     <div className={styles.message}>{reviewMessage}</div>
                     <div className={styles.buttonsContainer}>
-                        {canSeeAnswer && (
-                            <Button
-                                text="See answer"
-                                onClick={onGiveUp}
-                                secondary
-                            ></Button>
-                        )}
-                        {canRetry && (
-                            <Button
-                                text="Retry"
-                                onClick={onResetAnswer}
-                            ></Button>
+                        {!canGoToNextRound && (
+                            <>
+                                <Button
+                                    text="See answer"
+                                    onClick={onGiveUp}
+                                    secondary
+                                />
+                                <Button text="Retry" onClick={onResetAnswer} />
+                            </>
                         )}
                         {canGoToNextRound && (
-                            <Button text="Next" onClick={onNext}></Button>
+                            <Button
+                                text="Next"
+                                onClick={onNext}
+                                expand={isMobile}
+                            />
                         )}
                     </div>
                 </div>

@@ -11,7 +11,8 @@ $leftMargin: 100px;
     display: flex;
     visibility: hidden;
     background-color: transparent;
-    &.is-transitioning {
+    &.is-transitioning,
+    &.visible {
         visibility: visible;
     }
     > .bottom-notification-content-container {
@@ -21,16 +22,17 @@ $leftMargin: 100px;
         bottom: 0;
         right: 0;
         background-color: var(--bg);
-        transition:
-            left 0.4s ease-in,
-            top 0.2s ease-in;
+        transition: top 0.2s ease-in;
         padding: 24px;
-    }
-    &.visible {
-        visibility: visible;
-        > .bottom-notification-content-container {
-            top: 0;
-            border-radius: 24px 24px 0 0;
+        border-radius: 24px 24px 0 0;
+
+        &.hidden {
+            visibility: hidden;
+            position: absolute;
+            top: -100vh;
+            bottom: unset;
+            left: unset;
+            right: unset;
         }
     }
 }
