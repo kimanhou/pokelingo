@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Creature from "@/model/creature";
+import { scrollToCreatureIndex } from "@/ts/utils";
 
 const getNumberOfCreaturesPerLine = (windowWidth: number) => {
     if (windowWidth > 823) {
@@ -45,16 +46,18 @@ const useArrows = ({
     useEffect(() => {
         const onKeyDown = (e: KeyboardEvent) => {
             if (e.key === "ArrowRight") {
-                setDisplayedSelectedCreature(
-                    (t) => creatures[t.id % creatures.length]
-                );
+                setDisplayedSelectedCreature((t) => {
+                    const targetIndex = t.id % creatures.length;
+                    scrollToCreatureIndex({ creatureIndex: targetIndex });
+                    return creatures[t.id % creatures.length];
+                });
             }
             if (e.key === "ArrowLeft") {
                 setDisplayedSelectedCreature((t) => {
-                    if (t.id > 1) {
-                        return creatures[t.id - 2];
-                    }
-                    return creatures[creatures.length - 1];
+                    const targetIndex =
+                        t.id > 1 ? t.id - 2 : creatures.length - 1;
+                    scrollToCreatureIndex({ creatureIndex: targetIndex });
+                    return creatures[targetIndex];
                 });
             }
             if (e.key === "ArrowUp") {
@@ -79,18 +82,20 @@ const useArrows = ({
                                       creatures.length /
                                           numberOfCreaturesPerLine
                                   );
-                        return creatures[
+                        const targetIndex =
                             targetLine * numberOfCreaturesPerLine +
-                                columnNumber -
-                                1
-                        ];
+                            columnNumber -
+                            1;
+                        scrollToCreatureIndex({ creatureIndex: targetIndex });
+                        return creatures[targetIndex];
                     }
 
-                    return creatures[
+                    const targetIndex =
                         (lineNumber - 1) * numberOfCreaturesPerLine +
-                            columnNumber -
-                            1
-                    ];
+                        columnNumber -
+                        1;
+                    scrollToCreatureIndex({ creatureIndex: targetIndex });
+                    return creatures[targetIndex];
                 });
             }
             if (e.key === "ArrowDown") {
@@ -110,14 +115,12 @@ const useArrows = ({
                         (currentLineIndex === lastLineIndex - 1 &&
                             currentColumnIndex > lastColumnIndex);
 
-                    if (isLastLine) {
-                        return creatures[currentColumnIndex];
-                    }
-
-                    return creatures[
-                        (currentLineIndex + 1) * numberOfCreaturesPerLine +
-                            currentColumnIndex
-                    ];
+                    const targetIndex = isLastLine
+                        ? currentColumnIndex
+                        : (currentLineIndex + 1) * numberOfCreaturesPerLine +
+                          currentColumnIndex;
+                    scrollToCreatureIndex({ creatureIndex: targetIndex });
+                    return creatures[targetIndex];
                 });
             }
         };

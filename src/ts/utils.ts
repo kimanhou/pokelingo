@@ -16,6 +16,14 @@ export const scrollTo = ({ elementId }: { elementId: string }) => {
     myElement.scrollIntoView();
 };
 
+export const scrollToCreatureIndex = ({
+    creatureIndex,
+}: {
+    creatureIndex: number;
+}) => {
+    scrollTo({ elementId: `avatar-${creatureIndex + 1}` });
+};
+
 export const formatName = (name: string) => {
     const formatted = name
         // eslint-disable-next-line
