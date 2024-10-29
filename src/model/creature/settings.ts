@@ -1,11 +1,13 @@
-import Type from "@/model/type"
-import Reading from "./reading";
+import Type from "@/model/util/type"
+import Reading from "@/model/creature/reading";
 
 export default class Settings {
     constructor(
-        readonly reading : Reading,
+        private readonly reading : Reading,
     ) {
     }
+
+    getReading = () => this.reading
 
     static fromJSON = (json: any) => {
         return new Settings(

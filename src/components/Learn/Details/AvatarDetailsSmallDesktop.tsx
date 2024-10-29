@@ -3,7 +3,7 @@ import AvatarSpecs from "@/components/Learn/Details/Specs/AvatarSpecs";
 import ImageContainer from "@/components/Learn/Details/ImageContainer/ImageContainer";
 import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
 import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
-import Creature from "@/model/creature";
+import Creature from "@/model/creature/creature";
 import { useDeviceType } from "@/hooks/useIsMobile";
 import styles from "./AvatarDetailsSmallDesktop.module.scss";
 
@@ -29,14 +29,14 @@ const AvatarDetailsSmallDesktop: FC<IAvatarDetailsSmallDesktopProps> = (
             <ImageContainer
                 mainColor={props.mainColor}
                 name={props.creature.getName()}
-                avatarId={props.creature.id}
+                avatarId={props.creature.getId()}
                 randomize={props.randomize}
                 search={props.search}
                 setSearch={props.setSearch}
             />
             <AvatarImage creature={props.creature} isSmallDesktop />
             <AvatarSpecs
-                types={props.creature.types}
+                types={props.creature.getTypes()}
                 deviceType={deviceType}
                 description={props.creature.getDescription()}
                 isCreatureCard={props.isCreatureCard}

@@ -1,6 +1,6 @@
 import { FC, Dispatch, SetStateAction, useState } from "react";
 import AvatarOption from "@/components/Learn/Options/AvatarOption";
-import Creature from "@/model/creature";
+import Creature from "@/model/creature/creature";
 import CreatureCard from "@/components/Learn/CreatureCard/CreatureCard";
 import { useDeviceType } from "@/hooks/useIsMobile";
 import { DeviceType } from "@/ts/enums";
@@ -33,7 +33,7 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                 <div className={styles.avatarOptionsScroller}>
                     {props.displayedOptions.map((creature) => (
                         <AvatarOption
-                            key={creature.id}
+                            key={creature.getId()}
                             creature={creature}
                             setDisplayedSelectedCreature={
                                 props.setDisplayedSelectedCreature
@@ -42,7 +42,7 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                                 props.displayedSelectedCreature
                             }
                             isDisabled={props.unavailableCreaturesImageUrl.includes(
-                                creature.imageUrl
+                                creature.getImageUrl()
                             )}
                             onClick={() => onClickCreature(creature)}
                         />

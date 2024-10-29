@@ -1,11 +1,11 @@
-import Type from "@/model/type"
-import Reading from "./reading";
-import Word from "./word";
+import Type from "@/model/util/type"
+import Reading from "@/model/creature/reading";
+import Word from "@/model/creature/word";
 
 export default class Text {
     constructor(
-        readonly value : string,
-        readonly words : Word[],
+        private readonly value : string,
+        private readonly words : Word[],
     ) {
     }
 
@@ -32,8 +32,8 @@ export default class Text {
 
     static getEmpty = () => {
         return new Text(
-            Type.STRING.emptyValue,
-            Type.ARRAY(Type.of(Word)).emptyValue,
+            Type.STRING.getEmpty(),
+            Type.ARRAY(Type.of(Word)).getEmpty(),
         )
     }
 }

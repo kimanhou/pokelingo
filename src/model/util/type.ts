@@ -1,9 +1,9 @@
 export default class Type<T>{
     constructor(
-        readonly name : string,
-        readonly assertFn : (value: any) => boolean,
-        readonly deserialize : (value: any) => T,
-        readonly emptyValue : T
+        private readonly name : string,
+        private readonly assertFn : (value: any) => boolean,
+        private readonly deserialize : (value: any) => T,
+        private readonly emptyValue : T
     ){
     }
 
@@ -23,6 +23,8 @@ export default class Type<T>{
         }
         return this.read(value);
     }
+
+    getEmpty = () => this.emptyValue;
 
     static STRING = new Type<string>(
         "string", 

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Creature from "@/model/creature";
 import { scrollToCreatureIndex } from "@/ts/utils";
+import Creature from "@/model/creature/creature";
 
 const getNumberOfCreaturesPerLine = (windowWidth: number) => {
     if (windowWidth > 823) {
@@ -46,27 +46,27 @@ const useArrows = ({
     useEffect(() => {
         const onKeyDown = (e: KeyboardEvent) => {
             if (e.key === "ArrowRight") {
-                setDisplayedSelectedCreature((t) => {
-                    const targetIndex = t.id % creatures.length;
+                setDisplayedSelectedCreature((t : Creature) => {
+                    const targetIndex = t.getId() % creatures.length;
                     scrollToCreatureIndex({ creatureIndex: targetIndex });
-                    return creatures[t.id % creatures.length];
+                    return creatures[t.getId() % creatures.length];
                 });
             }
             if (e.key === "ArrowLeft") {
-                setDisplayedSelectedCreature((t) => {
+                setDisplayedSelectedCreature((t : Creature) => {
                     const targetIndex =
-                        t.id > 1 ? t.id - 2 : creatures.length - 1;
+                        t.getId() > 1 ? t.getId() - 2 : creatures.length - 1;
                     scrollToCreatureIndex({ creatureIndex: targetIndex });
                     return creatures[targetIndex];
                 });
             }
             if (e.key === "ArrowUp") {
-                setDisplayedSelectedCreature((t) => {
+                setDisplayedSelectedCreature((t : Creature) => {
                     const lineNumber = Math.floor(
-                        (t.id - 1) / numberOfCreaturesPerLine
+                        (t.getId()- 1) / numberOfCreaturesPerLine
                     );
                     const columnNumber =
-                        t.id % numberOfCreaturesPerLine ||
+                        t.getId()% numberOfCreaturesPerLine ||
                         numberOfCreaturesPerLine;
 
                     if (lineNumber === 0) {
@@ -99,15 +99,15 @@ const useArrows = ({
                 });
             }
             if (e.key === "ArrowDown") {
-                setDisplayedSelectedCreature((t) => {
+                setDisplayedSelectedCreature((t : Creature) => {
                     const lastLineIndex = Math.floor(
                         (creatures.length - 1) / numberOfCreaturesPerLine
                     );
                     const currentLineIndex = Math.floor(
-                        (t.id - 1) / numberOfCreaturesPerLine
+                        (t.getId()- 1) / numberOfCreaturesPerLine
                     );
                     const currentColumnIndex =
-                        t.id === 1 ? 0 : (t.id - 1) % numberOfCreaturesPerLine;
+                        t.getId()=== 1 ? 0 : (t.getId()- 1) % numberOfCreaturesPerLine;
                     const lastColumnIndex =
                         (creatures.length - 1) % numberOfCreaturesPerLine;
                     const isLastLine =

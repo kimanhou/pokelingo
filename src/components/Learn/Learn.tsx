@@ -10,7 +10,7 @@ import {
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
     scrollToCreatureIndex,
 } from "@/ts/utils";
-import Creature from "@/model/creature";
+import Creature from "@/model/creature/creature";
 import useArrows from "@/hooks/useArrows";
 import styles from "./Learn.module.scss";
 
@@ -45,7 +45,7 @@ const Learn: FC<ILearnProps> = ({ creatures }: ILearnProps) => {
         setDisplayedOptions(
             creatures.filter(
                 (creature) =>
-                    creature.id === parseInt(search) ||
+                    creature.getId() === parseInt(search) ||
                     creature.matchesPartial(search)
             )
         );

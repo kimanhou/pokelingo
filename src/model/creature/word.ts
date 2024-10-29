@@ -1,11 +1,11 @@
-import Type from "@/model/type"
-import Reading from "./reading";
+import Type from "@/model/util/type"
+import Reading from "@/model/creature/reading";
 
 export default class Word {
     constructor(
-        readonly romaji : string,
-        readonly kana : string,
-        readonly kanji : string | undefined,
+        private readonly romaji : string,
+        private readonly kana : string,
+        private readonly kanji : string | undefined,
     ) {
     }
 
@@ -13,6 +13,12 @@ export default class Word {
         return this.romaji.toLowerCase().includes(str.toLowerCase())
             || this.kana.includes(str)
             || (this.kanji != null && this.kanji.includes(str));
+    }
+
+    equals = (str : string) => {
+        return this.romaji.toLowerCase() === str.toLowerCase()
+            || this.kana === str
+            || this.kanji === str;
     }
 
     get = (reading : Reading) => {
@@ -60,9 +66,9 @@ export default class Word {
 
     static getEmpty = () => {
         return new Word(
-            Type.STRING.emptyValue,
-            Type.STRING.emptyValue,
-            Type.STRING.emptyValue,
+            Type.STRING.getEmpty(),
+            Type.STRING.getEmpty(),
+            Type.STRING.getEmpty(),
         )
     }
 }

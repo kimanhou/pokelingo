@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Ball from "@/assets/Ball";
-import Creature from "@/model/creature";
+import Creature from "@/model/creature/creature";
 import styles from "./AvatarImage.module.scss";
 
 interface IAvatarImageProps {
@@ -14,7 +14,7 @@ interface IAvatarImageProps {
 const AvatarImage: FC<IAvatarImageProps> = (props) => {
     const getBottom = () => {
         if (props.isSmallDesktop) {
-            if (props.creature.id > 0) {
+            if (props.creature.getId() > 0) {
                 return "16px";
             } else {
                 return "0";
@@ -23,7 +23,7 @@ const AvatarImage: FC<IAvatarImageProps> = (props) => {
             props.avatarDetailsHeight !== undefined &&
             props.avatarSpecsHeight !== undefined
         ) {
-            if (props.creature.id < 0) {
+            if (props.creature.getId() < 0) {
                 return Math.min(
                     props.avatarDetailsHeight * 0.3,
                     props.avatarSpecsHeight
@@ -53,7 +53,7 @@ const AvatarImage: FC<IAvatarImageProps> = (props) => {
                 style={{
                     backgroundImage: `url(${props.creature.getImageUrl()})`,
                     backgroundPositionY:
-                        props.creature.id < 0 ? "bottom" : "center",
+                        props.creature.getId() < 0 ? "bottom" : "center",
                     bottom,
                     opacity,
                 }}

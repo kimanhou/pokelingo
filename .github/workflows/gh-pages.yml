@@ -5,6 +5,9 @@ on:
     branches-ignore:
       - gh-pages
 
+env:
+  BRANCH_NAME: ${{ github.ref_name }}
+
 jobs:
   deploy:
     if: github.event.deleted == false
@@ -29,7 +32,12 @@ jobs:
 
 
       - run: npm install
-      - run: npm run build
+
+      - if: ${{ github.ref == 'refs/heads/master' }}
+        run: npm run build
+
+      - if: ${{ github.ref != 'refs/heads/master' }}
+        run: npm run build -- --config vite.config.branch.ts
 
       - name: Deploy
         uses: mark-poussard/actions-gh-pages@v4.1.1
