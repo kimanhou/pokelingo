@@ -1,4 +1,5 @@
 import Creature from "@/model/creature/creature";
+import { QuizFailed, QuizOngoing, QuizSolved } from "@/model/quiz/quiz";
 import QuizFactory from "@/model/quiz/quiz-factory";
 import { FC, useState } from "react";
 
@@ -11,28 +12,23 @@ const QuizView: FC<IQuizProps> = (props) => {
     const [input, setInput] = useState("");
     const [answerState, setAnswerState] = useState<string | null>(null);
 
-    const onAnswer = () => {
-        setQuiz(quiz => {
-            if(quiz.isCorrectAnswer(input)){
-                setAnswerState("Correct ! :)")
-                return quiz.solveRound();
-            }
+    const onAnswer = (quiz : QuizOngoing) => () => {
+        if(quiz.isCorrectAnswer(input)){
+            setAnswerState("Correct ! :)")
+            setQuiz(quiz.toSolved());
+        } else {
             setAnswerState("Incorrect. :(")
-            return quiz;
-        });
+            setQuiz(quiz.toFailed());
+        }
     }
-    const onGiveUp = () => {
-        setQuiz(quiz => {
-            setAnswerState("Gave up... T-T")
-            return quiz.failRound();
-        });
+    const onGiveUp = (quiz: QuizFailed) => () => {
+        setAnswerState("Gave up... T-T")
+        setQuiz(quiz.toNextQuestion());
     }
-    const onNext = () => {
-        setQuiz(quiz => {
-            setAnswerState("")
-            setInput("")
-            return quiz.nextRound();
-        });
+    const onNext = (quiz: QuizFailed | QuizSolved) => () => {
+        setAnswerState("")
+        setInput("")
+        setQuiz(quiz.toNextQuestion());
     }
 
     return (
@@ -42,11 +38,11 @@ const QuizView: FC<IQuizProps> = (props) => {
                 <p>Who's that pokemon ?</p>
                 <input value={input} onChange={e => setInput(e.target.value)}/>
             </div>
-            <button onClick={onAnswer}>Answer</button>
-            <button onClick={onGiveUp}>Give up</button>
+            {quiz.isOngoing() && <button onClick={onAnswer(quiz)}>Answer</button>}
+            {quiz.isFailed() && <button onClick={onGiveUp(quiz)}>Give up</button>}
             <p>{answerState}</p>
-            {quiz.isRoundFailed() && <p>{quiz.getRoundAnswer()}</p>}
-            {quiz.isRoundFinished() && <button onClick={onNext}>Next</button>}
+            {quiz.isFailed() && <p>{quiz.getAnswer()}</p>}
+            {(quiz.isFailed() || quiz.isSolved()) && <button onClick={onNext(quiz)}>Next</button>}
         </div>
     );
 };

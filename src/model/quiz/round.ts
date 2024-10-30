@@ -14,8 +14,6 @@ export default class Round {
 
     isOngoing = () => this.status === RoundStatus.ONGOING;
 
-    isFinished = () => this.status !== RoundStatus.ONGOING;
-
     isSolved = () => this.status === RoundStatus.SOLVED;
 
     isFailed = () => this.status === RoundStatus.FAILED;
@@ -29,17 +27,15 @@ export default class Round {
         return false;
     }
 
+    ongoing = () => {
+        return new Round(this.question, RoundStatus.ONGOING);
+    }
+
     solve = () => {
-        if(this.status !== RoundStatus.ONGOING){
-            throw new Error(`Cannot change Round state from ${this.status.getValue()} to ${RoundStatus.SOLVED.getValue()}`)
-        }
         return new Round(this.question, RoundStatus.SOLVED);
     }
 
     fail = () => {
-        if(this.status !== RoundStatus.ONGOING){
-            throw new Error(`Cannot change Round state from ${this.status.getValue()} to ${RoundStatus.FAILED.getValue()}`)
-        }
         return new Round(this.question, RoundStatus.FAILED);
     }
 
