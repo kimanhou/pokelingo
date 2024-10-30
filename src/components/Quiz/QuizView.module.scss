@@ -4,10 +4,10 @@ div.quiz-view {
     display: flex;
     flex-direction: column;
     height: 100dvh;
+    overflow: hidden;
     > div.quiz-image-container {
         flex: 7;
         position: relative;
-        overflow: hidden;
         > div.quiz-creature-image {
             @include background-image-component;
             background-color: transparent;
