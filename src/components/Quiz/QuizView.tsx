@@ -1,15 +1,16 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import Creature from "@/model/creature/creature";
 import { QuizFailed, QuizOngoing, QuizSolved } from "@/model/quiz/quiz";
 import QuizFactory from "@/model/quiz/quiz-factory";
-import Ball from "@/assets/Ball";
+import { useDeviceType } from "@/hooks/useIsMobile";
+import { DeviceType } from "@/ts/enums";
 import Button from "@/components/common/Button/Button";
 import BottomNotification from "@/components/common/BottomNotification/BottomNotification";
+import { Footer } from "@/components/Footer/Footer";
+import Ball from "@/assets/Ball";
 import happy from "@/assets/happy_eevee.png";
 import sad from "@/assets/sad_charmander.png";
 import styles from "./QuizView.module.scss";
-import { useDeviceType } from "@/hooks/useIsMobile";
-import { DeviceType } from "@/ts/enums";
 
 interface IQuizProps {
     creatures: Creature[];
@@ -111,19 +112,24 @@ const QuizView: FC<IQuizProps> = (props) => {
                 className={styles.quizText}
                 style={{ backgroundColor: quiz.getCreatureMainColor() }}
             >
-                <h2>Who's that pokemon ?</h2>
-                <input
-                    className={styles.answerInput}
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyDown={onKeyDown}
-                />
-                <Button
-                    onClick={onAnswer}
-                    text="Check"
-                    disabled={!input}
-                    expand={isMobile}
-                ></Button>
+                <div className={styles.quizTextContent}>
+                    <h2>Who's that pokemon ?</h2>
+                    <input
+                        className={styles.answerInput}
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        onKeyDown={onKeyDown}
+                    />
+                    <Button
+                        onClick={onAnswer}
+                        text="Check"
+                        disabled={!input}
+                        expand={isMobile}
+                        className={styles.checkButton}
+                        secondary
+                    ></Button>
+                </div>
+                <Footer />
             </div>
 
             <BottomNotification

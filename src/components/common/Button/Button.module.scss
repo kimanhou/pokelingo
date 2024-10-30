@@ -5,7 +5,7 @@ button.button {
     background-color: var(--fg);
     color: var(--bg);
     &:not(:disabled):hover {
-        outline: solid 3px var(--fg);
+        outline: solid 2px var(--fg);
     }
     &:disabled {
         background-color: var(--color-light-grey);
@@ -14,16 +14,15 @@ button.button {
         user-select: none;
     }
     &.secondary {
-        background-color: transparent;
+        background-color: var(--bg);
         color: var(--fg);
         &:disabled {
-            background-color: var(--color-light-grey);
+            background-color: rgba(255, 255, 255, 0.5);
             color: var(--color-grey);
-            cursor: initial;
-            user-select: none;
         }
         &:not(:disabled):hover {
             outline-offset: 1px;
+            outline-color: var(--bg);
         }
     }
     &.selected {

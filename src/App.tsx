@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
-import { Footer } from "@/components/Footer/Footer";
 import SideSheet from "@/components/common/SideSheet/SideSheet";
 import Home from "@/components/Home/Home";
 import Learn from "@/components/Learn/Learn";
@@ -46,7 +45,6 @@ function App() {
                     />
                     <Route path="/" element={<Home />}></Route>
                 </Routes>
-                <Footer />
             </HashRouter>
         </div>
     );

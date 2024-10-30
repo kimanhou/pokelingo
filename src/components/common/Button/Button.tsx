@@ -13,6 +13,7 @@ interface IButtonProps {
     backgroundColor?: string;
     shrink?: boolean;
     expand?: boolean;
+    className?: string;
 }
 
 const Button: FC<IButtonProps> = ({
@@ -25,6 +26,7 @@ const Button: FC<IButtonProps> = ({
     backgroundColor,
     shrink,
     expand,
+    className,
 }: IButtonProps) => {
     const secondaryClassName = secondary ? styles.secondary : "";
     const selectedClassName = selected ? styles.selected : "";
@@ -42,7 +44,7 @@ const Button: FC<IButtonProps> = ({
 
     return (
         <button
-            className={`${styles.button} ${secondaryClassName} ${selectedClassName} ${hasBackgroundColorClassName} ${shrinkClassName} ${expandClassName}`}
+            className={`${styles.button} ${secondaryClassName} ${selectedClassName} ${hasBackgroundColorClassName} ${shrinkClassName} ${expandClassName} ${className}`}
             onClick={onClick}
             disabled={disabled}
             style={{ backgroundColor }}

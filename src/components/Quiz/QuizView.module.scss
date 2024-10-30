@@ -24,24 +24,30 @@ div.quiz-view {
         display: flex;
         flex-direction: column;
         align-items: center;
-        > h2 {
-            margin-block: 0;
-            margin-top: 24px;
-            font-size: var(--font-size-xxlarge);
-            color: var(--bg);
-        }
-        > input.answer-input {
-            color: var(--fg);
-            border: 1px solid var(--color-medium-grey);
-            background: var(--color-light-grey);
-            border-radius: 4px;
-            font-size: 32px;
-            margin: 8px auto;
-            text-align: center;
-            padding: 8px 12px;
-            max-width: 50vw;
-            &:focus-visible {
-                outline: none;
+        justify-content: space-between;
+        > div.quiz-text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            > h2 {
+                margin-block: 0;
+                margin-top: 24px;
+                font-size: var(--font-size-xxlarge);
+                color: var(--bg);
+            }
+            > input.answer-input {
+                color: var(--fg);
+                border: 1px solid var(--color-medium-grey);
+                background: var(--color-light-grey);
+                border-radius: 4px;
+                font-size: var(--font-size-xlarge);
+                margin: 8px auto 24px;
+                text-align: center;
+                padding: 8px 12px;
+                max-width: 50vw;
+                &:focus-visible {
+                    outline: none;
+                }
             }
         }
     }
@@ -69,6 +75,24 @@ div.quiz-view {
             display: flex;
             justify-content: center;
             gap: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    div.quiz-view {
+        > div.quiz-text {
+            > div.quiz-text-content {
+                > h2 {
+                    font-size: var(--font-size-xlarge);
+                }
+                > input.answer-input {
+                    max-width: 80vw;
+                }
+                > button.check-button {
+                    min-width: -webkit-fill-available;
+                }
+            }
         }
     }
 }
