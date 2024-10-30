@@ -22,10 +22,16 @@ const QuizView: FC<IQuizProps> = (props) => {
         }
     }
     const onGiveUp = (quiz: QuizFailed) => () => {
-        setAnswerState("Gave up... T-T")
+        setAnswerState("")
+        setInput("")
         setQuiz(quiz.toNextQuestion());
     }
-    const onNext = (quiz: QuizFailed | QuizSolved) => () => {
+    const onTryAgain = (quiz: QuizFailed) => () => {
+        setAnswerState("")
+        setInput("")
+        setQuiz(quiz.toOngoing());
+    }
+    const onNext = (quiz: QuizSolved) => () => {
         setAnswerState("")
         setInput("")
         setQuiz(quiz.toNextQuestion());
@@ -39,10 +45,12 @@ const QuizView: FC<IQuizProps> = (props) => {
                 <input value={input} onChange={e => setInput(e.target.value)}/>
             </div>
             {quiz.isOngoing() && <button onClick={onAnswer(quiz)}>Answer</button>}
+            {quiz.isFailed() && <button onClick={onTryAgain(quiz)}>Try again</button>}
             {quiz.isFailed() && <button onClick={onGiveUp(quiz)}>Give up</button>}
             <p>{answerState}</p>
+            {(quiz.isSolved() || quiz.isFailed()) && <p>{quiz.getMessage()}</p>}
             {quiz.isFailed() && <p>{quiz.getAnswer()}</p>}
-            {(quiz.isFailed() || quiz.isSolved()) && <button onClick={onNext(quiz)}>Next</button>}
+            {quiz.isSolved() && <button onClick={onNext(quiz)}>Next</button>}
         </div>
     );
 };
