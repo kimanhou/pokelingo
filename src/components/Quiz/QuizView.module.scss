@@ -48,6 +48,9 @@ div.quiz-view {
                 &:focus-visible {
                     outline: none;
                 }
+                &:focus {
+                    outline: none;
+                }
             }
         }
     }
@@ -92,6 +95,17 @@ div.quiz-view {
                 > button.check-button {
                     min-width: -webkit-fill-available;
                 }
+            }
+        }
+    }
+}
+
+// Safari doesn't support dvh
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @media not all and (min-resolution: 0.001dpcm) {
+        @supports (-webkit-hyphens: none) {
+            div.quiz-view {
+                height: 100vh;
             }
         }
     }
