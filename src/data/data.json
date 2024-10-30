@@ -790,6 +790,551 @@
                 "words": []
             },
             "originTags": ["english"]
+        },
+        {
+            "id": 32,
+            "en": "Nidoran ♂",
+            "ja": {
+                "romaji": "Nidoran",
+                "kana": "ニドラン"
+            },
+            "imageUrl": "/assets/creature/32.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from the English words \"needle\" (ニードル).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 33,
+            "en": "Nidorino",
+            "ja": {
+                "romaji": "Nidoriino",
+                "kana": "ニドリーノ"
+            },
+            "imageUrl": "/assets/creature/33.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from the English word \"needle\" (ニードル) and the italian masculine modifier \"-o\".",
+                "words": []
+            },
+            "originTags": ["english", "italian"]
+        },
+        {
+            "id": 34,
+            "en": "Nidoking",
+            "ja": {
+                "romaji": "Nidokingu",
+                "kana": "ニドキング"
+            },
+            "imageUrl": "/assets/creature/34.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison",
+                "ground"
+            ],
+            "origin": {
+                "value": "Derived from the English words \"needle\" (ニードル) and \"king\" (キング).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 35,
+            "en": "Clefairy",
+            "ja": {
+                "romaji": "Pippi",
+                "kana": "ピッピ"
+            },
+            "imageUrl": "/assets/creature/35.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fairy"
+            ],
+            "origin": {
+                "value": "Derived from the English words \"pixie\" (ピクシ) and from \"pippi\" (ぴっぴっ) the Japanese onomatopoeia for a shaking finger.",
+                "words": []
+            },
+            "originTags": ["english", "onomatopoeia"]
+        },
+        {
+            "id": 36,
+            "en": "Clefable",
+            "ja": {
+                "romaji": "Pikushii",
+                "kana": "ピクシー"
+            },
+            "imageUrl": "/assets/creature/36.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fairy"
+            ],
+            "origin": {
+                "value": "Derived from the English words \"pixie\" (ピクシ).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 37,
+            "en": "Vulpix",
+            "ja": {
+                "romaji": "Rokon",
+                "kana": "ロコン",
+                "kanji": "六コン"
+            },
+            "imageUrl": "/assets/creature/37.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fire"
+            ],
+            "origin": {
+                "value": "Derived from %w which means six and %w which is the Japanese onomatopoeia for the cry of foxes.",
+                "words": [
+                    {
+                        "romaji": "\"roku\"",
+                        "kana": "ろく",
+                        "kanji": "六"
+                    },
+                    {
+                        "romaji": "\"kon\"",
+                        "kana": "こん"
+                    }
+                ]
+            },
+            "originTags": ["kanji", "onomatopoeia"]
+        },
+        {
+            "id": 38,
+            "en": "Ninetales",
+            "ja": {
+                "romaji": "Kyuukon",
+                "kana": "キュウコン",
+                "kanji": "九コン"
+            },
+            "imageUrl": "/assets/creature/38.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fire"
+            ],
+            "origin": {
+                "value": "Derived from %w which means nine and %w which is the Japanese onomatopoeia for the cry of foxes. It is also a reference to the nine-tailed fox from Chinese mythology.",
+                "words": [
+                    {
+                        "romaji": "\"kyuu\"",
+                        "kana": "きゅう",
+                        "kanji": "九"
+                    },
+                    {
+                        "romaji": "\"kon\"",
+                        "kana": "こん"
+                    }
+                ]
+            },
+            "originTags": ["kanji", "onomatopoeia", "chinese"]
+        },
+        {
+            "id": 39,
+            "en": "Jigglypuff",
+            "ja": {
+                "romaji": "Purin",
+                "kana": "プリン"
+            },
+            "imageUrl": "/assets/creature/39.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal",
+                "fairy"
+            ],
+            "origin": {
+                "value": "Derived from the English word \"pretty\" (プリティ) and from %w which means pudding in Japanese and is a type of dessert.",
+                "words": [
+                    {
+                        "romaji": "\"purin\"",
+                        "kana": "プリン"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 40,
+            "en": "Wigglytuff",
+            "ja": {
+                "romaji": "Pukurin",
+                "kana": "プクリン"
+            },
+            "imageUrl": "/assets/creature/40.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal",
+                "fairy"
+            ],
+            "origin": {
+                "value": "Derived from the English word \"pretty\" (プリティ) and from %w which means to swell.",
+                "words": [
+                    {
+                        "romaji": "\"fukureru\"",
+                        "kana": "ふくれる",
+                        "kanji": "膨れる"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 41,
+            "en": "Zubat",
+            "ja": {
+                "romaji": "Zubatto",
+                "kana": "ズバット"
+            },
+            "imageUrl": "/assets/creature/41.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison",
+                "flying"
+            ],
+            "origin": {
+                "value": "Derived from the English word \"bat\" (バット)、from the word %w which means \"straight away\" and could also be a reference to %w a superhero TV series that aired in 1977.",
+                "words": [
+                    {
+                        "romaji": "\"zubatto\"",
+                        "kana": "ずばっと"
+                    },
+                    {
+                        "romaji": "\"kaiketsu zubatto\"",
+                        "kana": "かいけつズバット",
+                        "kanji": "快傑ズバット"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 42,
+            "en": "Golbat",
+            "ja": {
+                "romaji": "Gorubatto",
+                "kana": "ゴルバット"
+            },
+            "imageUrl": "/assets/creature/42.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison",
+                "flying"
+            ],
+            "origin": {
+                "value": "Derived from the English words \"ghoul\" (グルー) and \"bat\" (バット), could also be a reference to %w a showa era picture-story superhero.",
+                "words": [
+                    {
+                        "romaji": "\"ougon batto\"",
+                        "kana": " おうごんバット",
+                        "kanji": "黄金バット"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 43,
+            "en": "Oddish",
+            "ja": {
+                "romaji": "Nazonokusa",
+                "kana": "ナゾノクサ",
+                "kanji": "謎の草"
+            },
+            "imageUrl": "/assets/creature/43.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass",
+                "poison"
+            ],
+            "origin": {
+                "value": "From %w meaning \"mysterious\" and %w meaning \"grass\", litterally \"mysterious grass\".",
+                "words": [
+                    {
+                        "romaji": "\"nazo\"",
+                        "kana": "なぞ",
+                        "kanji": "謎"
+                    },
+                    {
+                        "romaji": "\"kusa\"",
+                        "kana": "くさ",
+                        "kanji": "草"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 44,
+            "en": "Gloom",
+            "ja": {
+                "romaji": "Kusaihana",
+                "kana": "クサイハナ",
+                "kanji": "臭い花"
+            },
+            "imageUrl": "/assets/creature/44.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass",
+                "poison"
+            ],
+            "origin": {
+                "value": "From %w meaning \"smelly\" and %w meaning \"flower\", litterally \"smelly flower\".",
+                "words": [
+                    {
+                        "romaji": "\"kusai\"",
+                        "kana": "くさい",
+                        "kanji": "臭い"
+                    },
+                    {
+                        "romaji": "\"hana\"",
+                        "kana": "はな",
+                        "kanji": "花"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 45,
+            "en": "Vileplume",
+            "ja": {
+                "romaji": "Rafureshia",
+                "kana": "ラフレシア"
+            },
+            "imageUrl": "/assets/creature/45.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass",
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from the rafflesia (ラフレシア) flower.",
+                "words": []
+            },
+            "originTags": ["latin", "english"]
+        },
+        {
+            "id": 46,
+            "en": "Paras",
+            "ja": {
+                "romaji": "Parasu",
+                "kana": "パラス"
+            },
+            "imageUrl": "/assets/creature/46.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "bug", 
+                "grass"
+            ],
+            "origin": {
+                "value": "Derived from \"parasite\" (パラザイト) and/or \"parasol\" (パラソル).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 47,
+            "en": "Parasect",
+            "ja": {
+                "romaji": "Parasekuto",
+                "kana": "パラセクト"
+            },
+            "imageUrl": "/assets/creature/47.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "bug", 
+                "grass"
+            ],
+            "origin": {
+                "value": "Derived from \"parasite\" (パラザイト) and \"insect\" (インセクト).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 48,
+            "en": "Venonat",
+            "ja": {
+                "romaji": "Konpan",
+                "kana": "コンパン"
+            },
+            "imageUrl": "/assets/creature/48.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "bug",
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from \"compound eye\" (コンパン　アイ).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 49,
+            "en": "Venomoth",
+            "ja": {
+                "romaji": "Morufon",
+                "kana": "モルフォン"
+            },
+            "imageUrl": "/assets/creature/49.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "bug",
+                "poison"
+            ],
+            "origin": {
+                "value": "Derived from %w, the morfo butterflies genus.",
+                "words": [
+                    {
+                        "romaji": "morufochou",
+                        "kana": "モルフォチョウ"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 50,
+            "en": "Diglett",
+            "ja": {
+                "romaji": "Diguta",
+                "kana": "ディグダ"
+            },
+            "imageUrl": "/assets/creature/50.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ground"
+            ],
+            "origin": {
+                "value": "Derived from \"dig\" (ディグ) and the %w Namco video game.",
+                "words": [
+                    {
+                        "romaji": "digudagu",
+                        "kana": "ディグダグ"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 51,
+            "en": "Dugtrio",
+            "ja": {
+                "romaji": "Dagutorio",
+                "kana": "ダグトリオ"
+            },
+            "imageUrl": "/assets/creature/51.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ground"
+            ],
+            "origin": {
+                "value": "Derived from \"dug\" (ダグ), the %w Namco video game and \"trio\" (トリオ).",
+                "words": [
+                    {
+                        "romaji": "digudagu",
+                        "kana": "ディグダグ"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 52,
+            "en": "Meowth",
+            "ja": {
+                "romaji": "Nyaasu",
+                "kana": "ニャース"
+            },
+            "imageUrl": "/assets/creature/52.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From Pokemon game creator Satoshi Tajiri's pet cat name, and from %w onomatopoeia for cat meow.",
+                "words": [
+                    {
+                        "romaji": "nyaa",
+                        "kana": "にゃ〜"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia"]
+        },
+        {
+            "id": 53,
+            "en": "Persian",
+            "ja": {
+                "romaji": "Perushian",
+                "kana": "ペルシアン"
+            },
+            "imageUrl": "/assets/creature/53.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From the \"persian\" (ペルシアン) and \"russian blue\" (ロシアンブルー) cat breeds.",
+                "words": []
+            },
+            "originTags": ["english"]
         }
     ]
 }
