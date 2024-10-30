@@ -5,6 +5,7 @@ button.button {
     background-color: var(--fg);
     color: var(--bg);
     &:not(:disabled):hover {
+        outline-offset: 1px;
         outline: solid 2px var(--fg);
     }
     &:disabled {
@@ -21,7 +22,6 @@ button.button {
             color: var(--color-grey);
         }
         &:not(:disabled):hover {
-            outline-offset: 1px;
             outline-color: var(--bg);
         }
     }

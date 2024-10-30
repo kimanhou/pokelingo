@@ -80,11 +80,15 @@ const QuizView: FC<IQuizProps> = (props) => {
         setQuiz(quiz.toNextQuestion());
     };
 
-    const onResetAnswer = () => {
+    const resetAnswerReviewSideSheet = () => {
         setReviewMessage(null);
+        setCanGoToNextRound(false);
+    };
+
+    const onRetry = () => {
         setInput("");
         setIsAnswerReviewSideSheetOpen(false);
-        setInput("");
+        resetAnswerReviewSideSheet();
     };
 
     const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -135,6 +139,7 @@ const QuizView: FC<IQuizProps> = (props) => {
             <BottomNotification
                 isVisible={isAnswerReviewSideSheetOpen}
                 setIsVisible={setIsAnswerReviewSideSheetOpen}
+                onExit={resetAnswerReviewSideSheet}
             >
                 <div
                     className={styles.answerReviewContent}
@@ -149,7 +154,7 @@ const QuizView: FC<IQuizProps> = (props) => {
                                     onClick={onGiveUp}
                                     secondary
                                 />
-                                <Button text="Retry" onClick={onResetAnswer} />
+                                <Button text="Retry" onClick={onRetry} />
                             </>
                         )}
                         {canGoToNextRound && (
