@@ -59,24 +59,25 @@ const QuizView: FC<IQuizProps> = (props) => {
         }
     };
 
-    const onGiveUp = (quiz: QuizFailed) => () => {
+    const onSeeAnswer = (quiz: QuizFailed) => () => {
         setReviewMessage(
             <div>
-                <h2>{quiz.getRoundAnswer()}</h2>
-                <span>{quiz.getRoundAnswerExplanation()}</span>
+                <h2>{quiz.getAnswer()}</h2>
+                <span>{quiz.getAnswerExplanation()}</span>
             </div>
         );
         setCanGoToNextRound(true);
-        return quiz.toOngoing();
     };
-    const onTryAgain = (quiz: QuizFailed) => () => {
-        setAnswerState("");
+
+    const onRetry = (quiz: QuizFailed) => () => {
         setInput("");
+        setIsAnswerReviewSideSheetOpen(false);
         setQuiz(quiz.toOngoing());
     };
 
-    const onNext = (quiz: QuizSolved) => {
-        onResetAnswer();
+    const onNext = (quiz: QuizSolved | QuizFailed) => {
+        setInput("");
+        setIsAnswerReviewSideSheetOpen(false);
         setQuiz(quiz.toNextQuestion());
     };
 
@@ -85,14 +86,8 @@ const QuizView: FC<IQuizProps> = (props) => {
         setCanGoToNextRound(false);
     };
 
-    const onRetry = () => {
-        setInput("");
-        setIsAnswerReviewSideSheetOpen(false);
-        resetAnswerReviewSideSheet();
-    };
-
     const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" && quiz.isOngoing()) {
             onAnswer(quiz);
         }
     };
@@ -125,7 +120,11 @@ const QuizView: FC<IQuizProps> = (props) => {
                         onKeyDown={onKeyDown}
                     />
                     <Button
-                        onClick={onAnswer}
+                        onClick={() => {
+                            if (quiz.isOngoing()) {
+                                onAnswer(quiz);
+                            }
+                        }}
                         text="Check"
                         disabled={!input}
                         expand={isMobile}
@@ -147,20 +146,21 @@ const QuizView: FC<IQuizProps> = (props) => {
                 >
                     <div className={styles.message}>{reviewMessage}</div>
                     <div className={styles.buttonsContainer}>
-                        {!canGoToNextRound && (
+                        {quiz.isFailed() && !canGoToNextRound && (
                             <>
                                 <Button
                                     text="See answer"
-                                    onClick={onGiveUp}
+                                    onClick={onSeeAnswer(quiz)}
                                     secondary
                                 />
-                                <Button text="Retry" onClick={onRetry} />
+                                <Button text="Retry" onClick={onRetry(quiz)} />
                             </>
                         )}
-                        {canGoToNextRound && (
+                        {((quiz.isFailed() && canGoToNextRound) ||
+                            quiz.isSolved()) && (
                             <Button
                                 text="Next"
-                                onClick={onNext}
+                                onClick={() => onNext(quiz)}
                                 expand={isMobile}
                             />
                         )}

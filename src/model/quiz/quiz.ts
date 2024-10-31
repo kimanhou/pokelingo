@@ -28,6 +28,8 @@ export class QuizImpl implements QuizFailed, QuizSolved, QuizOngoing, Quiz {
 
     getAnswer = () => this.getCurrentRound().getAnswer();
 
+    getAnswerExplanation = () => this.getCurrentRound().getExplanation();
+
     getMessage = () => {
         if (this.getCurrentRound().isSolved()) {
             return this.messages.getSuccess();
@@ -120,6 +122,7 @@ export default interface Quiz {
     isSolved: () => this is QuizSolved;
     isFailed: () => this is QuizFailed;
     getImageUrl: () => string;
+    getCreatureMainColor: () => string;
 }
 
 export interface QuizOngoing extends Quiz {
@@ -137,5 +140,6 @@ export interface QuizFailed extends Quiz {
     toOngoing: () => QuizOngoing;
     toNextQuestion: () => QuizOngoing;
     getAnswer: () => string;
+    getAnswerExplanation: () => string;
     getMessage: () => string;
 }
