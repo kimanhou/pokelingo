@@ -1,6 +1,7 @@
 svg.ball {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  right: 16px;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    right: 16px;
+    pointer-events: none;
 }

@@ -9,30 +9,27 @@ import {
     useState,
 } from "react";
 import useEffectSkipFirstRender from "@/hooks/useEffectSkipFirstRender";
-import styles from "./SideSheet.module.scss";
+import styles from "./BottomNotification.module.scss";
 
-interface ISideSheetProps {
+interface IBottomNotificationProps {
     isVisible: boolean;
     setIsVisible: Dispatch<SetStateAction<boolean>>;
     children: ReactNode;
     onEnter?: () => void;
     onExit?: () => void;
-    transitionFromBottom?: boolean;
-    isMaxHeight30?: boolean; // 30 means the side sheet will have a height of 30dvh when open
 }
 
-const SideSheet: FC<ISideSheetProps> = (props) => {
+const BottomNotification: FC<IBottomNotificationProps> = (props) => {
     const contentRef = useRef<HTMLDivElement | null>(null);
+    const hiddenContentRef = useRef<HTMLDivElement | null>(null);
     const [isVisibleInternal, setIsVisibleInternal] = useState(props.isVisible);
     const [isTransitioning, setIsTransitioning] = useState(false);
+    const [top, setTop] = useState<number | string>("100%");
+
     const visibleClassName = isVisibleInternal ? styles.visible : "";
-    const transitionFromBottomClassName = props.transitionFromBottom
-        ? styles.fromBottom
-        : "";
     const isTransitioningClassName = isTransitioning
         ? styles.isTransitioning
         : "";
-    const maxHeight30ClassName = props.isMaxHeight30 ? styles.maxHeight30 : "";
 
     const onOutsideClick = () => {
         props.setIsVisible((t) => !t);
@@ -91,20 +88,36 @@ const SideSheet: FC<ISideSheetProps> = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isVisibleInternal, isTransitioning]);
 
+    useEffect(() => {
+        if (hiddenContentRef.current && props.isVisible) {
+            setTop(`calc(100dvh - ${hiddenContentRef.current.clientHeight}px)`);
+        } else if (!props.isVisible) {
+            setTop("100%");
+        }
+    }, [props.children, props.isVisible]);
+
     return (
         <div
-            className={`${styles.sideSheet} ${visibleClassName} ${isTransitioningClassName} ${transitionFromBottomClassName} ${maxHeight30ClassName}`}
+            className={`${styles.bottomNotification} ${visibleClassName} ${isTransitioningClassName}`}
             onClick={onOutsideClick}
         >
             <div
-                className={styles.sideSheetContentContainer}
+                className={styles.bottomNotificationContentContainer}
                 onClick={onContentClick}
                 ref={contentRef}
+                style={{ top }}
             >
                 {(isVisibleInternal || isTransitioning) && props.children}
+            </div>
+
+            <div
+                className={`${styles.bottomNotificationContentContainer} ${styles.hidden}`}
+                ref={hiddenContentRef}
+            >
+                {props.children}
             </div>
         </div>
     );
 };
 
-export default SideSheet;
+export default BottomNotification;
