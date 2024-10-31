@@ -1,13 +1,14 @@
 import creatureRepository from '@/model/creature/creature-repository';
 import Reading from '@/model/creature/reading';
+import { QuizOngoing } from '@/model/quiz/quiz';
 import QuizFactory from '@/model/quiz/quiz-factory';
 
 const questionOrderTest = () => {
     console.log("--- questionOrderTest ---");
-    let quiz = QuizFactory.build(creatureRepository.findAll());
+    let quiz = QuizFactory.build(creatureRepository.findAll()) as QuizOngoing;
     for(let i=0; i<25; i++){
-        console.log(quiz.getRoundAnswer());
-        quiz = quiz.nextRound();
+        console.log(quiz.toFailed().getAnswer());
+        quiz = quiz.toSolved().toNextQuestion();
     }
 }
 
