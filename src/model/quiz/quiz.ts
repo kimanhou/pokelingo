@@ -26,9 +26,10 @@ export class QuizImpl implements QuizFailed, QuizSolved, QuizOngoing, Quiz{
     getAnswer = () => this.getCurrentRound().getAnswer();
 
     getMessage = () => {
-        if(this.isSolved()){
+        if(this.getCurrentRound().isSolved()){
             return this.messages.getSuccess();
-        } else if(this.isFailed()){
+        }
+        if(this.getCurrentRound().isFailed()){
             return this.messages.getFailure();
         }
         throw new Error(`Cannot get message for quiz not in solved or failed state.`);
