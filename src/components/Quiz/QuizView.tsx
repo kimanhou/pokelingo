@@ -32,30 +32,32 @@ const QuizView: FC<IQuizProps> = (props) => {
 
     const onAnswer = (quiz: QuizOngoing) => {
         if (quiz.isCorrectAnswer(input)) {
+            const solvedQuiz = quiz.toSolved();
             setReviewMessage(
                 <>
                     <img src={happy} />
                     <div>
-                        <h2>Great job!</h2>
-                        <span>Your answer is correct.</span>
+                        <h2>Correct!</h2>
+                        <span>{solvedQuiz.getMessage()}</span>
                     </div>
                 </>
             );
             setCanGoToNextRound(true);
             setIsAnswerReviewSideSheetOpen(true);
-            setQuiz(quiz.toSolved());
+            setQuiz(solvedQuiz);
         } else {
+            const failedQuiz = quiz.toFailed();
             setReviewMessage(
                 <>
                     <img src={sad} />
                     <div>
-                        <h2>Oops!</h2>
-                        <span>Your answer is incorrect.</span>
+                        <h2>Incorrect.</h2>
+                        <span>{failedQuiz.getMessage()}</span>
                     </div>
                 </>
             );
             setIsAnswerReviewSideSheetOpen(true);
-            setQuiz(quiz.toFailed());
+            setQuiz(failedQuiz);
         }
     };
 
@@ -84,6 +86,9 @@ const QuizView: FC<IQuizProps> = (props) => {
     const resetAnswerReviewSideSheet = () => {
         setReviewMessage(null);
         setCanGoToNextRound(false);
+        if (quiz.isFailed()) {
+            setQuiz(quiz.toOngoing());
+        }
     };
 
     const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
