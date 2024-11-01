@@ -9,6 +9,7 @@ import {
     useState,
 } from "react";
 import useEffectSkipFirstRender from "@/hooks/useEffectSkipFirstRender";
+import { isSafari as isSafariFunc } from "@/ts/utils";
 import styles from "./BottomNotification.module.scss";
 
 interface IBottomNotificationProps {
@@ -25,6 +26,7 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
     const [isVisibleInternal, setIsVisibleInternal] = useState(props.isVisible);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [top, setTop] = useState<number | string>("100%");
+    const [isSafari, setIsSafari] = useState(false);
 
     const visibleClassName = isVisibleInternal ? styles.visible : "";
     const isTransitioningClassName = isTransitioning
@@ -72,6 +74,10 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
     }, [props.isVisible]);
 
     useEffect(() => {
+        setIsSafari(isSafariFunc());
+    }, []);
+
+    useEffect(() => {
         if (isVisibleInternal && !isTransitioning) {
             // On enter
             if (props.onEnter) {
@@ -90,7 +96,10 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
 
     useEffect(() => {
         if (hiddenContentRef.current && props.isVisible) {
-            setTop(`calc(100dvh - ${hiddenContentRef.current.clientHeight}px)`);
+            const viewportHeightUnit = isSafari ? "vh" : "dvh";
+            setTop(
+                `calc(100${viewportHeightUnit} - ${hiddenContentRef.current.clientHeight}px)`
+            );
         } else if (!props.isVisible) {
             setTop("100%");
         }

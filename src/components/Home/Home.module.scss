@@ -18,3 +18,14 @@ div.home {
         }
     }
 }
+
+// Safari doesn't handle dvh so need to replace by vh
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @media not all and (min-resolution: 0.001dpcm) {
+        @supports (-webkit-hyphens: none) {
+            div.home {
+                height: 100vh;
+            }
+        }
+    }
+}
