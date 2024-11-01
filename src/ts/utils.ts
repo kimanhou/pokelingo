@@ -51,8 +51,9 @@ export const capitalizeFirstChar = (s: string) => {
 
 export const getMainColor = (creature: Creature | null) => {
     if (creature == null) return "var(--color-medium-grey)";
-    const mainType =
-        creature.getTypes()[0]?.toUpperCase() as keyof typeof AvatarTypeColors;
+    const mainType = creature
+        .getTypes()[0]
+        ?.toUpperCase() as keyof typeof AvatarTypeColors;
     return AvatarTypeColors[mainType] ?? "var(--color-medium-grey)";
 };
 
@@ -71,4 +72,15 @@ export const isMobileCreatureCard = ({
     isCreatureCard: boolean;
 }) => {
     return deviceType === DeviceType.MOBILE && isCreatureCard;
+};
+
+export const isSafari = () => {
+    return (
+        (navigator.vendor &&
+            navigator.vendor.indexOf("Apple") > -1 &&
+            navigator.userAgent &&
+            navigator.userAgent.indexOf("CriOS") == -1 &&
+            navigator.userAgent.indexOf("FxiOS") == -1) ||
+        false
+    );
 };
