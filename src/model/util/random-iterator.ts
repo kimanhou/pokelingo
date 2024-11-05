@@ -1,7 +1,7 @@
 import Type from "@/model/util/type";
 
 export default class RandomIterator<T> {
-    constructor(
+    private constructor(
         private readonly array : T[],
         private readonly index : number,
     ) {
@@ -21,9 +21,21 @@ export default class RandomIterator<T> {
 
     static build = <T> (array : T[]) => {
         return new RandomIterator(
-            array.slice().sort(() => Math.random()-0.5),
+            RandomIterator.shuffleArray(array),
             0
         )
+    }
+
+    private static shuffleArray = <T> (array : T[]) => {
+        array = array.slice();
+        let currentIndex = array.length;
+
+        while(currentIndex > 0){
+            let randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[randomIndex], array[currentIndex]] = [array[currentIndex], array[randomIndex]];
+        }
+        return array;
     }
 
     static resolveGenerics = <T> (type: Type<T>) => ({
