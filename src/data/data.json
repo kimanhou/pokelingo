@@ -159,7 +159,7 @@
                 "fire"
             ],
             "origin": {
-                "value": "Derived from the English word \"lizard\", written in katakana as リザード.",
+                "value": "From the English word \"lizard\", written in katakana as リザード.",
                 "words": []
             },
             "originTags": [
@@ -295,7 +295,7 @@
                 "bug"
             ],
             "origin": {
-                "value": "Derived from the English word \"caterpillar\", written in katakana as キャタピラー.",
+                "value": "From the English word \"caterpillar\", written in katakana as キャタピラー.",
                 "words": []
             },
             "originTags": [
@@ -386,7 +386,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from the English word \"cocoon\" (コクーン).",
+                "value": "From the English word \"cocoon\" (コクーン).",
                 "words": []
             },
             "originTags": [
@@ -409,7 +409,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from the English word \"spear\" (スピア). It is also an anagram of \"apis\" (アピス), the genus of the honey bee.",
+                "value": "From the English word \"spear\" (スピア). It is also an anagram of \"apis\" (アピス), the genus of the honey bee.",
                 "words": []
             },
             "originTags": [
@@ -455,7 +455,7 @@
                 "flying"
             ],
             "origin": {
-                "value": "Derived from the English word \"pigeon\" (ピジョン).",
+                "value": "From the English word \"pigeon\" (ピジョン).",
                 "words": []
             },
             "originTags": [
@@ -500,7 +500,7 @@
                 "normal"
             ],
             "origin": {
-                "value": "Derived from it's evolution ラッタ. In Japanese baby animals are prefixed with コ (小) which would translates to \"baby ラッタ\" here.",
+                "value": "From it's evolution ラッタ. In Japanese baby animals are prefixed with コ (小) which would translates to \"baby ラッタ\" here.",
                 "words": []
             },
             "originTags": [
@@ -523,7 +523,7 @@
                 "normal"
             ],
             "origin": {
-                "value": "Derived from the English word \"rat\" (ラット).",
+                "value": "From the English word \"rat\" (ラット).",
                 "words": []
             },
             "originTags": [
@@ -605,7 +605,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from the English word \"boa\" (ボア).",
+                "value": "From the English word \"boa\" (ボア).",
                 "words": []
             },
             "originTags": ["english"]
@@ -625,7 +625,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from the English word \"cobra\" (コブラ).",
+                "value": "From the English word \"cobra\" (コブラ).",
                 "words": []
             },
             "originTags": ["english"]
@@ -645,7 +645,7 @@
                 "electric"
             ],
             "origin": {
-                "value": "Derived from either the \"pika\" rabbit in English or %w the Japanese onomatopoeia for something sparkly and %w the Japanese onomatopoeia for the squeak of mice.",
+                "value": "From either the \"pika\" rabbit in English or %w the Japanese onomatopoeia for something sparkly and %w the Japanese onomatopoeia for the squeak of mice.",
                 "words": [
                     {
                         "romaji": "\"pikapika\"",
@@ -705,7 +705,7 @@
                 "ground"
             ],
             "origin": {
-                "value": "Derived from the English word \"sand\" (サンド).",
+                "value": "From the English word \"sand\" (サンド).",
                 "words": []
             },
             "originTags": ["english"]
@@ -725,7 +725,7 @@
                 "ground"
             ],
             "origin": {
-                "value": "Derived from the English words \"sand\" (サンド) and \"pangolin\" (パンゴリン).",
+                "value": "From the English words \"sand\" (サンド) and \"pangolin\" (パンゴリン).",
                 "words": []
             },
             "originTags": ["english"]
@@ -745,7 +745,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from the English words \"needle\" (ニードル).",
+                "value": "From the English words \"needle\" (ニードル).",
                 "words": []
             },
             "originTags": ["english"]
@@ -765,7 +765,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from the English word \"needle\" (ニードル) and the italian feminine modifier \"-a\".",
+                "value": "From the English word \"needle\" (ニードル) and the italian feminine modifier \"-a\".",
                 "words": []
             },
             "originTags": ["english", "italian"]
@@ -786,7 +786,7 @@
                 "ground"
             ],
             "origin": {
-                "value": "Derived from the English words \"needle\" (ニードル) and \"queen\" (クイーン).",
+                "value": "From the English words \"needle\" (ニードル) and \"queen\" (クイーン).",
                 "words": []
             },
             "originTags": ["english"]
@@ -806,7 +806,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from the English words \"needle\" (ニードル).",
+                "value": "From the English words \"needle\" (ニードル).",
                 "words": []
             },
             "originTags": ["english"]
@@ -826,7 +826,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from the English word \"needle\" (ニードル) and the italian masculine modifier \"-o\".",
+                "value": "From the English word \"needle\" (ニードル) and the italian masculine modifier \"-o\".",
                 "words": []
             },
             "originTags": ["english", "italian"]
@@ -847,7 +847,7 @@
                 "ground"
             ],
             "origin": {
-                "value": "Derived from the English words \"needle\" (ニードル) and \"king\" (キング).",
+                "value": "From the English words \"needle\" (ニードル) and \"king\" (キング).",
                 "words": []
             },
             "originTags": ["english"]
@@ -867,7 +867,7 @@
                 "fairy"
             ],
             "origin": {
-                "value": "Derived from the English words \"pixie\" (ピクシ) and from \"pippi\" (ぴっぴっ) the Japanese onomatopoeia for a shaking finger.",
+                "value": "From the English words \"pixie\" (ピクシ) and from \"pippi\" (ぴっぴっ) the Japanese onomatopoeia for a shaking finger.",
                 "words": []
             },
             "originTags": ["english", "onomatopoeia"]
@@ -887,7 +887,7 @@
                 "fairy"
             ],
             "origin": {
-                "value": "Derived from the English words \"pixie\" (ピクシ).",
+                "value": "From the English words \"pixie\" (ピクシ).",
                 "words": []
             },
             "originTags": ["english"]
@@ -908,7 +908,7 @@
                 "fire"
             ],
             "origin": {
-                "value": "Derived from %w which means six and %w which is the Japanese onomatopoeia for the cry of foxes.",
+                "value": "From %w which means six and %w which is the Japanese onomatopoeia for the cry of foxes.",
                 "words": [
                     {
                         "romaji": "\"roku\"",
@@ -939,7 +939,7 @@
                 "fire"
             ],
             "origin": {
-                "value": "Derived from %w which means nine and %w which is the Japanese onomatopoeia for the cry of foxes. It is also a reference to the nine-tailed fox from Chinese mythology.",
+                "value": "From %w which means nine and %w which is the Japanese onomatopoeia for the cry of foxes. It is also a reference to the nine-tailed fox from Chinese mythology.",
                 "words": [
                     {
                         "romaji": "\"kyuu\"",
@@ -970,7 +970,7 @@
                 "fairy"
             ],
             "origin": {
-                "value": "Derived from the English word \"pretty\" (プリティ) and from %w which means pudding in Japanese and is a type of dessert.",
+                "value": "From the English word \"pretty\" (プリティ) and from %w which means pudding in Japanese and is a type of dessert.",
                 "words": [
                     {
                         "romaji": "\"purin\"",
@@ -996,7 +996,7 @@
                 "fairy"
             ],
             "origin": {
-                "value": "Derived from the English word \"pretty\" (プリティ) and from %w which means to swell.",
+                "value": "From the English word \"pretty\" (プリティ) and from %w which means to swell.",
                 "words": [
                     {
                         "romaji": "\"fukureru\"",
@@ -1023,7 +1023,7 @@
                 "flying"
             ],
             "origin": {
-                "value": "Derived from the English word \"bat\" (バット)、from the word %w which means \"straight away\" and could also be a reference to %w a superhero TV series that aired in 1977.",
+                "value": "From the English word \"bat\" (バット)、from the word %w which means \"straight away\" and could also be a reference to %w a superhero TV series that aired in 1977.",
                 "words": [
                     {
                         "romaji": "\"zubatto\"",
@@ -1054,7 +1054,7 @@
                 "flying"
             ],
             "origin": {
-                "value": "Derived from the English words \"ghoul\" (グルー) and \"bat\" (バット), could also be a reference to %w a showa era picture-story superhero.",
+                "value": "From the English words \"ghoul\" (グルー) and \"bat\" (バット), could also be a reference to %w a showa era picture-story superhero.",
                 "words": [
                     {
                         "romaji": "\"ougon batto\"",
@@ -1147,7 +1147,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from the rafflesia (ラフレシア) flower.",
+                "value": "From the rafflesia (ラフレシア) flower.",
                 "words": []
             },
             "originTags": ["latin", "english"]
@@ -1168,7 +1168,7 @@
                 "grass"
             ],
             "origin": {
-                "value": "Derived from \"parasite\" (パラザイト) and/or \"parasol\" (パラソル).",
+                "value": "From \"parasite\" (パラザイト) and/or \"parasol\" (パラソル).",
                 "words": []
             },
             "originTags": ["english"]
@@ -1189,7 +1189,7 @@
                 "grass"
             ],
             "origin": {
-                "value": "Derived from \"parasite\" (パラザイト) and \"insect\" (インセクト).",
+                "value": "From \"parasite\" (パラザイト) and \"insect\" (インセクト).",
                 "words": []
             },
             "originTags": ["english"]
@@ -1210,7 +1210,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from \"compound eye\" (コンパン　アイ).",
+                "value": "From \"compound eye\" (コンパン　アイ).",
                 "words": []
             },
             "originTags": ["english"]
@@ -1231,7 +1231,7 @@
                 "poison"
             ],
             "origin": {
-                "value": "Derived from %w, the morfo butterflies genus.",
+                "value": "From %w, the morfo butterflies genus.",
                 "words": [
                     {
                         "romaji": "morufochou",
@@ -1256,7 +1256,7 @@
                 "ground"
             ],
             "origin": {
-                "value": "Derived from \"dig\" (ディグ) and the %w Namco video game.",
+                "value": "From \"dig\" (ディグ) and the %w Namco video game.",
                 "words": [
                     {
                         "romaji": "digudagu",
@@ -1281,7 +1281,7 @@
                 "ground"
             ],
             "origin": {
-                "value": "Derived from \"dug\" (ダグ), the %w Namco video game and \"trio\" (トリオ).",
+                "value": "From \"dug\" (ダグ), the %w Namco video game and \"trio\" (トリオ).",
                 "words": [
                     {
                         "romaji": "digudagu",
@@ -1331,10 +1331,109 @@
                 "normal"
             ],
             "origin": {
-                "value": "From the \"persian\" (ペルシアン) and \"russian blue\" (ロシアンブルー) cat breeds.",
+                "value": "From \"persian\" (ペルシアン) and \"russian blue\" (ロシアンブルー) cat breeds.",
                 "words": []
             },
             "originTags": ["english"]
+        },
+        {
+            "id": 54,
+            "en": "Psyduck",
+            "ja": {
+                "romaji": "Kodakku",
+                "kana": "コダック",
+                "kanji": "子ダック"
+            },
+            "imageUrl": "/assets/creature/54.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From \"duck\" (ダック) and %w meaning \"small\" or \"baby\".",
+                "words": [
+                    {
+                        "romaji": "ko",
+                        "kana": "コ",
+                        "kanji": "子"
+                    }
+                ]
+            },
+            "originTags": ["english", "kanji"]
+        },
+        {
+            "id": 55,
+            "en": "Golduck",
+            "ja": {
+                "romaji": "Gorudakku",
+                "kana": "ゴルダック"
+            },
+            "imageUrl": "/assets/creature/55.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From \"gold\" (ゴルド) and \"duck\" (ダック).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 56,
+            "en": "Mankey",
+            "ja": {
+                "romaji": "Mankii",
+                "kana": "マンキー"
+            },
+            "imageUrl": "/assets/creature/56.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fighting"
+            ],
+            "origin": {
+                "value": "From \"monkey\" (モンキ) and \"mandrill\" (マンドリル).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 57,
+            "en": "Primeape",
+            "ja": {
+                "romaji": "Okorizaru",
+                "kana": "オコリザル",
+                "kanji": "怒り猿"
+            },
+            "imageUrl": "/assets/creature/57.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fighting"
+            ],
+            "origin": {
+                "value": "From %w meaning \"anger\" and %w meaning \"monkey\".",
+                "words": [
+                    {
+                        "romaji": "okori",
+                        "kana": "おこり",
+                        "kanji": "怒り"
+                    },
+                    {
+                        "romaji": "saru",
+                        "kana": "さる",
+                        "kanji": "猿"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
         }
     ]
 }
