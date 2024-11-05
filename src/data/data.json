@@ -1434,6 +1434,190 @@
                 ]
             },
             "originTags": ["kanji"]
+        },
+        {
+            "id": 58,
+            "en": "Growlithe",
+            "ja": {
+                "romaji": "Gaadi",
+                "kana": "ガーディ"
+            },
+            "imageUrl": "/assets/creature/58.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fire"
+            ],
+            "origin": {
+                "value": "From \"guard\" (ガ−ド).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 59,
+            "en": "Arcanine",
+            "ja": {
+                "romaji": "Uindi",
+                "kana": "ウインディ"
+            },
+            "imageUrl": "/assets/creature/59.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fire"
+            ],
+            "origin": {
+                "value": "From \"wind\" (ウインド) and \"windy\" (ウインディ).",
+                "words": []
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 60,
+            "en": "Poliwag",
+            "ja": {
+                "romaji": "Nyoromo",
+                "kana": "ニョロモ"
+            },
+            "imageUrl": "/assets/creature/60.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From %w, an onomatopoeia for something that slithers, wriggles, or moves in a twisting, snake-like manner.",
+                "words": [
+                    {
+                        "romaji": "ニョロニョロ",
+                        "kana": "nyoro nyoro"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia"]
+        },
+        {
+            "id": 61,
+            "en": "Poliwhirl",
+            "ja": {
+                "romaji": "Nyorozo",
+                "kana": "ニョロゾ"
+            },
+            "imageUrl": "/assets/creature/61.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From %w, an onomatopoeia for something that slithers, wriggles, or moves in a twisting, snake-like manner.",
+                "words": [
+                    {
+                        "romaji": "ニョロニョロ",
+                        "kana": "nyoro nyoro"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia"]
+        },
+        {
+            "id": 62,
+            "en": "Poliwrath",
+            "ja": {
+                "romaji": "Nyorobon",
+                "kana": "ニョロボン"
+            },
+            "imageUrl": "/assets/creature/62.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water",
+                "fighting"
+            ],
+            "origin": {
+                "value": "From %w, an onomatopoeia for something that slithers, %w used to refer to a young boy and %w meaning \"compressed gas cylinder\".",
+                "words": [
+                    {
+                        "romaji": "ニョロニョロ",
+                        "kana": "nyoro nyoro"
+                    },
+                    {
+                        "romaji": "bon",
+                        "kana": "ボン"
+                    },
+                    {
+                        "romaji": "bonbe",
+                        "kana": "ボンベ"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia"]
+        },
+        {
+            "id": 63,
+            "en": "Abra",
+            "ja": {
+                "romaji": "Keeshi",
+                "kana": "ケーシィ"
+            },
+            "imageUrl": "/assets/creature/63.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "psychic"
+            ],
+            "origin": {
+                "value": "From \"Cayce\" (ケイシー), referring to Edgar Cayce an american clairvoyant.",
+                "words": []
+            },
+            "originTags": ["person"]
+        },
+        {
+            "id": 64,
+            "en": "Kadabra",
+            "ja": {
+                "romaji": "Yungeraa",
+                "kana": "ユンゲラー"
+            },
+            "imageUrl": "/assets/creature/64.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "psychic"
+            ],
+            "origin": {
+                "value": "From \"Uri Geller\" (ユリ ゲラー), an Israeli-British illusionist, magician, television personality, and self-proclaimed psychic.",
+                "words": []
+            },
+            "originTags": ["person"]
+        },
+        {
+            "id": 65,
+            "en": "Alakazam",
+            "ja": {
+                "romaji": "Fuudin",
+                "kana": "フーディン"
+            },
+            "imageUrl": "/assets/creature/65.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "psychic"
+            ],
+            "origin": {
+                "value": "From \"Houdini\" (フーディーニ), referring to Harry Houdini a Hungarian-American escape artist, illusionist, and stunt performer noted for his escape acts.",
+                "words": []
+            },
+            "originTags": ["person"]
         }
     ]
 }
