@@ -9,15 +9,33 @@ export default class Word {
     ) {
     }
 
+    private hiraganaToKatagana = (src: string) => {
+        return src.replace(/[\u3041-\u3096]/g, function(match) {
+            var chr = match.charCodeAt(0) + 0x60;
+            return String.fromCharCode(chr);
+        });
+    }
+
+    private sanitizeRomaji = (romaji: string) => {
+        return romaji.toLowerCase()
+            .replaceAll("l", "r")
+            .replaceAll("c", "k")
+            .replaceAll("ā", "aa")
+            .replaceAll("ī", "ii")
+            .replaceAll("ū", "uu")
+            .replaceAll("ē", "ee")
+            .replaceAll("ō", "oo");
+    }
+
     includes = (str : string) => {
-        return this.romaji.toLowerCase().includes(str.toLowerCase())
-            || this.kana.includes(str)
+        return this.sanitizeRomaji(this.romaji).includes(this.sanitizeRomaji(str))
+            || this.kana.includes(this.hiraganaToKatagana(str))
             || (this.kanji != null && this.kanji.includes(str));
     }
 
     equals = (str : string) => {
-        return this.romaji.toLowerCase() === str.toLowerCase()
-            || this.kana === str
+        return this.sanitizeRomaji(this.romaji) === this.sanitizeRomaji(str)
+            || this.kana === this.hiraganaToKatagana(str)
             || this.kanji === str;
     }
 
