@@ -1,3 +1,5 @@
+@import "@/mixins.scss";
+
 a.home-option {
     flex: 1;
     display: flex;
@@ -8,16 +10,19 @@ a.home-option {
     text-transform: uppercase;
     font-size: var(--font-size-xxlarge);
     &:first-child {
-        border: solid 2px pink;
+        border: solid 2px var(--color-medium-grey);
         border-right: none;
         border-radius: 16px 0 0 16px;
     }
     &:nth-child(2) {
-        background-color: pink;
+        background-color: var(--color-medium-grey);
         border-radius: 0 16px 16px 0;
     }
-    > img {
+    div.image-container {
+        @include background-image-component;
+        background-color: transparent;
         width: 50%;
+        height: 30vh;
     }
 }
 
