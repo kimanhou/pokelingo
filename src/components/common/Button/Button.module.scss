@@ -160,3 +160,27 @@ button.button {
         margin-right: 8px;
     }
 }
+
+// Safari doesn't handle outline + border-radius so need to replace outline by box-shadow
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @media not all and (min-resolution: 0.001dpcm) {
+        @supports (-webkit-hyphens: none) {
+            button.button {
+                &:not(:disabled):hover {
+                    box-shadow:
+                        0 0 0 1px var(--bg),
+                        0 0 0 3px var(--fg);
+                    outline: unset;
+                }
+                &.secondary {
+                    &:not(:disabled):hover {
+                        box-shadow:
+                            0 0 0 1px var(--fg),
+                            0 0 0 3px var(--bg);
+                        outline: unset;
+                    }
+                }
+            }
+        }
+    }
+}
