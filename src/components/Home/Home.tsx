@@ -1,7 +1,7 @@
 import { FC } from "react";
 import HomeOption from "@/components/Home/HomeOption";
-import learn from "@/assets/learn.png";
-import quiz from "@/assets/quiz.png";
+import learn from "@/assets/study_jigglypuff.png";
+import quiz from "@/assets/think_squirtle.png";
 import styles from "./Home.module.scss";
 
 const Home: FC = (props) => {

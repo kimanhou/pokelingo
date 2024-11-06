@@ -11,7 +11,12 @@ interface IHomeOption {
 const HomeOption: FC<IHomeOption> = (props) => {
     return (
         <Link to={props.to} className={styles.homeOption}>
-            <img src={props.imageUrl} />
+            <div
+                className={styles.imageContainer}
+                style={{
+                    backgroundImage: `url(${props.imageUrl})`,
+                }}
+            ></div>
             {props.text}
         </Link>
     );
