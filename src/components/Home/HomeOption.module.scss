@@ -29,7 +29,7 @@ a.home-option {
 @media screen and (max-width: 768px) {
     a.home-option {
         &:first-child {
-            border-right: solid 2px pink;
+            border-right: solid 2px var(--color-medium-grey);
             border-bottom: none;
             border-radius: 16px 16px 0 0;
         }
