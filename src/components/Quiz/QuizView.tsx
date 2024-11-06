@@ -97,8 +97,24 @@ const QuizView: FC<IQuizProps> = (props) => {
         }
     };
 
+    const onBottomNotificationKeyDown = (
+        e: React.KeyboardEvent<HTMLInputElement>
+    ) => {
+        if (isAnswerReviewSideSheetOpen && e.key === "Enter") {
+            if (quiz.isFailed() && !canGoToNextRound) {
+                onRetry(quiz)();
+            }
+            if (quiz.isSolved()) {
+                onNext(quiz);
+            }
+        }
+    };
+
     return (
-        <div className={styles.quizView}>
+        <div
+            className={styles.quizView}
+            onKeyDown={onBottomNotificationKeyDown}
+        >
             <div
                 className={styles.quizImageContainer}
                 style={{ backgroundColor: quiz.getCreatureMainColor() }}
