@@ -36,5 +36,8 @@ a.home-option {
         &:nth-child(2) {
             border-radius: 0 0 16px 16px;
         }
+        div.image-container {
+            height: 20vh;
+        }
     }
 }
