@@ -74,13 +74,14 @@ export const isMobileCreatureCard = ({
     return deviceType === DeviceType.MOBILE && isCreatureCard;
 };
 
-export const isSafari = () => {
+export const isSafariNotMobile = (deviceType: DeviceType) => {
     return (
         (navigator.vendor &&
             navigator.vendor.indexOf("Apple") > -1 &&
             navigator.userAgent &&
             navigator.userAgent.indexOf("CriOS") == -1 &&
-            navigator.userAgent.indexOf("FxiOS") == -1) ||
+            navigator.userAgent.indexOf("FxiOS") == -1 &&
+            deviceType !== DeviceType.MOBILE) ||
         false
     );
 };

@@ -9,7 +9,8 @@ import {
     useState,
 } from "react";
 import useEffectSkipFirstRender from "@/hooks/useEffectSkipFirstRender";
-import { isSafari as isSafariFunc } from "@/ts/utils";
+import { isSafariNotMobile as isSafariFunc } from "@/ts/utils";
+import { useDeviceType } from "@/hooks/useIsMobile";
 import styles from "./BottomNotification.module.scss";
 
 interface IBottomNotificationProps {
@@ -21,6 +22,7 @@ interface IBottomNotificationProps {
 }
 
 const BottomNotification: FC<IBottomNotificationProps> = (props) => {
+    const deviceType = useDeviceType();
     const contentRef = useRef<HTMLDivElement | null>(null);
     const hiddenContentRef = useRef<HTMLDivElement | null>(null);
     const [isVisibleInternal, setIsVisibleInternal] = useState(props.isVisible);
@@ -74,7 +76,7 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
     }, [props.isVisible]);
 
     useEffect(() => {
-        setIsSafari(isSafariFunc());
+        setIsSafari(isSafariFunc(deviceType));
     }, []);
 
     useEffect(() => {
