@@ -2029,6 +2029,485 @@
                 ]
             },
             "originTags": ["person"]
+        },
+        {
+            "id": 81,
+            "en": "Magnemite",
+            "ja": {
+                "romaji": "Koiru",
+                "kana": "コイル"
+            },
+            "imageUrl": "/assets/creature/81.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "electric", "steel"
+            ],
+            "origin": {
+                "value": "From \"coil\" (コイル).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 82,
+            "en": "Magneton",
+            "ja": {
+                "romaji": "Reakoiru",
+                "kana": "レアコイル"
+            },
+            "imageUrl": "/assets/creature/82.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "electric", "steel"
+            ],
+            "origin": {
+                "value": "From \"rare metal\" (レアメタル) and \"coil\" (コイル).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 83,
+            "en": "Farfetchd",
+            "ja": {
+                "romaji": "Kamonegi",
+                "kana": "カモネギ",
+                "kanji": "鴨葱"
+            },
+            "imageUrl": "/assets/creature/83.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal", "flying"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"wild duck\", and %w, meaning \"welsh onion\". Slang expression for a stroke of good luck.",
+                "words": [
+                    {
+                        "romaji": "kamo",
+                        "kana": "かも",
+                        "kanji": "鴨"
+                    },
+                    {
+                        "romaji": "negi",
+                        "kana": "ねぎ",
+                        "kanji": "葱"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 84,
+            "en": "Doduo",
+            "ja": {
+                "romaji": "Doodoo",
+                "kana": "ドードー"
+            },
+            "imageUrl": "/assets/creature/84.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal", "flying"
+            ],
+            "origin": {
+                "value": "From \"dodo\" (ドードー), an extinct bird endemic to the island of Mauritius.",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 85,
+            "en": "Dodrio",
+            "ja": {
+                "romaji": "Doodorio",
+                "kana": "ドードリオ"
+            },
+            "imageUrl": "/assets/creature/85.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal", "flying"
+            ],
+            "origin": {
+                "value": "From \"dodo\" (ドードー), an extinct bird endemic to the island of Mauritius, and \"trio\" (トリオ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 86,
+            "en": "Seel",
+            "ja": {
+                "romaji": "Pauwau",
+                "kana": "パウワウ"
+            },
+            "imageUrl": "/assets/creature/86.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From %w, the onomatopoeia for the cry of a sea lion.",
+                "words": [
+                    {
+                        "romaji": "auau",
+                        "kana": "アウアウ"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia"]
+        },
+        {
+            "id": 87,
+            "en": "Dewgong",
+            "ja": {
+                "romaji": "Jyugon",
+                "kana": "ジュゴン"
+            },
+            "imageUrl": "/assets/creature/87.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water", "ice"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"dugong\".",
+                "words": [
+                    {
+                        "romaji": "jyugon",
+                        "kana": "ジュゴン"
+                    }
+                ]
+            },
+            "originTags": ["animal"]
+        },
+        {
+            "id": 88,
+            "en": "Grimer",
+            "ja": {
+                "romaji": "Betobetaa",
+                "kana": "ベトベター"
+            },
+            "imageUrl": "/assets/creature/88.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison"
+            ],
+            "origin": {
+                "value": "From %w and %w, both meaning \"sticky\".",
+                "words": [
+                    {
+                        "romaji": "betobeto",
+                        "kana": "べとべと"
+                    },
+                    {
+                        "romaji": "betabeta",
+                        "kana": "べたべた"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 89,
+            "en": "Muk",
+            "ja": {
+                "romaji": "Betobeton",
+                "kana": "ベトベトン"
+            },
+            "imageUrl": "/assets/creature/89.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"sticky\", and %w, suffix for large or strong creatures.",
+                "words": [
+                    {
+                        "romaji": "betobeto",
+                        "kana": "べとべと"
+                    },
+                    {
+                        "romaji": "don",
+                        "kana": "ドン"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 90,
+            "en": "Shellder",
+            "ja": {
+                "romaji": "Sherudaa",
+                "kana": "シェルダー"
+            },
+            "imageUrl": "/assets/creature/90.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From \"shell\" (シェル) and \"shelter\" (シェルタ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 91,
+            "en": "Cloyster",
+            "ja": {
+                "romaji": "Parushen",
+                "kana": "パルシェン"
+            },
+            "imageUrl": "/assets/creature/91.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water", "ice"
+            ],
+            "origin": {
+                "value": "From \"pearl shell\" (ペルシェル).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 92,
+            "en": "Gastly",
+            "ja": {
+                "romaji": "Goosu",
+                "kana": "ゴース"
+            },
+            "imageUrl": "/assets/creature/92.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ghost", "poison"
+            ],
+            "origin": {
+                "value": "From \"ghost\" (ゴースト) and \"gas\" (ガス). Reference to the \"Ultraseven\" tv show which features monsters called %w.",
+                "words": [
+                    {
+                        "romaji": "goosu",
+                        "kana": "ゴース"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 93,
+            "en": "Haunter",
+            "ja": {
+                "romaji": "Goosuto",
+                "kana": "ゴースト"
+            },
+            "imageUrl": "/assets/creature/93.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ghost", "poison"
+            ],
+            "origin": {
+                "value": "From \"ghost\" (ゴースト).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 94,
+            "en": "Gengar",
+            "ja": {
+                "romaji": "Gengaa",
+                "kana": "ゲンガー"
+            },
+            "imageUrl": "/assets/creature/94.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ghost", "poison"
+            ],
+            "origin": {
+                "value": "From \"doppelgänger\" (ドッペルゲンガー).",
+                "words": [
+                ]
+            },
+            "originTags": ["german"]
+        },
+        {
+            "id": 95,
+            "en": "Onix",
+            "ja": {
+                "romaji": "Iwaaku",
+                "kana": "イワーク",
+                "kanji": "岩アク"
+            },
+            "imageUrl": "/assets/creature/95.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "rock", "ground"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"boulder\", and \"snake\" (スネーク).",
+                "words": [
+                    {
+                        "romaji": "iwa",
+                        "kana": "いわ",
+                        "kanji": "岩"
+                    }
+                ]
+            },
+            "originTags": ["kanji", "english"]
+        },
+        {
+            "id": 96,
+            "en": "Drowzee",
+            "ja": {
+                "romaji": "Suriipu",
+                "kana": "スリープ"
+            },
+            "imageUrl": "/assets/creature/96.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "psychic"
+            ],
+            "origin": {
+                "value": "From \"sleep\" (スリープ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 97,
+            "en": "Hypno",
+            "ja": {
+                "romaji": "Suriipaa",
+                "kana": "スリーパー"
+            },
+            "imageUrl": "/assets/creature/97.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "psychic"
+            ],
+            "origin": {
+                "value": "From \"sleeper\" (スリーパー), and \"tapir\" (テイパー).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 98,
+            "en": "Krabby",
+            "ja": {
+                "romaji": "Kurabu",
+                "kana": "クラブ"
+            },
+            "imageUrl": "/assets/creature/98.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From \"crab\" (クラブ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english", "animal"]
+        },
+        {
+            "id": 99,
+            "en": "Kingler",
+            "ja": {
+                "romaji": "Kinguraa",
+                "kana": "キングラー"
+            },
+            "imageUrl": "/assets/creature/99.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From \"king\" (キング), \"king krab\" (キングクラブ). Reference to the \"Ultraman A\" tv series which features a monster called %w.",
+                "words": [
+                    {
+                        "romaji": "kingukurabu",
+                        "kana": "キングクラブ"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 100,
+            "en": "Voltorb",
+            "ja": {
+                "romaji": "Biriridama",
+                "kana": "ビリリダマ",
+                "kanji": "ビリリ玉"
+            },
+            "imageUrl": "/assets/creature/100.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "electric"
+            ],
+            "origin": {
+                "value": "From %w, an onomatopoeia for eletric current, and %w, meaning \"ball\".",
+                "words": [
+                    {
+                        "romaji": "biribiri",
+                        "kana": "びりびり"
+                    },
+                    {
+                        "romaji": "tama",
+                        "kana": "たま",
+                        "kanji": "玉"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia", "kanji"]
         }
     ]
 }
