@@ -1618,6 +1618,417 @@
                 "words": []
             },
             "originTags": ["person"]
+        },
+        {
+            "id": 66,
+            "en": "Machop",
+            "ja": {
+                "romaji": "Wanrikii",
+                "kana": "ワンリキー",
+                "kanji": "腕力"
+            },
+            "imageUrl": "/assets/creature/66.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fighting"
+            ],
+            "origin": {
+                "value": "From %w, meaning arm strength.",
+                "words": [
+                    {
+                        "romaji": "wanryoku",
+                        "kana": "わんりょく",
+                        "kanji": "腕力"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 67,
+            "en": "Machoke",
+            "ja": {
+                "romaji": "Goorikii",
+                "kana": "ゴーリキー",
+                "kanji": "強力"
+            },
+            "imageUrl": "/assets/creature/67.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fighting"
+            ],
+            "origin": {
+                "value": "From %w or %w, both meaning strong / strength.",
+                "words": [
+                    {
+                        "romaji": "kyouryoku",
+                        "kana": "きょうりょく",
+                        "kanji": "強力"
+                    },
+                    {
+                        "romaji": "gouriki",
+                        "kana": "ごうりき",
+                        "kanji": "剛力"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 68,
+            "en": "Machamp",
+            "ja": {
+                "romaji": "Kairikii",
+                "kana": "カイリキー",
+                "kanji": "怪力"
+            },
+            "imageUrl": "/assets/creature/68.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fighting"
+            ],
+            "origin": {
+                "value": "From %w, meaning superhuman strength.",
+                "words": [
+                    {
+                        "romaji": "kairiki",
+                        "kana": "かいりき",
+                        "kanji": "怪力"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 69,
+            "en": "Bellsprout",
+            "ja": {
+                "romaji": "Madatsubomi",
+                "kana": "マダツボミ",
+                "kanji": "まだ蕾"
+            },
+            "imageUrl": "/assets/creature/69.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass", "poison"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"still\" and %w, meaning \"flower bud\". Literally \"still a flower bud\".",
+                "words": [
+                    {
+                        "romaji": "mada",
+                        "kana": "まだ"
+                    },
+                    {
+                        "romaji": "tsubomi",
+                        "kana": "つぼみ",
+                        "kanji": "蕾"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 70,
+            "en": "Weepinbell",
+            "ja": {
+                "romaji": "Utsudon",
+                "kana": "ウツドン"
+            },
+            "imageUrl": "/assets/creature/70.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass", "poison"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"nepenthes rafflesiana\" a species of tropical pitcher plant.",
+                "words": [
+                    {
+                        "romaji": "utsubokazura",
+                        "kana": "ウツボカズラ"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 71,
+            "en": "Victreebel",
+            "ja": {
+                "romaji": "Utsubotto",
+                "kana": "ウツボット"
+            },
+            "imageUrl": "/assets/creature/71.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass", "poison"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"nepenthes rafflesiana\" a species of tropical pitcher plant, and \"pot\" (ポット) or \"pod\" (ポッド).",
+                "words": [
+                    {
+                        "romaji": "utsubokazura",
+                        "kana": "ウツボカズラ"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 72,
+            "en": "Tentacool",
+            "ja": {
+                "romaji": "Menokurage",
+                "kana": "メノクラゲ"
+            },
+            "imageUrl": "/assets/creature/72.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water", "poison"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"jellyfish\", and %w, meaning \"agate\".",
+                "words": [
+                    {
+                        "romaji": "kurage",
+                        "kana": "クラゲ"
+                    },
+                    {
+                        "romaji": "menou",
+                        "kana": "メノウ"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 73,
+            "en": "Tentacruel",
+            "ja": {
+                "romaji": "Dokukurage",
+                "kana": "ドククラゲ",
+                "kanji": "毒クラゲ"
+            },
+            "imageUrl": "/assets/creature/73.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water", "poison"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"poison\", and %w, meaning \"jellyfish\".",
+                "words": [
+                    {
+                        "romaji": "doku",
+                        "kana": "ドク",
+                        "kanji": "毒"
+                    },
+                    {
+                        "romaji": "kurage",
+                        "kana": "クラゲ"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 74,
+            "en": "Geodude",
+            "ja": {
+                "romaji": "Ishitsubute",
+                "kana": "イシツブテ",
+                "kanji": "石礫"
+            },
+            "imageUrl": "/assets/creature/74.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "rock", "ground"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"stone\", and %w, meaning \"pebble\".",
+                "words": [
+                    {
+                        "romaji": "ishi",
+                        "kana": "いし",
+                        "kanji": "石"
+                    },
+                    {
+                        "romaji": "tsubute",
+                        "kana": "つぶて",
+                        "kanji": "礫"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 75,
+            "en": "Graveler",
+            "ja": {
+                "romaji": "Ishitsubute",
+                "kana": "ゴローン"
+            },
+            "imageUrl": "/assets/creature/75.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "rock", "ground"
+            ],
+            "origin": {
+                "value": "From %w, the onomatopoeia of something rolling, and \"stone\" (ストーン).",
+                "words": [
+                    {
+                        "romaji": "gorogoro",
+                        "kana": "ゴロゴロ"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia", "english"]
+        },
+        {
+            "id": 76,
+            "en": "Golem",
+            "ja": {
+                "romaji": "Goroonya",
+                "kana": "ゴローニャ"
+            },
+            "imageUrl": "/assets/creature/76.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "rock", "ground"
+            ],
+            "origin": {
+                "value": "From %w, the onomatopoeia of something rolling, \"stone\" (ストーン) and \"montagna\" (モンタニャ).",
+                "words": [
+                    {
+                        "romaji": "gorogoro",
+                        "kana": "ゴロゴロ"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia", "english", "italian"]
+        },
+        {
+            "id": 77,
+            "en": "Ponyta",
+            "ja": {
+                "romaji": "Poniita",
+                "kana": "ポニータ"
+            },
+            "imageUrl": "/assets/creature/77.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fire"
+            ],
+            "origin": {
+                "value": "From \"pony\" (ポーニ) and \"señorita\" (セニョリータ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english", "spanish"]
+        },
+        {
+            "id": 78,
+            "en": "Rapidash",
+            "ja": {
+                "romaji": "Garoppu",
+                "kana": "ギャロップ"
+            },
+            "imageUrl": "/assets/creature/78.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fire"
+            ],
+            "origin": {
+                "value": "From \"gallop\" (ガロップ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 79,
+            "en": "Slowpoke",
+            "ja": {
+                "romaji": "Yadon",
+                "kana": "ヤドン",
+                "kanji": "ヤ鈍"
+            },
+            "imageUrl": "/assets/creature/79.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water", "psychic"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"hermit crab\", and %w, meaning \"thickheaded\".",
+                "words": [
+                    {
+                        "romaji": "yadokari",
+                        "kana": "ヤドカリ"
+                    },
+                    {
+                        "romaji": "donkan",
+                        "kana": "どんかん",
+                        "kanji": "鈍感"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 80,
+            "en": "Slowbro",
+            "ja": {
+                "romaji": "Yadoran",
+                "kana": "ヤドラン"
+            },
+            "imageUrl": "/assets/creature/80.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water", "psychic"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"hermit crab\", and %w, transliterated first name of \"Jadranka Stojaković\" a Yugoslavian singer acquainted with members of the Pokémon development team.",
+                "words": [
+                    {
+                        "romaji": "yadokari",
+                        "kana": "ヤドカリ"
+                    },
+                    {
+                        "romaji": "yadoranka",
+                        "kana": "ヤドランカ"
+                    }
+                ]
+            },
+            "originTags": ["person"]
         }
     ]
 }
