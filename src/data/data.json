@@ -2508,6 +2508,151 @@
                 ]
             },
             "originTags": ["onomatopoeia", "kanji"]
+        },
+        {
+            "id": 101,
+            "en": "Electrode",
+            "ja": {
+                "romaji": "Marumain",
+                "kana": "マルマイン",
+                "kanji": "丸マイン"
+            },
+            "imageUrl": "/assets/creature/101.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "electric"
+            ],
+            "origin": {
+                "value": "Anagram of %w, meaning \"perfectly round\". From %w, meaning \"round\" and \"mine\" (マイン).",
+                "words": [
+                    {
+                        "romaji": "manmarui",
+                        "kana": "まんまるい"
+                    },
+                    {
+                        "romaji": "marui",
+                        "kana": "まるい",
+                        "kanji": "丸い"
+                    }
+                ]
+            },
+            "originTags": ["anagram", "kanji", "english"]
+        },
+        {
+            "id": 102,
+            "en": "Exeggcute",
+            "ja": {
+                "romaji": "Tamatama",
+                "kana": "タマタマ"
+            },
+            "imageUrl": "/assets/creature/102.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass", "psychic"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"ball\", and/or %w, meaning \"egg\".",
+                "words": [
+                    {
+                        "romaji": "tama",
+                        "kana": "たま",
+                        "kanji": "玉"
+                    },
+                    {
+                        "romaji": "tamago",
+                        "kana": "たまご",
+                        "kanji": "卵"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 103,
+            "en": "Exeggutor",
+            "ja": {
+                "romaji": "Nasshii",
+                "kana": "ナッシー"
+            },
+            "imageUrl": "/assets/creature/103.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass", "psychic"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"nuts\", and/or %w, meaning \"palm\", and/or %w, meaning \"date palm\".",
+                "words": [
+                    {
+                        "romaji": "nattsu",
+                        "kana": "ナッツ"
+                    },
+                    {
+                        "romaji": "yashi",
+                        "kana": "ヤシ"
+                    },
+                    {
+                        "romaji": "natsumeyashi",
+                        "kana": "ナツメヤシ"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 104,
+            "en": "Cubone",
+            "ja": {
+                "romaji": "Karakara",
+                "kana": "カラカラ"
+            },
+            "imageUrl": "/assets/creature/104.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ground"
+            ],
+            "origin": {
+                "value": "From %w, an onomatopoeia for a clattering or rattling noise.",
+                "words": [
+                    {
+                        "romaji": "karakara",
+                        "kana": "からから"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia"]
+        },
+        {
+            "id": 105,
+            "en": "Marowak",
+            "ja": {
+                "romaji": "Garagara",
+                "kana": "ガラガラ"
+            },
+            "imageUrl": "/assets/creature/105.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ground"
+            ],
+            "origin": {
+                "value": "From %w, an onomatopoeia for a clattering or rattling noise.",
+                "words": [
+                    {
+                        "romaji": "garagara",
+                        "kana": "がらがら"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia"]
         }
     ]
 }
