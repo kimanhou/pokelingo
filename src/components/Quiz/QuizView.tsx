@@ -6,7 +6,10 @@ import { useDeviceType } from "@/hooks/useIsMobile";
 import { DeviceType } from "@/ts/enums";
 import Button from "@/components/common/Button/Button";
 import BottomNotification from "@/components/common/BottomNotification/BottomNotification";
+import IconButton from "@/components/common/IconButton/IconButton";
 import { Footer } from "@/components/Footer/Footer";
+import { Link } from "react-router-dom";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import Ball from "@/assets/Ball";
 import happy from "@/assets/happy_eevee.png";
 import sad from "@/assets/sad_charmander.png";
@@ -115,6 +118,9 @@ const QuizView: FC<IQuizProps> = (props) => {
             className={styles.quizView}
             onKeyDown={onBottomNotificationKeyDown}
         >
+            <Link to={"/"} className={styles.backButton}>
+                <IconButton icon={faHouse} onClick={() => {}} />
+            </Link>
             <div
                 className={styles.quizImageContainer}
                 style={{ backgroundColor: quiz.getCreatureMainColor() }}

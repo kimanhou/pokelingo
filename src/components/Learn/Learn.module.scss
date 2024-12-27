@@ -5,6 +5,13 @@ div.learn {
     height: 100%;
     width: 100%;
     gap: 24px;
+    position: relative;
+    > a.back-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+    }
     > div.left,
     > div.right {
         flex: 1;
