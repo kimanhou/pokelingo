@@ -11,7 +11,6 @@ import {
 } from "@/ts/utils";
 import { useDeviceType } from "@/hooks/useIsMobile";
 import Creature from "@/model/creature/creature";
-import { DeviceType } from "@/ts/enums";
 import styles from "./AvatarDetails.module.scss";
 
 interface IAvatarDetailsProps {
