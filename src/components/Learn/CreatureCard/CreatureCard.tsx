@@ -17,47 +17,71 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     setIsOpen,
     allCreatures,
 }: ICreatureCardProps) => {
-    const getPreviousCreature = () => {
-        const selectedCreatureIndex = creature.getId() - 1;
+    const getPreviousCreature = (creatureId: number) => {
+        const selectedCreatureIndex = creatureId - 1;
         return selectedCreatureIndex
             ? allCreatures[selectedCreatureIndex - 1]
             : null;
     };
 
-    const getNextCreature = () => {
-        const selectedCreatureIndex = creature.getId() - 1;
+    const getNextCreature = (creatureId: number) => {
+        const selectedCreatureIndex = creatureId - 1;
         return selectedCreatureIndex === allCreatures.length - 1
             ? null
             : allCreatures[selectedCreatureIndex + 1];
     };
 
+    const filterNull = (creatures: Array<Creature | null>) => {
+        return creatures.filter((t) => t).map((t) => t as Creature);
+    };
+
     const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
-        [getPreviousCreature(), creature, getNextCreature()]
-            .filter((t) => t)
-            .map((t) => t as Creature)
-            .sort((a, b) => a.getId() - b.getId())
+        filterNull([
+            getPreviousCreature(creature.getId()),
+            creature,
+            getNextCreature(creature.getId()),
+        ]).sort((a, b) => a.getId() - b.getId())
     );
     const [currentCreatureIndex, setCurrentCreatureIndex] = useState(
-        creaturesToLoad.findIndex((x) => x.getId() === creature?.getId())
+        creaturesToLoad.findIndex((x) => x.getId() === creature.getId())
     );
 
     const onNext = () => {
-        setCurrentCreatureIndex((t) => t + 1);
+        const lastIndex = creaturesToLoad.length - 1;
+        // you are seeing the second to last creature, then load one more in advance so that you always have one already loaded
+        if (currentCreatureIndex >= lastIndex - 1) {
+            console.log("add creature !");
+            setCreaturesToLoad((old) =>
+                filterNull([
+                    ...old,
+                    getNextCreature(old[old.length - 1].getId()),
+                ])
+            );
+        }
+
+        setCurrentCreatureIndex((t) => {
+            console.log(`Setting current creature index to ${t + 1}`);
+            return t + 1;
+        });
     };
 
     const onPrevious = () => {
-        setCurrentCreatureIndex((t) => t - 1);
+        setCurrentCreatureIndex((currentCreatureIndex) => {
+            if (currentCreatureIndex <= 1) {
+                setCreaturesToLoad((old) => {
+                    return filterNull([
+                        getPreviousCreature(
+                            old[currentCreatureIndex - 1].getId()
+                        ),
+                        ...old,
+                    ]);
+                });
+            } else {
+                return currentCreatureIndex - 1;
+            }
+            return currentCreatureIndex;
+        });
     };
-
-    useEffect(() => {
-        if (isOpen) {
-            setCurrentCreatureIndex(
-                creaturesToLoad.findIndex(
-                    (x) => x.getId() === creature?.getId()
-                )
-            );
-        }
-    }, [isOpen]);
 
     useEffect(() => {
         const onKeyDown = (e: KeyboardEvent) => {
