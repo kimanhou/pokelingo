@@ -1,6 +1,6 @@
 import { FC, Dispatch, SetStateAction, useState } from "react";
-import AvatarOption from "@/components/Learn/Options/AvatarOption";
 import Creature from "@/model/creature/creature";
+import AvatarOption from "@/components/Learn/Options/AvatarOption";
 import CreatureCard from "@/components/Learn/CreatureCard/CreatureCard";
 import { useDeviceType } from "@/hooks/useIsMobile";
 import { DeviceType } from "@/ts/enums";
@@ -17,29 +17,12 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
     const [selectedCreature, setSelectedCreature] = useState<null | Creature>(
         null
     );
-    const [previousCreature, setPreviousCreature] = useState<null | Creature>(
-        null
-    );
-    const [nextCreature, setNextCreature] = useState<null | Creature>(null);
     const [isCreatureCardOpen, setIsCreatureCardOpen] = useState(false);
     const deviceType = useDeviceType();
 
     const onClickCreature = (creature: Creature) => {
         if (deviceType === DeviceType.MOBILE) {
             setSelectedCreature(creature);
-            setPreviousCreature(() => {
-                const selectedCreatureIndex = creature.id - 1;
-                return selectedCreatureIndex
-                    ? props.displayedOptions[selectedCreatureIndex - 1]
-                    : null;
-            });
-            setNextCreature(() => {
-                const selectedCreatureIndex = creature.id - 1;
-                return selectedCreatureIndex ===
-                    props.displayedOptions.length - 1
-                    ? null
-                    : props.displayedOptions[selectedCreatureIndex + 1];
-            });
             setIsCreatureCardOpen((t) => !t);
         }
     };
@@ -70,13 +53,14 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                     className={`${styles.scrollerGradient} ${styles.bottom}`}
                 />
             </div>
-            <CreatureCard
-                creature={selectedCreature}
-                isOpen={isCreatureCardOpen}
-                setIsOpen={setIsCreatureCardOpen}
-                previousCreature={previousCreature}
-                nextCreature={nextCreature}
-            />
+            {selectedCreature && (
+                <CreatureCard
+                    creature={selectedCreature}
+                    isOpen={isCreatureCardOpen}
+                    setIsOpen={setIsCreatureCardOpen}
+                    allCreatures={props.displayedOptions}
+                />
+            )}
         </>
     );
 };

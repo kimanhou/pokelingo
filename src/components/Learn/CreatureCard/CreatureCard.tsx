@@ -1,33 +1,42 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import Creature from "@/model/creature/creature";
 import ModalDialog from "@/components/common/ModalDialog/ModalDialog";
-import AvatarDetails from "../Details/AvatarDetails";
+import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
 import styles from "./CreatureCard.module.scss";
 
 interface ICreatureCardProps {
-    creature: Creature | null;
+    creature: Creature;
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
-    previousCreature?: Creature | null;
-    nextCreature?: Creature | null;
+    allCreatures: Creature[];
 }
 
 const CreatureCard: FC<ICreatureCardProps> = ({
     creature,
     isOpen,
     setIsOpen,
-    previousCreature,
-    nextCreature,
+    allCreatures,
 }: ICreatureCardProps) => {
-    const creaturesToLoad: Creature[] = [
-        nextCreature,
-        creature,
-        previousCreature,
-    ]
-        .filter((t) => t)
-        .map((t) => t as Creature)
-        .sort((a, b) => a.getId() - b.getId());
+    const getPreviousCreature = () => {
+        const selectedCreatureIndex = creature.getId() - 1;
+        return selectedCreatureIndex
+            ? allCreatures[selectedCreatureIndex - 1]
+            : null;
+    };
 
+    const getNextCreature = () => {
+        const selectedCreatureIndex = creature.getId() - 1;
+        return selectedCreatureIndex === allCreatures.length - 1
+            ? null
+            : allCreatures[selectedCreatureIndex + 1];
+    };
+
+    const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
+        [getPreviousCreature(), creature, getNextCreature()]
+            .filter((t) => t)
+            .map((t) => t as Creature)
+            .sort((a, b) => a.getId() - b.getId())
+    );
     const [currentCreatureIndex, setCurrentCreatureIndex] = useState(
         creaturesToLoad.findIndex((x) => x.getId() === creature?.getId())
     );
