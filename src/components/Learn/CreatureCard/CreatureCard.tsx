@@ -30,24 +30,25 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     );
 
     const onNext = () => {
-        const lastIndex = creaturesToLoad.length - 1;
-        // you are seeing the second to last creature, then load one more in advance so that you always have one already loaded
-        if (currentCreatureIndex >= lastIndex - 1) {
-            console.log("add creature !");
-            setCreaturesToLoad((old) =>
-                filterNull([
-                    ...old,
-                    getNextCreature({
-                        creatureId: old[old.length - 1].getId(),
-                        allCreatures,
-                    }),
-                ])
-            );
-        }
+        setCurrentCreatureIndex((oldIndex) => {
+            setCreaturesToLoad((oldCreaturesToLoad) => {
+                const lastIndex = oldCreaturesToLoad.length - 1;
+                if (oldIndex >= lastIndex - 1) {
+                    return filterNull([
+                        ...oldCreaturesToLoad,
+                        getNextCreature({
+                            creatureId:
+                                oldCreaturesToLoad[
+                                    oldCreaturesToLoad.length - 1
+                                ].getId(),
+                            allCreatures,
+                        }),
+                    ]);
+                }
+                return oldCreaturesToLoad;
+            });
 
-        setCurrentCreatureIndex((t) => {
-            console.log(`Setting current creature index to ${t + 1}`);
-            return t + 1;
+            return oldIndex + 1;
         });
     };
 
