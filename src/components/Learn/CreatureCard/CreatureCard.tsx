@@ -81,6 +81,19 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     };
 
     useEffect(() => {
+        setCreaturesToLoad(
+            filterNull([
+                getPreviousCreature({
+                    creatureId: creature.getId(),
+                    allCreatures,
+                }),
+                creature,
+                getNextCreature({ creatureId: creature.getId(), allCreatures }),
+            ]).sort((a, b) => a.getId() - b.getId())
+        );
+    }, [creature]);
+
+    useEffect(() => {
         const onKeyDown = (e: KeyboardEvent) => {
             if (e.key === "ArrowRight") {
                 onNext();
