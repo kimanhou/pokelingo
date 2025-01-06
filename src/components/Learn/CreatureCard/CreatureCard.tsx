@@ -1,4 +1,11 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
+import {
+    Dispatch,
+    FC,
+    SetStateAction,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import Creature from "@/model/creature/creature";
 import ModalDialog from "@/components/common/ModalDialog/ModalDialog";
 import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
@@ -18,6 +25,8 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     setIsOpen,
     allCreatures,
 }: ICreatureCardProps) => {
+    const wrapperRef = useRef<HTMLDivElement>(null);
+
     const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
         filterNull([
             getPreviousCreature({ creatureId: creature.getId(), allCreatures }),
@@ -86,6 +95,18 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         return () => removeEventListener("keydown", onKeyDown);
     }, []);
 
+    useEffect(() => {
+        if (wrapperRef && wrapperRef.current) {
+            const onSwipe = (event: any) => {
+                console.log("swipe baby", event.deltaX, event.deltaY);
+            };
+            wrapperRef.current.addEventListener("swipe", onSwipe);
+
+            return () => removeEventListener("swipe", onSwipe);
+        }
+        return () => {};
+    }, []);
+
     return (
         <ModalDialog
             isOpen={isOpen}
@@ -98,6 +119,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
                 style={{
                     left: `-${currentCreatureIndex * 100}%`,
                 }}
+                ref={wrapperRef}
             >
                 {creaturesToLoad.map((t) => (
                     <AvatarDetails
