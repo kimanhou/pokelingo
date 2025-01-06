@@ -109,22 +109,23 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     }, []);
 
     useEffect(() => {
-        if (wrapperRef && wrapperRef.current) {
-            const onSwipe = (event: any) => {
-                console.log("swipe baby", event.deltaX, event.deltaY);
-                if (event.deltaX > event.deltaY) {
-                    if (event.deltaX < 0) {
-                        onNext();
-                    } else {
-                        onPrevious();
-                    }
-                }
-            };
-            wrapperRef.current.addEventListener("swipe", onSwipe);
+        // if (wrapperRef && wrapperRef.current) {
+        const onSwipe = (event: any) => {
+            console.log("swipe baby", event.deltaX, event.deltaY);
+            onNext();
+            // if (event.deltaX > event.deltaY) {
+            //     if (event.deltaX < 0) {
+            //         onNext();
+            //     } else {
+            //         onPrevious();
+            //     }
+            // }
+        };
+        addEventListener("swipe", onSwipe);
 
-            return () => removeEventListener("swipe", onSwipe);
-        }
-        return () => {};
+        return () => removeEventListener("swipe", onSwipe);
+        // }
+        // return () => {};
     }, []);
 
     return (
