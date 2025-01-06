@@ -2,6 +2,7 @@ import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import Creature from "@/model/creature/creature";
 import ModalDialog from "@/components/common/ModalDialog/ModalDialog";
 import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
+import { filterNull, getNextCreature, getPreviousCreature } from "./utils";
 import styles from "./CreatureCard.module.scss";
 
 interface ICreatureCardProps {
@@ -17,29 +18,11 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     setIsOpen,
     allCreatures,
 }: ICreatureCardProps) => {
-    const getPreviousCreature = (creatureId: number) => {
-        const selectedCreatureIndex = creatureId - 1;
-        return selectedCreatureIndex
-            ? allCreatures[selectedCreatureIndex - 1]
-            : null;
-    };
-
-    const getNextCreature = (creatureId: number) => {
-        const selectedCreatureIndex = creatureId - 1;
-        return selectedCreatureIndex === allCreatures.length - 1
-            ? null
-            : allCreatures[selectedCreatureIndex + 1];
-    };
-
-    const filterNull = (creatures: Array<Creature | null>) => {
-        return creatures.filter((t) => t).map((t) => t as Creature);
-    };
-
     const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
         filterNull([
-            getPreviousCreature(creature.getId()),
+            getPreviousCreature({ creatureId: creature.getId(), allCreatures }),
             creature,
-            getNextCreature(creature.getId()),
+            getNextCreature({ creatureId: creature.getId(), allCreatures }),
         ]).sort((a, b) => a.getId() - b.getId())
     );
     const [currentCreatureIndex, setCurrentCreatureIndex] = useState(
@@ -54,7 +37,10 @@ const CreatureCard: FC<ICreatureCardProps> = ({
             setCreaturesToLoad((old) =>
                 filterNull([
                     ...old,
-                    getNextCreature(old[old.length - 1].getId()),
+                    getNextCreature({
+                        creatureId: old[old.length - 1].getId(),
+                        allCreatures,
+                    }),
                 ])
             );
         }
@@ -70,9 +56,10 @@ const CreatureCard: FC<ICreatureCardProps> = ({
             if (currentCreatureIndex <= 1) {
                 setCreaturesToLoad((old) => {
                     return filterNull([
-                        getPreviousCreature(
-                            old[currentCreatureIndex - 1].getId()
-                        ),
+                        getPreviousCreature({
+                            creatureId: old[currentCreatureIndex - 1].getId(),
+                            allCreatures,
+                        }),
                         ...old,
                     ]);
                 });

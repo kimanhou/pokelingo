@@ -4,5 +4,6 @@ dialog.creature-card-modal-dialog {
         height: 100%;
         display: flex;
         position: relative;
+        transition: left 0.2s ease-in-out;
     }
 }
