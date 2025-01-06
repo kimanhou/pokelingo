@@ -99,6 +99,13 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         if (wrapperRef && wrapperRef.current) {
             const onSwipe = (event: any) => {
                 console.log("swipe baby", event.deltaX, event.deltaY);
+                if (event.deltaX > event.deltaY) {
+                    if (event.deltaX < 0) {
+                        onNext();
+                    } else {
+                        onPrevious();
+                    }
+                }
             };
             wrapperRef.current.addEventListener("swipe", onSwipe);
 
