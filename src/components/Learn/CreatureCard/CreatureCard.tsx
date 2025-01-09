@@ -9,7 +9,12 @@ import {
 import Creature from "@/model/creature/creature";
 import ModalDialog from "@/components/common/ModalDialog/ModalDialog";
 import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
-import { filterNull, getNextCreature, getPreviousCreature } from "./utils";
+import {
+    filterNull,
+    getCreaturesToLoad,
+    getNextCreature,
+    getPreviousCreature,
+} from "./utils";
 import styles from "./CreatureCard.module.scss";
 
 interface ICreatureCardProps {
@@ -28,11 +33,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
-        filterNull([
-            getPreviousCreature({ creatureId: creature.getId(), allCreatures }),
-            creature,
-            getNextCreature({ creatureId: creature.getId(), allCreatures }),
-        ]).sort((a, b) => a.getId() - b.getId())
+        getCreaturesToLoad({ creature, allCreatures })
     );
     const [currentCreatureIndex, setCurrentCreatureIndex] = useState(
         creaturesToLoad.findIndex((x) => x.getId() === creature.getId())
@@ -81,16 +82,8 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     };
 
     useEffect(() => {
-        setCreaturesToLoad(
-            filterNull([
-                getPreviousCreature({
-                    creatureId: creature.getId(),
-                    allCreatures,
-                }),
-                creature,
-                getNextCreature({ creatureId: creature.getId(), allCreatures }),
-            ]).sort((a, b) => a.getId() - b.getId())
-        );
+        setCreaturesToLoad(getCreaturesToLoad({ creature, allCreatures }));
+        setCurrentCreatureIndex(1);
     }, [creature]);
 
     useEffect(() => {
@@ -109,23 +102,19 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     }, []);
 
     useEffect(() => {
-        // if (wrapperRef && wrapperRef.current) {
         const onSwipe = (event: any) => {
             console.log("swipe baby", event.deltaX, event.deltaY);
-            onNext();
-            // if (event.deltaX > event.deltaY) {
-            //     if (event.deltaX < 0) {
-            //         onNext();
-            //     } else {
-            //         onPrevious();
-            //     }
-            // }
+            if (event.deltaX > event.deltaY) {
+                if (event.deltaX < 0) {
+                    onNext();
+                } else {
+                    onPrevious();
+                }
+            }
         };
-        addEventListener("swipe", onSwipe);
+        wrapperRef.current?.addEventListener("swipe", onSwipe);
 
-        return () => removeEventListener("swipe", onSwipe);
-        // }
-        // return () => {};
+        return () => wrapperRef.current?.removeEventListener("swipe", onSwipe);
     }, []);
 
     return (
