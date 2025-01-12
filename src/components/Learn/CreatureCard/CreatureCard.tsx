@@ -30,6 +30,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     setIsOpen,
     allCreatures,
 }: ICreatureCardProps) => {
+    console.log("PONEY");
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
