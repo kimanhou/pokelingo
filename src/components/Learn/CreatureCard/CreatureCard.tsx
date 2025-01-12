@@ -2,8 +2,8 @@ import {
     Dispatch,
     FC,
     SetStateAction,
+    TouchEvent,
     useEffect,
-    useRef,
     useState,
 } from "react";
 import Creature from "@/model/creature/creature";
@@ -30,36 +30,40 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     setIsOpen,
     allCreatures,
 }: ICreatureCardProps) => {
-    console.log("PONEY");
-    const wrapperRef = useRef<HTMLDivElement>(null);
-
     const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
         getCreaturesToLoad({ creature, allCreatures })
     );
     const [currentCreatureIndex, setCurrentCreatureIndex] = useState(
         creaturesToLoad.findIndex((x) => x.getId() === creature.getId())
     );
-    const [touchStart, setTouchStart] = useState(null);
-    const [touchEnd, setTouchEnd] = useState(null);
+    const [left, setLeft] = useState<string>(`-${currentCreatureIndex * 100}%`);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
     // the required distance between touchStart and touchEnd to be detected as a swipe
     const MIN_SWIPE_DISTANCE = 50;
 
-    const onTouchStart = (e: any) => {
+    const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
         setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
         setTouchStart(e.targetTouches[0].clientX);
     };
 
-    const onTouchMove = (e: any) => setTouchEnd(e.targetTouches[0].clientX);
+    const onTouchMove = (e: TouchEvent<HTMLDivElement>) =>
+        setTouchEnd(e.targetTouches[0].clientX);
 
     const onTouchEnd = () => {
+        setLeft("");
         if (!touchStart || !touchEnd) return;
         const distance = touchStart - touchEnd;
         const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
         const isRightSwipe = distance < -MIN_SWIPE_DISTANCE;
-        if (isLeftSwipe || isRightSwipe)
-            console.log("swipe", isLeftSwipe ? "left" : "right");
-        // add your conditional logic here
+
+        if (isLeftSwipe) {
+            onNext();
+        }
+        if (isRightSwipe) {
+            onPrevious();
+        }
     };
 
     const onNext = () => {
@@ -124,22 +128,6 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         return () => removeEventListener("keydown", onKeyDown);
     }, []);
 
-    useEffect(() => {
-        const onSwipe = (event: any) => {
-            console.log("swipe baby", event.deltaX, event.deltaY);
-            if (event.deltaX > event.deltaY) {
-                if (event.deltaX < 0) {
-                    onNext();
-                } else {
-                    onPrevious();
-                }
-            }
-        };
-        wrapperRef.current?.addEventListener("swipe", onSwipe);
-
-        return () => wrapperRef.current?.removeEventListener("swipe", onSwipe);
-    }, []);
-
     return (
         <ModalDialog
             isOpen={isOpen}
@@ -149,10 +137,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         >
             <div
                 className={styles.creatureCardWrapper}
-                style={{
-                    left: `-${currentCreatureIndex * 100}%`,
-                }}
-                ref={wrapperRef}
+                style={{ left }}
                 onTouchStart={onTouchStart}
                 onTouchMove={onTouchMove}
                 onTouchEnd={onTouchEnd}
