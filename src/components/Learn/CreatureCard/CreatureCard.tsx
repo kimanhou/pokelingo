@@ -38,6 +38,28 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     const [currentCreatureIndex, setCurrentCreatureIndex] = useState(
         creaturesToLoad.findIndex((x) => x.getId() === creature.getId())
     );
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
+
+    // the required distance between touchStart and touchEnd to be detected as a swipe
+    const MIN_SWIPE_DISTANCE = 50;
+
+    const onTouchStart = (e: any) => {
+        setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e: any) => setTouchEnd(e.targetTouches[0].clientX);
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
+        const isRightSwipe = distance < -MIN_SWIPE_DISTANCE;
+        if (isLeftSwipe || isRightSwipe)
+            console.log("swipe", isLeftSwipe ? "left" : "right");
+        // add your conditional logic here
+    };
 
     const onNext = () => {
         setCurrentCreatureIndex((oldIndex) => {
@@ -130,6 +152,9 @@ const CreatureCard: FC<ICreatureCardProps> = ({
                     left: `-${currentCreatureIndex * 100}%`,
                 }}
                 ref={wrapperRef}
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
             >
                 {creaturesToLoad.map((t) => (
                     <AvatarDetails
