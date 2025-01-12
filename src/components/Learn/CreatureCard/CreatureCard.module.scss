@@ -13,7 +13,11 @@ dialog.creature-card-modal-dialog {
         overflow-x: auto !important;
         scroll-snap-coordinate: 0 0;
         scroll-snap-points-x: repeat(100%);
-        scroll-snap-type: block mandatory;
-        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none; /* Firefox */
+        &::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
     }
 }

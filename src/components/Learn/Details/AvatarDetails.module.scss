@@ -12,3 +12,9 @@ div.avatar-details {
         min-width: 100%;
     }
 }
+
+@media screen and (max-width: 768px) {
+    div.avatar-details.creature-card {
+        scroll-snap-align: start;
+    }
+}
