@@ -7,3 +7,13 @@ dialog.creature-card-modal-dialog {
         transition: left 0.2s ease-in-out;
     }
 }
+
+@media screen and (max-width: 768px) {
+    dialog.creature-card-modal-dialog {
+        overflow-x: auto !important;
+        scroll-snap-coordinate: 0 0;
+        scroll-snap-points-x: repeat(100%);
+        scroll-snap-type: block mandatory;
+        scrollbar-width: none;
+    }
+}
