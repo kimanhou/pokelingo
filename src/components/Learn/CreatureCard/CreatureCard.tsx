@@ -58,7 +58,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
             onNext();
         }
         if (isRightSwipe) {
-            onPrevious();
+            setTimeout(() => onPrevious(), 1000);
         }
     };
 
@@ -74,7 +74,6 @@ const CreatureCard: FC<ICreatureCardProps> = ({
                             ].getId(),
                         allCreatures,
                     });
-                    console.log("onNext add", nextCreature.getName());
                     return filterNull([...oldCreaturesToLoad, nextCreature]);
                 }
                 return oldCreaturesToLoad;

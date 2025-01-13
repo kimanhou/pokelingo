@@ -10,8 +10,6 @@ dialog.creature-card-modal-dialog {
 @media screen and (max-width: 768px) {
     dialog.creature-card-modal-dialog {
         overflow-x: auto !important;
-        // scroll-snap-coordinate: 0 0;
-        // scroll-snap-points-x: repeat(100%);
         scroll-snap-type: x mandatory;
         -ms-overflow-style: none; /* Internet Explorer 10+ */
         scrollbar-width: none; /* Firefox */
