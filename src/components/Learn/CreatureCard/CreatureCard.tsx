@@ -33,7 +33,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
         getCreaturesToLoad({ creature, allCreatures })
     );
-    const [activeIndex, setActiveIndex] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(2);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
@@ -66,7 +66,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         setActiveIndex((oldIndex) => {
             setCreaturesToLoad((oldCreaturesToLoad) => {
                 const lastIndex = oldCreaturesToLoad.length - 1;
-                if (oldIndex >= lastIndex - 1) {
+                if (oldIndex >= lastIndex - 2) {
                     return filterNull([
                         ...oldCreaturesToLoad,
                         getNextCreature({
@@ -87,7 +87,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
 
     const onPrevious = () => {
         setActiveIndex((oldIndex) => {
-            if (oldIndex <= 1) {
+            if (oldIndex <= 2) {
                 setCreaturesToLoad((oldCreaturesToLoad) => {
                     return filterNull([
                         getPreviousCreature({
@@ -107,7 +107,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
 
     useEffect(() => {
         setCreaturesToLoad(getCreaturesToLoad({ creature, allCreatures }));
-        setActiveIndex(1);
+        setActiveIndex(2);
     }, [creature]);
 
     return (
