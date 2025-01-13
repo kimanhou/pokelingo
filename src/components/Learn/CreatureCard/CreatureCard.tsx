@@ -108,6 +108,12 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     useEffect(() => {
         setCreaturesToLoad(getCreaturesToLoad({ creature, allCreatures }));
         setActiveIndex(1);
+
+        // Scroll active creature into view
+        const activeDiv = document.getElementById(
+            `avatar-details-id-${creature.getId()}`
+        );
+        activeDiv?.scrollIntoView();
     }, [creature]);
 
     return (

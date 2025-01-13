@@ -61,6 +61,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                     className={`${styles.avatarDetails} ${creatureCardClassName}`}
                     ref={avatarDetailsRef}
                     onClick={props.onClick}
+                    id={`avatar-details-id-${props.creature.getId()}`}
                 >
                     <ImageContainer
                         mainColor={mainColor}
