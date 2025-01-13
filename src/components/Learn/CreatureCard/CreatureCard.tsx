@@ -36,7 +36,8 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     const [currentCreatureIndex, setCurrentCreatureIndex] = useState(
         creaturesToLoad.findIndex((x) => x.getId() === creature.getId())
     );
-    const [left, setLeft] = useState<string>(`-${currentCreatureIndex * 100}%`);
+    // const [left, setLeft] = useState<string>(`-${currentCreatureIndex * 100}%`);
+    const [justifyContent, setJustifyContent] = useState<string>("center");
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
@@ -52,7 +53,8 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         setTouchEnd(e.targetTouches[0].clientX);
 
     const onTouchEnd = () => {
-        setLeft("");
+        // setLeft("");
+        setJustifyContent("");
         if (!touchStart || !touchEnd) return;
         const distance = touchStart - touchEnd;
         const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
@@ -137,7 +139,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         >
             <div
                 className={styles.creatureCardWrapper}
-                // style={{ left }}
+                style={{ justifyContent }}
                 onTouchStart={onTouchStart}
                 onTouchMove={onTouchMove}
                 onTouchEnd={onTouchEnd}
