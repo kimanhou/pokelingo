@@ -5,10 +5,11 @@ import AvatarOptions from "@/components/Learn/Options/AvatarOptions";
 import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
 import Search from "@/components/Learn/Search/Search";
 import { faHouse, faShuffle } from "@fortawesome/free-solid-svg-icons";
-import { useDeviceType } from "@/hooks/useIsMobile";
+import { useDeviceType } from "@/hooks/useMedia";
 import {
     getMainColor,
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
+    isMobile,
     scrollToCreatureIndex,
 } from "@/ts/utils";
 import Creature from "@/model/creature/creature";
@@ -29,7 +30,9 @@ const Learn: FC<ILearnProps> = ({ creatures }: ILearnProps) => {
     const [search, setSearch] = useState("");
     const [displayedOptions, setDisplayedOptions] =
         useState<Creature[]>(creatures);
-    useArrows({ setDisplayedSelectedCreature, creatures });
+    if (!isMobile(deviceType)) {
+        useArrows({ setDisplayedSelectedCreature, creatures });
+    }
 
     const mainColor = getMainColor(displayedSelectedCreature);
 

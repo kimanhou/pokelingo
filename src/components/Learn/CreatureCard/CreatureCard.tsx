@@ -33,11 +33,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
         getCreaturesToLoad({ creature, allCreatures })
     );
-    const [currentCreatureIndex, setCurrentCreatureIndex] = useState(
-        creaturesToLoad.findIndex((x) => x.getId() === creature.getId())
-    );
-    // const [left, setLeft] = useState<string>(`-${currentCreatureIndex * 100}%`);
-    const [justifyContent, setJustifyContent] = useState<string>("center");
+    const [activeIndex, setActiveIndex] = useState(1);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
@@ -53,8 +49,6 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         setTouchEnd(e.targetTouches[0].clientX);
 
     const onTouchEnd = () => {
-        // setLeft("");
-        setJustifyContent("");
         if (!touchStart || !touchEnd) return;
         const distance = touchStart - touchEnd;
         const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
@@ -69,7 +63,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     };
 
     const onNext = () => {
-        setCurrentCreatureIndex((oldIndex) => {
+        setActiveIndex((oldIndex) => {
             setCreaturesToLoad((oldCreaturesToLoad) => {
                 const lastIndex = oldCreaturesToLoad.length - 1;
                 if (oldIndex >= lastIndex - 1) {
@@ -92,43 +86,29 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     };
 
     const onPrevious = () => {
-        setCurrentCreatureIndex((currentCreatureIndex) => {
-            if (currentCreatureIndex <= 1) {
-                setCreaturesToLoad((old) => {
+        setActiveIndex((oldIndex) => {
+            if (oldIndex <= 1) {
+                setCreaturesToLoad((oldCreaturesToLoad) => {
                     return filterNull([
                         getPreviousCreature({
-                            creatureId: old[currentCreatureIndex - 1].getId(),
+                            creatureId:
+                                oldCreaturesToLoad[oldIndex - 1].getId(),
                             allCreatures,
                         }),
-                        ...old,
+                        ...oldCreaturesToLoad,
                     ]);
                 });
+                return oldIndex;
             } else {
-                return currentCreatureIndex - 1;
+                return oldIndex - 1;
             }
-            return currentCreatureIndex;
         });
     };
 
     useEffect(() => {
         setCreaturesToLoad(getCreaturesToLoad({ creature, allCreatures }));
-        setCurrentCreatureIndex(1);
+        setActiveIndex(1);
     }, [creature]);
-
-    useEffect(() => {
-        const onKeyDown = (e: KeyboardEvent) => {
-            if (e.key === "ArrowRight") {
-                onNext();
-            }
-            if (e.key === "ArrowLeft") {
-                onPrevious();
-            }
-        };
-
-        addEventListener("keydown", onKeyDown);
-
-        return () => removeEventListener("keydown", onKeyDown);
-    }, []);
 
     return (
         <ModalDialog
@@ -139,7 +119,6 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         >
             <div
                 className={styles.creatureCardWrapper}
-                style={{ justifyContent }}
                 onTouchStart={onTouchStart}
                 onTouchMove={onTouchMove}
                 onTouchEnd={onTouchEnd}

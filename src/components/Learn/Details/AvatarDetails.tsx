@@ -9,7 +9,7 @@ import {
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
     isMobileCreatureCard as isMobileCreatureCardFunc,
 } from "@/ts/utils";
-import { useDeviceType } from "@/hooks/useIsMobile";
+import { useDeviceType } from "@/hooks/useMedia";
 import Creature from "@/model/creature/creature";
 import styles from "./AvatarDetails.module.scss";
 

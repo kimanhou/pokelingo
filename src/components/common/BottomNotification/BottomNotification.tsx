@@ -10,7 +10,7 @@ import {
 } from "react";
 import useEffectSkipFirstRender from "@/hooks/useEffectSkipFirstRender";
 import { isSafariNotMobile as isSafariFunc } from "@/ts/utils";
-import { useDeviceType } from "@/hooks/useIsMobile";
+import { useDeviceType } from "@/hooks/useMedia";
 import styles from "./BottomNotification.module.scss";
 
 interface IBottomNotificationProps {
