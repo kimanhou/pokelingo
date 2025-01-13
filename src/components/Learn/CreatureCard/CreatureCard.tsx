@@ -67,16 +67,15 @@ const CreatureCard: FC<ICreatureCardProps> = ({
             setCreaturesToLoad((oldCreaturesToLoad) => {
                 const lastIndex = oldCreaturesToLoad.length - 1;
                 if (oldIndex >= lastIndex - 1) {
-                    return filterNull([
-                        ...oldCreaturesToLoad,
-                        getNextCreature({
-                            creatureId:
-                                oldCreaturesToLoad[
-                                    oldCreaturesToLoad.length - 1
-                                ].getId(),
-                            allCreatures,
-                        }),
-                    ]);
+                    const nextCreature = getNextCreature({
+                        creatureId:
+                            oldCreaturesToLoad[
+                                oldCreaturesToLoad.length - 1
+                            ].getId(),
+                        allCreatures,
+                    });
+                    console.log("onNext add", nextCreature.getName());
+                    return filterNull([...oldCreaturesToLoad, nextCreature]);
                 }
                 return oldCreaturesToLoad;
             });
@@ -89,12 +88,13 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         setActiveIndex((oldIndex) => {
             if (oldIndex <= 1) {
                 setCreaturesToLoad((oldCreaturesToLoad) => {
+                    const previousCreature = getPreviousCreature({
+                        creatureId: oldCreaturesToLoad[oldIndex - 1].getId(),
+                        allCreatures,
+                    });
+                    console.log("onPrevious add", previousCreature.getName());
                     return filterNull([
-                        getPreviousCreature({
-                            creatureId:
-                                oldCreaturesToLoad[oldIndex - 1].getId(),
-                            allCreatures,
-                        }),
+                        previousCreature,
                         ...oldCreaturesToLoad,
                     ]);
                 });
