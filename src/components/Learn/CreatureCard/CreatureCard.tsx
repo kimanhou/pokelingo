@@ -137,7 +137,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         >
             <div
                 className={styles.creatureCardWrapper}
-                style={{ left }}
+                // style={{ left }}
                 onTouchStart={onTouchStart}
                 onTouchMove={onTouchMove}
                 onTouchEnd={onTouchEnd}
