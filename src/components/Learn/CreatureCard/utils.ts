@@ -41,11 +41,15 @@ export const getCreaturesToLoad = ({
         creatureId: creature.getId(),
         allCreatures,
     }); // creature n - 1
+    const prePrevious = getPreviousCreature({
+        creatureId: previous.getId(),
+        allCreatures,
+    }); // creature n - 2
     const next = getNextCreature({
         creatureId: creature.getId(),
         allCreatures,
     }); // creature n + 1
-    return filterNull([previous, creature, next]).sort(
+    return filterNull([prePrevious, previous, creature, next]).sort(
         (a, b) => a.getId() - b.getId()
     );
 };
