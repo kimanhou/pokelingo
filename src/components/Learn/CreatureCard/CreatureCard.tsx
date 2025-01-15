@@ -10,14 +10,8 @@ import {
 import Creature from "@/model/creature/creature";
 import ModalDialog from "@/components/common/ModalDialog/ModalDialog";
 import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
-import {
-    filterNull,
-    getCreaturesToLoad,
-    getNextCreature,
-    getPreviousCreature,
-} from "./utils";
+import { filterNull, getCreaturesToLoad, getNextCreature } from "./utils";
 import styles from "./CreatureCard.module.scss";
-import { renderToStaticMarkup } from "react-dom/server";
 
 interface ICreatureCardProps {
     creature: Creature;
@@ -32,11 +26,10 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     setIsOpen,
     allCreatures,
 }: ICreatureCardProps) => {
-    const wrapperRef = useRef<HTMLDivElement>(null);
     const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
         getCreaturesToLoad({ creature, allCreatures })
     );
-    const [activeIndex, setActiveIndex] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(creature.getId() - 1);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
@@ -55,15 +48,10 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         if (!touchStart || !touchEnd) return;
         const distance = touchStart - touchEnd;
         const isLeftSwipe = distance > MIN_SWIPE_DISTANCE;
-        const isRightSwipe = distance < -MIN_SWIPE_DISTANCE;
 
         if (isLeftSwipe) {
             onNext();
         }
-        // if (isRightSwipe) {
-        //     // setTimeout(() => onPrevious(), 1000);
-        //     onPrevious();
-        // }
     };
 
     const onNext = () => {
@@ -78,7 +66,8 @@ const CreatureCard: FC<ICreatureCardProps> = ({
                             ].getId(),
                         allCreatures,
                     });
-                    if (!nextCreature)
+
+                    if (nextCreature !== null)
                         return filterNull([
                             ...oldCreaturesToLoad,
                             nextCreature,
@@ -91,57 +80,9 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         });
     };
 
-    const onPrevious = () => {
-        setActiveIndex((oldIndex) => {
-            if (oldIndex <= 1) {
-                setCreaturesToLoad((oldCreaturesToLoad) => {
-                    const activeCreature = creaturesToLoad[oldIndex - 1];
-                    const previousCreature = getPreviousCreature({
-                        creatureId: activeCreature.getId(),
-                        allCreatures,
-                    });
-                    console.log("onPrevious add", previousCreature.getName());
-
-                    // setTimeout(() => {
-                    //     console.log("scroll to", activeCreature.getName());
-                    //     const activeDiv = document.getElementById(
-                    //         `avatar-details-id-${activeCreature.getId()}`
-                    //     );
-                    //     activeDiv?.scrollIntoView();
-                    // }, 1000);
-
-                    // const wrapper = document.getElementById("creature-wrapper");
-                    // const activeDiv = document.getElementById(
-                    //     `avatar-details-id-${activeCreature.getId()}`
-                    // );
-                    // const output = document.createElement("div");
-                    // const staticElement = renderToStaticMarkup(
-                    //     <AvatarDetails
-                    //         key={previousCreature.getId()}
-                    //         creature={previousCreature}
-                    //         search=""
-                    //         setSearch={(value: string) => {}}
-                    //         isCreatureCard
-                    //         onClick={() => setIsOpen(false)}
-                    //     />
-                    // );
-                    // output.innerHTML = staticElement;
-                    // wrapper?.insertBefore(output.firstChild!, activeDiv);
-                    return filterNull([
-                        previousCreature,
-                        ...oldCreaturesToLoad,
-                    ]);
-                });
-                return oldIndex;
-            } else {
-                return oldIndex - 1;
-            }
-        });
-    };
-
     useEffect(() => {
         setCreaturesToLoad(getCreaturesToLoad({ creature, allCreatures }));
-        setActiveIndex(1);
+        setActiveIndex(creature.getId() - 1);
 
         // Scroll active creature into view
         const activeDiv = document.getElementById(
@@ -158,8 +99,6 @@ const CreatureCard: FC<ICreatureCardProps> = ({
             className={styles.creatureCardModalDialog}
         >
             <div
-                // id="creature-wrapper"
-                ref={wrapperRef}
                 className={styles.creatureCardWrapper}
                 onTouchStart={onTouchStart}
                 onTouchMove={onTouchMove}
