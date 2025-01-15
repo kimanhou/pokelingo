@@ -22,7 +22,7 @@ export const getNextCreature = ({
 }) => {
     const selectedCreatureIndex = creatureId - 1;
     return selectedCreatureIndex === allCreatures.length - 1
-        ? allCreatures[0]
+        ? null
         : allCreatures[selectedCreatureIndex + 1];
 };
 
@@ -37,19 +37,20 @@ export const getCreaturesToLoad = ({
     creature: Creature;
     allCreatures: Creature[];
 }) => {
-    const previous = getPreviousCreature({
-        creatureId: creature.getId(),
-        allCreatures,
-    }); // creature n - 1
-    const prePrevious = getPreviousCreature({
-        creatureId: previous.getId(),
-        allCreatures,
-    }); // creature n - 2
+    const previousCreatures = allCreatures.slice(0, creature.getId());
+    // const previous = getPreviousCreature({
+    //     creatureId: creature.getId(),
+    //     allCreatures,
+    // }); // creature n - 1
+    // const prePrevious = getPreviousCreature({
+    //     creatureId: previous.getId(),
+    //     allCreatures,
+    // }); // creature n - 2
     const next = getNextCreature({
         creatureId: creature.getId(),
         allCreatures,
     }); // creature n + 1
-    return filterNull([prePrevious, previous, creature, next]).sort(
+    return filterNull([...previousCreatures, next]).sort(
         (a, b) => a.getId() - b.getId()
     );
 };

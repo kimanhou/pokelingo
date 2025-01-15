@@ -4,6 +4,7 @@ import {
     SetStateAction,
     TouchEvent,
     useEffect,
+    useRef,
     useState,
 } from "react";
 import Creature from "@/model/creature/creature";
@@ -16,6 +17,7 @@ import {
     getPreviousCreature,
 } from "./utils";
 import styles from "./CreatureCard.module.scss";
+import { renderToStaticMarkup } from "react-dom/server";
 
 interface ICreatureCardProps {
     creature: Creature;
@@ -30,6 +32,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
     setIsOpen,
     allCreatures,
 }: ICreatureCardProps) => {
+    const wrapperRef = useRef<HTMLDivElement>(null);
     const [creaturesToLoad, setCreaturesToLoad] = useState<Creature[]>(
         getCreaturesToLoad({ creature, allCreatures })
     );
@@ -57,9 +60,10 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         if (isLeftSwipe) {
             onNext();
         }
-        if (isRightSwipe) {
-            setTimeout(() => onPrevious(), 1000);
-        }
+        // if (isRightSwipe) {
+        //     // setTimeout(() => onPrevious(), 1000);
+        //     onPrevious();
+        // }
     };
 
     const onNext = () => {
@@ -74,7 +78,11 @@ const CreatureCard: FC<ICreatureCardProps> = ({
                             ].getId(),
                         allCreatures,
                     });
-                    return filterNull([...oldCreaturesToLoad, nextCreature]);
+                    if (!nextCreature)
+                        return filterNull([
+                            ...oldCreaturesToLoad,
+                            nextCreature,
+                        ]);
                 }
                 return oldCreaturesToLoad;
             });
@@ -87,11 +95,38 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         setActiveIndex((oldIndex) => {
             if (oldIndex <= 1) {
                 setCreaturesToLoad((oldCreaturesToLoad) => {
+                    const activeCreature = creaturesToLoad[oldIndex - 1];
                     const previousCreature = getPreviousCreature({
-                        creatureId: oldCreaturesToLoad[oldIndex - 1].getId(),
+                        creatureId: activeCreature.getId(),
                         allCreatures,
                     });
                     console.log("onPrevious add", previousCreature.getName());
+
+                    // setTimeout(() => {
+                    //     console.log("scroll to", activeCreature.getName());
+                    //     const activeDiv = document.getElementById(
+                    //         `avatar-details-id-${activeCreature.getId()}`
+                    //     );
+                    //     activeDiv?.scrollIntoView();
+                    // }, 1000);
+
+                    // const wrapper = document.getElementById("creature-wrapper");
+                    // const activeDiv = document.getElementById(
+                    //     `avatar-details-id-${activeCreature.getId()}`
+                    // );
+                    // const output = document.createElement("div");
+                    // const staticElement = renderToStaticMarkup(
+                    //     <AvatarDetails
+                    //         key={previousCreature.getId()}
+                    //         creature={previousCreature}
+                    //         search=""
+                    //         setSearch={(value: string) => {}}
+                    //         isCreatureCard
+                    //         onClick={() => setIsOpen(false)}
+                    //     />
+                    // );
+                    // output.innerHTML = staticElement;
+                    // wrapper?.insertBefore(output.firstChild!, activeDiv);
                     return filterNull([
                         previousCreature,
                         ...oldCreaturesToLoad,
@@ -123,6 +158,8 @@ const CreatureCard: FC<ICreatureCardProps> = ({
             className={styles.creatureCardModalDialog}
         >
             <div
+                // id="creature-wrapper"
+                ref={wrapperRef}
                 className={styles.creatureCardWrapper}
                 onTouchStart={onTouchStart}
                 onTouchMove={onTouchMove}
