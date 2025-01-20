@@ -2653,6 +2653,424 @@
                 ]
             },
             "originTags": ["onomatopoeia"]
+        },
+        {
+            "id": 106,
+            "en": "Hitmonlee",
+            "ja": {
+                "romaji": "Sawamuraa",
+                "kana": "サワムラー",
+                "kanji": "沢村"
+            },
+            "imageUrl": "/assets/creature/106.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fighting"
+            ],
+            "origin": {
+                "value": "From %w, a Japanese kickboxer.",
+                "words": [
+                    {
+                        "romaji": "Sawamura Tadashi",
+                        "kana": "さわむら ただし",
+                        "kanji": "沢村忠"
+                    }
+                ]
+            },
+            "originTags": ["person", "kanji"]
+        },
+        {
+            "id": 107,
+            "en": "Hitmonchan",
+            "ja": {
+                "romaji": "Ebiwaraa",
+                "kana": "エビワラー",
+                "kanji": "海老原博幸"
+            },
+            "imageUrl": "/assets/creature/107.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fighting"
+            ],
+            "origin": {
+                "value": "From %w, a Japanese boxer.",
+                "words": [
+                    {
+                        "romaji": "Ebihara Hiroyuki",
+                        "kana": "えびはら ひろゆき",
+                        "kanji": "海老原博幸"
+                    }
+                ]
+            },
+            "originTags": ["person", "kanji"]
+        },
+        {
+            "id": 108,
+            "en": "Lickitung",
+            "ja": {
+                "romaji": "Beroringa",
+                "kana": "ベロリンガ"
+            },
+            "imageUrl": "/assets/creature/108.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"tongue\", %w the onomatopoeia for a lick, and in reference to the %w alien in the Ultraseven series.",
+                "words": [
+                    {
+                        "romaji": "bero",
+                        "kana": "べろ"
+                    },
+                    {
+                        "romaji": "berori",
+                        "kana": "べろり"
+                    },
+                    {
+                        "romaji": "peroringa",
+                        "kana": "ペロリンガ"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia", "tv"]
+        },
+        {
+            "id": 109,
+            "en": "Koffing",
+            "ja": {
+                "romaji": "Dogaasu",
+                "kana": "ドガース",
+                "kanji": "毒ガス"
+            },
+            "imageUrl": "/assets/creature/109.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"gas\" and %w, meaning \"poison\".",
+                "words": [
+                    {
+                        "romaji": "gasu",
+                        "kana": "ガス"
+                    },
+                    {
+                        "romaji": "doku",
+                        "kana": "どく",
+                        "kanji": "毒"
+                    }
+                ]
+            },
+            "originTags": ["english", "kanji"]
+        },
+        {
+            "id": 110,
+            "en": "Weezing",
+            "ja": {
+                "romaji": "Matadogasu",
+                "kana": "マタドガス"
+            },
+            "imageUrl": "/assets/creature/110.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "poison"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"again\" appended to %w meaning \"Koffing\", also from %w meaning \"mustard gas\".",
+                "words": [
+                    {
+                        "romaji": "mata",
+                        "kana": "また"
+                    },
+                    {
+                        "romaji": "dogaasu",
+                        "kana": "ドガース"
+                    },
+                    {
+                        "romaji": "masutaado gasu",
+                        "kana": "マスタードガス"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 111,
+            "en": "Rhyhorn",
+            "ja": {
+                "romaji": "Saihoon",
+                "kana": "サイホーン"
+            },
+            "imageUrl": "/assets/creature/111.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ground", "rock"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"rhino\", and \"horn\" (ホーン).",
+                "words": [
+                    {
+                        "romaji": "sai",
+                        "kana": "サイ"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 112,
+            "en": "Rhydon",
+            "ja": {
+                "romaji": "Saidon",
+                "kana": "サイドン"
+            },
+            "imageUrl": "/assets/creature/112.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ground", "rock"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"rhino\" and the suffix %w, often used for large or strong creatures.",
+                "words": [
+                    {
+                        "romaji": "sai",
+                        "kana": "サイ"
+                    },
+                    {
+                        "romaji": "don",
+                        "kana": "ドン"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 113,
+            "en": "Chansey",
+            "ja": {
+                "romaji": "Rakkii",
+                "kana": "ラッキー"
+            },
+            "imageUrl": "/assets/creature/113.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From \"lucky\" (ラッキー).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 114,
+            "en": "Tangela",
+            "ja": {
+                "romaji": "Monjara",
+                "kana": "モンジャラ"
+            },
+            "imageUrl": "/assets/creature/114.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "grass"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"hairy\", %w the onomatopoeia for something hairy, bushy or wild, and %w, a playful term meaning \"what exactly is this ?\".",
+                "words": [
+                    {
+                        "romaji": "kemukujara",
+                        "kana": "けむくじゃら",
+                        "kanji": "毛むくじゃら"
+                    },
+                    {
+                        "romaji": "mojamoja",
+                        "kana": "もじゃもじゃ"
+                    },
+                    {
+                        "romaji": "nanjamonja",
+                        "kana": "ナンジャモンジャ"
+                    }
+                ]
+            },
+            "originTags": ["onomatopoeia"]
+        },
+        {
+            "id": 115,
+            "en": "Kangaskhan",
+            "ja": {
+                "romaji": "Garuura",
+                "kana": "ガルーラ"
+            },
+            "imageUrl": "/assets/creature/115.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From \"kangaroo\" (カンガルー).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 116,
+            "en": "Horsea",
+            "ja": {
+                "romaji": "Tattsuu",
+                "kana": "タッツー"
+            },
+            "imageUrl": "/assets/creature/116.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"seahorse\".",
+                "words": [
+                    {
+                        "romaji": "tatsunootoshigo",
+                        "kana": "タツノオトシゴ"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 117,
+            "en": "Seadra",
+            "ja": {
+                "romaji": "Shiidora",
+                "kana": "シードラ"
+            },
+            "imageUrl": "/assets/creature/117.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"sea dragon\".",
+                "words": [
+                    {
+                        "romaji": "shiidoragon",
+                        "kana": "シードラゴン"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 118,
+            "en": "Goldeen",
+            "ja": {
+                "romaji": "Tosakinto",
+                "kana": "トサキント"
+            },
+            "imageUrl": "/assets/creature/118.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From %w, a childish way of saying \"fish\", and %w, a goldfish breed.",
+                "words": [
+                    {
+                        "romaji": "kintoto",
+                        "kana": "きんとと"
+                    },
+                    {
+                        "romaji": "tosakin",
+                        "kana": "とさきん",
+                        "kanji": "土佐金"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 119,
+            "en": "Seaking",
+            "ja": {
+                "romaji": "Asumaou",
+                "kana": "アズマオウ",
+                "kanji": "東王"
+            },
+            "imageUrl": "/assets/creature/119.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From %w, a goldfish breed, and %w, meaning \"king\".",
+                "words": [
+                    {
+                        "romaji": "azumanishiki",
+                        "kana": "アズマニシキ",
+                        "kanji": "東錦"
+                    },
+                    {
+                        "romaji": "ou",
+                        "kana": "おう",
+                        "kanji": "王"
+                    }
+                ]
+            },
+            "originTags": []
+        },
+        {
+            "id": 120,
+            "en": "Staryu",
+            "ja": {
+                "romaji": "Hitodeman",
+                "kana": "ヒトデマン"
+            },
+            "imageUrl": "/assets/creature/120.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"starfish\", and \"man\" (マン).",
+                "words": [
+                    {
+                        "romaji": "hitode",
+                        "kana": "ヒトデ"
+                    }
+                ]
+            },
+            "originTags": ["english"]
         }
     ]
 }
