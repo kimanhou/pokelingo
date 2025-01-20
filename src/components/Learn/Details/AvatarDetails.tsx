@@ -4,6 +4,7 @@ import AvatarSpecs from "@/components/Learn/Details/Specs/AvatarSpecs";
 import AvatarDetailsSmallDesktop from "@/components/Learn/Details/AvatarDetailsSmallDesktop";
 import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
 import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
+import CloseIcon from "@/assets/CloseIcon";
 import {
     getMainColor,
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
@@ -12,7 +13,6 @@ import {
 import { useDeviceType } from "@/hooks/useMedia";
 import Creature from "@/model/creature/creature";
 import styles from "./AvatarDetails.module.scss";
-import CloseIcon from "@/components/common/Icons/CloseIcon";
 
 interface IAvatarDetailsProps {
     creature: Creature;
