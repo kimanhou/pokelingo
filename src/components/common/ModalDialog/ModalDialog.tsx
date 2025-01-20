@@ -9,7 +9,6 @@ export type ModalDialogPropsType = {
     isOpen?: boolean;
     className?: string;
     withLayout?: boolean;
-    isUserMenu?: boolean;
 };
 
 function ModalDialogComponent({
@@ -19,11 +18,9 @@ function ModalDialogComponent({
     isOpen = false,
     className = "",
     withLayout = false,
-    isUserMenu = false,
 }: ModalDialogPropsType) {
     const ref = useRef<HTMLDialogElement | null>(null);
     const withLayoutClassName = withLayout ? styles.withLayout : "";
-    const isUserMenuClassName = isUserMenu ? styles.userMenu : "";
 
     useEffect(() => {
         if (isOpen) {
@@ -43,7 +40,7 @@ function ModalDialogComponent({
     return (
         <dialog
             ref={ref}
-            className={`${styles.modalDialog} ${withLayoutClassName} ${className} ${isUserMenuClassName}`}
+            className={`${styles.modalDialog} ${withLayoutClassName} ${className}`}
             onClick={onClick}
         >
             <div
@@ -63,7 +60,6 @@ export default function ModalDialog({
     isOpen = false,
     className = "",
     withLayout = false,
-    isUserMenu = false,
 }: ModalDialogPropsType) {
     if (!isOpen) {
         return null;
@@ -76,7 +72,6 @@ export default function ModalDialog({
             className={className}
             closeOnClickOutside={closeOnClickOutside}
             withLayout={withLayout}
-            isUserMenu={isUserMenu}
         >
             {children}
         </ModalDialogComponent>,

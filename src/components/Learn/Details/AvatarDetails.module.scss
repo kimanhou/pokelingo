@@ -10,6 +10,11 @@ div.avatar-details {
     &.creature-card {
         height: 100%;
         min-width: 100%;
+        > button.close-button {
+            position: absolute;
+            right: 8px;
+            top: 12px;
+        }
     }
 }
 

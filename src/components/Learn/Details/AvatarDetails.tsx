@@ -12,6 +12,7 @@ import {
 import { useDeviceType } from "@/hooks/useMedia";
 import Creature from "@/model/creature/creature";
 import styles from "./AvatarDetails.module.scss";
+import CloseIcon from "@/components/common/Icons/CloseIcon";
 
 interface IAvatarDetailsProps {
     creature: Creature;
@@ -20,6 +21,7 @@ interface IAvatarDetailsProps {
     setSearch: (search: string) => void;
     isCreatureCard?: boolean;
     onClick?: () => void;
+    closeCreatureCard?: () => void;
 }
 
 const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
@@ -45,6 +47,12 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
         isCreatureCard: props.isCreatureCard || false,
     });
 
+    const close = () => {
+        if (isMobileCreatureCard && props.closeCreatureCard) {
+            props.closeCreatureCard();
+        }
+    };
+
     useEffect(() => {
         setTimeout(() => {
             setImageOpacity(100);
@@ -63,6 +71,11 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                     onClick={props.onClick}
                     id={`avatar-details-id-${props.creature.getId()}`}
                 >
+                    {isMobileCreatureCard && (
+                        <button onClick={close} className={styles.closeButton}>
+                            <CloseIcon color="rgba(255, 255, 255, 0.3)" />
+                        </button>
+                    )}
                     <ImageContainer
                         mainColor={mainColor}
                         name={props.creature.getName()}
@@ -75,6 +88,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                         imageOpacity={imageOpacity}
                         avatarDetailsHeight={avatarDetailsHeight}
                         avatarSpecsHeight={avatarSpecsHeight}
+                        isCreatureCard={props.isCreatureCard}
                     />
                     <AvatarSpecs
                         types={props.creature.getTypes()}

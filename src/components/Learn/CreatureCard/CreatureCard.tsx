@@ -4,7 +4,6 @@ import {
     SetStateAction,
     TouchEvent,
     useEffect,
-    useRef,
     useState,
 } from "react";
 import Creature from "@/model/creature/creature";
@@ -111,7 +110,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
                         search=""
                         setSearch={(value: string) => {}}
                         isCreatureCard
-                        onClick={() => setIsOpen(false)}
+                        closeCreatureCard={() => setIsOpen(false)}
                     />
                 ))}
             </div>
