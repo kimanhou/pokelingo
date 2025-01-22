@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from "react";
 import Button from "@/components/common/Button/Button";
-import IconButton from "@/components/common/IconButton/IconButton";
+import HomeButton from "@/components/common/HomeButton/HomeButton";
 import AvatarOptions from "@/components/Learn/Options/AvatarOptions";
 import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
 import Search from "@/components/Learn/Search/Search";
-import { faHouse, faShuffle } from "@fortawesome/free-solid-svg-icons";
+import { faShuffle } from "@fortawesome/free-solid-svg-icons";
 import { useDeviceType } from "@/hooks/useMedia";
 import {
     getMainColor,
@@ -14,7 +14,6 @@ import {
 } from "@/ts/utils";
 import Creature from "@/model/creature/creature";
 import useArrows from "@/hooks/useArrows";
-import { Link } from "react-router-dom";
 import styles from "./Learn.module.scss";
 
 interface ILearnProps {
@@ -58,9 +57,7 @@ const Learn: FC<ILearnProps> = ({ creatures }: ILearnProps) => {
 
     return (
         <div className={styles.learn}>
-            <Link to={"/"} className={styles.backButton}>
-                <IconButton icon={faHouse} onClick={() => {}} />
-            </Link>
+            <HomeButton className={styles.homeButton} />
             <AvatarDetails
                 creature={displayedSelectedCreature}
                 randomize={randomize}
