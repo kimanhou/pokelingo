@@ -87,7 +87,10 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         const activeDiv = document.getElementById(
             `avatar-details-id-${creature.getId()}`
         );
-        activeDiv?.scrollIntoView();
+
+        setTimeout(() => {
+            activeDiv?.scrollIntoView();
+        }, 1);
     }, [creature]);
 
     return (
