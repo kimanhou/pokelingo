@@ -19,14 +19,14 @@ function ModalDialogComponent({
     className = "",
     withLayout = false,
 }: ModalDialogPropsType) {
-    const ref = useRef<HTMLDialogElement | null>(null);
+    const dialogRef = useRef<HTMLDialogElement | null>(null);
     const withLayoutClassName = withLayout ? styles.withLayout : "";
 
     useEffect(() => {
-        if (isOpen) {
-            ref.current?.showModal();
-        } else {
-            ref.current?.close();
+        if (dialogRef.current?.open && !isOpen) {
+            dialogRef.current?.close();
+        } else if (!dialogRef.current?.open && isOpen) {
+            dialogRef.current?.showModal();
         }
     }, [isOpen]);
 
@@ -39,7 +39,7 @@ function ModalDialogComponent({
 
     return (
         <dialog
-            ref={ref}
+            ref={dialogRef}
             className={`${styles.modalDialog} ${withLayoutClassName} ${className}`}
             onClick={onClick}
         >
