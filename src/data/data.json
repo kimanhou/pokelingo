@@ -3071,6 +3071,754 @@
                 ]
             },
             "originTags": ["english"]
+        },
+        {
+            "id": 121,
+            "en": "Starmie",
+            "ja": {
+                "romaji": "Sutaamii",
+                "kana": "スターミー"
+            },
+            "imageUrl": "/assets/creature/121.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water", "psychic"
+            ],
+            "origin": {
+                "value": "From \"star\" (スター), \"me\" (ミー).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 122,
+            "en": "Mr Mime",
+            "ja": {
+                "romaji": "Bariyaado",
+                "kana": "バリヤード"
+            },
+            "imageUrl": "/assets/creature/122.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "psychic", "fairy"
+            ],
+            "origin": {
+                "value": "From \"barricade\" (バリケード), \"barrier\" (バリア).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 123,
+            "en": "Scyther",
+            "ja": {
+                "romaji": "Sutoraiku",
+                "kana": "ストライク"
+            },
+            "imageUrl": "/assets/creature/123.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "bug", "flying"
+            ],
+            "origin": {
+                "value": "From \"strike\" (ストライキ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 124,
+            "en": "Jynx",
+            "ja": {
+                "romaji": "Ruujura",
+                "kana": "ルージュラ"
+            },
+            "imageUrl": "/assets/creature/124.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ice", "psychic"
+            ],
+            "origin": {
+                "value": "From the french \"rouge\" (ルージュ), meaning red, and hawaian dance \"hura\" (フラ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 125,
+            "en": "Electabuzz",
+            "ja": {
+                "romaji": "Elebuu",
+                "kana": "エレブー"
+            },
+            "imageUrl": "/assets/creature/125.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "electric"
+            ],
+            "origin": {
+                "value": "From \"electric\" (エレキテク), and \"boost\" (ブ−スト).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 126,
+            "en": "Magmar",
+            "ja": {
+                "romaji": "Buubaa",
+                "kana": "ブーバー"
+            },
+            "imageUrl": "/assets/creature/126.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fire"
+            ],
+            "origin": {
+                "value": "From \"boost\" (ブ−スト), and \"burning\" (バーニング).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 127,
+            "en": "Pinsir",
+            "ja": {
+                "romaji": "Kairosu",
+                "kana": "カイロス"
+            },
+            "imageUrl": "/assets/creature/127.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "bug"
+            ],
+            "origin": {
+                "value": "From greek \"κοριός\" (コリオス), meaning bug, and greek \"καιρός\" (カイロス), meaning \"opportune moment\".",
+                "words": [
+                ]
+            },
+            "originTags": ["greek"]
+        },
+        {
+            "id": 128,
+            "en": "Tauros",
+            "ja": {
+                "romaji": "Kentarosu",
+                "kana": "ケンタロス"
+            },
+            "imageUrl": "/assets/creature/128.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"centaur\".",
+                "words": [
+                    {
+                        "romaji": "kentaurosu",
+                        "kana": "ケンタウロス"
+                    }
+                ]
+            },
+            "originTags": ["japanese"]
+        },
+        {
+            "id": 129,
+            "en": "Magikarp",
+            "ja": {
+                "romaji": "Koikingu",
+                "kana": "コイキング",
+                "kanji": "鯉キング"
+            },
+            "imageUrl": "/assets/creature/129.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"carp\", and \"king\" (キング).",
+                "words": [
+                    {
+                        "romaji": "koi",
+                        "kana": "こい",
+                        "kanji": "鯉"
+                    }
+                ]
+            },
+            "originTags": ["kanji", "english"]
+        },
+        {
+            "id": 130,
+            "en": "Gyarados",
+            "ja": {
+                "romaji": "Gyaradosu",
+                "kana": "ギャラドス"
+            },
+            "imageUrl": "/assets/creature/130.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water", "flying"
+            ],
+            "origin": {
+                "value": "From \"gallant\" (ギャランット), and %w, a type of dagger. It could also be a mix of the name of two Japanese movie monsters %w and %w.",
+                "words": [
+                    {
+                        "romaji": "dosu",
+                        "kana": "ドス"
+                    },
+                    {
+                        "romaji": "gyaosu",
+                        "kana": "ギャオス"
+                    },
+                    {
+                        "romaji": "gyaosu",
+                        "kana": "ギャオス"
+                    },
+                    {
+                        "romaji": "Radon",
+                        "kana": "ラドン"
+                    }
+                ]
+            },
+            "originTags": ["movie", "english"]
+        },
+        {
+            "id": 131,
+            "en": "Lapras",
+            "ja": {
+                "romaji": "Rapurasu",
+                "kana": "ラプラス"
+            },
+            "imageUrl": "/assets/creature/131.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water", "ice"
+            ],
+            "origin": {
+                "value": "From French \"la place\" (ラプラス), meaning \"the seat\".",
+                "words": [
+                ]
+            },
+            "originTags": ["french"]
+        },
+        {
+            "id": 132,
+            "en": "Ditto",
+            "ja": {
+                "romaji": "Metamon",
+                "kana": "メタモン"
+            },
+            "imageUrl": "/assets/creature/132.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From \"metamorphose\" (メタモルフォーゼ), and \"monster\" (モンスター).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 133,
+            "en": "Eevee",
+            "ja": {
+                "romaji": "Iibi",
+                "kana": "イーブイ"
+            },
+            "imageUrl": "/assets/creature/133.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From \"evolution\"'s first two characters \"EV\" (イーブイ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 134,
+            "en": "Vaporeon",
+            "ja": {
+                "romaji": "Shawaazu",
+                "kana": "シャワーズ"
+            },
+            "imageUrl": "/assets/creature/134.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "water"
+            ],
+            "origin": {
+                "value": "From \"shower\" (シャワー).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 135,
+            "en": "Jolteon",
+            "ja": {
+                "romaji": "Sandaasu",
+                "kana": "サンダース"
+            },
+            "imageUrl": "/assets/creature/135.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "electric"
+            ],
+            "origin": {
+                "value": "From \"thunder\" (サンダー).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 136,
+            "en": "Flareon",
+            "ja": {
+                "romaji": "Buusutaa",
+                "kana": "ブースター"
+            },
+            "imageUrl": "/assets/creature/136.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fire"
+            ],
+            "origin": {
+                "value": "From \"booster\" (ブースター).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 137,
+            "en": "Porygon",
+            "ja": {
+                "romaji": "Porigon",
+                "kana": "ポリゴン"
+            },
+            "imageUrl": "/assets/creature/137.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "From \"polygon\" (ポリゴン).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 138,
+            "en": "Omanyte",
+            "ja": {
+                "romaji": "Omanaito",
+                "kana": "オムナイト"
+            },
+            "imageUrl": "/assets/creature/138.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "rock", "water"
+            ],
+            "origin": {
+                "value": "From %w, meaning \"nautilus\", and \"ammonite\" (アンモナイト).",
+                "words": [
+                    {
+                        "romaji": "oumugai",
+                        "kana": "オウムガイ"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 139,
+            "en": "Omastar",
+            "ja": {
+                "romaji": "Omasutaa",
+                "kana": "オムスター"
+            },
+            "imageUrl": "/assets/creature/139.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "rock", "water"
+            ],
+            "origin": {
+                "value": "From \"oyster\" (オイスター), %w meaning \"nautilus\", \"starfish\" (スターフィッシュ), and \"monster\" (モンスター).",
+                "words": [
+                    {
+                        "romaji": "oumugai",
+                        "kana": "オウムガイ"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 140,
+            "en": "Kabuto",
+            "ja": {
+                "romaji": "Kabuto",
+                "kana": "カブト",
+                "kanji": "兜"
+            },
+            "imageUrl": "/assets/creature/140.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "rock", "water"
+            ],
+            "origin": {
+                "value": "From %w meaning \"helmet\", and %w the name for the \"japanese horseshoe crab\".",
+                "words": [
+                    {
+                        "romaji": "kabuto",
+                        "kana": "かぶと",
+                        "kanji": "兜"
+                    },
+                    {
+                        "romaji": "kabutogani",
+                        "kana": "カブトガニ",
+                        "kanji": "兜蟹"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 141,
+            "en": "Kabutops",
+            "ja": {
+                "romaji": "Kabutopusu",
+                "kana": "カブトプス",
+                "kanji": "兜"
+            },
+            "imageUrl": "/assets/creature/141.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "rock", "water"
+            ],
+            "origin": {
+                "value": "From %w meaning \"helmet\", %w the name for the \"japanese horseshoe crab\", and \"triops\" (トリオプス).",
+                "words": [
+                    {
+                        "romaji": "kabuto",
+                        "kana": "かぶと",
+                        "kanji": "兜"
+                    },
+                    {
+                        "romaji": "kabutogani",
+                        "kana": "カブトガニ",
+                        "kanji": "兜蟹"
+                    }
+                ]
+            },
+            "originTags": ["kanji", "english"]
+        },
+        {
+            "id": 142,
+            "en": "Aerodactyl",
+            "ja": {
+                "romaji": "Putera",
+                "kana": "プテラ"
+            },
+            "imageUrl": "/assets/creature/142.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "rock", "flying"
+            ],
+            "origin": {
+                "value": "From %w meaning \"pteranodon\".",
+                "words": [
+                    {
+                        "romaji": "puteranodon",
+                        "kana": "プテラノドン"
+                    }
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 143,
+            "en": "Snorlax",
+            "ja": {
+                "romaji": "Kabigon",
+                "kana": "カビゴン"
+            },
+            "imageUrl": "/assets/creature/143.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "normal"
+            ],
+            "origin": {
+                "value": "Game Freak employee Kouji Nishino's nickname.",
+                "words": [
+                    {
+                        "romaji": "puteranodon",
+                        "kana": "プテラノドン"
+                    }
+                ]
+            },
+            "originTags": ["person"]
+        },
+        {
+            "id": 144,
+            "en": "Articuno",
+            "ja": {
+                "romaji": "Furiizaa",
+                "kana": "フリーザー"
+            },
+            "imageUrl": "/assets/creature/144.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "ice", "flying"
+            ],
+            "origin": {
+                "value": "From \"freeze\" (フリーズ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 145,
+            "en": "Zapdos",
+            "ja": {
+                "romaji": "Sandaa",
+                "kana": "サンダー"
+            },
+            "imageUrl": "/assets/creature/145.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "electric", "flying"
+            ],
+            "origin": {
+                "value": "From \"thunder\" (サンダー).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 146,
+            "en": "Moltres",
+            "ja": {
+                "romaji": "Faiyaa",
+                "kana": "ファイヤー"
+            },
+            "imageUrl": "/assets/creature/146.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "fire", "flying"
+            ],
+            "origin": {
+                "value": "From \"fire\" (ファイア).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 147,
+            "en": "Dratini",
+            "ja": {
+                "romaji": "Miniryuu",
+                "kana": "ミニリュウ",
+                "kanji": "ミニ龍"
+            },
+            "imageUrl": "/assets/creature/147.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "dragon"
+            ],
+            "origin": {
+                "value": "From \"mini\" (ミニ), and %w meaning \"dragon\".",
+                "words": [
+                    {
+                        "romaji": "ryuu",
+                        "kana": "りゅう",
+                        "kanji": "龍"
+                    }
+                ]
+            },
+            "originTags": ["english", "kanji"]
+        },
+        {
+            "id": 148,
+            "en": "Dragonair",
+            "ja": {
+                "romaji": "Hakuryuu",
+                "kana": "ハクリュー",
+                "kanji": "白龍"
+            },
+            "imageUrl": "/assets/creature/148.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "dragon"
+            ],
+            "origin": {
+                "value": "From %w meaning \"white\", and %w meaning \"dragon\".",
+                "words": [
+                    {
+                        "romaji": "haku",
+                        "kana": "はく",
+                        "kanji": "白"
+                    },
+                    {
+                        "romaji": "ryuu",
+                        "kana": "りゅう",
+                        "kanji": "龍"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 149,
+            "en": "Dragonite",
+            "ja": {
+                "romaji": "Kairyuu",
+                "kana": "カイリュー",
+                "kanji": "怪龍"
+            },
+            "imageUrl": "/assets/creature/149.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "dragon", "flying"
+            ],
+            "origin": {
+                "value": "From %w meaning \"mysterious\" or \"wondrous\" borrowed from %w meaning \"monster\", and %w meaning \"dragon\".",
+                "words": [
+                    {
+                        "romaji": "kai",
+                        "kana": "かい",
+                        "kanji": "怪"
+                    },
+                    {
+                        "romaji": "kaijuu",
+                        "kana": "かいじゅう",
+                        "kanji": "怪獣"
+                    },
+                    {
+                        "romaji": "ryuu",
+                        "kana": "りゅう",
+                        "kanji": "龍"
+                    }
+                ]
+            },
+            "originTags": ["kanji"]
+        },
+        {
+            "id": 150,
+            "en": "Mewtwo",
+            "ja": {
+                "romaji": "Myuutsuu",
+                "kana": "ミュウツー"
+            },
+            "imageUrl": "/assets/creature/150.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "psychic"
+            ],
+            "origin": {
+                "value": "From %w the 151st Pokémon and \"two\" (ツー).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
+        },
+        {
+            "id": 151,
+            "en": "Mew",
+            "ja": {
+                "romaji": "Myuu",
+                "kana": "ミュウ"
+            },
+            "imageUrl": "/assets/creature/151.svg",
+            "tags": [
+                "GEN1"
+            ],
+            "types": [
+                "psychic"
+            ],
+            "origin": {
+                "value": "From \"mutant\" (ミュータント), \"new\" (ニュー), \"meow\" (ミャオ).",
+                "words": [
+                ]
+            },
+            "originTags": ["english"]
         }
     ]
 }
