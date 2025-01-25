@@ -4,15 +4,15 @@ div.explanation {
     justify-content: center;
     align-items: center;
     > div.content {
-        margin-bottom: 48px;
+        margin-bottom: 36px;
         > img.logo {
-            width: 80%;
+            width: 70%;
         }
         > div.logo-and-text-line {
             display: flex;
             align-items: center;
             gap: 24px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             > img.section-logo {
                 width: 100px;
             }
