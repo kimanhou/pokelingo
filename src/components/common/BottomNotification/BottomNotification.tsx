@@ -19,6 +19,7 @@ interface IBottomNotificationProps {
     children: ReactNode;
     onEnter?: () => void;
     onExit?: () => void;
+    backgroundColor?: string;
 }
 
 const BottomNotification: FC<IBottomNotificationProps> = (props) => {
@@ -107,6 +108,8 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
         }
     }, [props.children, props.isVisible]);
 
+    console.log("poney", props.backgroundColor);
+
     return (
         <div
             className={`${styles.bottomNotification} ${visibleClassName} ${isTransitioningClassName}`}
@@ -116,7 +119,7 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
                 className={styles.bottomNotificationContentContainer}
                 onClick={onContentClick}
                 ref={contentRef}
-                style={{ top }}
+                style={{ top, backgroundColor: props.backgroundColor }}
             >
                 {(isVisibleInternal || isTransitioning) && props.children}
             </div>
