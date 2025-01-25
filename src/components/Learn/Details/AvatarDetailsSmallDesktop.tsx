@@ -4,7 +4,7 @@ import ImageContainer from "@/components/Learn/Details/ImageContainer/ImageConta
 import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
 import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
 import Creature from "@/model/creature/creature";
-import { useDeviceType } from "@/hooks/useIsMobile";
+import { useDeviceType } from "@/hooks/useMedia";
 import styles from "./AvatarDetailsSmallDesktop.module.scss";
 
 interface IAvatarDetailsSmallDesktopProps {

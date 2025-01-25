@@ -4,23 +4,24 @@ import AvatarSpecs from "@/components/Learn/Details/Specs/AvatarSpecs";
 import AvatarDetailsSmallDesktop from "@/components/Learn/Details/AvatarDetailsSmallDesktop";
 import AvatarImage from "@/components/Learn/Details/AvatarImage/AvatarImage";
 import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
+import CloseIcon from "@/assets/CloseIcon";
 import {
     getMainColor,
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
     isMobileCreatureCard as isMobileCreatureCardFunc,
 } from "@/ts/utils";
-import { useDeviceType } from "@/hooks/useIsMobile";
+import { useDeviceType } from "@/hooks/useMedia";
 import Creature from "@/model/creature/creature";
-import { DeviceType } from "@/ts/enums";
 import styles from "./AvatarDetails.module.scss";
 
 interface IAvatarDetailsProps {
     creature: Creature;
-    randomize: () => void;
+    randomize?: () => void;
     search: string;
     setSearch: (search: string) => void;
     isCreatureCard?: boolean;
     onClick?: () => void;
+    closeCreatureCard?: () => void;
 }
 
 const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
@@ -46,6 +47,12 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
         isCreatureCard: props.isCreatureCard || false,
     });
 
+    const close = () => {
+        if (isMobileCreatureCard && props.closeCreatureCard) {
+            props.closeCreatureCard();
+        }
+    };
+
     useEffect(() => {
         setTimeout(() => {
             setImageOpacity(100);
@@ -62,7 +69,13 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                     className={`${styles.avatarDetails} ${creatureCardClassName}`}
                     ref={avatarDetailsRef}
                     onClick={props.onClick}
+                    id={`avatar-details-id-${props.creature.getId()}`}
                 >
+                    {isMobileCreatureCard && (
+                        <button onClick={close} className={styles.closeButton}>
+                            <CloseIcon color="rgba(255, 255, 255, 0.3)" />
+                        </button>
+                    )}
                     <ImageContainer
                         mainColor={mainColor}
                         name={props.creature.getName()}
@@ -75,6 +88,7 @@ const AvatarDetails: FC<IAvatarDetailsProps> = (props) => {
                         imageOpacity={imageOpacity}
                         avatarDetailsHeight={avatarDetailsHeight}
                         avatarSpecsHeight={avatarSpecsHeight}
+                        isCreatureCard={props.isCreatureCard}
                     />
                     <AvatarSpecs
                         types={props.creature.getTypes()}

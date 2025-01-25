@@ -3,7 +3,7 @@ import Button from "@/components/common/Button/Button";
 import SearchSmallDesktop from "@/components/Learn/Search/SearchSmallDesktop";
 import { faShuffle } from "@fortawesome/free-solid-svg-icons";
 import { DeviceType } from "@/ts/enums";
-import { useDeviceType } from "@/hooks/useIsMobile";
+import { useDeviceType } from "@/hooks/useMedia";
 import styles from "./ImageContainer.module.scss";
 
 interface IImageContainerProps {

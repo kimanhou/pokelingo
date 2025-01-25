@@ -9,5 +9,17 @@ div.avatar-details {
     flex-direction: column;
     &.creature-card {
         height: 100%;
+        min-width: 100%;
+        > button.close-button {
+            position: absolute;
+            right: 6px;
+            top: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    div.avatar-details.creature-card {
+        scroll-snap-align: start;
     }
 }

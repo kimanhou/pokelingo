@@ -57,6 +57,10 @@ export const getMainColor = (creature: Creature | null) => {
     return AvatarTypeColors[mainType] ?? "var(--color-medium-grey)";
 };
 
+export const isMobile = (deviceType?: DeviceType) => {
+    return deviceType === DeviceType.MOBILE;
+};
+
 export const isMediumDesktopOrBigger = (deviceType: DeviceType) => {
     return (
         deviceType === DeviceType.DESKTOP ||

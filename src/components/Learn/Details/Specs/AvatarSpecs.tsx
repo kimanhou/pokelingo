@@ -9,6 +9,7 @@ import {
 import TypeTag from "@/components/Learn/Details/Specs/TypeTag";
 import CreatureName from "@/components/Learn/Details/CreatureName/CreatureName";
 import { AvatarTypeColors, DeviceType } from "@/ts/enums";
+import { isMobile as isMobileFunc } from "@/ts/utils";
 import styles from "./AvatarSpecs.module.scss";
 
 interface IAvatarSpecsProps {
@@ -28,7 +29,7 @@ const AvatarSpecs: FC<IAvatarSpecsProps> = (props: IAvatarSpecsProps) => {
 
     const isSmallDesktop = props.deviceType === DeviceType.SMALL_DESKTOP;
     const smallDesktopClassName = isSmallDesktop ? styles.smallDesktop : "";
-    const isMobile = props.deviceType === DeviceType.MOBILE;
+    const isMobile = isMobileFunc(props.deviceType);
     const mobileClassName = isMobile ? styles.mobile : "";
 
     useEffect(() => {

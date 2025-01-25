@@ -9,6 +9,7 @@ interface IAvatarImageProps {
     imageOpacity?: number;
     avatarDetailsHeight?: number;
     avatarSpecsHeight?: number;
+    isCreatureCard?: boolean;
 }
 
 const AvatarImage: FC<IAvatarImageProps> = (props) => {
@@ -47,7 +48,7 @@ const AvatarImage: FC<IAvatarImageProps> = (props) => {
 
     return (
         <>
-            <Ball />
+            <Ball onRight={props.isCreatureCard} />
             <div
                 className={`${styles.avatarImage} ${smallDesktopClassName}`}
                 style={{

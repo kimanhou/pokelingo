@@ -4,4 +4,8 @@ svg.ball {
     left: 50%;
     right: 16px;
     pointer-events: none;
+    &.on-right {
+        right: 50%;
+        left: 16px;
+    }
 }

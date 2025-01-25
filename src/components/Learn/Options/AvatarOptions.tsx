@@ -1,9 +1,9 @@
 import { FC, Dispatch, SetStateAction, useState } from "react";
-import AvatarOption from "@/components/Learn/Options/AvatarOption";
 import Creature from "@/model/creature/creature";
+import AvatarOption from "@/components/Learn/Options/AvatarOption";
 import CreatureCard from "@/components/Learn/CreatureCard/CreatureCard";
-import { useDeviceType } from "@/hooks/useIsMobile";
-import { DeviceType } from "@/ts/enums";
+import { useDeviceType } from "@/hooks/useMedia";
+import { isMobile } from "@/ts/utils";
 import styles from "./AvatarOptions.module.scss";
 
 interface IAvatarOptionsProps {
@@ -21,7 +21,7 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
     const deviceType = useDeviceType();
 
     const onClickCreature = (creature: Creature) => {
-        if (deviceType === DeviceType.MOBILE) {
+        if (isMobile(deviceType)) {
             setSelectedCreature(creature);
             setIsCreatureCardOpen((t) => !t);
         }
@@ -53,11 +53,14 @@ const AvatarOptions: FC<IAvatarOptionsProps> = (props) => {
                     className={`${styles.scrollerGradient} ${styles.bottom}`}
                 />
             </div>
-            <CreatureCard
-                creature={selectedCreature}
-                isOpen={isCreatureCardOpen}
-                setIsOpen={setIsCreatureCardOpen}
-            />
+            {selectedCreature && (
+                <CreatureCard
+                    creature={selectedCreature}
+                    isOpen={isCreatureCardOpen}
+                    setIsOpen={setIsCreatureCardOpen}
+                    allCreatures={props.displayedOptions}
+                />
+            )}
         </>
     );
 };

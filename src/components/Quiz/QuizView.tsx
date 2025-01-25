@@ -2,10 +2,11 @@ import { FC, useRef, useState } from "react";
 import Creature from "@/model/creature/creature";
 import { QuizFailed, QuizOngoing, QuizSolved } from "@/model/quiz/quiz";
 import QuizFactory from "@/model/quiz/quiz-factory";
-import { useDeviceType } from "@/hooks/useIsMobile";
-import { DeviceType } from "@/ts/enums";
+import { useDeviceType } from "@/hooks/useMedia";
+import { isMobile as isMobileFunc } from "@/ts/utils";
 import Button from "@/components/common/Button/Button";
 import BottomNotification from "@/components/common/BottomNotification/BottomNotification";
+import HomeButton from "@/components/common/HomeButton/HomeButton";
 import { Footer } from "@/components/Footer/Footer";
 import Ball from "@/assets/Ball";
 import happy from "@/assets/happy_eevee.png";
@@ -18,7 +19,7 @@ interface IQuizProps {
 
 const QuizView: FC<IQuizProps> = (props) => {
     const deviceType = useDeviceType();
-    const isMobile = deviceType === DeviceType.MOBILE;
+    const isMobile = isMobileFunc(deviceType);
 
     const answerReviewContentRef = useRef<HTMLDivElement>(null);
     const [quiz, setQuiz] = useState(QuizFactory.build(props.creatures));
@@ -115,6 +116,7 @@ const QuizView: FC<IQuizProps> = (props) => {
             className={styles.quizView}
             onKeyDown={onBottomNotificationKeyDown}
         >
+            <HomeButton className={styles.homeButton} />
             <div
                 className={styles.quizImageContainer}
                 style={{ backgroundColor: quiz.getCreatureMainColor() }}

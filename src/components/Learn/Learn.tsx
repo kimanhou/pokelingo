@@ -1,13 +1,15 @@
 import { FC, useEffect, useState } from "react";
-import AvatarOptions from "@/components/Learn/Options/AvatarOptions";
 import Button from "@/components/common/Button/Button";
+import HomeButton from "@/components/common/HomeButton/HomeButton";
+import AvatarOptions from "@/components/Learn/Options/AvatarOptions";
 import AvatarDetails from "@/components/Learn/Details/AvatarDetails";
 import Search from "@/components/Learn/Search/Search";
 import { faShuffle } from "@fortawesome/free-solid-svg-icons";
-import { useDeviceType } from "@/hooks/useIsMobile";
+import { useDeviceType } from "@/hooks/useMedia";
 import {
     getMainColor,
     isMediumDesktopOrBigger as isMediumDesktopOrBiggerFunc,
+    isMobile,
     scrollToCreatureIndex,
 } from "@/ts/utils";
 import Creature from "@/model/creature/creature";
@@ -27,7 +29,9 @@ const Learn: FC<ILearnProps> = ({ creatures }: ILearnProps) => {
     const [search, setSearch] = useState("");
     const [displayedOptions, setDisplayedOptions] =
         useState<Creature[]>(creatures);
-    useArrows({ setDisplayedSelectedCreature, creatures });
+    if (!isMobile(deviceType)) {
+        useArrows({ setDisplayedSelectedCreature, creatures });
+    }
 
     const mainColor = getMainColor(displayedSelectedCreature);
 
@@ -53,6 +57,7 @@ const Learn: FC<ILearnProps> = ({ creatures }: ILearnProps) => {
 
     return (
         <div className={styles.learn}>
+            <HomeButton className={styles.homeButton} />
             <AvatarDetails
                 creature={displayedSelectedCreature}
                 randomize={randomize}

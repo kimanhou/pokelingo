@@ -46,11 +46,3 @@ dialog.modal-dialog {
         }
     }
 }
-
-@media screen and (max-width: 1170px) {
-    dialog.modal-dialog {
-        &.user-menu {
-            margin-right: 30px;
-        }
-    }
-}

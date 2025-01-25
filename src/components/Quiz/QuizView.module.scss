@@ -5,6 +5,13 @@ div.quiz-view {
     flex-direction: column;
     height: 100dvh;
     overflow: hidden;
+    position: relative;
+    > a.home-button {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        z-index: 1;
+    }
     > div.quiz-image-container {
         flex: 7;
         position: relative;

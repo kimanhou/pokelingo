@@ -2,7 +2,7 @@ import { FC, Dispatch, SetStateAction, useState, useEffect } from "react";
 import { getMainColor } from "@/ts/utils";
 import Creature from "@/model/creature/creature";
 import { DeviceType } from "@/ts/enums";
-import { useDeviceType } from "@/hooks/useIsMobile";
+import { useDeviceType } from "@/hooks/useMedia";
 import styles from "./AvatarOption.module.scss";
 
 interface IAvatarOptionProps {
@@ -15,7 +15,8 @@ interface IAvatarOptionProps {
 
 const AvatarOption: FC<IAvatarOptionProps> = (props) => {
     const [isSelected, setIsSelected] = useState(
-        props.displayedSelectedCreature.getImageUrl() === props.creature.getImageUrl()
+        props.displayedSelectedCreature.getImageUrl() ===
+            props.creature.getImageUrl()
     );
     const deviceType = useDeviceType();
 
@@ -38,7 +39,8 @@ const AvatarOption: FC<IAvatarOptionProps> = (props) => {
 
     useEffect(() => {
         setIsSelected(
-            props.displayedSelectedCreature.getImageUrl() === props.creature.getImageUrl()
+            props.displayedSelectedCreature.getImageUrl() ===
+                props.creature.getImageUrl()
         );
     }, [props.displayedSelectedCreature]);
 
