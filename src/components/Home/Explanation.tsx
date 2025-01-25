@@ -27,15 +27,15 @@ const Explanation: FC<IExplanationProps> = (props) => {
                 <div className={styles.logoAndTextLine}>
                     <img className={styles.sectionLogo} src={learn} />
                     <p>
-                        The "Learn" section lets you browse through the first
-                        151 Pokemon.
+                        The "<b>Learn</b>" section lets you browse through the
+                        first 151 Pokemon.
                     </p>
                 </div>
                 <div className={styles.logoAndTextLine}>
                     <img className={styles.sectionLogo} src={quiz} />
                     <p>
-                        The "Quiz" section tests your knowledge of the Japanese
-                        names of the first 151 Pokemon.
+                        The "<b>Quiz</b>" section tests your knowledge of the
+                        Japanese names of the first 151 Pokemon.
                     </p>
                 </div>
             </div>
