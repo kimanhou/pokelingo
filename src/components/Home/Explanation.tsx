@@ -9,7 +9,7 @@ import styles from "./Explanation.module.scss";
 
 interface IExplanationProps {
     close: () => void;
-    setIsVisible: Dispatch<SetStateAction<boolean>>;
+    setIsLoaded: Dispatch<SetStateAction<boolean>>;
 }
 
 const Explanation: FC<IExplanationProps> = (props) => {
@@ -21,7 +21,7 @@ const Explanation: FC<IExplanationProps> = (props) => {
 
     useEffect(() => {
         if (isLogoLoaded && isLearnLoaded && isQuizzLoaded)
-            props.setIsVisible(true);
+            props.setIsLoaded(true);
     }, [isLogoLoaded, isLearnLoaded, isQuizzLoaded]);
 
     return (

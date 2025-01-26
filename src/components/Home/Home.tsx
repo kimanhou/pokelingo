@@ -1,13 +1,27 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import BottomNotification from "@/components/common/BottomNotification/BottomNotification";
+import Explanation from "@/components/Home/Explanation";
 import HomeOption from "@/components/Home/HomeOption";
 import learn from "@/assets/study_jigglypuff.png";
 import quiz from "@/assets/think_squirtle.png";
+import { getLastVisit, setLastVisit } from "@/ts/localStorageUtils";
+import { isBeforeToday } from "@/ts/utils";
 import styles from "./Home.module.scss";
-import Explanation from "./Explanation";
 
 const Home: FC = (props) => {
     const [isExplanationVisible, setIsExplanationVisible] = useState(false);
+    const [isExplanationLoaded, setIsExplanationLoaded] = useState(false);
+
+    useEffect(() => {
+        const lastVisit = getLastVisit();
+        if (
+            isExplanationLoaded &&
+            (!lastVisit || isBeforeToday(new Date(lastVisit)))
+        ) {
+            setIsExplanationVisible(true);
+            setLastVisit(new Date());
+        }
+    }, [isExplanationLoaded]);
 
     return (
         <div className={styles.home}>
@@ -23,7 +37,7 @@ const Home: FC = (props) => {
             >
                 <Explanation
                     close={() => setIsExplanationVisible(false)}
-                    setIsVisible={setIsExplanationVisible}
+                    setIsLoaded={setIsExplanationLoaded}
                 />
             </BottomNotification>
         </div>
