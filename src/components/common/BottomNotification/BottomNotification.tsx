@@ -108,8 +108,6 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
         }
     }, [props.children, props.isVisible]);
 
-    console.log("poney", props.backgroundColor);
-
     return (
         <div
             className={`${styles.bottomNotification} ${visibleClassName} ${isTransitioningClassName}`}

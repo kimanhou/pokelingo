@@ -10,12 +10,12 @@ a.home-option {
     text-transform: uppercase;
     font-size: var(--font-size-xxlarge);
     &:first-child {
-        border: solid 2px var(--color-medium-grey);
+        border: solid 2px var(--color-logo-light);
         border-right: none;
         border-radius: 16px 0 0 16px;
     }
     &:nth-child(2) {
-        background-color: var(--color-medium-grey);
+        background-color: var(--color-logo-light);
         border-radius: 0 16px 16px 0;
     }
     div.image-container {
@@ -29,7 +29,7 @@ a.home-option {
 @media screen and (max-width: 768px) {
     a.home-option {
         &:first-child {
-            border-right: solid 2px var(--color-medium-grey);
+            border-right: solid 2px var(--color-logo-light);
             border-bottom: none;
             border-radius: 16px 16px 0 0;
         }

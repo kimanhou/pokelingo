@@ -7,6 +7,7 @@ div.explanation {
         margin-bottom: 36px;
         > img.logo {
             width: 70%;
+            max-width: 400px;
         }
         > div.logo-and-text-line {
             display: flex;

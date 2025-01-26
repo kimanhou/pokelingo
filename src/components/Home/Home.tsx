@@ -7,7 +7,7 @@ import styles from "./Home.module.scss";
 import Explanation from "./Explanation";
 
 const Home: FC = (props) => {
-    const [isExplanationVisible, setIsExplanationVisible] = useState(true);
+    const [isExplanationVisible, setIsExplanationVisible] = useState(false);
 
     return (
         <div className={styles.home}>
@@ -21,7 +21,10 @@ const Home: FC = (props) => {
                 setIsVisible={setIsExplanationVisible}
                 backgroundColor="var(--color-logo-light)"
             >
-                <Explanation close={() => setIsExplanationVisible(false)} />
+                <Explanation
+                    close={() => setIsExplanationVisible(false)}
+                    setIsVisible={setIsExplanationVisible}
+                />
             </BottomNotification>
         </div>
     );
