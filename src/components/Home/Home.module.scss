@@ -47,11 +47,16 @@ div.home {
             flex-direction: column;
             height: unset;
             width: 100%;
+            gap: 24px;
             > div.option-container {
                 flex: unset;
                 flex-direction: row;
+                width: 80%;
                 > div.placeholder {
                     flex: unset;
+                }
+                &:nth-child(even) {
+                    margin-left: auto;
                 }
             }
         }

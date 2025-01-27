@@ -42,6 +42,7 @@ a.home-option {
 @media screen and (max-width: 768px) {
     a.home-option {
         padding: 12px;
+        width: unset;
         > h2 {
             font-size: var(--font-size-xlarge);
             margin-block-end: 12px;
