@@ -4,8 +4,7 @@ div.home {
     align-items: center;
     justify-content: center;
     min-height: 100dvh;
-    gap: 24px;
-    padding: 24px 0;
+    padding: 0;
     > img.logo {
         width: 70%;
         max-width: 200px;
@@ -15,7 +14,7 @@ div.home {
     }
     > div.options-container {
         margin: auto;
-        height: 100%;
+        height: 100dvh;
         width: calc(100% - 48px);
         display: flex;
         justify-content: center;
@@ -39,6 +38,8 @@ div.home {
 
 @media screen and (max-width: 768px) {
     div.home {
+        padding: 24px 0;
+        gap: 24px;
         > img.logo {
             position: relative;
             top: unset;
@@ -70,7 +71,10 @@ div.home {
     @media not all and (min-resolution: 0.001dpcm) {
         @supports (-webkit-hyphens: none) {
             div.home {
-                height: 100vh;
+                min-height: 100vh;
+                > div.options-container {
+                    height: 100vh;
+                }
             }
         }
     }
