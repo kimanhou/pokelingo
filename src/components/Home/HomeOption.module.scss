@@ -41,13 +41,25 @@ a.home-option {
 
 @media screen and (max-width: 768px) {
     a.home-option {
-        &:first-child {
-            border-right: solid 2px var(--color-logo-light);
-            border-bottom: none;
-            border-radius: 16px 16px 0 0;
+        padding: 12px;
+        > h2 {
+            font-size: var(--font-size-xlarge);
+            margin-block-end: 12px;
         }
-        &:nth-child(2) {
-            border-radius: 0 0 16px 16px;
+        > p {
+            font-size: var(--font-size-large);
+            margin-block-end: 12px;
+        }
+        div.image-container {
+            margin-bottom: 0;
+        }
+        &:nth-child(even) {
+            border: solid 2px var(--color-logo-light);
+            border-left: none;
+            border-radius: 0 30% 30% 0;
+        }
+        &:nth-child(odd) {
+            border-radius: 30% 0 0 30%;
         }
         div.image-container {
             height: 20vh;

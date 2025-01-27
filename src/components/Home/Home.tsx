@@ -28,9 +28,7 @@ const Home: FC = (props) => {
         <div className={styles.home}>
             <img src={logo} className={styles.logo} />
             <div className={styles.optionsContainer}>
-                <div
-                    className={`${styles.optionContainer} ${styles.learnContainer}`}
-                >
+                <div className={styles.optionContainer}>
                     <div className={styles.placeholder}></div>
                     <HomeOption
                         to="/learn"
@@ -40,9 +38,7 @@ const Home: FC = (props) => {
                     />
                 </div>
 
-                <div
-                    className={`${styles.optionContainer} ${styles.learnContainer}`}
-                >
+                <div className={styles.optionContainer}>
                     <HomeOption
                         to="/quiz"
                         text="Quiz"
@@ -58,6 +54,7 @@ const Home: FC = (props) => {
                 isVisible={isExplanationVisible}
                 setIsVisible={setIsExplanationVisible}
                 backgroundColor="var(--color-logo-light)"
+                withBackdrop
             >
                 <Explanation
                     close={() => setIsExplanationVisible(false)}
