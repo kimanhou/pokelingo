@@ -52,7 +52,8 @@ a.home-option {
             margin-block-end: 12px;
         }
         div.image-container {
-            margin-bottom: 0;
+            margin-bottom: 4px;
+            height: 18vh;
         }
         &:nth-child(even) {
             border: solid 2px var(--color-logo-light);
@@ -61,9 +62,6 @@ a.home-option {
         }
         &:nth-child(odd) {
             border-radius: 30% 0 0 30%;
-        }
-        div.image-container {
-            height: 20vh;
         }
     }
 }
