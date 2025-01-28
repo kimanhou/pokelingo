@@ -15,12 +15,15 @@ const Home: FC = (props) => {
     const isMobile = isMobileFunc(deviceType);
     const [isExplanationVisible, setIsExplanationVisible] = useState(false);
     const [isExplanationLoaded, setIsExplanationLoaded] = useState(false);
-    const [expandableWidth, setExpandableWidth] = useState(0);
+    const [expandableWidthOdd, setExpandableWidthOdd] = useState(0);
+    const [expandableWidthEven, setExpandableWidthEven] = useState(0);
 
     const triggerMoves = () => {
         if (isMobile) {
-            setTimeout(() => setExpandableWidth(50), 1000);
-            setTimeout(() => setExpandableWidth(0), 1500);
+            setTimeout(() => setExpandableWidthOdd(50), 1000);
+            setTimeout(() => setExpandableWidthOdd(0), 1400);
+            setTimeout(() => setExpandableWidthEven(50), 2000);
+            setTimeout(() => setExpandableWidthEven(0), 2400);
         }
     };
 
@@ -49,7 +52,7 @@ const Home: FC = (props) => {
                 <div className={styles.optionContainer}>
                     <div
                         className={styles.placeholder}
-                        style={{ width: expandableWidth }}
+                        style={{ width: expandableWidthOdd }}
                     ></div>
                     <HomeOption
                         to="/learn"
@@ -69,7 +72,7 @@ const Home: FC = (props) => {
                     />
                     <div
                         className={styles.placeholder}
-                        style={{ width: expandableWidth }}
+                        style={{ width: expandableWidthEven }}
                     ></div>
                 </div>
             </div>

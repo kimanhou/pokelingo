@@ -13,7 +13,7 @@ div.home {
         left: 24px;
     }
     > div.options-container {
-        margin: auto;
+        margin: 0 auto;
         height: 100dvh;
         width: calc(100% - 48px);
         display: flex;
@@ -39,8 +39,9 @@ div.home {
 @media screen and (max-width: 768px) {
     div.home {
         padding: 24px 0;
-        gap: 24px;
+        gap: 0;
         > img.logo {
+            width: 50%;
             position: relative;
             top: unset;
             left: unset;
@@ -51,6 +52,7 @@ div.home {
             height: unset;
             width: 100%;
             gap: 24px;
+            flex: 1;
             > div.option-container {
                 flex: unset;
                 flex-direction: row;
@@ -58,14 +60,13 @@ div.home {
                 > div.placeholder {
                     flex: unset;
                     transition: width 0.4s ease-in-out;
+                    align-self: stretch;
                     &:nth-child(odd) {
                         border-top: solid 2px var(--color-logo-light);
                         border-bottom: solid 2px var(--color-logo-light);
-                        height: 240px; // TOFIX
                     }
                     &:nth-child(even) {
                         background-color: var(--color-logo-light);
-                        height: 240px; // TOFIX
                     }
                 }
                 &:nth-child(even) {
