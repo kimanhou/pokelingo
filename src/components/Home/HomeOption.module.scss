@@ -43,6 +43,7 @@ a.home-option {
     a.home-option {
         padding: 12px;
         width: unset;
+        max-width: 80vw;
         > h2 {
             font-size: var(--font-size-xlarge);
             margin-block-end: 12px;

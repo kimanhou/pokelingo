@@ -54,12 +54,22 @@ div.home {
             > div.option-container {
                 flex: unset;
                 flex-direction: row;
-                width: 80%;
+                width: 100%;
                 > div.placeholder {
                     flex: unset;
+                    transition: width 0.4s ease-in-out;
+                    &:nth-child(odd) {
+                        border-top: solid 2px var(--color-logo-light);
+                        border-bottom: solid 2px var(--color-logo-light);
+                        height: 240px; // TOFIX
+                    }
+                    &:nth-child(even) {
+                        background-color: var(--color-logo-light);
+                        height: 240px; // TOFIX
+                    }
                 }
                 &:nth-child(even) {
-                    margin-left: auto;
+                    justify-content: flex-end;
                 }
             }
         }
