@@ -5,6 +5,7 @@ div.home {
     justify-content: center;
     min-height: 100dvh;
     padding: 0;
+    position: relative;
     > img.logo {
         width: 70%;
         max-width: 200px;
@@ -41,7 +42,7 @@ div.home {
 
 @media screen and (max-width: 768px) {
     div.home {
-        padding: 24px 0;
+        padding: 24px 0 0;
         gap: 0;
         > img.logo {
             width: 50%;

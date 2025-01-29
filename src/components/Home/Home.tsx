@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import Footer from "@/components/Footer/Footer";
 import BottomNotification from "@/components/common/BottomNotification/BottomNotification";
 import Explanation from "@/components/Home/Explanation";
 import HomeOption from "@/components/Home/HomeOption";
@@ -92,6 +93,7 @@ const Home: FC = (props) => {
                     </div>
                 </div>
             </div>
+            <Footer alignRight={!isMobile} />
 
             <BottomNotification
                 isVisible={isExplanationVisible}
