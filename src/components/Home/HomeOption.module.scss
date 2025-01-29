@@ -21,6 +21,7 @@ a.home-option {
         border: solid 2px var(--color-logo-light);
         border-radius: 30% 30% 0 0;
         border-bottom: none;
+        background-color: var(--bg);
     }
     &:nth-child(odd) {
         background-color: var(--color-logo-light);

@@ -23,6 +23,9 @@ div.home {
             flex: 1;
             display: flex;
             flex-direction: column;
+            > div.undercover {
+                display: none;
+            }
             > div.placeholder {
                 flex: 1;
             }
@@ -57,16 +60,35 @@ div.home {
                 flex: unset;
                 flex-direction: row;
                 width: 100%;
+                position: relative;
+                > div.undercover {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    width: 50px;
+                    background-color: var(--color-logo-light);
+                    z-index: -1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &.reverse {
+                        background-color: var(--bg);
+                        right: 0;
+                        left: unset;
+                        border-top: solid 2px var(--color-logo-light);
+                        border-bottom: solid 2px var(--color-logo-light);
+                    }
+                }
                 > div.placeholder {
                     flex: unset;
                     transition: width 0.4s ease-in-out;
                     align-self: stretch;
+                    background-color: transparent;
                     &:nth-child(odd) {
                         border-top: solid 2px var(--color-logo-light);
                         border-bottom: solid 2px var(--color-logo-light);
-                    }
-                    &:nth-child(even) {
-                        background-color: var(--color-logo-light);
                     }
                 }
                 &:nth-child(even) {

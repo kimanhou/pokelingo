@@ -8,6 +8,8 @@ import quiz from "@/assets/think_squirtle.png";
 import { getLastVisit, setLastVisit } from "@/ts/localStorageUtils";
 import { isBeforeToday, isMobile as isMobileFunc } from "@/ts/utils";
 import { useDeviceType } from "@/hooks/useMedia";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Home.module.scss";
 
 const Home: FC = (props) => {
@@ -60,6 +62,13 @@ const Home: FC = (props) => {
                         subText="Browse through the list of Pokemon to learn their names"
                         imageUrl={learn}
                     />
+                    <div className={styles.undercover}>
+                        <FontAwesomeIcon
+                            icon={faArrowRight}
+                            size="2xl"
+                            color="var(--bg)"
+                        />
+                    </div>
                 </div>
 
                 <div className={styles.optionContainer}>
@@ -74,6 +83,13 @@ const Home: FC = (props) => {
                         className={styles.placeholder}
                         style={{ width: expandableWidthEven }}
                     ></div>
+                    <div className={`${styles.undercover} ${styles.reverse}`}>
+                        <FontAwesomeIcon
+                            icon={faArrowLeft}
+                            size="2xl"
+                            color="var(--color-logo-light)"
+                        />
+                    </div>
                 </div>
             </div>
 
