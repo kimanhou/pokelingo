@@ -6,6 +6,10 @@ a.home-option {
     max-width: 500px;
     padding: 24px;
     box-sizing: border-box;
+    border: solid 2px var(--color-logo-light);
+    border-radius: 30% 30% 0 0;
+    border-bottom: none;
+    background-color: var(--bg);
     > h2 {
         text-transform: uppercase;
         font-size: var(--font-size-xxlarge);
@@ -17,13 +21,7 @@ a.home-option {
         margin-block-end: 24px;
         font-size: var(--font-size-xlarge);
     }
-    &:nth-child(even) {
-        border: solid 2px var(--color-logo-light);
-        border-radius: 30% 30% 0 0;
-        border-bottom: none;
-        background-color: var(--bg);
-    }
-    &:nth-child(odd) {
+    &.secondary {
         background-color: var(--color-logo-light);
         border-radius: 0 0 30% 30%;
     }
@@ -45,6 +43,9 @@ a.home-option {
         padding: 12px;
         width: unset;
         max-width: 80vw;
+        border: solid 2px var(--color-logo-light);
+        border-left: none;
+        border-radius: 0 30% 30% 0;
         > h2 {
             font-size: var(--font-size-xlarge);
             margin-block-end: 12px;
@@ -57,12 +58,7 @@ a.home-option {
             margin-bottom: 4px;
             height: 14vh;
         }
-        &:nth-child(even) {
-            border: solid 2px var(--color-logo-light);
-            border-left: none;
-            border-radius: 0 30% 30% 0;
-        }
-        &:nth-child(odd) {
+        &.secondary {
             border-radius: 30% 0 0 30%;
         }
     }

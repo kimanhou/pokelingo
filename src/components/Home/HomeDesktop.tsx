@@ -28,6 +28,7 @@ const HomeDesktop: FC = (props) => {
                         subText="Once you're ready, test your knowledge"
                         imageUrl={quiz}
                         textFirst
+                        secondary
                     />
                     <div className={styles.placeholder}></div>
                 </div>

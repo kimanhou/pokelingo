@@ -56,6 +56,7 @@ div.home-mobile {
                 }
             }
             &:nth-child(odd) {
+                direction: rtl;
                 > div.option-content {
                     left: -50px;
                 }

@@ -10,12 +10,15 @@ interface IHomeOption {
     to: string;
     imageUrl: string;
     textFirst?: boolean;
+    secondary?: boolean;
 }
 
 const HomeOption: FC<IHomeOption> = (props) => {
     const [expandableHeight, setExpandableHeight] = useState(0);
     const deviceType = useDeviceType();
     const isMobile = isMobileFunc(deviceType);
+
+    const secondaryClassName = props.secondary ? styles.secondary : "";
 
     const onMouseOver = () => {
         if (!isMobile) {
@@ -32,7 +35,7 @@ const HomeOption: FC<IHomeOption> = (props) => {
     return (
         <Link
             to={props.to}
-            className={styles.homeOption}
+            className={`${styles.homeOption} ${secondaryClassName}`}
             onMouseOver={onMouseOver}
             onMouseLeave={onMouseLeave}
         >

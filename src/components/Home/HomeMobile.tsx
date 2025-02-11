@@ -45,6 +45,12 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
                         className={styles.optionContent}
                         style={{ left: leftOdd }}
                     >
+                        <HomeOption
+                            to="/learn"
+                            text="Learn"
+                            subText="Browse through the list of Pokemon to learn their names"
+                            imageUrl={learn}
+                        />
                         <div className={styles.undercover}>
                             <FontAwesomeIcon
                                 icon={faArrowRight}
@@ -52,12 +58,6 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
                                 color="var(--bg)"
                             />
                         </div>
-                        <HomeOption
-                            to="/learn"
-                            text="Learn"
-                            subText="Browse through the list of Pokemon to learn their names"
-                            imageUrl={learn}
-                        />
                     </div>
                 </div>
 
@@ -72,6 +72,7 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
                             subText="Once you're ready, test your knowledge"
                             imageUrl={quiz}
                             textFirst
+                            secondary
                         />
                         <div
                             className={`${styles.undercover} ${styles.reverse}`}
