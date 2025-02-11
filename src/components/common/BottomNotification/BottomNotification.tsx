@@ -82,7 +82,7 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
         setIsSafari(isSafariFunc(deviceType));
     }, []);
 
-    useEffect(() => {
+    useEffectSkipFirstRender(() => {
         if (isVisibleInternal && !isTransitioning) {
             // On enter
             if (props.onEnter) {

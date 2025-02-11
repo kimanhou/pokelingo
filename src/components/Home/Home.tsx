@@ -1,16 +1,11 @@
 import { FC, useEffect, useState } from "react";
-import Footer from "@/components/Footer/Footer";
 import BottomNotification from "@/components/common/BottomNotification/BottomNotification";
 import Explanation from "@/components/Home/Explanation";
-import HomeOption from "@/components/Home/HomeOption";
-import logo from "@/assets/logo.svg";
-import learn from "@/assets/study_jigglypuff.png";
-import quiz from "@/assets/think_squirtle.png";
 import { getLastVisit, setLastVisit } from "@/ts/localStorageUtils";
 import { isBeforeToday, isMobile as isMobileFunc } from "@/ts/utils";
 import { useDeviceType } from "@/hooks/useMedia";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import HomeDesktop from "./HomeDesktop";
+import HomeMobile from "./HomeMobile";
 import styles from "./Home.module.scss";
 
 const Home: FC = (props) => {
@@ -18,17 +13,7 @@ const Home: FC = (props) => {
     const isMobile = isMobileFunc(deviceType);
     const [isExplanationVisible, setIsExplanationVisible] = useState(false);
     const [isExplanationLoaded, setIsExplanationLoaded] = useState(false);
-    const [expandableWidthOdd, setExpandableWidthOdd] = useState(0);
-    const [expandableWidthEven, setExpandableWidthEven] = useState(0);
-
-    const triggerMoves = () => {
-        if (isMobile) {
-            setTimeout(() => setExpandableWidthOdd(50), 1000);
-            setTimeout(() => setExpandableWidthOdd(0), 1400);
-            setTimeout(() => setExpandableWidthEven(50), 2000);
-            setTimeout(() => setExpandableWidthEven(0), 2400);
-        }
-    };
+    const [shouldTriggerMoves, setShouldTriggerMoves] = useState(false);
 
     useEffect(() => {
         const lastVisit = getLastVisit();
@@ -41,66 +26,19 @@ const Home: FC = (props) => {
         }
     }, [isExplanationLoaded]);
 
-    useEffect(() => {
-        const lastVisit = getLastVisit();
-        if (lastVisit && !isBeforeToday(new Date(lastVisit))) {
-            triggerMoves();
-        }
-    }, []);
-
     return (
         <div className={styles.home}>
-            <img src={logo} className={styles.logo} />
-            <div className={styles.optionsContainer}>
-                <div className={styles.optionContainer}>
-                    <div
-                        className={styles.placeholder}
-                        style={{ width: expandableWidthOdd }}
-                    ></div>
-                    <HomeOption
-                        to="/learn"
-                        text="Learn"
-                        subText="Browse through the list of Pokemon to learn their names"
-                        imageUrl={learn}
-                    />
-                    <div className={styles.undercover}>
-                        <FontAwesomeIcon
-                            icon={faArrowRight}
-                            size="2xl"
-                            color="var(--bg)"
-                        />
-                    </div>
-                </div>
-
-                <div className={styles.optionContainer}>
-                    <HomeOption
-                        to="/quiz"
-                        text="Quiz"
-                        subText="Once you're ready, test your knowledge"
-                        imageUrl={quiz}
-                        textFirst
-                    />
-                    <div
-                        className={styles.placeholder}
-                        style={{ width: expandableWidthEven }}
-                    ></div>
-                    <div className={`${styles.undercover} ${styles.reverse}`}>
-                        <FontAwesomeIcon
-                            icon={faArrowLeft}
-                            size="2xl"
-                            color="var(--color-logo-light)"
-                        />
-                    </div>
-                </div>
-            </div>
-            <Footer alignRight={!isMobile} />
+            {!isMobile && <HomeDesktop />}
+            {isMobile && <HomeMobile shouldTriggerMoves={shouldTriggerMoves} />}
 
             <BottomNotification
                 isVisible={isExplanationVisible}
                 setIsVisible={setIsExplanationVisible}
                 backgroundColor="var(--color-logo-light)"
                 withBackdrop
-                onExit={() => triggerMoves()}
+                onExit={() => {
+                    setShouldTriggerMoves(true);
+                }}
             >
                 <Explanation
                     close={() => setIsExplanationVisible(false)}
