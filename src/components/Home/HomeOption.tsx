@@ -1,5 +1,7 @@
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDeviceType } from "@/hooks/useMedia";
+import { isMobile as isMobileFunc } from "@/ts/utils";
 import styles from "./HomeOption.module.scss";
 
 interface IHomeOption {
@@ -12,13 +14,19 @@ interface IHomeOption {
 
 const HomeOption: FC<IHomeOption> = (props) => {
     const [expandableHeight, setExpandableHeight] = useState(0);
+    const deviceType = useDeviceType();
+    const isMobile = isMobileFunc(deviceType);
 
     const onMouseOver = () => {
-        setExpandableHeight(100);
+        if (!isMobile) {
+            setExpandableHeight(100);
+        }
     };
 
     const onMouseLeave = () => {
-        setExpandableHeight(0);
+        if (!isMobile) {
+            setExpandableHeight(0);
+        }
     };
 
     return (

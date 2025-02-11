@@ -15,14 +15,14 @@ interface IHomeMobileProps {
 }
 
 const HomeMobile: FC<IHomeMobileProps> = (props) => {
-    const [expandableWidthOdd, setExpandableWidthOdd] = useState(0);
-    const [expandableWidthEven, setExpandableWidthEven] = useState(0);
+    const [leftOdd, setLeftOdd] = useState("-50px");
+    const [rightEven, setRightEven] = useState("-50px");
 
     const triggerMoves = () => {
-        setTimeout(() => setExpandableWidthOdd(50), 1000);
-        setTimeout(() => setExpandableWidthOdd(0), 1400);
-        setTimeout(() => setExpandableWidthEven(50), 2000);
-        setTimeout(() => setExpandableWidthEven(0), 2400);
+        setTimeout(() => setLeftOdd("0"), 1000);
+        setTimeout(() => setLeftOdd("-50px"), 1400);
+        setTimeout(() => setRightEven("0"), 2000);
+        setTimeout(() => setRightEven("-50px"), 2400);
     };
 
     useEffect(() => {
@@ -42,42 +42,46 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
             <div className={styles.optionsContainer}>
                 <div className={styles.optionContainer}>
                     <div
-                        className={styles.placeholder}
-                        style={{ width: expandableWidthOdd }}
-                    ></div>
-                    <HomeOption
-                        to="/learn"
-                        text="Learn"
-                        subText="Browse through the list of Pokemon to learn their names"
-                        imageUrl={learn}
-                    />
-                    <div className={styles.undercover}>
-                        <FontAwesomeIcon
-                            icon={faArrowRight}
-                            size="2xl"
-                            color="var(--bg)"
+                        className={styles.optionContent}
+                        style={{ left: leftOdd }}
+                    >
+                        <div className={styles.undercover}>
+                            <FontAwesomeIcon
+                                icon={faArrowRight}
+                                size="2xl"
+                                color="var(--bg)"
+                            />
+                        </div>
+                        <HomeOption
+                            to="/learn"
+                            text="Learn"
+                            subText="Browse through the list of Pokemon to learn their names"
+                            imageUrl={learn}
                         />
                     </div>
                 </div>
 
                 <div className={styles.optionContainer}>
-                    <HomeOption
-                        to="/quiz"
-                        text="Quiz"
-                        subText="Once you're ready, test your knowledge"
-                        imageUrl={quiz}
-                        textFirst
-                    />
                     <div
-                        className={styles.placeholder}
-                        style={{ width: expandableWidthEven }}
-                    ></div>
-                    <div className={`${styles.undercover} ${styles.reverse}`}>
-                        <FontAwesomeIcon
-                            icon={faArrowLeft}
-                            size="2xl"
-                            color="var(--color-logo-light)"
+                        className={styles.optionContent}
+                        style={{ right: rightEven }}
+                    >
+                        <HomeOption
+                            to="/quiz"
+                            text="Quiz"
+                            subText="Once you're ready, test your knowledge"
+                            imageUrl={quiz}
+                            textFirst
                         />
+                        <div
+                            className={`${styles.undercover} ${styles.reverse}`}
+                        >
+                            <FontAwesomeIcon
+                                icon={faArrowLeft}
+                                size="2xl"
+                                color="var(--color-logo-light)"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
