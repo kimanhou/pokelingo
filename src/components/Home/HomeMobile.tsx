@@ -51,13 +51,14 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
                             subText="Browse through the list of Pokemon to learn their names"
                             imageUrl={learn}
                         />
-                        <div className={styles.undercover}>
-                            <FontAwesomeIcon
-                                icon={faArrowRight}
-                                size="2xl"
-                                color="var(--bg)"
-                            />
-                        </div>
+                        <div className={styles.undercover} />
+                    </div>
+                    <div className={styles.arrowContainer}>
+                        <FontAwesomeIcon
+                            icon={faArrowRight}
+                            size="2xl"
+                            color="var(--bg)"
+                        />
                     </div>
                 </div>
 
@@ -76,13 +77,16 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
                         />
                         <div
                             className={`${styles.undercover} ${styles.reverse}`}
-                        >
-                            <FontAwesomeIcon
-                                icon={faArrowLeft}
-                                size="2xl"
-                                color="var(--color-logo-light)"
-                            />
-                        </div>
+                        />
+                    </div>
+                    <div
+                        className={`${styles.arrowContainer} ${styles.reverse}`}
+                    >
+                        <FontAwesomeIcon
+                            icon={faArrowLeft}
+                            size="2xl"
+                            color="var(--color-logo-light)"
+                        />
                     </div>
                 </div>
             </div>

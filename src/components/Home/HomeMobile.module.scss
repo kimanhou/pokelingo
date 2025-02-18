@@ -39,19 +39,17 @@ div.home-mobile {
                 transition:
                     left 0.4s ease-in-out,
                     right 0.4s ease-in-out;
-                div.undercover {
+                height: 100%;
+                > div.undercover {
                     display: block;
                     width: 50px;
-                    background-color: var(--color-logo-light);
+                    background-color: transparent;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     &.reverse {
-                        background-color: var(--bg);
                         right: 0;
                         left: unset;
-                        border-top: solid 2px var(--color-logo-light);
-                        border-bottom: solid 2px var(--color-logo-light);
                     }
                 }
             }
@@ -64,6 +62,25 @@ div.home-mobile {
             &:nth-child(even) {
                 > div.option-content {
                     right: -50px;
+                }
+            }
+            > div.arrow-container {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                background-color: var(--color-logo-light);
+                width: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: -1;
+                &.reverse {
+                    background-color: var(--bg);
+                    right: 0;
+                    left: unset;
+                    border-top: solid 2px var(--color-logo-light);
+                    border-bottom: solid 2px var(--color-logo-light);
                 }
             }
         }
