@@ -22,13 +22,13 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
     const isUndercoverInViewport = useInViewport(undercoverRef, {
         threshold: 1,
     });
-    const [isReady, setIsReady] = useState(false);
+    const [isTouch, setIsTouch] = useState(false);
 
     const undercoverQuizRef = useRef<HTMLDivElement>(null);
     const isUndercoverQuizInViewport = useInViewport(undercoverQuizRef, {
         threshold: 1,
     });
-    const [isReadyQuiz, setIsReadyQuiz] = useState(false);
+    const [isTouchQuiz, setIsTouchQuiz] = useState(false);
 
     const [leftOdd, setLeftOdd] = useState("-50px");
     const [rightEven, setRightEven] = useState("-50px");
@@ -52,25 +52,21 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
     }, []);
 
     useEffect(() => {
-        if (isReady && isUndercoverInViewport) {
+        if (isTouch && isUndercoverInViewport) {
             navigate("/learn");
         }
-    }, [isUndercoverInViewport, isReady]);
+    }, [isUndercoverInViewport, isTouch]);
 
     useEffect(() => {
-        if (isReadyQuiz && isUndercoverQuizInViewport) {
+        if (isTouchQuiz && isUndercoverQuizInViewport) {
             navigate("/quiz");
         }
-    }, [isUndercoverQuizInViewport, isReadyQuiz]);
+    }, [isUndercoverQuizInViewport, isTouchQuiz]);
 
     return (
         <div className={styles.homeMobile}>
             <img src={logo} className={styles.logo} />
-            <div
-                className={styles.optionsContainer}
-                onTouchStart={() => setIsReady(true)}
-                onTouchEnd={() => setIsReady(false)}
-            >
+            <div className={styles.optionsContainer}>
                 <div className={styles.arrowContainer}>
                     <FontAwesomeIcon
                         icon={faArrowRight}
@@ -78,7 +74,11 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
                         color="var(--bg)"
                     />
                 </div>
-                <div className={styles.optionContainer}>
+                <div
+                    className={styles.optionContainer}
+                    onTouchStart={() => setIsTouch(true)}
+                    onTouchEnd={() => setIsTouch(false)}
+                >
                     <div
                         className={styles.optionContent}
                         style={{ left: leftOdd }}
@@ -98,8 +98,8 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
 
                 <div
                     className={`${styles.optionContainer} ${styles.reverse}`}
-                    onTouchStart={() => setIsReadyQuiz(true)}
-                    onTouchEnd={() => setIsReadyQuiz(false)}
+                    onTouchStart={() => setIsTouchQuiz(true)}
+                    onTouchEnd={() => setIsTouchQuiz(false)}
                 >
                     <div
                         className={styles.optionContent}

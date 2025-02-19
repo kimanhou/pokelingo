@@ -4,8 +4,8 @@ import Explanation from "@/components/Home/Explanation";
 import { getLastVisit, setLastVisit } from "@/ts/localStorageUtils";
 import { isBeforeToday, isMobile as isMobileFunc } from "@/ts/utils";
 import { useDeviceType } from "@/hooks/useMedia";
-import HomeDesktop from "./HomeDesktop";
-import HomeMobile from "./HomeMobile";
+import HomeDesktop from "./Desktop/HomeDesktop";
+import HomeMobile from "./Mobile/HomeMobile";
 import styles from "./Home.module.scss";
 
 const Home: FC = (props) => {
