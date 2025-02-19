@@ -35,15 +35,9 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
 
     const triggerMoves = () => {
         setTimeout(() => setLeftOdd("0"), 1000);
-        setTimeout(() => {
-            setLeftOdd("-50px");
-            setIsReady(true);
-        }, 1400);
+        setTimeout(() => setLeftOdd("-50px"), 1400);
         setTimeout(() => setRightEven("0"), 2000);
-        setTimeout(() => {
-            setRightEven("-50px");
-            setIsReadyQuiz(true);
-        }, 2400);
+        setTimeout(() => setRightEven("-50px"), 2400);
     };
 
     useEffect(() => {
@@ -72,7 +66,11 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
     return (
         <div className={styles.homeMobile}>
             <img src={logo} className={styles.logo} />
-            <div className={styles.optionsContainer}>
+            <div
+                className={styles.optionsContainer}
+                onTouchStart={() => setIsReady(true)}
+                onTouchEnd={() => setIsReady(false)}
+            >
                 <div className={styles.arrowContainer}>
                     <FontAwesomeIcon
                         icon={faArrowRight}
@@ -98,7 +96,11 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
                     </div>
                 </div>
 
-                <div className={`${styles.optionContainer} ${styles.reverse}`}>
+                <div
+                    className={`${styles.optionContainer} ${styles.reverse}`}
+                    onTouchStart={() => setIsReadyQuiz(true)}
+                    onTouchEnd={() => setIsReadyQuiz(false)}
+                >
                     <div
                         className={styles.optionContent}
                         style={{ right: rightEven }}
