@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import Footer from "@/components/Footer/Footer";
 import HomeOption from "@/components/Home/HomeOption";
 import logo from "@/assets/logo.svg";
@@ -9,12 +9,18 @@ import { isBeforeToday } from "@/ts/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import styles from "./HomeMobile.module.scss";
+import useInViewport from "@/hooks/useInViewport";
 
 interface IHomeMobileProps {
     shouldTriggerMoves: boolean;
 }
 
 const HomeMobile: FC<IHomeMobileProps> = (props) => {
+    const undercoverRef = useRef<HTMLDivElement>(null);
+    const isUndercoverInViewport = useInViewport(undercoverRef, {
+        threshold: 1,
+    });
+
     const [leftOdd, setLeftOdd] = useState("-50px");
     const [rightEven, setRightEven] = useState("-50px");
 
@@ -36,10 +42,24 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
         }
     }, []);
 
+    useEffect(() => {
+        console.log(
+            "isUndercoverInViewport changed to",
+            isUndercoverInViewport
+        );
+    }, [isUndercoverInViewport]);
+
     return (
         <div className={styles.homeMobile}>
             <img src={logo} className={styles.logo} />
             <div className={styles.optionsContainer}>
+                <div className={styles.arrowContainer}>
+                    <FontAwesomeIcon
+                        icon={faArrowRight}
+                        size="2xl"
+                        color="var(--bg)"
+                    />
+                </div>
                 <div className={styles.optionContainer}>
                     <div
                         className={styles.optionContent}
@@ -51,18 +71,14 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
                             subText="Browse through the list of Pokemon to learn their names"
                             imageUrl={learn}
                         />
-                        <div className={styles.undercover} />
-                    </div>
-                    <div className={styles.arrowContainer}>
-                        <FontAwesomeIcon
-                            icon={faArrowRight}
-                            size="2xl"
-                            color="var(--bg)"
+                        <div
+                            className={styles.undercover}
+                            ref={undercoverRef}
                         />
                     </div>
                 </div>
 
-                <div className={styles.optionContainer}>
+                <div className={`${styles.optionContainer} ${styles.reverse}`}>
                     <div
                         className={styles.optionContent}
                         style={{ right: rightEven }}
@@ -79,15 +95,13 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
                             className={`${styles.undercover} ${styles.reverse}`}
                         />
                     </div>
-                    <div
-                        className={`${styles.arrowContainer} ${styles.reverse}`}
-                    >
-                        <FontAwesomeIcon
-                            icon={faArrowLeft}
-                            size="2xl"
-                            color="var(--color-logo-light)"
-                        />
-                    </div>
+                </div>
+                <div className={`${styles.arrowContainer} ${styles.reverse}`}>
+                    <FontAwesomeIcon
+                        icon={faArrowLeft}
+                        size="2xl"
+                        color="var(--color-logo-light)"
+                    />
                 </div>
             </div>
             <Footer />

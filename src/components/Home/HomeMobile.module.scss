@@ -20,16 +20,39 @@ div.home-mobile {
         gap: 24px;
         flex: 1;
         overflow-x: hidden;
+        position: relative;
+        > div.arrow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--color-logo-light);
+            width: 50px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: -1;
+            box-sizing: border-box;
+            &.reverse {
+                background-color: var(--bg);
+                top: calc(220px + 24px);
+                right: 0;
+                left: unset;
+                border-top: solid 2px var(--color-logo-light);
+                border-bottom: solid 2px var(--color-logo-light);
+            }
+        }
         > div.option-container {
             display: flex;
             width: 100%;
-            min-height: 220px;
+            height: 220px;
             position: relative;
             transition: margin-left 0.4s ease-in-out;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -ms-overflow-style: none; /* Internet Explorer 10+ */
             scrollbar-width: none; /* Firefox */
+            direction: rtl;
             &::-webkit-scrollbar {
                 display: none; /* Safari and Chrome */
             }
@@ -53,34 +76,14 @@ div.home-mobile {
                     }
                 }
             }
-            &:nth-child(odd) {
-                direction: rtl;
-                > div.option-content {
-                    left: -50px;
-                }
+            > div.option-content {
+                left: -50px;
             }
-            &:nth-child(even) {
+            &.reverse {
+                direction: unset;
                 > div.option-content {
-                    right: -50px;
-                }
-            }
-            > div.arrow-container {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                background-color: var(--color-logo-light);
-                width: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: -1;
-                &.reverse {
-                    background-color: var(--bg);
-                    right: 0;
                     left: unset;
-                    border-top: solid 2px var(--color-logo-light);
-                    border-bottom: solid 2px var(--color-logo-light);
+                    right: -50px;
                 }
             }
         }
