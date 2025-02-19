@@ -55,13 +55,13 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
         if (isReady && isUndercoverInViewport) {
             navigate("/learn");
         }
-    }, [isUndercoverInViewport]);
+    }, [isUndercoverInViewport, isReady]);
 
     useEffect(() => {
         if (isReadyQuiz && isUndercoverQuizInViewport) {
             navigate("/quiz");
         }
-    }, [isUndercoverQuizInViewport]);
+    }, [isUndercoverQuizInViewport, isReadyQuiz]);
 
     return (
         <div className={styles.homeMobile}>
