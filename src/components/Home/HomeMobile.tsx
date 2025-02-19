@@ -8,27 +8,42 @@ import { getLastVisit } from "@/ts/localStorageUtils";
 import { isBeforeToday } from "@/ts/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import styles from "./HomeMobile.module.scss";
 import useInViewport from "@/hooks/useInViewport";
+import { useNavigate } from "react-router-dom";
+import styles from "./HomeMobile.module.scss";
 
 interface IHomeMobileProps {
     shouldTriggerMoves: boolean;
 }
 
 const HomeMobile: FC<IHomeMobileProps> = (props) => {
+    const navigate = useNavigate();
     const undercoverRef = useRef<HTMLDivElement>(null);
     const isUndercoverInViewport = useInViewport(undercoverRef, {
         threshold: 1,
     });
+    const [isReady, setIsReady] = useState(false);
+
+    const undercoverQuizRef = useRef<HTMLDivElement>(null);
+    const isUndercoverQuizInViewport = useInViewport(undercoverQuizRef, {
+        threshold: 1,
+    });
+    const [isReadyQuiz, setIsReadyQuiz] = useState(false);
 
     const [leftOdd, setLeftOdd] = useState("-50px");
     const [rightEven, setRightEven] = useState("-50px");
 
     const triggerMoves = () => {
         setTimeout(() => setLeftOdd("0"), 1000);
-        setTimeout(() => setLeftOdd("-50px"), 1400);
+        setTimeout(() => {
+            setLeftOdd("-50px");
+            setIsReady(true);
+        }, 1400);
         setTimeout(() => setRightEven("0"), 2000);
-        setTimeout(() => setRightEven("-50px"), 2400);
+        setTimeout(() => {
+            setRightEven("-50px");
+            setIsReadyQuiz(true);
+        }, 2400);
     };
 
     useEffect(() => {
@@ -43,11 +58,16 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
     }, []);
 
     useEffect(() => {
-        console.log(
-            "isUndercoverInViewport changed to",
-            isUndercoverInViewport
-        );
+        if (isReady && isUndercoverInViewport) {
+            navigate("/learn");
+        }
     }, [isUndercoverInViewport]);
+
+    useEffect(() => {
+        if (isReadyQuiz && isUndercoverQuizInViewport) {
+            navigate("/quiz");
+        }
+    }, [isUndercoverQuizInViewport]);
 
     return (
         <div className={styles.homeMobile}>
@@ -93,6 +113,7 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
                         />
                         <div
                             className={`${styles.undercover} ${styles.reverse}`}
+                            ref={undercoverQuizRef}
                         />
                     </div>
                 </div>
