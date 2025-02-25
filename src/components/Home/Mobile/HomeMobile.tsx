@@ -7,10 +7,11 @@ import quiz from "@/assets/think_squirtle.png";
 import { getLastVisit } from "@/ts/localStorageUtils";
 import { isBeforeToday } from "@/ts/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import useInViewport from "@/hooks/useInViewport";
 import { useNavigate } from "react-router-dom";
 import styles from "./HomeMobile.module.scss";
+import HomeMobileOption from "./HomeMobileOption";
 
 interface IHomeMobileProps {
     shouldTriggerMoves: boolean;
@@ -18,11 +19,6 @@ interface IHomeMobileProps {
 
 const HomeMobile: FC<IHomeMobileProps> = (props) => {
     const navigate = useNavigate();
-    const undercoverRef = useRef<HTMLDivElement>(null);
-    const isUndercoverInViewport = useInViewport(undercoverRef, {
-        threshold: 1,
-    });
-    const [isTouch, setIsTouch] = useState(false);
 
     const undercoverQuizRef = useRef<HTMLDivElement>(null);
     const isUndercoverQuizInViewport = useInViewport(undercoverQuizRef, {
@@ -30,12 +26,9 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
     });
     const [isTouchQuiz, setIsTouchQuiz] = useState(false);
 
-    const [leftOdd, setLeftOdd] = useState("-50px");
     const [rightEven, setRightEven] = useState("-50px");
 
     const triggerMoves = () => {
-        setTimeout(() => setLeftOdd("0"), 1000);
-        setTimeout(() => setLeftOdd("-50px"), 1400);
         setTimeout(() => setRightEven("0"), 2000);
         setTimeout(() => setRightEven("-50px"), 2400);
     };
@@ -52,12 +45,6 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
     }, []);
 
     useEffect(() => {
-        if (isTouch && isUndercoverInViewport) {
-            navigate("/learn");
-        }
-    }, [isUndercoverInViewport, isTouch]);
-
-    useEffect(() => {
         if (isTouchQuiz && isUndercoverQuizInViewport) {
             navigate("/quiz");
         }
@@ -67,34 +54,13 @@ const HomeMobile: FC<IHomeMobileProps> = (props) => {
         <div className={styles.homeMobile}>
             <img src={logo} className={styles.logo} />
             <div className={styles.optionsContainer}>
-                <div className={styles.arrowContainer}>
-                    <FontAwesomeIcon
-                        icon={faArrowRight}
-                        size="2xl"
-                        color="var(--bg)"
-                    />
-                </div>
-                <div
-                    className={styles.optionContainer}
-                    onTouchStart={() => setIsTouch(true)}
-                    onTouchEnd={() => setIsTouch(false)}
-                >
-                    <div
-                        className={styles.optionContent}
-                        style={{ left: leftOdd }}
-                    >
-                        <HomeOption
-                            to="/learn"
-                            text="Learn"
-                            subText="Browse through the list of Pokemon to learn their names"
-                            imageUrl={learn}
-                        />
-                        <div
-                            className={styles.undercover}
-                            ref={undercoverRef}
-                        />
-                    </div>
-                </div>
+                <HomeMobileOption
+                    shouldTriggerMoves={props.shouldTriggerMoves}
+                    to="/learn"
+                    text="Learn"
+                    subText="Browse through the list of Pokemon to learn their names"
+                    imageUrl={learn}
+                />
 
                 <div
                     className={`${styles.optionContainer} ${styles.reverse}`}
