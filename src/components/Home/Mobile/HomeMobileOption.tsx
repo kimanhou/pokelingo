@@ -46,14 +46,7 @@ const HomeMobileOption: FC<IHomeMobileOptionProps> = (props) => {
     }, []);
 
     useEffect(() => {
-        console.log(
-            "isTouch",
-            isTouch,
-            "isUndercoverInViewport",
-            isUndercoverInViewport
-        );
         if (isTouch && isUndercoverInViewport) {
-            console.log("Navigate to", props.to, "!");
             navigate(props.to);
         }
     }, [isUndercoverInViewport, isTouch]);
