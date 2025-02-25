@@ -1,0 +1,55 @@
+div.home-desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    padding: 0;
+    position: relative;
+    > img.logo {
+        width: 70%;
+        max-width: 200px;
+        position: absolute;
+        top: 24px;
+        left: 24px;
+    }
+    > div.options-container {
+        margin: 0 auto;
+        height: 100dvh;
+        width: calc(100% - 48px);
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        > div.option-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            > div.undercover {
+                display: none;
+            }
+            > div.placeholder {
+                flex: 1;
+            }
+            &:nth-child(odd) {
+                align-items: flex-end;
+            }
+            &:nth-child(even) {
+                align-items: flex-start;
+            }
+        }
+    }
+}
+
+// Safari doesn't handle dvh so need to replace by vh
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @media not all and (min-resolution: 0.001dpcm) {
+        @supports (-webkit-hyphens: none) {
+            div.home {
+                min-height: 100vh;
+                > div.options-container {
+                    height: 100vh;
+                }
+            }
+        }
+    }
+}

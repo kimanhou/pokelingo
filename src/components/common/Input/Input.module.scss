@@ -49,10 +49,10 @@
 
         &:invalid,
         &.error {
-            border-color: var(--color-primary-5);
+            border-color: var(--color-error);
             border-style: dashed;
             & + .input-label {
-                color: var(--color-primary-5);
+                color: var(--color-error);
             }
         }
     }
@@ -81,7 +81,7 @@
 }
 
 span.error-message {
-    color: var(--color-primary-5);
+    color: var(--color-error);
     font-size: 0.8rem;
     margin-left: 12px;
 }

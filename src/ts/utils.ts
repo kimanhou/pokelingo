@@ -89,3 +89,7 @@ export const isSafariNotMobile = (deviceType: DeviceType) => {
         false
     );
 };
+
+export const isBeforeToday = (date: Date) => {
+    return new Date(date.toDateString()) < new Date(new Date().toDateString());
+};
