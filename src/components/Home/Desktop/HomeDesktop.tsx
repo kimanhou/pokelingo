@@ -6,7 +6,11 @@ import learn from "@/assets/study_jigglypuff.png";
 import quiz from "@/assets/think_squirtle.png";
 import styles from "./HomeDesktop.module.scss";
 
-const HomeDesktop: FC = (props) => {
+interface IHomeDesktopProps {
+    shouldTriggerMoves: boolean;
+}
+
+const HomeDesktop: FC<IHomeDesktopProps> = (props) => {
     return (
         <div className={styles.homeDesktop}>
             <img src={logo} className={styles.logo} />
@@ -18,6 +22,7 @@ const HomeDesktop: FC = (props) => {
                         text="Learn"
                         subText="Browse through the list of Pokemon to learn their names"
                         imageUrl={learn}
+                        shouldTriggerMoves={props.shouldTriggerMoves}
                     />
                 </div>
 
@@ -29,6 +34,8 @@ const HomeDesktop: FC = (props) => {
                         imageUrl={quiz}
                         textFirst
                         secondary
+                        delay={1000}
+                        shouldTriggerMoves={props.shouldTriggerMoves}
                     />
                     <div className={styles.placeholder}></div>
                 </div>

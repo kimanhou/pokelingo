@@ -28,7 +28,9 @@ const Home: FC = (props) => {
 
     return (
         <div className={styles.home}>
-            {!isMobile && <HomeDesktop />}
+            {!isMobile && (
+                <HomeDesktop shouldTriggerMoves={shouldTriggerMoves} />
+            )}
             {isMobile && <HomeMobile shouldTriggerMoves={shouldTriggerMoves} />}
 
             <BottomNotification

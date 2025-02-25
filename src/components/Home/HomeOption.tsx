@@ -1,7 +1,8 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDeviceType } from "@/hooks/useMedia";
-import { isMobile as isMobileFunc } from "@/ts/utils";
+import { isBeforeToday, isMobile as isMobileFunc } from "@/ts/utils";
+import { getLastVisit } from "@/ts/localStorageUtils";
 import styles from "./HomeOption.module.scss";
 
 interface IHomeOption {
@@ -11,6 +12,8 @@ interface IHomeOption {
     imageUrl: string;
     textFirst?: boolean;
     secondary?: boolean;
+    delay?: number;
+    shouldTriggerMoves?: boolean;
 }
 
 const HomeOption: FC<IHomeOption> = (props) => {
@@ -31,6 +34,27 @@ const HomeOption: FC<IHomeOption> = (props) => {
             setExpandableHeight(0);
         }
     };
+
+    const triggerMoves = () => {
+        if (isMobile) return;
+
+        const delay = (props.delay || 0) + 1000;
+        setTimeout(() => setExpandableHeight(100), delay);
+        setTimeout(() => setExpandableHeight(0), delay + 400);
+    };
+
+    useEffect(() => {
+        if (props.shouldTriggerMoves && !isMobile) triggerMoves();
+    }, [props.shouldTriggerMoves]);
+
+    useEffect(() => {
+        if (isMobile) return;
+
+        const lastVisit = getLastVisit();
+        if (lastVisit && !isBeforeToday(new Date(lastVisit))) {
+            triggerMoves();
+        }
+    }, []);
 
     return (
         <Link
