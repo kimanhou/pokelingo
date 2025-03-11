@@ -19,6 +19,8 @@ interface IBottomNotificationProps {
     children: ReactNode;
     onEnter?: () => void;
     onExit?: () => void;
+    backgroundColor?: string;
+    withBackdrop?: boolean;
 }
 
 const BottomNotification: FC<IBottomNotificationProps> = (props) => {
@@ -30,6 +32,7 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
     const [top, setTop] = useState<number | string>("100%");
     const [isSafari, setIsSafari] = useState(false);
 
+    const withBackdropClassName = props.withBackdrop ? styles.withBackdrop : "";
     const visibleClassName = isVisibleInternal ? styles.visible : "";
     const isTransitioningClassName = isTransitioning
         ? styles.isTransitioning
@@ -79,7 +82,7 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
         setIsSafari(isSafariFunc(deviceType));
     }, []);
 
-    useEffect(() => {
+    useEffectSkipFirstRender(() => {
         if (isVisibleInternal && !isTransitioning) {
             // On enter
             if (props.onEnter) {
@@ -102,21 +105,23 @@ const BottomNotification: FC<IBottomNotificationProps> = (props) => {
             setTop(
                 `calc(100${viewportHeightUnit} - ${hiddenContentRef.current.clientHeight}px)`
             );
+            document.body.style.overflow = "hidden";
         } else if (!props.isVisible) {
             setTop("100%");
+            document.body.style.overflow = "unset";
         }
     }, [props.children, props.isVisible]);
 
     return (
         <div
-            className={`${styles.bottomNotification} ${visibleClassName} ${isTransitioningClassName}`}
+            className={`${styles.bottomNotification} ${visibleClassName} ${isTransitioningClassName} ${withBackdropClassName}`}
             onClick={onOutsideClick}
         >
             <div
                 className={styles.bottomNotificationContentContainer}
                 onClick={onContentClick}
                 ref={contentRef}
-                style={{ top }}
+                style={{ top, backgroundColor: props.backgroundColor }}
             >
                 {(isVisibleInternal || isTransitioning) && props.children}
             </div>

@@ -1,16 +1,52 @@
-import { FC } from "react";
-import HomeOption from "@/components/Home/HomeOption";
-import learn from "@/assets/study_jigglypuff.png";
-import quiz from "@/assets/think_squirtle.png";
+import { FC, useEffect, useState } from "react";
+import BottomNotification from "@/components/common/BottomNotification/BottomNotification";
+import Explanation from "@/components/Home/Explanation";
+import { getLastVisit, setLastVisit } from "@/ts/localStorageUtils";
+import { isBeforeToday, isMobile as isMobileFunc } from "@/ts/utils";
+import { useDeviceType } from "@/hooks/useMedia";
+import HomeDesktop from "./Desktop/HomeDesktop";
+import HomeMobile from "./Mobile/HomeMobile";
 import styles from "./Home.module.scss";
 
 const Home: FC = (props) => {
+    const deviceType = useDeviceType();
+    const isMobile = isMobileFunc(deviceType);
+    const [isExplanationVisible, setIsExplanationVisible] = useState(false);
+    const [isExplanationLoaded, setIsExplanationLoaded] = useState(false);
+    const [shouldTriggerMoves, setShouldTriggerMoves] = useState(false);
+
+    useEffect(() => {
+        const lastVisit = getLastVisit();
+        if (
+            isExplanationLoaded &&
+            (!lastVisit || isBeforeToday(new Date(lastVisit)))
+        ) {
+            setIsExplanationVisible(true);
+            setLastVisit(new Date());
+        }
+    }, [isExplanationLoaded]);
+
     return (
         <div className={styles.home}>
-            <div className={styles.optionsContainer}>
-                <HomeOption to="/learn" text="Learn" imageUrl={learn} />
-                <HomeOption to="/quiz" text="Quiz" imageUrl={quiz} />
-            </div>
+            {!isMobile && (
+                <HomeDesktop shouldTriggerMoves={shouldTriggerMoves} />
+            )}
+            {isMobile && <HomeMobile shouldTriggerMoves={shouldTriggerMoves} />}
+
+            <BottomNotification
+                isVisible={isExplanationVisible}
+                setIsVisible={setIsExplanationVisible}
+                backgroundColor="var(--color-logo-light)"
+                withBackdrop
+                onExit={() => {
+                    setShouldTriggerMoves(true);
+                }}
+            >
+                <Explanation
+                    close={() => setIsExplanationVisible(false)}
+                    setIsLoaded={setIsExplanationLoaded}
+                />
+            </BottomNotification>
         </div>
     );
 };

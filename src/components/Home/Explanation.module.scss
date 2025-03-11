@@ -1,0 +1,25 @@
+div.explanation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > div.content {
+        margin-bottom: 36px;
+        > img.logo {
+            width: 70%;
+            max-width: 400px;
+        }
+        > div.logo-and-text-line {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 8px;
+            > img.section-logo {
+                width: 90px;
+            }
+            > p {
+                text-align: left;
+            }
+        }
+    }
+}

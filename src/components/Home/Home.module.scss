@@ -1,21 +1,8 @@
 div.home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100dvh;
-    > div.options-container {
-        margin: auto;
-        height: 80vh;
-        width: 80%;
-        display: flex;
-    }
 }
 
 @media screen and (max-width: 768px) {
     div.home {
-        > div.options-container {
-            flex-direction: column;
-        }
     }
 }
 
@@ -24,7 +11,10 @@ div.home {
     @media not all and (min-resolution: 0.001dpcm) {
         @supports (-webkit-hyphens: none) {
             div.home {
-                height: 100vh;
+                min-height: 100vh;
+                > div.options-container {
+                    height: 100vh;
+                }
             }
         }
     }

@@ -7,7 +7,7 @@ import { isMobile as isMobileFunc } from "@/ts/utils";
 import Button from "@/components/common/Button/Button";
 import BottomNotification from "@/components/common/BottomNotification/BottomNotification";
 import HomeButton from "@/components/common/HomeButton/HomeButton";
-import { Footer } from "@/components/Footer/Footer";
+import Footer from "@/components/Footer/Footer";
 import Ball from "@/assets/Ball";
 import happy from "@/assets/happy_eevee.png";
 import sad from "@/assets/sad_charmander.png";

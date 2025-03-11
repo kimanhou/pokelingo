@@ -91,7 +91,7 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         setTimeout(() => {
             activeDiv?.scrollIntoView();
         }, 1);
-    }, [creature]);
+    }, [creature, isOpen]);
 
     return (
         <ModalDialog
