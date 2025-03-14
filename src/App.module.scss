@@ -36,7 +36,6 @@ body {
     button {
         outline: none;
         border: 0;
-        background: none;
         &:not(:disabled) {
             cursor: pointer;
         }
