@@ -2,8 +2,6 @@
 
 button.button {
     @include button;
-    background-color: var(--fg);
-    color: var(--bg);
     &:not(:disabled):hover {
         outline-offset: 1px;
         outline: solid 2px var(--fg);
