@@ -5,7 +5,7 @@ import Home from "@/components/Home/Home";
 import Learn from "@/components/Learn/Learn";
 import QuizView from "@/components/Quiz/QuizView";
 import creatureRepository from "@/model/creature/creature-repository";
-import "./App.scss";
+import styles from "./App.module.scss";
 
 function App() {
     const [isLearnOpen, setIsLearnOpen] = useState(false);
@@ -15,7 +15,7 @@ function App() {
     }, []);
 
     return (
-        <div className={`app-container`}>
+        <div className={styles.appContainer}>
             <HashRouter>
                 <Routes>
                     <Route
