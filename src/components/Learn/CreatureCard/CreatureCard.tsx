@@ -83,12 +83,11 @@ const CreatureCard: FC<ICreatureCardProps> = ({
         setCreaturesToLoad(getCreaturesToLoad({ creature, allCreatures }));
         setActiveIndex(creature.getId() - 1);
 
-        // Scroll active creature into view
-        const activeDiv = document.getElementById(
-            `avatar-details-id-${creature.getId()}`
-        );
-
         setTimeout(() => {
+            // Scroll active creature into view
+            const activeDiv = document.getElementById(
+                `avatar-details-id-${creature.getId()}`
+            );
             activeDiv?.scrollIntoView();
         }, 1);
     }, [creature, isOpen]);
